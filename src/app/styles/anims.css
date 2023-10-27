@@ -1,0 +1,32 @@
+.trans {
+  transition: all .15s ease-in-out;
+  cursor: pointer;
+}
+
+.trans:hover {
+  transform: translateX(10px);
+}
+
+
+/*Underlining*/
+.animUnderline {
+  position: relative;
+}
+
+.animUnderline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.2s ease-out;
+}
+
+.animUnderline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
