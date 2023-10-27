@@ -18,22 +18,20 @@ const db = getDatabase()
 
 
 //Products functions
-export async function getProducts() {
+export async function getProducts(): Product[] {
     const dbRef = ref(db)
-    let res: unknown
 
     await get(child(dbRef, `products`)).then((snapshot) => {
         if (snapshot.exists()) {
-            res = snapshot.val()
+            return snapshot.val()
 
         } else {
-            console.log("No data available")
+            throw new Error('Product not found')
         }
     })
-    return res
 }
 
-export async function getProduct(id: number): Promise<Product[]> {
+export async function getProduct(id: number): Promise<Product> {
     const dbRef = ref(db)
     let res: Product[]
 
@@ -55,13 +53,7 @@ export async function createProduct(productData: Product) {
     const reference = ref(db, 'products/' + id)
 
     set(reference, {
-        id,
-        name,
-        shortDescription,
-        descriptions,
-        mainImg,
-        additionalImgs,
-        props
+        productData
     })
 }
 
