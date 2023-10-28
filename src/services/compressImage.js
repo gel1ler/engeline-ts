@@ -14,4 +14,4 @@ export const compressImage = async (file) => {
         console.error('Error compressing image:', error)
         throw error
     }
-}
+} 

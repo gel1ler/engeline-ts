@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
-import { Box, Typography } from '@mui/material'
-import { useScrollPosition } from '@n8tb1t/use-scroll-position'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
-import Fill from '@/components/UI/Fill'
+import React from 'react'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 
 
 const Advantage = ({

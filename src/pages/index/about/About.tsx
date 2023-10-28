@@ -1,5 +1,6 @@
 import React from 'react'
-import { Box, Typography, Divider, useTheme, useMediaQuery } from '@mui/material'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 import Subtitle from '@/components/UI/text/Subtitle'
 import Advantage from './Advantage'
 import wave from 'public/wave.svg'
@@ -78,29 +79,21 @@ const About = () => {
                     filter: 'drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.4))',
                 }}
             >
-                <Box sx={{
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
-                }}
-                >
-                    <Box sx={{ height: '100%' }} className='column-between'>
+                <Box className='grid grid-cols-2'>
+                    <Box className='flex flex-col justify-between h-full'>
                         <Typography
                             variant="h5"
                             sx={{ mt: 2, mr: 1, lineHeight: '35px' }}
                             data-aos='fade-right'
                         >
-                            <Typography variant="h2" component='span' sx={{ mr: 1, textDecoration: 'underline' }}>
+                            <Typography variant="h2" component='span' className='mr-2 underline'>
                                 Продукция
                             </Typography>
                             нашей компании проходит множество этапов контроля и проверок. Таким образом Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, repellat. Lorem ipsum dolor sit amet consectetur, adipisicing elit. A aut nihil necessitatibus id tempore iusto quo corrupti quibusdam rem eligendi. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                         </Typography>
                         <Box
+                            className='cursor-pointer w-min text-center transition-all duration-300 mx-auto my-2'
                             sx={{
-                                cursor: 'pointer',
-                                width: 'min-content',
-                                textAlign: 'center',
-                                transition: 'all .3s ease',
-                                m: '10px auto',
                                 ':hover': {
                                     transform: 'translateY(10px)'
                                 }
@@ -115,7 +108,7 @@ const About = () => {
                             </Link>
                         </Box>
                     </Box>
-                    <Box className='c-gap2'>
+                    <Box className='flex flex-col gap-2'>
                         <HelperText white>
                             Нажимайте на картинки для просмотра
                         </HelperText>

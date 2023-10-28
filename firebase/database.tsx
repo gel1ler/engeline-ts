@@ -16,34 +16,30 @@ const firebaseConfig = {
 initializeApp(firebaseConfig)
 const db = getDatabase()
 
-
 //Products functions
-export async function getProducts(): Product[] {
+export async function getProducts(): Promise<Product[]> {
     const dbRef = ref(db)
+    const snapshot = await get(child(dbRef, "products"))
 
-    await get(child(dbRef, `products`)).then((snapshot) => {
-        if (snapshot.exists()) {
-            return snapshot.val()
-
-        } else {
-            throw new Error('Product not found')
-        }
-    })
+    if (snapshot.exists()) {
+        const products = snapshot.val()
+        return products
+    } else {
+        throw new Error("Empty")
+    }
 }
 
 export async function getProduct(id: number): Promise<Product> {
     const dbRef = ref(db)
-    let res: Product[]
+    const snapshot = await get(child(dbRef, `products/${id}`))
 
-    await get(child(dbRef, `products/${id}`)).then((snapshot) => {
-        if (snapshot.exists()) {
-            res = snapshot.val()
-            return res
-        } else {
-            //JSON error parse
-            return 'dfd'
-        }
-    })
+
+    if (snapshot.exists()) {
+        const product = snapshot.val()
+        return product
+    } else {
+        throw new Error("Empty")
+    }
 }
 
 export async function createProduct(productData: Product) {
@@ -71,86 +67,12 @@ export async function changeProduct(id, name, shortDescription, descriptions, ma
     }).then(() => console.log('succ')).catch(err => console.log(err))
 }
 
-export async function deleteProduct(id) {
+export async function deleteProduct(id: number) {
     try {
         await remove(ref(db, 'products/' + id)).
             then(() => 'success')
-
     }
     catch (err) {
         console.log(err)
     }
 }
-
-
-//News functions
-
-export async function getNews() {
-    const dbRef = ref(db)
-    let res
-
-    await get(child(dbRef, `news`)).then((snapshot) => {
-        if (snapshot.exists()) {
-            res = snapshot.val()
-
-        } else {
-            console.log("No data available")
-        }
-    })
-    return res
-}
-
-export async function getNewsPiece(id) {
-    const dbRef = ref(db)
-    let res
-
-    await get(child(dbRef, `news/${id}`)).then((snapshot) => {
-        if (snapshot.exists()) {
-            res = snapshot.val()
-
-        } else {
-            console.log("No data available")
-        }
-    })
-    return res
-}
-
-export async function createNewsPiece(name, mainImg, additionalImgs) {
-    let a = await getNews()
-    let id = a ? a[a.length - 1].id + 1 : 0
-
-    const reference = ref(db, 'news/' + id)
-
-    set(reference, {
-        id,
-        name,
-        mainImg,
-        additionalImgs
-    })
-}
-
-export async function changeNewsPiece(id, name, mainImg, additionalImgs) {
-    const reference = ref(db, 'news/' + id)
-
-    update(reference, {
-        id,
-        name,
-        shortDescription,
-        description,
-        mainImg,
-        additionalImgs
-    }).then(() => console.log('succ')).catch(err => console.log(err))
-}
-
-export async function deleteNewsPiece(id) {
-    try {
-        await remove(ref(db, 'news/' + id)).
-            then(() => 'success')
-
-    }
-    catch (err) {
-        console.log(err)
-    }
-}
-
-

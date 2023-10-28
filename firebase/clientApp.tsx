@@ -20,10 +20,6 @@ import {
     createProduct,
     deleteProduct,
     changeProduct,
-    getNews,
-    getNewsPiece,
-    createNewsPiece,
-    deleteNewsPiece,
 } from './database'
 import {
     getImages,
@@ -44,10 +40,4 @@ export {
     getFolders,
     deleteImage,
     uploadImage,
-
-    getNews,
-    getNewsPiece,
-    createNewsPiece,
-    deleteNewsPiece,
-
 }

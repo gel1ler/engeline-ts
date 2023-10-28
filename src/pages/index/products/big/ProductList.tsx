@@ -1,7 +1,7 @@
-'use client'
 import React, { useState } from 'react'
-import { Box, Typography } from '@mui/material'
-import ProductTitle from './productTitle'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+// import ProductTitle from './productTitle'
 import Image from 'next/image'
 import pipe from 'public/products/3d/bg-pipe.jpg'
 import bigPipe from 'public/products/3d/pipe.jpg'
@@ -10,22 +10,9 @@ import HelperText from '@/components/UI/text/HelperText'
 import Carousel from '@/components/UI/carousel/Carousel'
 import { getProducts } from '@/../firebase/clientApp'
 
-const d3 = [pipe, list, bigPipe, list]
-
-export async function getServerSideProps() {
-    const products = await getProducts()
-    return {
-        props: { products }
-    }
-}
-
-const Products = ({ products }) => {
-    const [current, setCurrent] = useState(0)
+const ProductList = ({ products }: { products: any }) => {
     return (
-        <Box
-            id='products_anchor'
-
-        >
+        <>
             {products.slice(0, 4).map((product, key) =>
                 <Box
                     key={key}
@@ -62,16 +49,16 @@ const Products = ({ products }) => {
                             zIndex: -1
                         }}
                     />
-                    {key % 2 == 0 ?
-                        <ProductTitle
-                            title={product.name}
-                            link={'/products/' + product.id}
-                            props={product.props}
-                            num={key}
-                        />
-                        :
-                        null
-                    }
+                    {/* {key % 2 == 0 ?
+                <ProductTitle
+                    title={product.name}
+                    link={'/products/' + product.id}
+                    props={product.props}
+                    num={key}
+                />
+                :
+                null
+            } */}
                     <Box className='c-gap2' sx={{ mt: 10 }}>
                         {key === 0 ?
                             <HelperText>
@@ -80,36 +67,36 @@ const Products = ({ products }) => {
                             :
                             null}
                         {/* <Carousel
-                            images={[product.mainImg, ...product.additionalImgst
-                            ]}
-                            arrows
-                            thumbnails
-                            dots
-                            autoplay
-                        /> */}
+                    images={[product.mainImg, ...product.additionalImgst
+                    ]}
+                    arrows
+                    thumbnails
+                    dots
+                    autoplay
+                /> */}
                         {/* <Slider
-                            setMainCurrent={setCurrent}
-                            num={key}
-                            additional={product.additionalImg}
-                            main={product.mainImg}
-                        /> */}
+                    setMainCurrent={setCurrent}
+                    num={key}
+                    additional={product.additionalImg}
+                    main={product.mainImg}
+                /> */}
                     </Box>
-                    {key % 2 == 1 ?
-                        <ProductTitle
-                            current={current}
-                            title={product.name}
-                            link={'/products/' + product.id}
-                            description={product.description}
-                            props={product.props}
-                            num={key}
-                        />
-                        :
-                        null
-                    }
+                    {/* {key % 2 == 1 ?
+                <ProductTitle
+                    current={current}
+                    title={product.name}
+                    link={'/products/' + product.id}
+                    description={product.description}
+                    props={product.props}
+                    num={key}
+                />
+                :
+                null
+            } */}
                 </Box >
             )}
-        </Box >
+        </>
     )
 }
 
-export default Products
+export default ProductList

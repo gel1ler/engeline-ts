@@ -2,7 +2,8 @@
 // import { Typography, useTheme, useMediaQuery } from '@mui/material'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import { useTheme, useMediaQuery } from '@mui/material'
+import useTheme from '@mui/material/styles/useTheme'
+import useMediaQuery from '@mui/material/useMediaQuery'
 import React, { ReactNode } from 'react'
 
 const Subtitle = ({
