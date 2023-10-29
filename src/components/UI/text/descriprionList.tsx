@@ -1,11 +1,12 @@
 import React from 'react'
 import { Box, Divider, List, ListItem, Typography } from '@mui/material'
 import { DiamIcon, RulerIcon, ThicknessIcon, VolumeIcon } from '@/components/icons/productIcons'
+import { TProp } from '@/globalTypes'
 
-const DescriprionList = ({ props, align, fade }) => {
+const DescriprionList = ({ props, align, fade }: { props: TProp[], align: 'start' | 'flex-end', fade?: boolean }) => {
 
     return (
-        <Box className='c-gap2'>
+        <Box className='flex flex-col gap-4'>
             {props.map((i, key) => {
                 let icon
 
@@ -36,11 +37,9 @@ const DescriprionList = ({ props, align, fade }) => {
                     res = i.text
                 }
 
-                console.log(res)
-
                 return (
-                    <Box className='c-gap2' key={key}>
-                        <Box data-aos={fade ? 'fade-up' : null} className='row-centered' sx={{ justifyContent: align, gap: 1 }}>
+                    <Box className='flex flex-col gap-4' key={key}>
+                        <Box data-aos={fade ? 'fade-up' : null} className='flex items-center' sx={{ justifyContent: align, gap: 1 }}>
                             {icon}
                             <Typography
                                 variant='h5'

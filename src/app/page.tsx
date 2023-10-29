@@ -1,11 +1,10 @@
-import About from '@/pages/index/about/About'
+import About from '@/page-components/index/about/About'
 import { Box } from '@mui/material'
-import Start from '@/pages/index/start/Start'
+import Start from '@/page-components/index/start/Start'
 import Plx from 'react-plx'
-import Products from '@/pages/index/products/big/products2'
+import Products from '@/page-components/index/products/big/Products'
 
 export default function Home() {
-
   const startParallax = [
     {
       start: 0,
@@ -32,7 +31,7 @@ export default function Home() {
   ]
 
   return (
-    <Box className='relative'> 
+    <Box className='relative'>
       <Plx parallaxData={startParallax}>
         <Start />
       </Plx>

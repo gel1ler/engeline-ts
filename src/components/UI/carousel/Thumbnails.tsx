@@ -9,7 +9,7 @@ const Thumbnails = ({
     images: string[], current: number, setCurrent: TSetNumber
 }) => {
     return (
-        <Box className='mt-2 grid grid-cols-3 grid-rows-1 gap-1'>
+        <Box className='mt-2 grid grid-cols-4 grid-rows-1 gap-1'>
             {images.map((i, key) =>
                 <Box
                     className='relative transition-opacity duration-300'

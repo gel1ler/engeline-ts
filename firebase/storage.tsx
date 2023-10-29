@@ -13,9 +13,10 @@ const firebaseConfig = {
 }
 
 initializeApp(firebaseConfig)
+
 const st = getStorage()
 
-export async function getImages(folder) {
+export async function getImages(folder: string) {
     try {
         const imagesRef = ref(st, folder + '/')
         const fileList = await listAll(imagesRef)
@@ -39,7 +40,7 @@ export async function getFolders() {
     return arr
 }
 
-export async function deleteImage(link) {
+export async function deleteImage(link: string) {
     try {
         const imageRef = ref(st, link)
         deleteObject(imageRef).then(() => {
@@ -51,25 +52,28 @@ export async function deleteImage(link) {
     }
 }
 
-export async function uploadImage(file, folderName) {
-    try {
-        const storageRef = ref(st, `${folderName}/${file.name}`);
-        const uploadTask = uploadBytesResumable(storageRef, file);
+export async function uploadImage(file: Blob, folderName: string) {
+    const storageRef = ref(st, `${folderName}/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
 
-        return new Promise((resolve, reject) => {
-            uploadTask.on(
-                'state_changed',
-                (snapshot) => { },
-                (error) => {
-                    console.log(error)
-                },
-                async () => {
-                    const downloadUrl = await getDownloadURL(uploadTask.snapshot.ref)
-                    resolve(downloadUrl)
+    const downloadUrl = await new Promise((resolve, reject) => {
+        uploadTask.on(
+            'state_changed',
+            (snapshot) => { },
+            (error) => {
+                console.log(error)
+            },
+            async () => {
+                try {
+                    const url = await getDownloadURL(uploadTask.snapshot.ref);
+                    resolve(url);
+                } catch (err) {
+                    console.error(err);
+                    reject(err);
                 }
-            )
-        })
-    } catch (error) {
-        return `err ${error.message}`
-    }
+            }
+        )
+    })
+
+    return downloadUrl
 }

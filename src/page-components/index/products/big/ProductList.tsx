@@ -8,7 +8,7 @@ import bigPipe from 'public/products/3d/pipe.jpg'
 import list from 'public/products/3d/list.jpg'
 import HelperText from '@/components/UI/text/HelperText'
 import Carousel from '@/components/UI/carousel/Carousel'
-import { getProducts } from '@/../firebase/clientApp'
+import { getProducts } from '@/../firebase/database'
 
 const ProductList = ({ products }: { products: any }) => {
     return (

@@ -16,8 +16,38 @@ type CarouselProps = {
     images: string[];
 }
 
+const Slide = ({ image }: { image: string }) => {
+    return (
+        <Box
+            sx={{
+                cursor: 'pointer',
+                position: 'relative',
+                width: '100%',
+                height: '100%',
+                transition: 'all .2s ease-out'
+            }}
+            data-aos='fade-up'
+        >
+            <Image
+                src={image}
+                alt='Станок фото'
+                fill
+                style={{
+                    filter: 'drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5))',
+                    borderRadius: '10px',
+                    overflow: 'hidden',
+                    objectFit: 'cover'
+                }}
+                sizes="(max-width: 768px) 80vw, (max-width: 1200px) 60vw, 40vw"
+            />
+        </Box>
+    )
+
+}
+
 const Carousel: React.FC<CarouselProps> = ({ dots, thumbnails, infinite, arrows, autoplay, time, images }) => {
     const [current, setCurrent] = useState(0)
+    let slicedImages = images.slice(0, 4)
 
     useEffect(() => {
         if (!autoplay) {
@@ -25,7 +55,7 @@ const Carousel: React.FC<CarouselProps> = ({ dots, thumbnails, infinite, arrows,
         }
 
         const timer = setInterval(() => {
-            setCurrent((prevCurrent) => (prevCurrent + 1) % images.length)
+            setCurrent((prevCurrent) => (prevCurrent + 1) % slicedImages.length)
         }, time ? time : 5000)
 
         return () => {
@@ -34,40 +64,42 @@ const Carousel: React.FC<CarouselProps> = ({ dots, thumbnails, infinite, arrows,
     }, [autoplay, time])
 
     const next = useCallback(() => {
-        setCurrent((current + 1) % images.length);
+        setCurrent((current + 1) % slicedImages.length);
     }, [current])
 
     const prev = useCallback(() => {
-        setCurrent(current === 0 ? images.length - 1 : current - 1);
+        setCurrent(current === 0 ? slicedImages.length - 1 : current - 1);
     }, [current])
 
     const imageStyles = useMemo(
         () => ({
-            transform: `translateX(${-current * 100}%)`,
+            transform: `translateX(${-current * 100 / 4}%)`,
+            width: '400%',
         }),
         [current]
     )
 
 
     return (
-        <Box className='w-1/2 h-1/2 mx-auto my-20'>
-            <Box className='overflow-hidden relative rounded-lg'>
+        <Box className='relative h-min'>
+            <Box className=' w-full overflow-hidden relative rounded-lg' sx={{ height: '50vh' }}>
                 <Box
-                    className='flex h-full'
-                    sx={{ width: '300%' }}
+                    className='flex h-full transition duration-300'
+                    sx={imageStyles}
                 >
-                    {images.map((image, key) =>
+                    {slicedImages.map((image, key) =>
                         <Box
-                            key={key}
-                            className=' object-cover transition-transform duration-500'
-                            sx={imageStyles}
+                            className='cursor-pointer relative w-full h-full'
                         >
                             <Image
-                                alt='Слайд'
+                                className=' rounded-lg overflow-hidden object-cover drop-shadow-xl'
                                 src={image}
-                                width={1600}
-                                height={800}
-
+                                alt='Станок фото'
+                                fill
+                                style={{
+                                    filter: 'drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5))',
+                                }}
+                                sizes="(max-width: 768px) 80vw, (max-width: 1200px) 60vw, 40vw"
                             />
                         </Box>
                     )}
@@ -79,9 +111,9 @@ const Carousel: React.FC<CarouselProps> = ({ dots, thumbnails, infinite, arrows,
                     </>
                     :
                     null}
-                {dots ? <Dots current={current} length={images.length} setCurrent={setCurrent} /> : null}
+                {dots ? <Dots current={current} length={slicedImages.length} setCurrent={setCurrent} /> : null}
             </Box>
-            {thumbnails ? <Thumbnails images={images} current={current} setCurrent={setCurrent} /> : null}
+            {thumbnails ? <Thumbnails images={slicedImages} current={current} setCurrent={setCurrent} /> : null}
         </Box>
     )
 }

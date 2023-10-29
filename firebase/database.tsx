@@ -1,6 +1,6 @@
 import { getDatabase, ref, set, push, update, child, get, remove } from "firebase/database"
 import { initializeApp } from "firebase/app"
-import { Product } from "./types"
+import { TProduct } from "@/globalTypes"
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -17,7 +17,7 @@ initializeApp(firebaseConfig)
 const db = getDatabase()
 
 //Products functions
-export async function getProducts(): Promise<Product[]> {
+export async function getProducts(): Promise<TProduct[]> {
     const dbRef = ref(db)
     const snapshot = await get(child(dbRef, "products"))
 
@@ -29,7 +29,7 @@ export async function getProducts(): Promise<Product[]> {
     }
 }
 
-export async function getProduct(id: number): Promise<Product> {
+export async function getProduct(id: number): Promise<TProduct> {
     const dbRef = ref(db)
     const snapshot = await get(child(dbRef, `products/${id}`))
 
@@ -42,28 +42,22 @@ export async function getProduct(id: number): Promise<Product> {
     }
 }
 
-export async function createProduct(productData: Product) {
-    const a: Product[] = await getProducts()
+export async function createProduct(productData: TProduct) {
+    const a = await getProducts()
     let id = a ? a[a.length - 1].id + 1 : 0
 
     const reference = ref(db, 'products/' + id)
 
     set(reference, {
         productData
-    })
+    }).then(() => console.log('succ')).catch(err => console.log(err))
 }
 
-export async function changeProduct(id, name, shortDescription, descriptions, mainImg, additionalImgs, props) {
-    const reference = ref(db, 'products/' + id)
+export async function changeProduct(productData: TProduct) {
+    const reference = ref(db, 'products/' + productData.id)
 
     update(reference, {
-        id,
-        name,
-        shortDescription,
-        descriptions,
-        mainImg,
-        additionalImgs,
-        props
+        productData
     }).then(() => console.log('succ')).catch(err => console.log(err))
 }
 
