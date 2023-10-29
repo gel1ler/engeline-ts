@@ -77,6 +77,7 @@ const About = () => {
                     p: '10%',
                     pt: '15%',
                     filter: 'drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.4))',
+                    maxHeight: '100vh'
                 }}
             >
                 <Box className='grid grid-cols-2'>
@@ -92,7 +93,7 @@ const About = () => {
                             нашей компании проходит множество этапов контроля и проверок. Таким образом Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, repellat. Lorem ipsum dolor sit amet consectetur, adipisicing elit. A aut nihil necessitatibus id tempore iusto quo corrupti quibusdam rem eligendi. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                         </Typography>
                         <Box
-                            className='cursor-pointer w-min text-center transition-all duration-300 mx-auto my-2'
+                            className='cursor-pointer w-min text-center transition-all duration-300 mx-auto'
                             sx={{
                                 ':hover': {
                                     transform: 'translateY(10px)'

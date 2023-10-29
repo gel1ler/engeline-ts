@@ -14,7 +14,7 @@ import {
 import { deleteProduct } from '@/../firebase/database'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Modal from '@/page-components/admin/products/Modal'
+import Modal from '@/page-components/admin/products/Modal2'
 import AddButton from '@/components/UI/buttons/add'
 import Subtitle from '@/components/UI/text/Subtitle'
 import { TProduct } from '@/globalTypes'

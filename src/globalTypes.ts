@@ -9,10 +9,10 @@ export interface TProp {
 }
 
 interface description {
-    align: string,
+    align?: string,
     photo: string,
     text: string,
-    title: string,
+    title?: string,
 }
 
 export interface TProduct {

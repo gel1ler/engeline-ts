@@ -13,7 +13,7 @@ export const MenuIcon = ({ setOpen }: { setOpen: () => void }) => { return (<IB 
 export const Arrow = ({ anchor, f }: { anchor: 'left' | 'right', f: () => void }) => {
     return (
         <Box
-            className='absolute top-0 cursor-pointer w-1/2 h-full'
+            className='absolute top-0 cursor-pointer w-1/2 h-full z-50'
             sx={{
                 transition: 'all .3s ease-out',
                 [anchor]: 0,

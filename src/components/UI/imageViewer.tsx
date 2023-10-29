@@ -1,7 +1,6 @@
-'use client'
 import { Modal, Box, IconButton } from '@mui/material'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React from 'react'
 import CloseIcon from '@mui/icons-material/Close'
 import { Arrow } from '@/components/icons/UI'
 import { TSetBool, TSetNumber } from '@/globalTypes'

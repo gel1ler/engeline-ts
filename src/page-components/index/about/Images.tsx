@@ -22,7 +22,7 @@ const Images = () => {
                 current={current}
                 setCurrent={setCurrent}
             />
-            <Box className='grid grid-cols-2 grid-rows-2 gap-2'>
+            <Box className='grid grid-cols-2 grid-rows-2 gap-2 h-4/5'>
                 {photos.map((i, key) =>
                     <Image
                         alt='Продукция'

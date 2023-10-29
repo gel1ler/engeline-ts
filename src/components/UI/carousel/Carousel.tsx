@@ -16,35 +16,6 @@ type CarouselProps = {
     images: string[];
 }
 
-const Slide = ({ image }: { image: string }) => {
-    return (
-        <Box
-            sx={{
-                cursor: 'pointer',
-                position: 'relative',
-                width: '100%',
-                height: '100%',
-                transition: 'all .2s ease-out'
-            }}
-            data-aos='fade-up'
-        >
-            <Image
-                src={image}
-                alt='Станок фото'
-                fill
-                style={{
-                    filter: 'drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5))',
-                    borderRadius: '10px',
-                    overflow: 'hidden',
-                    objectFit: 'cover'
-                }}
-                sizes="(max-width: 768px) 80vw, (max-width: 1200px) 60vw, 40vw"
-            />
-        </Box>
-    )
-
-}
-
 const Carousel: React.FC<CarouselProps> = ({ dots, thumbnails, infinite, arrows, autoplay, time, images }) => {
     const [current, setCurrent] = useState(0)
     let slicedImages = images.slice(0, 4)
@@ -90,6 +61,7 @@ const Carousel: React.FC<CarouselProps> = ({ dots, thumbnails, infinite, arrows,
                     {slicedImages.map((image, key) =>
                         <Box
                             className='cursor-pointer relative w-full h-full'
+                            key={key}
                         >
                             <Image
                                 className=' rounded-lg overflow-hidden object-cover drop-shadow-xl'
