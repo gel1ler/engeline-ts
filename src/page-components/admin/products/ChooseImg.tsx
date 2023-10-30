@@ -7,6 +7,7 @@ import {
 import { deleteImage } from '@/../firebase/storage'
 import Folder from './folder'
 import AddImage from './addImage'
+import { TSetBool } from '@/globalTypes'
 
 const style = {
     position: 'absolute',
@@ -21,7 +22,11 @@ const style = {
     overflowY: 'scroll'
 }
 
-const ChooseImg = ({ folders, openImg, setOpenImg, img, setImg, multiSelection }) => {
+const ChooseImg = ({
+    folders, openImg, setOpenImg, img, setImg, multiSelection
+}: {
+    folders: string[][], openImg: boolean, setOpenImg: TSetBool, img: string,
+}) => {
     const [tempFolders, setTempFolders] = useState(folders)
 
     const chooseMain = (image) => {
@@ -79,7 +84,7 @@ const ChooseImg = ({ folders, openImg, setOpenImg, img, setImg, multiSelection }
                             chooseMain={chooseMain}
                             chooseAdditional={chooseAdditional}
                             deleteHandler={deleteHandler}
-                            z />
+                        />
                     ))}
                 </Box>
             </Box>

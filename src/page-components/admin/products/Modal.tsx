@@ -8,7 +8,7 @@ import {
     TextField,
     Divider
 } from '@mui/material'
-import ChooseImg from './chooseImg'
+import ChooseImg from './ChooseImg'
 import Link from 'next/link'
 import IconInputList from '@/components/UI/text/iconInputList'
 import PhotoInputList from '@/components/UI/text/photoInputList'

@@ -11,8 +11,8 @@ const Field = ({ label, value, fullWidth, onChange, addInput }) => {
         <TextField
             color='secondary'
             size='small'
-            label={label}
             multiline
+            label={label}
             value={value}
             onChange={onChange}
             fullWidth={fullWidth}
@@ -22,40 +22,52 @@ const Field = ({ label, value, fullWidth, onChange, addInput }) => {
     )
 }
 
-const PhotoInputList = ({ title, state, setState }) => {
+type TPhotoInput = {
+    name: string
+    photo: string
+    align: 'left' | 'right'
+    text: string
+}
+
+const PhotoInputList = ({
+    title, state, setState
+}: {
+    title: string, state: TPhotoInput[], setState: (value: TPhotoInput[]) => void
+}
+) => {
     const addInput = () => {
-        setState(prevList => [...prevList, [{ text: '', photo: '' }]])
+        setState((prevList: TPhotoInput[]) => [...prevList, { name: '', photo: '', align: 'left', text: '' }])
     }
 
-    const changeHandler = (field, value, key) => {
+    const changeHandler = (field: string, value: string, key: number) => {
         setState(state.map((item, index) => index === key ? { ...item, [field]: value } : item));
     }
 
-    const deleteHandler = (key) => {
+    const deleteHandler = (key: number) => {
         setState(state.filter((i, index) => index !== key))
     }
 
     return (
-        <Box className='c-gap2'>
+        <Box className='flex flex-col gap-4'>
             <Typography>
                 {title}
             </Typography>
             {state.map((i, key) =>
                 <Box key={key}>
-                    <Box className='r-gap3'>
-                        <Box className='c-gap3'>
+                    <Box className='flex gap-6'>
+                        <Box className='flex flex-col gap-6'>
                             <Field
                                 label='Название'
-                                value={i.title}
+                                value={i.name}
                                 fullWidth
-                                onChange={event => changeHandler('title', event.target.value, key)}
+                                onChange={(event: { target: { value: string } }) => changeHandler('name', event.target.value, key)}
                                 addInput={addInput}
                             />
                             <Field
                                 label='Фото'
                                 value={i.photo}
                                 fullWidth
-                                onChange={event => changeHandler('photo', event.target.value, key)}
+                                onChange={(event: { target: { value: string } }) => changeHandler('photo', event.target.value, key)}
                                 addInput={addInput}
                             />
                             <Select
@@ -63,7 +75,7 @@ const PhotoInputList = ({ title, state, setState }) => {
                                 label='Расположение фото'
                                 fullWidth
                                 size='small'
-                                onChange={event => changeHandler('align', event.target.value, key)}
+                                onChange={event => changeHandler('align', event.target.value || '', key)}
                             >
                                 {aligns.map((i, key) =>
                                     <MenuItem
@@ -76,10 +88,10 @@ const PhotoInputList = ({ title, state, setState }) => {
                             </Select>
                         </Box>
                         <Field
-                            label='text'
+                            label='Текст'
                             value={i.text}
                             fullWidth
-                            onChange={event => changeHandler('text', event.target.value, key)}
+                            onChange={(event: { target: { value: string } }) => changeHandler('text', event.target.value, key)}
                             addInput={addInput}
                         />
                         <Button

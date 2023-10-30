@@ -23,11 +23,11 @@ const IconInputList = ({ title, state, setState }) => {
 
     const iconsArr = [
         {
-            icon: < DiamIcon />,
+            icon: <DiamIcon />,
             type: 'diameter'
         },
         {
-            icon: < RulerIcon />,
+            icon: <RulerIcon />,
             type: 'ruler'
         },
         {
@@ -41,16 +41,15 @@ const IconInputList = ({ title, state, setState }) => {
     ]
 
     return (
-        <Box className='c-gap2'>
+        <Box className='flex flex-col gap-2'>
             <Typography>
                 {title}
             </Typography>
             {state.map((i, key) =>
-                <Box className='row-centered r-gap1' key={key}>
+                <Box className='flex items-center gap-2' key={key}>
                     <Select
                         color='secondary'
                         size='small'
-                        label="-"
                         onChange={event => iconChangeHandler(event.target.value, key)}
                         value={i.icon}
                     >
