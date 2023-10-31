@@ -9,9 +9,9 @@ const ImageInput = ({ mainImg, setMainImg }: { mainImg: string, setMainImg: TSet
 
     return (
         <Box>
-            <ChooseImg 
+            {/* <ChooseImg 
                 
-            />
+            /> */}
             <Box className='flex gap-2'>
                 <Button color='secondary' variant='outlined' onClick={() => setOpen(true)}>
                     {mainImg ? 'Изменить' : 'Выбрать'} главную картинку

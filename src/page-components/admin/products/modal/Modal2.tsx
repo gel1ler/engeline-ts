@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm, SubmitHandler, FormProvider, useFieldArray } from "react-hook-form"
 import { Box, Typography, Modal, Button, Divider } from '@mui/material'
 import Link from 'next/link'
@@ -8,6 +8,8 @@ import RHookFormTextField from '@/components/UI/forms/RHookFormTextField'
 import { TDescription, TProduct, TProp } from '@/globalTypes'
 import PropsList from './PropsList'
 import DescriptionsList from './DescriptionsList'
+import { useRouter } from 'next/navigation';
+import { changeProduct, createProduct } from '../../../../../firebase/database';
 
 interface Props {
     setOpen: (value: boolean) => void;
@@ -17,28 +19,34 @@ interface Props {
     product?: TProduct;
 }
 
-type TInputs = {
-    name: string
-    shortDescription: string
-    props: TProp[]
-    descriptions: TDescription[]
-    // additionalImgs: string[]
-}
+type TInputs = Omit<TProduct, 'id'>
 
 const MyModal = ({ setOpen, open, folders, change, product }: Props) => {
-    const methods = useForm<TInputs>({})
+    const router = useRouter()
 
-    if (change && product) {
-        useEffect(() => {
-            methods.setValue('name', product.name)
-            methods.setValue('shortDescription', product.shortDescription)
-            methods.setValue('props', product.props)
-            methods.setValue('descriptions', product.descriptions)
-        }, [open])
-    }
+    const methods = useForm<TInputs>({
+        defaultValues: useMemo(() => {
+            return product
+        }, [product])
+    })
 
-    const onSubmit: SubmitHandler<TInputs> = (data) => {
-        console.log({ ...data })
+    const onSubmit: SubmitHandler<TInputs> = async (data) => {
+        try {
+            if (change && product) {
+                await changeProduct(product.id, { ...data })
+            } else {
+                await createProduct({ ...data })
+            }
+
+            //Progress circle
+
+            setTimeout(() => {
+                router.refresh()
+                setOpen(false)
+            }, 1000)
+        } catch (error) {
+            console.error("Error:", error)
+        }
     }
 
     return (

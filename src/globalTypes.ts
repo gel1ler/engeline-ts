@@ -10,6 +10,7 @@ export interface TProp {
 }
 
 export interface TDescription {
+    id: number | null | undefined
     align?: string,
     photo: string,
     text: string,
@@ -21,7 +22,7 @@ export interface TProduct {
     name: string,
     shortDescription: string,
     descriptions: TDescription[],
-    mainImg: string,
-    additionalImgs: string[],
     props: TProp[],
+    mainImg?: string,
+    additionalImgs?: string[],
 }

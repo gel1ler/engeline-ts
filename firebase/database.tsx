@@ -42,22 +42,24 @@ export async function getProduct(id: number): Promise<TProduct> {
     }
 }
 
-export async function createProduct(productData: TProduct) {
-    const a = await getProducts()
-    let id = a ? a[a.length - 1].id + 1 : 0
+export async function createProduct(productData: Omit<TProduct, 'id'>) {
+    const products = await getProducts()
+    const id = products ? products[products.length - 1].id + 1 : 0
 
     const reference = ref(db, 'products/' + id)
 
     set(reference, {
-        productData
+        id,
+        ...productData
     }).then(() => console.log('succ')).catch(err => console.log(err))
 }
 
-export async function changeProduct(productData: TProduct) {
-    const reference = ref(db, 'products/' + productData.id)
+export async function changeProduct(id: number, productData: Omit<TProduct, 'id'>) {
+    const reference = ref(db, 'products/' + id)
 
     update(reference, {
-        productData
+        id,
+        ...productData
     }).then(() => console.log('succ')).catch(err => console.log(err))
 }
 

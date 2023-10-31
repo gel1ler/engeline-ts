@@ -4,10 +4,7 @@ import { Box, Button, Divider, Typography } from '@mui/material'
 import React from 'react'
 import { useFieldArray } from 'react-hook-form'
 
-const aligns = [
-    'left',
-    "right",
-]
+const aligns = ['left', 'right']
 
 const DescriptionsList = () => {
     const { fields, append, remove } = useFieldArray({ name: "descriptions" })
@@ -23,14 +20,14 @@ const DescriptionsList = () => {
                         <Box className='flex flex-col gap-6'>
                             <RHookFormTextField label='Название' name={`descriptions.${index}.title`} />
                             <RHookFormTextField label='Фото' name={`descriptions.${index}.photo`} />
-                            <RHookFormSelect name={`descriptions.${index}.align`} valuesArr={aligns} />
+                            <RHookFormSelect name={`descriptions.${index}.align`} valuesArr={aligns} defaultValue={field.align} />
                         </Box>
                         <RHookFormTextField fullWidth label='Текст' name={`descriptions.${index}.text`} />
                         <Button className='h-min' color='error' size='small' onClick={() => remove(index)}>
                             Удалить
                         </Button>
                     </Box>
-                    <Divider sx={{ my: 2 }} />xvz
+                    <Divider sx={{ my: 2 }} />
                 </Box>
             )}
             <Button

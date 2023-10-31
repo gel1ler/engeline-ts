@@ -1,9 +1,8 @@
-import { DiamIcon, RulerIcon, ThicknessIcon, VolumeIcon } from '@/components/icons/productIcons'
-import { MenuItem, Select, TextField } from '@mui/material'
+import { MenuItem, Select } from '@mui/material'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
 
-const RHookFormSelect = ({ name, valuesArr }: { name: string, valuesArr: any[] }) => {
+const RHookFormSelect = ({ name, valuesArr, defaultValue }: { name: string, valuesArr: any[], defaultValue: any }) => {
     const { register, formState: { errors } } = useFormContext()
 
     return (
@@ -13,6 +12,7 @@ const RHookFormSelect = ({ name, valuesArr }: { name: string, valuesArr: any[] }
             variant='outlined'
             error={!!errors[name]}
             {...register(name)}
+            defaultValue={defaultValue}
         >
             {valuesArr.map((i, key) =>
                 <MenuItem value={i} key={key}>{i}</MenuItem>
