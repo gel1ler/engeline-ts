@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm, SubmitHandler, FormProvider, useFieldArray } from "react-hook-form"
 import { Box, Typography, Modal, Button, Divider } from '@mui/material'
 import Link from 'next/link'
@@ -20,7 +20,6 @@ interface Props {
 type TInputs = {
     name: string
     shortDescription: string
-    mainImg: string
     props: TProp[]
     descriptions: TDescription[]
     // additionalImgs: string[]
@@ -28,12 +27,14 @@ type TInputs = {
 
 const MyModal = ({ setOpen, open, folders, change, product }: Props) => {
     const methods = useForm<TInputs>({})
-    const [additionalImgs, setAdditionalImgs] = useState([])
-    const [isMain, setIsMain] = useState(true)
 
-    const imgOpenHandler = (main?: boolean) => {
-        setIsMain(main ? true : false)
-        setOpenImg(true)
+    if (change && product) {
+        useEffect(() => {
+            methods.setValue('name', product.name)
+            methods.setValue('shortDescription', product.shortDescription)
+            methods.setValue('props', product.props)
+            methods.setValue('descriptions', product.descriptions)
+        }, [open])
     }
 
     const onSubmit: SubmitHandler<TInputs> = (data) => {
@@ -64,35 +65,6 @@ const MyModal = ({ setOpen, open, folders, change, product }: Props) => {
                         <Typography variant='h5'>
                             {change ? 'Изменение' : 'Создание'} продукта
                         </Typography>
-                        
-                        <Box>
-                            <ChooseImg
-                                folders={folders}
-                                openImg={openImg}
-                                setOpenImg={setOpenImg}
-                                img={isMain ? mainImg : additionalImgs}
-                                setImg={isMain ? setMainImg : setAdditionalImgs}
-                            />
-                            <Button variant='outlined' color='secondary' onClick={() => imgOpenHandler(false)}>
-                                {additionalImgs.length ? 'Изменить' : 'Выбрать'} доп картинки
-                            </Button>
-                            {additionalImgs.length ?
-                                <Button color='error' onClick={() => setAdditionalImgs([])}>
-                                    Очистить
-                                </Button>
-                                : null
-                            }
-                            {additionalImgs.length ? additionalImgs.map((i, key) => (
-                                <Link href={i} target='_blank' key={key}>
-                                    <Typography sx={{ my: 1, textDecoration: 'underline' }}>
-                                        Доп картинкa {key} - {i}
-                                    </Typography>
-                                </Link>
-                            )) : null}
-                        </Box>
-
-
-
                         <Button
                             className='w-min'
                             variant="contained"

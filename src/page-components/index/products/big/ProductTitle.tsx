@@ -3,7 +3,7 @@ import { Box, List, ListItem, Typography } from '@mui/material'
 import Link from 'next/link'
 import Subtitle from '@/components/UI/text/Subtitle'
 import Image from 'next/image'
-import DescriprionList from '@/components/UI/text/descriprionList'
+import DescriprionList from '@/components/UI/text/DescriptionList'
 import { TProp } from '@/globalTypes'
 
 const ProductTitle = ({

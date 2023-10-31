@@ -1,6 +1,6 @@
 import RHookFormSelect from '@/components/UI/forms/RHookFormSelect'
 import RHookFormTextField from '@/components/UI/forms/RHookFormTextField'
-import { Box, Button, Divider, MenuItem, Select, Switch, TextField, Typography } from '@mui/material'
+import { Box, Button, Divider, Typography } from '@mui/material'
 import React from 'react'
 import { useFieldArray } from 'react-hook-form'
 
@@ -21,7 +21,7 @@ const DescriptionsList = () => {
                 <Box key={field.id}>
                     <Box className='flex gap-6'>
                         <Box className='flex flex-col gap-6'>
-                            <RHookFormTextField label='Название' name={`descriptions.${index}.name`} />
+                            <RHookFormTextField label='Название' name={`descriptions.${index}.title`} />
                             <RHookFormTextField label='Фото' name={`descriptions.${index}.photo`} />
                             <RHookFormSelect name={`descriptions.${index}.align`} valuesArr={aligns} />
                         </Box>
@@ -30,7 +30,7 @@ const DescriptionsList = () => {
                             Удалить
                         </Button>
                     </Box>
-                    <Divider sx={{ my: 2 }} />
+                    <Divider sx={{ my: 2 }} />xvz
                 </Box>
             )}
             <Button
