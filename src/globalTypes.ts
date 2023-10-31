@@ -1,5 +1,6 @@
 export type TSetBool = (value: boolean) => void
 export type TSetNumber = (value: number) => void
+export type TSetString = (value: string) => void
 
 
 /////////////////////////////////////////////
@@ -8,7 +9,7 @@ export interface TProp {
     text: string
 }
 
-interface description {
+export interface TDescription {
     align?: string,
     photo: string,
     text: string,
@@ -19,7 +20,7 @@ export interface TProduct {
     id: number,
     name: string,
     shortDescription: string,
-    descriptions: description[],
+    descriptions: TDescription[],
     mainImg: string,
     additionalImgs: string[],
     props: TProp[],

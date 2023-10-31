@@ -14,7 +14,7 @@ import {
 import { deleteProduct } from '@/../firebase/database'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Modal from '@/page-components/admin/products/Modal2'
+import Modal from '@/page-components/admin/products/modal/Modal2'
 import AddButton from '@/components/UI/buttons/add'
 import Subtitle from '@/components/UI/text/Subtitle'
 import { TProduct } from '@/globalTypes'
@@ -34,14 +34,12 @@ const AdminProducts = ({ products, folders }: { products: TProduct[], folders: a
             <Modal
                 setOpen={setOpenCreate}
                 open={openCreate}
-                router={router}
                 folders={folders}
             />
             <Modal
                 product={selected}
                 setOpen={setOpenChange}
                 open={openChange}
-                router={router}
                 folders={folders}
                 change
             />

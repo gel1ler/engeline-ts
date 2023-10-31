@@ -2,7 +2,7 @@ import { TextField } from '@mui/material'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
 
-const RHookFormTextField = ({ label, name }: { label: string, name: string }) => {
+const RHookFormTextField = ({ label, name, fullWidth }: { label: string, name: string, fullWidth?: boolean }) => {
     const { register, formState: { errors } } = useFormContext()
 
     return (
@@ -11,7 +11,8 @@ const RHookFormTextField = ({ label, name }: { label: string, name: string }) =>
             variant='outlined'
             label={label}
             error={!!errors[name]}
-            helperText={errors[name]?.message ?? ''}
+            helperText={<> {errors[name]?.message ?? ''}</>}
+            fullWidth={fullWidth}
             {...register(name, { required: "Введите " + label.toLowerCase() })}
         />
     )
