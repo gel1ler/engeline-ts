@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
 import ProductTitle from './ProductTitle'
 import Image from 'next/image'
 import pipe from 'public/products/3d/bg-pipe.jpg'

@@ -63,7 +63,7 @@ const Start = () => {
                             <ArrowRightIcon fontSize='large' />
                             {i.text}
                         </Typography>
-                        
+
                     )}
                 </Box>
                 <Link href='/'>

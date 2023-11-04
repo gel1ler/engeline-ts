@@ -5,8 +5,18 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
 import LaunchIcon from '@mui/icons-material/Launch'
+import { TSetString, TSetStringArray } from '@/globalTypes'
 
-const ImageList = ({ img, image, multiSelection, chooseAdditional, chooseMain, deleteHandler, fNum }) => {
+type props = {
+    state: string | string[]
+    image: string
+    chooseAdditional?: (value: string) => void
+    chooseMain?: TSetString
+    deleteHandler: (state: string, fKey: number) => void
+    fNum: number
+}
+
+const ImageDisplay = ({ state, image, chooseAdditional, chooseMain, deleteHandler, fNum }: props) => {
     return (
         <Box
             sx={{
@@ -24,7 +34,7 @@ const ImageList = ({ img, image, multiSelection, chooseAdditional, chooseMain, d
                 className='image-popover column-centered'
                 sx={{
                     transition: 'all ease .3s',
-                    opacity: img.includes(image) ? 1 : 0,
+                    opacity: state.includes(image) ? 1 : 0,
                     justifyContent: 'center',
                     gap: 1,
                     width: '100%',
@@ -37,7 +47,7 @@ const ImageList = ({ img, image, multiSelection, chooseAdditional, chooseMain, d
                 }}
             >
                 <Box sx={{ display: 'flex', gap: 1 }}>
-                    {img.includes(image) ?
+                    {state.includes(image) ?
                         <RemoveIcon
                             sx={{
                                 fontSize: 30,
@@ -45,7 +55,7 @@ const ImageList = ({ img, image, multiSelection, chooseAdditional, chooseMain, d
                                 color: 'orange'
                             }}
 
-                            onClick={() => multiSelection ? chooseAdditional(image) : chooseMain(image)}
+                            onClick={() => chooseAdditional ? chooseAdditional(image) : chooseMain && chooseMain(image)}
                         />
                         :
                         <AddIcon
@@ -54,7 +64,7 @@ const ImageList = ({ img, image, multiSelection, chooseAdditional, chooseMain, d
                                 cursor: 'pointer',
                             }}
                             color='success'
-                            onClick={() => multiSelection ? chooseAdditional(image) : chooseMain(image)}
+                            onClick={() => chooseAdditional ? chooseAdditional(image) : chooseMain && chooseMain(image)}
                         />
                     }
                     <DeleteIcon
@@ -81,4 +91,4 @@ const ImageList = ({ img, image, multiSelection, chooseAdditional, chooseMain, d
     )
 }
 
-export default ImageList
+export default ImageDisplay

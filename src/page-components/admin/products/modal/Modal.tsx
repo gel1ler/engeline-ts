@@ -1,20 +1,20 @@
 'use client'
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { useForm, SubmitHandler, FormProvider, useFieldArray } from "react-hook-form"
+import React, { useEffect, useMemo, useState } from 'react';
+import { useForm, SubmitHandler, FormProvider } from "react-hook-form"
 import { Box, Typography, Modal, Button, Divider } from '@mui/material'
-import Link from 'next/link'
-import ChooseImg from './images/ChooseImg'
 import RHookFormTextField from '@/components/UI/forms/RHookFormTextField'
-import { TDescription, TProduct, TProp } from '@/globalTypes'
+import { TProduct } from '@/globalTypes'
 import PropsList from './PropsList'
 import DescriptionsList from './DescriptionsList'
 import { useRouter } from 'next/navigation';
-import { changeProduct, createProduct } from '../../../../../firebase/database';
+import { changeProduct, createProduct } from '../../../../../firebase/database'
+import ImageInput from './images/selectOneImage/ImageInput'
+import ImagesInput from './images/selectImages/ImagesInput';
 
 interface Props {
     setOpen: (value: boolean) => void;
     open: boolean;
-    folders: string[];
+    folders: string[][];
     change?: any;
     product?: TProduct;
 }
@@ -22,6 +22,9 @@ interface Props {
 type TInputs = Omit<TProduct, 'id'>
 
 const MyModal = ({ setOpen, open, folders, change, product }: Props) => {
+    const [mainImg, setMainImg] = useState<string>('')
+    const [additionalImgs, setAdditionalImgs] = useState<string[]>([''])
+
     const router = useRouter()
 
     const methods = useForm<TInputs>({
@@ -30,10 +33,16 @@ const MyModal = ({ setOpen, open, folders, change, product }: Props) => {
         }, [product])
     })
 
+    useEffect(() => {
+        methods.reset(product)
+        typeof product?.mainImg === 'string' && setMainImg(product.mainImg)
+        product?.additionalImgs && setAdditionalImgs(product.additionalImgs)
+    }, [product])
+
     const onSubmit: SubmitHandler<TInputs> = async (data) => {
         try {
             if (change && product) {
-                await changeProduct(product.id, { ...data })
+                await changeProduct(product.id, { ...data, mainImg, additionalImgs })
             } else {
                 await createProduct({ ...data })
             }
@@ -70,9 +79,16 @@ const MyModal = ({ setOpen, open, folders, change, product }: Props) => {
                         <RHookFormTextField label='Короткое описание' name='shortDescription' />
                         <DescriptionsList />
                         < Divider />
-                        <Typography variant='h5'>
-                            {change ? 'Изменение' : 'Создание'} продукта
-                        </Typography>
+                        <ImageInput
+                            state={mainImg}
+                            setState={setMainImg}
+                            folders={folders}
+                        />
+                        <ImagesInput
+                            state={additionalImgs}
+                            setState={setAdditionalImgs}
+                            folders={folders}
+                        />
                         <Button
                             className='w-min'
                             variant="contained"

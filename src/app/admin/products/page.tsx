@@ -2,7 +2,7 @@ import React from 'react'
 import Box from '@mui/material/Box'
 import { getProducts } from '@/../firebase/database'
 import { getFolders } from '@/../firebase/storage'
-import AdminProducts from '@/page-components/admin/products'
+import AdminProducts from '@/page-components/admin/products/Index'
 
 const Products = async () => {
     const products = await getProducts()

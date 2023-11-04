@@ -1,17 +1,15 @@
 import AddButton from '@/components/UI/buttons/add'
-import { Box, Input, Popover, Typography, Button, Dialog, FormControl, InputLabel, Select, MenuItem, TextField } from '@mui/material'
-import { uploadImage } from '@/../firebase/storage'
+import { Box, Typography, Button, Dialog, FormControl, InputLabel, Select, MenuItem } from '@mui/material'
 import React, { useState } from 'react'
-import { compressImage } from '@/services/compressImage'
+import { uploadImagesHandler } from '@/services/UploadImagesHandler'
 
-const AddImage = ({ folders, addHandler }) => {
+const AddImage = ({ folders, addHandler }: { folders: string[][], addHandler: (url: string, folderName: string) => void }) => {
     const foldersNames = folders.map((i, key) => i[0])
-    const [file, setFile] = useState('')
+    const [file, setFile] = useState<File | File[]>()
     const [folderName, setFolderName] = useState(foldersNames[0])
-    const [isMultiple, setIsMultiple] = useState(false)
     const [open, setOpen] = useState(false)
 
-    const handleChange = (event) => {
+    const handleChange = (event: any) => {
         if (!event.target.files[0]) {
             console.log('err')
         }
@@ -19,38 +17,15 @@ const AddImage = ({ folders, addHandler }) => {
             setFile(event.target.files[0])
         }
         else {
-            setIsMultiple(true)
             setFile(event.target.files)
         }
     }
 
-    const uploadHandler = async (file, folderName) => {
-        if (!isMultiple) {
-            const size = file.size / (1024 ** 2)
 
-            const normalImage = size > 0.7 ? await compressImage(file) : file
-            const normalRes = await uploadImage(normalImage, folderName + '/normal')
-
-            addHandler(normalRes, folderName)
-            setOpen(false)
-        }
-        else {
-            const arr = Array(...file)
-            arr.forEach(async i => {
-                const size = i.size / (1024 ** 2)
-
-                const normalImage = size > 0.7 ? await compressImage(i) : i
-                const normalRes = await uploadImage(normalImage, folderName)
-
-                addHandler(normalRes, folderName)
-            })
-            setOpen(false)
-        }
-    }
 
     return (
         <Box sx={{ position: 'relative' }}>
-            <AddButton onClick={event => setOpen(true)} />
+            <AddButton onClick={() => setOpen(true)} />
             <Dialog
                 open={open}
                 onClose={() => setOpen(false)}
@@ -59,13 +34,13 @@ const AddImage = ({ folders, addHandler }) => {
                     sx={{
                         p: 2
                     }}
-                    className='column-centered c-gap3'
+                    className='flex flex-col items-center gap-6'
                 >
-                    <Typography variant='h5' sx={{ p: 2 }}>Добавление картинки</Typography>
+                    <Typography variant='h5' className='p-4'>Добавление картинки</Typography>
                     <input
                         type='file'
                         onChange={event => handleChange(event)}
-                        multiple="multiple"
+                        multiple
                     />
                     <FormControl fullWidth>
                         <InputLabel>Папка</InputLabel>
@@ -82,7 +57,7 @@ const AddImage = ({ folders, addHandler }) => {
                     </FormControl>
                     <Button
                         color='secondary'
-                        onClick={() => uploadHandler(file, folderName)}
+                        onClick={() => file && uploadImagesHandler(file, folderName, addHandler)}
                         disabled={file ? false : true}
                     >
                         Загрузить

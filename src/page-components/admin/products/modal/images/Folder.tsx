@@ -1,9 +1,19 @@
 import React, { useState } from 'react'
 import { Box, Typography } from '@mui/material'
-import ImageList from './imageList'
+import ImageDisplay from './ImageDisplay'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
+import { TSetString, TSetStringArray } from '@/globalTypes'
 
-const Folder = ({ img, folder, multiSelection, chooseAdditional, chooseMain, deleteHandler, fNum }) => {
+type props = {
+    state: string | string[]
+    folder: string[]
+    chooseAdditional?: (value: string) => void
+    chooseMain?: TSetString
+    deleteHandler: (img: string, fKey: number) => void
+    fNum: number
+}
+
+const Folder = ({ state, folder, chooseAdditional, chooseMain, deleteHandler, fNum }: props) => {
     const [open, setOpen] = useState(false)
 
     return (
@@ -35,12 +45,11 @@ const Folder = ({ img, folder, multiSelection, chooseAdditional, chooseMain, del
                 }}
             >
                 {folder.slice(1).map((image, key) => (
-                    <ImageList
-                        fNum={fNum}
+                    <ImageDisplay
                         key={key}
-                        img={img}
+                        fNum={fNum}
+                        state={state}
                         image={image}
-                        multiSelection={multiSelection}
                         chooseMain={chooseMain}
                         chooseAdditional={chooseAdditional}
                         deleteHandler={deleteHandler}

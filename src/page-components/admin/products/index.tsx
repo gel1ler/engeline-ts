@@ -14,7 +14,7 @@ import {
 import { deleteProduct } from '@/../firebase/database'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Modal from '@/page-components/admin/products/modal/Modal2'
+import Modal from '@/page-components/admin/products/modal/Modal'
 import AddButton from '@/components/UI/buttons/add'
 import Subtitle from '@/components/UI/text/Subtitle'
 import { TProduct } from '@/globalTypes'
@@ -22,11 +22,17 @@ import { TProduct } from '@/globalTypes'
 const AdminProducts = ({ products, folders }: { products: TProduct[], folders: any[] }) => {
     const [openCreate, setOpenCreate] = useState(false)
     const [openChange, setOpenChange] = useState(false)
-    const [selected, setSelected] = useState(products[0])
+    const [selected, setSelected] = useState<TProduct>()
 
     const router = useRouter()
+
     const deleteHandler = async (id: number) => {
         await deleteProduct(id).then(() => router.refresh())
+    }
+
+    const openChangeHandler = (row: TProduct) => {
+        setSelected(row)
+        setOpenChange(true)
     }
 
     return (
@@ -65,10 +71,7 @@ const AdminProducts = ({ products, folders }: { products: TProduct[], folders: a
                                         <TableCell align="center">
                                             <Button
                                                 color='secondary'
-                                                onClick={() => {
-                                                    setSelected(row)
-                                                    setOpenChange(true)
-                                                }}
+                                                onClick={() => openChangeHandler(row)}
                                             >
                                                 Изменить
                                             </Button>

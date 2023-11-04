@@ -1,6 +1,7 @@
 export type TSetBool = (value: boolean) => void
 export type TSetNumber = (value: number) => void
 export type TSetString = (value: string) => void
+export type TSetStringArray = (value: string[]) => void
 
 
 /////////////////////////////////////////////
@@ -23,6 +24,6 @@ export interface TProduct {
     shortDescription: string,
     descriptions: TDescription[],
     props: TProp[],
-    mainImg?: string,
-    additionalImgs?: string[],
+    mainImg: string,
+    additionalImgs: string[],
 }

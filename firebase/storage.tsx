@@ -65,11 +65,11 @@ export async function uploadImage(file: Blob, folderName: string) {
             },
             async () => {
                 try {
-                    const url = await getDownloadURL(uploadTask.snapshot.ref);
-                    resolve(url);
+                    const url = await getDownloadURL(uploadTask.snapshot.ref)
+                    resolve(url)
                 } catch (err) {
-                    console.error(err);
-                    reject(err);
+                    console.error(err)
+                    reject(err)
                 }
             }
         )

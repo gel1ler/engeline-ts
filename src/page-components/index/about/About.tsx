@@ -58,8 +58,8 @@ const About = () => {
                         width: ['90%', '90%', '66%']
                     }}
                 >
-                    Производтсвенная компания ООО "Инжелайн" использует мощности завода Первомайскхиммаш по договору аренды, заключённому до 2029 года.
-                    Один из крупнейших металлургических заводов страны предоставляет целый ряд преимуществ.
+                    Производственная компания ООО «ИНЖЕЛАЙН» расположена на одном из крупнейших машиностроительных
+                    заводов страны, имеющем ряд технологических преимуществ:
                 </Typography>
                 <Box
                     className='grid grid-cols-3 grid-rows-2 mt-10 justify-items-center w-5/6 gap-6'
@@ -87,10 +87,9 @@ const About = () => {
                             sx={{ mt: 2, mr: 1, lineHeight: '35px' }}
                             data-aos='fade-right'
                         >
-                            <Typography variant="h2" component='span' className='mr-2 underline'>
-                                Продукция
-                            </Typography>
-                            нашей компании проходит множество этапов контроля и проверок. Таким образом Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, repellat. Lorem ipsum dolor sit amet consectetur, adipisicing elit. A aut nihil necessitatibus id tempore iusto quo corrupti quibusdam rem eligendi. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                            Компания Инжелайн предлагает широкий спектр оборудования и услуг для различных отраслей промышленности.
+                            Мы гарантируем высокое качество и надежность нашей продукции,
+                            а также индивидуальный подход к каждому клиенту.
                         </Typography>
                         <Box
                             className='cursor-pointer w-min text-center transition-all duration-300 mx-auto'
