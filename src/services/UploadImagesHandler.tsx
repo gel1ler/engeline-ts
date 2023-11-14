@@ -1,4 +1,4 @@
-import { uploadImage } from "../../firebase/storage"
+import { uploadImage } from '@/../firebase/clientApp'
 import { compressImage } from "./compressImage"
 
 type f = (

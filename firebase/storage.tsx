@@ -13,7 +13,6 @@ const firebaseConfig = {
 }
 
 initializeApp(firebaseConfig)
-
 const st = getStorage()
 
 export async function getImages(folder: string) {

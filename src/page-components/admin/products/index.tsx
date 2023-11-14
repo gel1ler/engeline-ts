@@ -11,7 +11,7 @@ import {
     TableRow,
     Button,
 } from '@mui/material'
-import { deleteProduct } from '@/../firebase/database'
+import { deleteProduct } from '@/../firebase/clientApp'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Modal from '@/page-components/admin/products/modal/Modal'

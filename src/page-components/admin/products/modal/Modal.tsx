@@ -7,7 +7,7 @@ import { TProduct } from '@/globalTypes'
 import PropsList from './PropsList'
 import DescriptionsList from './DescriptionsList'
 import { useRouter } from 'next/navigation';
-import { changeProduct, createProduct } from '../../../../../firebase/database'
+import { changeProduct, createProduct } from '@/../firebase/clientApp'
 import ImageInput from './images/selectOneImage/ImageInput'
 import ImagesInput from './images/selectImages/ImagesInput';
 
@@ -23,7 +23,7 @@ type TInputs = Omit<TProduct, 'id'>
 
 const MyModal = ({ setOpen, open, folders, change, product }: Props) => {
     const [mainImg, setMainImg] = useState<string>('')
-    const [additionalImgs, setAdditionalImgs] = useState<string[]>([''])
+    const [additionalImgs, setAdditionalImgs] = useState<string[]>([])
 
     const router = useRouter()
 

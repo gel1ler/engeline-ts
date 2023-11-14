@@ -1,6 +1,6 @@
-import { getDatabase, ref, set, push, update, child, get, remove } from "firebase/database"
-import { initializeApp } from "firebase/app"
+import { getDatabase, ref, set, update, child, get, remove } from "firebase/database"
 import { TProduct } from "@/globalTypes"
+import { initializeApp } from "firebase/app"
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -16,7 +16,6 @@ const firebaseConfig = {
 initializeApp(firebaseConfig)
 const db = getDatabase()
 
-//Products functions
 export async function getProducts(): Promise<TProduct[]> {
     const dbRef = ref(db)
     const snapshot = await get(child(dbRef, "products"))

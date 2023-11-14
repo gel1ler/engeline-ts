@@ -26,19 +26,20 @@ const ImagesInput = ({ state, setState, folders }: props) => {
                 <Button color='secondary' variant='outlined' onClick={() => setOpen(true)}>
                     {state ? 'Изменить' : 'Выбрать'} доп картинки
                 </Button>
-                {state &&
+                {state.length ?
                     <Button color='error' onClick={() => setState([])}>
                         Очистить
                     </Button>
+                    : null
                 }
             </Box>
-            {state.length && state.map((i, key) => (
+            {state.length ? state.map((i, key) => (
                 <Link href={i} target='_blank' key={key}>
                     <Typography sx={{ my: 1, textDecoration: 'underline' }}>
                         Доп картинкa {key} - {i}
                     </Typography>
                 </Link>
-            ))}
+            )) : null}
         </Box>
     )
 }

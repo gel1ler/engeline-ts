@@ -9,6 +9,8 @@ import Images from './Images'
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Link from 'next/link'
+import Image from 'next/image'
+import { Container } from '@mui/material'
 
 const advantages = [
     {
@@ -68,8 +70,24 @@ const About = () => {
                         <Advantage key={key} num={key} title={i.title} text={i.text} />
                     )}
                 </Box>
+                {/* <Typography className='text-gray-400 p-6'>
+                    sdfasdf
+                </Typography> */}
             </Box>
-            <Box
+            <Box className='h-screen w-screen bg-stone-100 relative'>
+                <Image
+                    className='w-full drop-shadow-md'
+                    src='/bgelements/wave.svg'
+                    width={1920}
+                    height={100}
+                />
+                <Container maxWidth='xl' className='mt-16'>
+                    <Subtitle>
+                        Возможности производства
+                    </Subtitle>
+                </Container>
+            </Box>
+            {/* <Box
                 sx={{
                     color: 'white',
                     background: `url(${wave.src})`,
@@ -115,7 +133,7 @@ const About = () => {
                         <Images />
                     </Box>
                 </Box>
-            </Box >
+            </Box > */}
         </Box>
     )
 }
