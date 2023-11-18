@@ -7,9 +7,11 @@ import { TProduct } from '@/globalTypes'
 import Link from 'next/link'
 import { Typography } from '@mui/material'
 import { ArrowForwardIos } from '@mui/icons-material'
+import { getProducts } from '../../../../../firebase/clientApp'
 
 const Products = async () => {
-    const products = data.products as TProduct[]
+    // const products = data.products as TProduct[]
+    const products = await getProducts()
 
     const arr = products.slice(-2).concat(products.slice(0, 3))
 
@@ -21,7 +23,7 @@ const Products = async () => {
                 Продукция и услуги
             </Title>
             <Slider products={arr} />
-            <Box className='flex justify-center mt-4' data-aos='fade-up'>
+            <Box className='flex justify-center mt-4'>
                 <Link href='/products'>
                     <Typography textAlign='center' className='animUnderline w-fit' variant='h6'>
                         Весь асортимент продукции

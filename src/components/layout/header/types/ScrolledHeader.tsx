@@ -27,7 +27,12 @@ const ScrolledHeader = () => {
 
     return (
         <>
-            <Bar onlyTop />
+            <AppBar
+                position={'absolute'}
+                sx={{ bgcolor: 'transparent', boxShadow: 'none' }}
+            >
+                <Bar onlyTop />
+            </AppBar>
             <AppBar
                 position='fixed'
                 sx={{

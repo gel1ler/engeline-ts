@@ -6,9 +6,10 @@ import data from '@/../data/data.json' assert {type: 'json'}
 import { TProduct } from '@/globalTypes'
 import ProductCard from '@/page-components/products/ProductCard'
 import Title from '@/components/UI/text/Title'
+import { getProducts } from '../../../firebase/clientApp'
 
-export default function Home() {
-  const products = data.products as TProduct[]
+export default async function Home() {
+  const products = await getProducts()
 
   return (
     <AOSProvider>

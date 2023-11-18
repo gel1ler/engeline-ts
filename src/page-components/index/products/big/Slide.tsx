@@ -31,7 +31,7 @@ const Slide = ({ product }: { product: TProduct }) => {
                 alt='Product png photo'
                 src='/products/pipes.png'
                 fill
-                className=' object-cover -z-50'
+                className=' object-contain -z-50'
                 style={{
                     left: '33%',
                     top: '10%',

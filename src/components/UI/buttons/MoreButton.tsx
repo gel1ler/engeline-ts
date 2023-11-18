@@ -9,8 +9,7 @@ const MoreButton = ({
 }) => {
     return (
         <Link href={href}>
-            < Button
-                data-aos={dataAos ? dataAos : null}
+            <Button
                 color='secondary'
                 variant='outlined'
                 sx={sx}

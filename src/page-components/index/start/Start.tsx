@@ -68,8 +68,8 @@ const Start = () => {
                     )}
                 </Box>
                 <Link href='/products' data-aos='fade-right'>
-                    <Typography variant='h5' className='flex items-center trans'>
-                        Весь перечень услуг
+                    <Typography variant='h5' className='flex items-center trans animUnderline w-fit'>
+                        Весь перечень услуг и продукции
                         <ArrowCircleRightOutlinedIcon sx={{ mt: '4px' }} />
                     </Typography>
                 </Link>
