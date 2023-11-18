@@ -1,6 +1,6 @@
 import { PaletteColorOptions, ThemeOptions } from '@mui/material/styles'
-import { inter } from './ThemeRegistry'
 import { colors, headerProps } from '../customization'
+import { Inter } from 'next/font/google'
 
 declare module '@mui/material/styles' {
   interface PaletteOptions {
@@ -8,6 +8,12 @@ declare module '@mui/material/styles' {
     helper?: PaletteColorOptions;
   }
 }
+
+export const inter = Inter({
+  weight: ['300', '400', '500', '700'],
+  style: ['normal'],
+  subsets: ['cyrillic', 'latin']
+})
 
 export const themeOptions: ThemeOptions = {
   palette: {
@@ -28,9 +34,9 @@ export const themeOptions: ThemeOptions = {
     },
   },
   typography: {
-    fontFamily: "Inter",
-    fontWeightRegular: '500',
-    fontSize: 13
+    fontFamily: inter.style.fontFamily,
+    fontSize: 13,
+    fontWeightRegular: 500
   },
   components: {
     MuiAppBar: {

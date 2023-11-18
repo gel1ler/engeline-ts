@@ -1,5 +1,5 @@
 import Title from '@/components/UI/text/Title'
-import { Box, Grid } from '@mui/material'
+import { Box, Container, Grid } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 
@@ -23,8 +23,8 @@ const Gallery = () => {
       <Title centered>
         Галлерея
       </Title>
-      <Box className="flex justify-center">
-        <Grid container spacing={1} className='max-w-7xl' sx={{ height: '70vh' }}>
+      <Container>
+        <Grid container spacing={1} sx={{ height: '70vh' }}>
           <Photo src='/advantages/lab.webp' />
           <Grid item container xs={6} spacing={1}>
             <Photo src='/advantages/plazma.jpg' />
@@ -33,7 +33,7 @@ const Gallery = () => {
             <Photo src='/advantages/plazma.jpg' />
           </Grid>
         </Grid >
-      </Box>
+      </Container >
     </Box >
   )
 }

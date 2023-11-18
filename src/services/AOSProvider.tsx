@@ -10,7 +10,7 @@ export default function AOSProvider({
     children: React.ReactNode
 }) {
     useEffect(() => {
-        AOS.init()
+        AOS.init({anchorPlacement: 'top-top'})
     }, [])
 
     return <>{children}</>

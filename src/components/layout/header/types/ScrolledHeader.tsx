@@ -4,10 +4,8 @@ import { AppBar } from '@mui/material'
 import Bar from '../bar/Bar'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import { headerProps } from '@/customization/customization'
-import { useUrl } from 'nextjs-current-url';
 
 const scrollHeight: number | undefined = headerProps.scrollHeight
-
 
 const ScrolledHeader = () => {
     const [height, setHeight] = useState<number>(0)
@@ -28,16 +26,19 @@ const ScrolledHeader = () => {
     })
 
     return (
-        <AppBar
-            position={'fixed'}
-            sx={{
-                transition: 'all .3s cubic-bezier(0.4, 0, 0.2, 1)',
-                opacity: isActive ? 1 : 0,
-                pointerEvents: isActive ? 'all' : 'none'
-            }}
-        >
-            <Bar />
-        </AppBar>
+        <>
+            <Bar onlyTop />
+            <AppBar
+                position='fixed'
+                sx={{
+                    transition: 'all .3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    opacity: isActive ? 1 : 0,
+                    pointerEvents: isActive ? 'all' : 'none'
+                }}
+            >
+                <Bar />
+            </AppBar>
+        </>
     )
 }
 

@@ -1,22 +1,28 @@
 'use client'
-import React, { useEffect, useState } from 'react'
-import { Box, Button, Typography } from '@mui/material'
+import React, { useState } from 'react'
+import { Box } from '@mui/material'
 import Arrow from '@/components/icons/UI'
-import Image from 'next/image'
-import Sticker from '@/components/icons/sticker'
-import Subtitle from '@/components/UI/text/Subtitle'
 import { TProduct } from '@/globalTypes'
 import Dots from '@/components/UI/carousel/Dots'
-import Link from 'next/link'
-import DescriprionList from '@/components/UI/text/DescriptionList'
-import Card from './Card'
 import Slide from './Slide'
 
 const Slider = ({ products }: { products: TProduct[] }) => {
     const [current, setCurrent] = useState(2)
-    console.log(current)
+
+    const next = () => setCurrent(prev => (prev + 1 + products.length) % products.length)
+    const prev = () => setCurrent(prev => (prev - 1 + products.length) % products.length)
+
+    const keyboardHandler = (e: React.KeyboardEvent<HTMLDivElement>) => {
+        e.code === 'ArrowRight' && next()
+        e.code === 'ArrowLeft' && prev()
+    }
+
     return (
-        <Box className='w-screen relative py-5'>
+        <Box
+            className='w-screen relative py-5 outline-none'
+            tabIndex={0}
+            onKeyDown={(e) => keyboardHandler(e)}
+        >
             <Box
                 className='flex justify-center relative'
                 sx={{
@@ -44,11 +50,11 @@ const Slider = ({ products }: { products: TProduct[] }) => {
             </Box>
             <Arrow
                 anchor='left'
-                f={() => setCurrent(prev => (prev - 1 + products.length) % products.length)}
+                f={prev}
             />
             <Arrow
                 anchor='right'
-                f={() => setCurrent(prev => (prev + 1) % products.length)}
+                f={next}
             />
             <Box className='mt-3'>
                 <Dots

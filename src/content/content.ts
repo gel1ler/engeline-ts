@@ -27,13 +27,13 @@ export const navigation: INavLink[] = [
     {
         id: 1,
         name: "О нас",
-        href: "#about",
+        href: "#about_anchor",
         anchorLink: true,
     },
     {
         id: 2,
         name: "Контакты",
-        href: "/contacts",
+        href: "#contacts_anchor",
         anchorLink: true,
     }
 ]

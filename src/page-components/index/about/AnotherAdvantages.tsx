@@ -2,6 +2,7 @@ import { Box, Button, Typography } from '@mui/material'
 import Image from 'next/image'
 import Subtitle from '@/components/UI/text/Subtitle'
 import Fill from '@/components/UI/Fill'
+import MoreButton from '@/components/UI/buttons/MoreButton'
 
 const arr = [
     {
@@ -41,8 +42,7 @@ export default function AnotherAdavantages() {
         <Box
             className='grid gap-10'
             sx={{
-                minHeight: '100vh',
-                gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr', '1fr 1fr']
+                gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr']
             }}
         >
             {arr.map((i, key) =>
@@ -51,7 +51,7 @@ export default function AnotherAdavantages() {
                     className='flex flex-col items-end rounded-lg overflow-hidden'
                     data-aos='fade-up'
                     sx={{
-                        minWidth: '500px',
+                        // minWidth: '500px',
                         boxShadow: '0 0 10px 5px rgba(0,0,0,.2)'
                     }}
                 >
@@ -59,19 +59,17 @@ export default function AnotherAdavantages() {
                         alt='Лаборатория завода'
                         height={300}
                         width={400}
-                        style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover' }}
+                        style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover', flexGrow: 1 }}
                         src={i.image}
                     />
-                    <Box className=' bg-white p-4 overflow-hidden flex flex-col items-center h-2/5' sx={{boxShadow: '0 0 10px 5px rgba(0,0,0,.1)'}}>
+                    <Box className=' bg-white p-4 overflow-hidden flex flex-col items-center gap-2' sx={{ boxShadow: '0 0 10px 5px rgba(0,0,0,.1)' }}>
                         <Subtitle centered>
                             {i.name}
                         </Subtitle>
-                        <Typography data-aos='fade-up' variant='subtitle1' className='pt-2' textAlign='center'>
+                        <Typography data-aos='fade-up' variant='subtitle1' textAlign='center'>
                             {i.text}
                         </Typography>
-                        <Button color='secondary' sx={{ px: 2, py: 1, }} data-aos='fade-up'>
-                            Подробнее
-                        </Button>
+                        <MoreButton dataAos='fade-up' href='/' sx={{ px: 2, py: 1, mt: 'auto' }} />
                     </Box>
                     <Fill anchor='to top' type='to anchor' color='rgba(0,0,0,.2)' />
                 </Box>

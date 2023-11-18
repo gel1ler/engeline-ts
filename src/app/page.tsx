@@ -6,9 +6,9 @@ import Products from '@/page-components/index/products/big/Products'
 import Fabric from '@/page-components/index/about/Fabric'
 import Title from '@/components/UI/text/Title'
 import Contacts from '@/page-components/index/Contacts'
-import AnotherAdavantages from '@/page-components/index/AnotherAdvantages';
+import AnotherAdavantages from '@/page-components/index/about/AnotherAdvantages';
 import AOSProvider from '@/services/AOSProvider'
-import Gallery from '@/page-components/index/Gallery'
+import Gallery from '@/page-components/index/about/Gallery'
 
 export default function Home() {
   const startParallax = [

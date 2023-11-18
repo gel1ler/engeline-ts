@@ -2,52 +2,41 @@ import { TProduct } from '@/globalTypes'
 import { Box } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
-import Card from './Card'
+import Subtitle from '@/components/UI/text/Subtitle'
+import DescriptionList from '@/components/UI/text/DescriptionList'
+import MoreButton from '@/components/UI/buttons/MoreButton'
+import Fill from '@/components/UI/Fill'
 
 const Slide = ({ product }: { product: TProduct }) => {
     return (
         <Box
+            className='h-full p-10 relative overflow-hidden'
             sx={{
                 width: '70vw',
-                px: 2,
-                height: '100%'
+                boxShadow: '0 0 10px 5px rgba(0,0,0,.2)'
             }}
             data-aos='fade-up'
         >
-            <Box
-                className='w-full h-full grid grid-cols-2 grid-rows-2 overflow-hidden gap-2 relative'
-                sx={{
-                    // boxShadow: '0 0 10px 5px rgba(0,0,0,.2)'
-                    filter: 'drop-shadow(0 0 4px rgba(0,0,0, 0.5))',
-                }}
-            >
-                <Box className='relative col-span-1 row-span-2'>
-                    <Image
-                        src={product?.additionalImgs[0]}
-                        alt='Image'
-                        fill
-                        style={{ objectFit: "cover" }}
-                    />
+            <Box className='flex flex-col gap-8 w-2/3 h-full'>
+                <Subtitle>
+                    {product.name}
+                </Subtitle>
+                <DescriptionList fade props={product.props} />
+                <Box className='mt-auto'>
+                    <MoreButton href='/' dataAos='fade-up' />
                 </Box>
-                <Box className='relative'>
-                    <Image
-                        src={product.mainImg}
-                        alt='Image'
-                        fill
-                        style={{ objectFit: "cover" }}
-                    />
-                </Box>
-                <Box className='relative'>
-                    <Image
-                        src={product.additionalImgs[1]}
-                        alt='Image'
-                        fill
-                        style={{ objectFit: "cover" }}
-                    />
-                </Box>
-                <Card product={product} />
             </Box>
-
+            <Fill anchor='to right' prc={40} type='to anchor' />
+            <Image
+                alt='Product png photo'
+                src='/products/pipes.png'
+                fill
+                className=' object-cover -z-50'
+                style={{
+                    left: '33%',
+                    top: '10%',
+                }}
+            />
         </Box>
     )
 }
