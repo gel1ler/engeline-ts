@@ -3,11 +3,11 @@ import { Box, Divider, List, ListItem, Typography } from '@mui/material'
 import { DiamIcon, RulerIcon, ThicknessIcon, VolumeIcon } from '@/components/icons/productIcons'
 import { TProp } from '@/globalTypes'
 
-const DescriptionList = ({ props, align, fade }: { props: TProp[], align: 'start' | 'flex-end', fade?: boolean }) => {
-
+const DescriptionList = ({ props, fade }: { props: TProp[], fade?: boolean }) => {
+    if (!props) return 'asdf'
     return (
         <Box className='flex flex-col gap-4'>
-            {props.map((i, key) => {
+            {props.slice(0, 2).map((i, key) => {
                 let icon
 
                 switch (i.icon) {
@@ -38,16 +38,16 @@ const DescriptionList = ({ props, align, fade }: { props: TProp[], align: 'start
                 }
 
                 return (
-                    <Box className='flex flex-col gap-4' key={key}>
-                        <Box data-aos={fade ? 'fade-up' : null} className='flex items-center' sx={{ justifyContent: align, gap: 1 }}>
+                    <Box className='flex flex-col gap-1' key={key}>
+                        <Box data-aos={fade ? 'fade-up' : null} className='flex items-center gap-2'>
                             {icon}
                             <Typography
-                                variant='h5'
+                                variant='h6'
                             >
                                 {res}
                             </Typography>
                         </Box>
-                        {key === props.length - 1 ? null : <Divider />}
+                        {key === 1 ? null : <Divider />}
                     </Box>
                 )
             })}

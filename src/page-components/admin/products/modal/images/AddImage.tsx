@@ -1,5 +1,5 @@
 import AddButton from '@/components/UI/buttons/add'
-import { Box, Typography, Button, Dialog, FormControl, InputLabel, Select, MenuItem } from '@mui/material'
+import { Box, Typography, Button, Dialog, FormControl, InputLabel, Select, MenuItem, TextField } from '@mui/material'
 import React, { useState } from 'react'
 import { uploadImagesHandler } from '@/services/UploadImagesHandler'
 
@@ -41,6 +41,11 @@ const AddImage = ({ folders, addHandler }: { folders: string[][], addHandler: (u
                         type='file'
                         onChange={event => handleChange(event)}
                         multiple
+                    />
+                    <TextField
+                        onChange={e => setFolderName(e.target.value)}
+                        value={folderName}
+                        variant='outlined'
                     />
                     <FormControl fullWidth>
                         <InputLabel>Папка</InputLabel>

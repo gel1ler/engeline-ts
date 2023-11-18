@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Box, Typography } from '@mui/material'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Link from 'next/link'
-import Subtitle from '@/components/UI/Subtitle'
+import Title from '@/components/UI/Title'
 import Slider from './slider'
 import DescriprionList from '@/components/UI/text/descriprionList'
 
@@ -10,9 +10,9 @@ const SmallProductTitle = ({ title, props, href, link, mainImg, additionalImg, n
     return (
         <Box sx={{ py: '10vh' }}>
             <AnchorLink href={'#' + href}>
-                <Subtitle centered>
+                <Title centered>
                     {`${title}`}
-                </Subtitle>
+                </Title>
             </AnchorLink>
             <Slider
                 imgs={[mainImg, ...additionalImg]}

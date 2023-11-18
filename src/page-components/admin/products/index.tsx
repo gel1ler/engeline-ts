@@ -16,7 +16,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Modal from '@/page-components/admin/products/modal/Modal'
 import AddButton from '@/components/UI/buttons/add'
-import Subtitle from '@/components/UI/text/Subtitle'
+import Title from '@/components/UI/text/Title'
 import { TProduct } from '@/globalTypes'
 
 const AdminProducts = ({ products, folders }: { products: TProduct[], folders: any[] }) => {
@@ -50,7 +50,7 @@ const AdminProducts = ({ products, folders }: { products: TProduct[], folders: a
                 change
             />
             <Container sx={{ maxWidth: '1600px', width: ['98vw', '98vw', '98vw', '90vw'] }} maxWidth={false}>
-                <Subtitle>Админ панель - продукция</Subtitle>
+                <Title>Админ панель - продукция</Title>
                 <Box sx={{ p: 4 }}>
                     <AddButton onClick={() => setOpenCreate(true)} />
                     <TableContainer>

@@ -1,5 +1,6 @@
 import RHookFormSelect from '@/components/UI/forms/RHookFormSelect'
 import RHookFormTextField from '@/components/UI/forms/RHookFormTextField'
+import { TProp } from '@/globalTypes'
 import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 import { useFieldArray, useFormContext } from 'react-hook-form'
@@ -17,7 +18,7 @@ const PropsList = () => {
             <RHookFormTextField label='Текст' name={`props.dffd`} />
             {fields.map((field, index) =>
                 <Box className='flex items-center gap-2' key={field.id}>
-                    <RHookFormSelect name={`props.${index}.icon`} valuesArr={iconsArr} defaultValue={field.icon} />
+                    <RHookFormSelect name={`props.${index}.icon`} valuesArr={iconsArr} defaultValue='diameter' />
                     <RHookFormTextField label='Текст' name={`props.${index}.text`} />
                     <Button color='error' size='small' onClick={() => remove(index)}>
                         Удалить

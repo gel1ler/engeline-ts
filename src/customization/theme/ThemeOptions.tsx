@@ -1,6 +1,13 @@
-import { ThemeOptions } from '@mui/material/styles'
+import { PaletteColorOptions, ThemeOptions } from '@mui/material/styles'
 import { inter } from './ThemeRegistry'
 import { colors, headerProps } from '../customization'
+
+declare module '@mui/material/styles' {
+  interface PaletteOptions {
+    additional?: PaletteColorOptions;
+    helper?: PaletteColorOptions;
+  }
+}
 
 export const themeOptions: ThemeOptions = {
   palette: {
@@ -11,10 +18,10 @@ export const themeOptions: ThemeOptions = {
       main: colors.secondary
     },
     additional: {
-      main: colors.additional
+      main: colors.additional ? colors.additional : '#fff'
     },
     helper: {
-      main: colors.helper
+      main: colors.helper ? colors.helper : '#fff'
     },
     background: {
       default: colors.bg

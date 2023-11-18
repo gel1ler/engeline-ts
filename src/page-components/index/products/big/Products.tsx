@@ -1,30 +1,34 @@
 import React from 'react'
 import Box from '@mui/material/Box'
-import { getProducts } from '@/../firebase/clientApp'
-import Subtitle from '@/components/UI/text/Subtitle'
+import Title from '@/components/UI/text/Title'
 import Slider from './Slider'
+import data from '@/../data/data.json' assert {type: 'json'}
+import { TProduct } from '@/globalTypes'
+import Link from 'next/link'
+import { Typography } from '@mui/material'
+import { ArrowForwardIos } from '@mui/icons-material'
 
 const Products = async () => {
-    // const products = await getProducts()
+    const products = data.products as TProduct[]
 
-    const products = [
-        { id: 1, name: 'Product 1', image: 'product1.jpg' },
-        { id: 2, name: 'Product 2', image: 'product2.jpg' },
-        // ...
-      ];
+    const arr = products.slice(-2).concat(products.slice(0, 3));
 
     return (
         <Box
-            id='products_anchor'
-            className='w-screen relative z-10 overflow-hidden pt-10 bg-stone-100'
-            sx={{
-                height: 'calc(100vh - 7rem)',
-            }}
+            className='w-screen relative z-10'
         >
-            <Subtitle centered>
-                Продукция
-            </Subtitle>
-            <Slider />
+            <Title centered >
+                Продукция и услуги
+            </Title>
+            <Slider products={arr} />
+            <Box className='flex justify-center mt-4' data-aos='fade-up'>
+                <Link href='/products'>
+                    <Typography textAlign='center' className='animUnderline w-fit' variant='h6'>
+                        Весь асортимент продукции
+                        <ArrowForwardIos fontSize='small' />
+                    </Typography>
+                </Link>
+            </Box>
         </Box >
     )
 }

@@ -22,7 +22,7 @@ export interface TProduct {
     id: number,
     name: string,
     shortDescription: string,
-    descriptions: TDescription[],
+    descriptions?: TDescription[],
     props: TProp[],
     mainImg: string,
     additionalImgs: string[],

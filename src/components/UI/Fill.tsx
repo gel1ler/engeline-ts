@@ -13,11 +13,12 @@ function hexToRgb(hex: string) {
 }
 
 const Fill = ({
-    anchor, type, prc
+    anchor, type, prc, color
 }: {
     anchor: 'to bottom' | 'to top' | 'to left' | 'to right',
     type: 'centered' | 'to anchor',
-    prc?: number
+    prc?: number,
+    color?: string
 }) => {
     const theme = useTheme()
     const rgb = hexToRgb(theme.palette.background.default)
@@ -28,7 +29,7 @@ const Fill = ({
             bg = `linear-gradient(${anchor},${theme.palette.primary.main}, rgba(${rgb?.r},${rgb?.g},${rgb?.b},.4), ${theme.palette.background.default})`
             break
         case 'to anchor':
-            bg = `linear-gradient(${anchor},${theme.palette.primary.main} ${prc ? prc + '%' : ''}, transparent)`
+            bg = `linear-gradient(${anchor},${color ? color : theme.palette.primary.main} ${prc ? prc + '%' : ''}, transparent)`
     }
 
     return (

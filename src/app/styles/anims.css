@@ -18,7 +18,7 @@
   position: absolute;
   width: 100%;
   transform: scaleX(0);
-  height: 1.5px;
+  height: 2px;
   bottom: 0;
   left: 0;
   background-color: #000000;
@@ -29,4 +29,30 @@
 .animUnderline:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+.animatedForward {
+  animation: scrollForward .2s ease-in-out;
+}
+
+@keyframes scrollForward {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
+.animatedBackward {
+  animation: scrollBackward .2s ease-in-out;
+}
+
+@keyframes scrollBackward {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(20%);
+  }
 }

@@ -13,12 +13,12 @@ import Menu from './Menu'
 const direcrions: { id: number, text: string, link: string }[] = [
     {
         id: 0,
-        text: 'Емкостное оборудование',
+        text: 'Механическая обработка',
         link: '/'
     },
     {
         id: 1,
-        text: 'Механическая обработка',
+        text: 'Трубы обечаечные, корпуса, бандажи',
         link: '/'
     },
     {
@@ -28,7 +28,7 @@ const direcrions: { id: number, text: string, link: string }[] = [
     },
     {
         id: 3,
-        text: 'Обработка листа',
+        text: 'Емкостное оборудование',
         link: '/'
     }
 ]
@@ -46,6 +46,7 @@ const Start = () => {
             <Fill anchor='to right' prc={40} type='to anchor' />
             <Box className='flex flex-col gap-12 justify-center my-auto'>
                 <Image
+                    data-aos='fade-right'
                     src={mainInfo.logoHorizontal}
                     alt='Logo'
                     width="0"
@@ -57,7 +58,7 @@ const Start = () => {
                     }}
                     sizes="(max-width: 768px) 40vw, (max-width: 1200px) 30vw, 20vw"
                 />
-                <Box className='flex flex-col gap-10'>
+                <Box className='flex flex-col gap-10' data-aos='fade-right'>
                     {direcrions.map((i, key) =>
                         <Typography variant='h5' className='trans' key={key}>
                             <ArrowRightIcon fontSize='large' />
@@ -66,7 +67,7 @@ const Start = () => {
 
                     )}
                 </Box>
-                <Link href='/'>
+                <Link href='/products' data-aos='fade-right'>
                     <Typography variant='h5' className='flex items-center trans'>
                         Весь перечень услуг
                         <ArrowCircleRightOutlinedIcon sx={{ mt: '4px' }} />

@@ -1,7 +1,7 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import Subtitle from '@/components/UI/text/Subtitle'
+import Title from '@/components/UI/text/Title'
 import Advantage from './Advantage'
 import wave from 'public/wave.svg'
 import HelperText from '@/components/UI/text/HelperText'
@@ -42,15 +42,14 @@ const advantages = [
 const About = () => {
     return (
         <Box
-            id='about_anchor'
             sx={{
                 bgcolor: 'white',
                 pt: [5, 5, 10],
             }}
         >
-            <Subtitle centered>
+            <Title centered>
                 О компании
-            </Subtitle>
+            </Title>
             <Box className='flex flex-col items-center mt-10' sx={{ mt: 5 }}>
                 <Typography
                     variant='h5'
@@ -70,70 +69,7 @@ const About = () => {
                         <Advantage key={key} num={key} title={i.title} text={i.text} />
                     )}
                 </Box>
-                {/* <Typography className='text-gray-400 p-6'>
-                    sdfasdf
-                </Typography> */}
             </Box>
-            <Box className='h-screen w-screen bg-stone-100 relative'>
-                <Image
-                    className='w-full drop-shadow-md'
-                    src='/bgelements/wave.svg'
-                    width={1920}
-                    height={100}
-                />
-                <Container maxWidth='xl' className='mt-16'>
-                    <Subtitle>
-                        Возможности производства
-                    </Subtitle>
-                </Container>
-            </Box>
-            {/* <Box
-                sx={{
-                    color: 'white',
-                    background: `url(${wave.src})`,
-                    backgroundSize: 'cover',
-                    p: '10%',
-                    pt: '15%',
-                    filter: 'drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.4))',
-                    maxHeight: '100vh'
-                }}
-            >
-                <Box className='grid grid-cols-2'>
-                    <Box className='flex flex-col justify-between h-full'>
-                        <Typography
-                            variant="h5"
-                            sx={{ mt: 2, mr: 1, lineHeight: '35px' }}
-                            data-aos='fade-right'
-                        >
-                            Компания Инжелайн предлагает широкий спектр оборудования и услуг для различных отраслей промышленности.
-                            Мы гарантируем высокое качество и надежность нашей продукции,
-                            а также индивидуальный подход к каждому клиенту.
-                        </Typography>
-                        <Box
-                            className='cursor-pointer w-min text-center transition-all duration-300 mx-auto'
-                            sx={{
-                                ':hover': {
-                                    transform: 'translateY(10px)'
-                                }
-                            }}
-
-                        >
-                            <Link href='#about' data-aos='fade-up'>
-                                <Typography variant='h4'>
-                                    Подробнее
-                                </Typography>
-                                <ExpandMoreIcon sx={{ fontSize: 40, mt: -1 }} />
-                            </Link>
-                        </Box>
-                    </Box>
-                    <Box className='flex flex-col gap-2'>
-                        <HelperText white>
-                            Нажимайте на картинки для просмотра
-                        </HelperText>
-                        <Images />
-                    </Box>
-                </Box>
-            </Box > */}
         </Box>
     )
 }

@@ -19,6 +19,7 @@ const Form = () => {
                 maxWidth: ['400px', '400px', '900px'],
                 bgcolor: 'primary.main'
             }}
+            data-aos='fade-left'
         >
             {/* <SureModal open={open} setOpen={setOpen} /> */}
             <Sticker />

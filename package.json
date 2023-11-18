@@ -14,7 +14,7 @@
     "@mui/icons-material": "^5.14.13",
     "@mui/material": "^5.14.13",
     "@n8tb1t/use-scroll-position": "^2.0.3",
-    "@react-spring/web": "^9.7.3",
+    "aos": "^2.3.4",
     "browser-image-compression": "^2.0.2",
     "encoding": "^0.1.13",
     "firebase": "^10.5.2",
@@ -23,16 +23,14 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.47.0",
-    "react-plx": "^2.1.2",
-    "react-slick": "^0.29.0",
-    "react-spring": "^9.7.3"
+    "react-plx": "^2.1.2"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-anchor-link-smooth-scroll": "^1.0.3",
     "@types/react-dom": "^18",
-    "@types/react-slick": "^0.23.12",
     "autoprefixer": "^10",
     "eslint": "^8",
     "eslint-config-next": "13.5.4",

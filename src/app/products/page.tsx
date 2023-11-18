@@ -9,6 +9,7 @@ import Contacts from '@/page-components/index/Contacts'
 import AnotherAdavantages from '@/page-components/index/AnotherAdvantages';
 import AOSProvider from '@/services/AOSProvider'
 import Gallery from '@/page-components/index/Gallery'
+import StaticHeader from '@/components/layout/header/types/StaticHeader'
 
 export default function Home() {
   const startParallax = [
@@ -39,29 +40,11 @@ export default function Home() {
   return (
     <AOSProvider>
       <Box className='relative'>
-        <Plx parallaxData={startParallax}>
-          <Start />
-        </Plx>
-        <Box id='about_anchor' sx={{ pt: '70px', mt: '-70px' }}>
-          <About />
-        </Box>
-        <Fabric />
-        <Box id='products_anchor' sx={{ pt: '140px', mt: '-140px' }}>
-          <Products />
-        </Box>
-        <Box className='w-2/3 mx-auto anchor' sx={{ my: 10 }}>
-          <Title>
-            Другие преимущества
-          </Title>
-          <AnotherAdavantages />
-        </Box>
-        <Gallery />
-        <Box id='contacts_anchor' sx={{ pt: '30px', mt: '-30px' }}>
-          <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
-            <Contacts />
-          </Container>
+        <StaticHeader />
+        <Box>
+          
         </Box>
       </Box >
-    </AOSProvider>
+    </AOSProvider >
   )
 }

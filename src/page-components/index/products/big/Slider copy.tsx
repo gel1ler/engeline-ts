@@ -13,29 +13,48 @@ import Card from './Card'
 import Slide from './Slide'
 
 const Slider = ({ products }: { products: TProduct[] }) => {
-    const [current, setCurrent] = useState(2)
-    console.log(current)
+    const arr = products
+    const [current, setCurrent] = useState(0)
+    const [name, setName] = useState('')
+
+    const next = () => {
+        setName('Forward')
+        setTimeout(() => {
+            setName('')
+            setCurrent(prev => (prev + 1) % products.length)
+            arr.push(arr.shift()!)
+        }, 200)
+
+    }
+
+    const prev = () => {
+        setName('Backward')
+        setTimeout(() => {
+            setName('')
+            setCurrent(prev => (prev - 1) % products.length)
+            arr.unshift(arr.pop()!)
+        }, 200)
+
+    }
+
     return (
         <Box className='w-screen relative py-5'>
             <Box
-                className='flex justify-center relative'
+                className={`flex justify-center relative ${name ? 'animated' + name : null}`}
                 sx={{
                     height: '70vh',
-                    width: `${products.length * 70}vw`,
-                    transition: 'all .3s ease-in-out',
-                    transform: `translateX(-${current * 70}vw)`,
-                    ml: '15vw'
+                    width: `${arr.length * 70}vw`,
+                    ml: '-125vw'
                 }}
             >
-                {products.map((product, index) => (
+                {arr.map((product, index) => (
                     <Box
                         key={product.id}
                         sx={{
                             height: '100%',
-                            transition: 'all .3s ease-in-out',
-                            opacity: index === current ? 1 : 0.3,
-                            transform: index === current ? 'scale(1)' : 'scale(.95)',
-                            filter: index === current ? 'blur(0)' : 'blur(2px)'
+                            transition: 'all .2s ease-in-out',
+                            opacity: index === 2 ? 1 : 0.3,
+                            transform: index === 2 ? 'scale(1)' : 'scale(.95)'
                         }}
                     >
                         <Slide product={product} />
@@ -44,11 +63,11 @@ const Slider = ({ products }: { products: TProduct[] }) => {
             </Box>
             <Arrow
                 anchor='left'
-                f={() => setCurrent(prev => (prev - 1 + products.length) % products.length)}
+                f={prev}
             />
             <Arrow
                 anchor='right'
-                f={() => setCurrent(prev => (prev + 1) % products.length)}
+                f={next}
             />
             <Box className='mt-3'>
                 <Dots

@@ -11,7 +11,7 @@ const Advantage = ({
     return (
         <Box
             className='flex flex-col items-center justify-center relative w-5/6 gap-2'
-        // data-aos='fade-up'
+        data-aos='fade-up'
         >
             <Box className='relative h-20 translate-y-6'>
                 <Typography textAlign='center' sx={{ fontSize: '96px', color: 'secondary.main', fontWeight: 300, zIndex: 0, transform: 'translateY(-45px)' }}>

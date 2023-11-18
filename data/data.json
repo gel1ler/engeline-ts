@@ -1,0 +1,68 @@
+{
+  "products": [
+    {
+      "additionalImgs": [
+        "https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/%D0%9C%D0%B5%D1%85%20%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%2F0f832760-6ff0-4d7f-9ebb-29c7a3515212.jpeg?alt=media&token=d6709560-8ef5-4f7f-b01e-8b8fb311d7f4",
+        "https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/%D0%9C%D0%B5%D1%85%20%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%2F41f7b376-0daa-44b4-a9be-cdd70e6f9d40.jpeg?alt=media&token=c6b5dba7-f3f0-4a66-97e8-51df0701cc6a"
+      ],
+      "id": 0,
+      "mainImg": "https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/%D0%9C%D0%B5%D1%85%20%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%2F0330b7f6-ee1e-4466-a258-16183e3b5230.jpeg?alt=media&token=6a29b108-076f-45ce-9703-c44b178c24c3",
+      "name": "Механическая обработка",
+      "props": [
+        {
+          "icon": "diameter",
+          "text": "Токарная обработка до диаметра 1250 мм при длине до 6300 мм"
+        },
+        {
+          "icon": "ruler",
+          "text": "Карусельная обработка до диаметра 5000 мм при высоте до 2000 мм"
+        },
+        {
+          "icon": "thickness",
+          "text": "Шлифование до диаметра 350 х3000 мм"
+        }
+      ],
+      "shortDescription": "Описание мех обработки"
+    },
+    {
+      "additionalImgs": [
+        "https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/%D0%95%D0%BC%D0%BA%D0%BE%D1%81%D1%82%D0%BD%D0%BE%D0%B5%20%D0%BE%D0%B1%D0%BE%D1%80%D1%83%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%2Freservoir%20(2).JPG?alt=media&token=1f521ab2-4978-4988-8ce4-4b4ddec921f8",
+        "https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/%D0%95%D0%BC%D0%BA%D0%BE%D1%81%D1%82%D0%BD%D0%BE%D0%B5%20%D0%BE%D0%B1%D0%BE%D1%80%D1%83%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%2Freservoir%20(3).JPG?alt=media&token=9ae55873-03ea-4fd0-a124-f399c6cc24e1"
+      ],
+      "id": 1,
+      "mainImg": "https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/%D0%95%D0%BC%D0%BA%D0%BE%D1%81%D1%82%D0%BD%D0%BE%D0%B5%20%D0%BE%D0%B1%D0%BE%D1%80%D1%83%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%2Freservoir%20(1).JPG?alt=media&token=a2fbdf5e-b356-460c-ba4a-a6a7da2533c7",
+      "name": "Емкостное оборудование",
+      "shortDescription": "asdfasdfasdf"
+    },
+    {
+      "additionalImgs": [
+        "https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/%D0%9E%D1%82%D0%B2%D0%BE%D0%B4%D1%8B%2Ftap%20(9).JPG?alt=media&token=08daf39d-a18b-4018-b4cf-daefe16e3740",
+        "https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/%D0%9E%D1%82%D0%B2%D0%BE%D0%B4%D1%8B%2Ftap%20(1).JPG?alt=media&token=5c1129e3-5bcf-422c-8b50-272d927d8f2e"
+      ],
+      "id": 2,
+      "mainImg": "https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/%D0%9E%D1%82%D0%B2%D0%BE%D0%B4%D1%8B%2Ftap%20(4).JPG?alt=media&token=9d282f92-e3d1-4c3c-a8b0-83623ee3b3a9",
+      "name": "Соединительные детали трубопроводов",
+      "shortDescription": "sdf"
+    },
+    {
+      "additionalImgs": [
+        "https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/%D0%9E%D0%B1%D0%B5%D1%87%D0%B0%D0%B9%D0%BA%D0%B8%2F51737e3d-44f6-4f02-ab43-6e27ac115aab.jpeg?alt=media&token=ba000a4b-c6f6-43e9-b431-a76a5cafd685",
+        "https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/%D0%9E%D0%B1%D0%B5%D1%87%D0%B0%D0%B9%D0%BA%D0%B8%2Fbe2655fc-2234-44f4-baf4-0ab7d040bc5e.jpeg?alt=media&token=0e06aca2-232f-4b23-a6ea-1c24c7b9fe9c"
+      ],
+      "id": 3,
+      "mainImg": "https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/%D0%9E%D0%B1%D0%B5%D1%87%D0%B0%D0%B9%D0%BA%D0%B8%2F0af2f91b-a064-45f0-a973-4a4bef8b2b37.jpeg?alt=media&token=80b09861-53d5-49d4-95d6-b3f42f272954",
+      "name": "Трубы обечаечные",
+      "shortDescription": "sdf"
+    },
+    {
+      "additionalImgs": [
+        "https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/%D0%A2%D1%80%D1%83%D0%B1%D1%8B%2F4da66684-c91e-4865-81ec-39f593b07901.jpeg?alt=media&token=2865e0bd-caed-4db4-b3f2-ce27a2c3ff3e",
+        "https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/%D0%A2%D1%80%D1%83%D0%B1%D1%8B%2F320e77b5-3723-476e-b244-2c1ded9ee356.jpeg?alt=media&token=c90cc42e-84af-4efd-b1fe-fb15e5fb30ff"
+      ],
+      "id": 4,
+      "mainImg": "https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/%D0%A2%D1%80%D1%83%D0%B1%D1%8B%2FIMG_7102.jpeg?alt=media&token=18df896a-8a91-4a1c-9824-2035d3893727",
+      "name": "Трубы восстановленные",
+      "shortDescription": "sdf"
+    }
+  ]
+}

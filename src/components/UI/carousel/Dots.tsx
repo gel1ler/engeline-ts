@@ -3,9 +3,9 @@ import { Box } from '@mui/material'
 import React from 'react'
 
 const Dots = ({
-    current, length, setCurrent
+    current, length
 }: {
-    current: number, length: number, setCurrent: TSetNumber
+    current: number, length: number
 }) => {
     return (
         <Box
@@ -24,16 +24,14 @@ const Dots = ({
                 const active = current == key
                 return (
                     <Box
-                        onClick={() => setCurrent(key)}
                         key={key}
                         sx={{
-                            cursor: 'pointer',
                             width: active ? '30px' : '10px',
                             height: '10px',
                             borderRadius: active ? '10px' : '50%',
                             opacity: active ? 1 : 0.5,
-                            boxShadow: '0 0 5px 1px rgba(0,0,0,0.2)',
-                            transition: 'all .2s ease-out',
+                            boxShadow: '0 0 5px 1px rgba(0,0,0,0.5)',
+                            transition: 'all .1s ease-out',
                             background: 'white',
                         }}
                     />

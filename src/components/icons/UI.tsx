@@ -13,23 +13,26 @@ export const MenuIcon = ({ setOpen }: { setOpen: () => void }) => { return (<IB 
 export const Arrow = ({ anchor, f }: { anchor: 'left' | 'right', f: () => void }) => {
     return (
         <Box
-            className='absolute top-0 cursor-pointer w-1/2 h-full z-50'
+            // data-aos='fade-up'
+            className='absolute top-0 cursor-pointer h-full z-50'
             sx={{
-                transition: 'all .3s ease-out',
+                transition: 'all .2s ease-out',
+                width: '17vw',
                 [anchor]: 0,
-                background: 'transparent',
-                ':hover': {
-                    background: `linear-gradient(to ${anchor}, rgba(0,0,0,0), rgba(0,0,0,.3))`
+                ":hover": {
+                    [anchor]: -5,
                 }
             }}
             onClick={f}
         >
             <Image
-                className="absolute top-1/2 -translate-y-1/2 h-1/4 w-1/4"
+                className="absolute top-1/2 -translate-y-1/2 h-1/5 w-1/5"
                 id='arrow'
                 style={{
-                    [anchor]: 15,
-                    filter: 'drop-shadow(0 0 5px rgba(0,0,0, 0.5))',
+                    left: 0,
+                    right: 0,
+                    margin: '0 auto',
+                    filter: 'drop-shadow(0 0 8px rgba(0,0,0, 0.8))',
                 }}
                 alt='Стрелка'
                 src={anchor === 'left' ? arrowLeft : arrowRight}
