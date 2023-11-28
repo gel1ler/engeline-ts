@@ -13,6 +13,8 @@ const MoreButton = ({
                 color='secondary'
                 variant='outlined'
                 sx={sx}
+                data-aos={dataAos}
+                data-aos-offset="20"
             >
                 Подробнее
             </Button >

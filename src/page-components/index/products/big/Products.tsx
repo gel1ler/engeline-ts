@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { Typography } from '@mui/material'
 import { ArrowForwardIos } from '@mui/icons-material'
 import { getProducts } from '../../../../../firebase/clientApp'
+import ArrowTextLink from '@/components/UI/text/ArrowTextLink'
 
 const Products = async () => {
     // const products = data.products as TProduct[]
@@ -24,12 +25,9 @@ const Products = async () => {
             </Title>
             <Slider products={arr} />
             <Box className='flex justify-center mt-4'>
-                <Link href='/products'>
-                    <Typography textAlign='center' className='animUnderline w-fit' variant='h6'>
-                        Весь асортимент продукции
-                        <ArrowForwardIos fontSize='small' />
-                    </Typography>
-                </Link>
+                <ArrowTextLink href='/products' dataAos='fade-right'>
+                    Весь перечень услуг и продукции
+                </ArrowTextLink>
             </Box>
         </Box >
     )

@@ -3,10 +3,10 @@ import { Box, Divider, List, ListItem, Typography } from '@mui/material'
 import { DiamIcon, RulerIcon, ThicknessIcon, VolumeIcon } from '@/components/icons/productIcons'
 import { TProp } from '@/globalTypes'
 
-const DescriptionList = ({ props, fade }: { props: TProp[], fade?: boolean }) => {
+const DescriptionList = ({ props, fade, gap }: { props: TProp[], fade?: boolean, gap?: number }) => {
     if (!props) return 'asdf'
     return (
-        <Box className='flex flex-col gap-4'>
+        <Box className='flex flex-col justify-around w-fit' sx={{ gap: gap ? gap : 2 }}>
             {props.slice(0, 3).map((i, key) => {
                 let icon
 
@@ -38,7 +38,7 @@ const DescriptionList = ({ props, fade }: { props: TProp[], fade?: boolean }) =>
                 }
 
                 return (
-                    <Box className='flex flex-col gap-1' key={key}>
+                    <Box className='flex flex-col gap-4' key={key}>
                         <Box data-aos={fade ? 'fade-up' : null} className='flex items-center gap-2'>
                             {icon}
                             <Typography

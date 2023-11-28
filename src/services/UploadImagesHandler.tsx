@@ -12,7 +12,7 @@ export const uploadImagesHandler: f = async (file, folderName, addHandler) => {
         const size = file.size / (1024 ** 2)
 
         const normalImage = size > 0.7 ? await compressImage(file) : file
-        const normalRes = await uploadImage(normalImage, folderName + '/normal')
+        const normalRes = await uploadImage(normalImage, folderName + '/')
 
         typeof normalRes === 'string' ? addHandler(normalRes, folderName) : console.log('Error')
     }

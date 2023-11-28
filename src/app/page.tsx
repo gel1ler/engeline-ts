@@ -9,6 +9,7 @@ import Contacts from '@/page-components/index/Contacts'
 import AnotherAdavantages from '@/page-components/index/about/AnotherAdvantages';
 import AOSProvider from '@/services/AOSProvider'
 import Gallery from '@/page-components/index/about/Gallery'
+import Bar from '@/components/layout/header/Bar/Bar'
 
 export default function Home() {
   const startParallax = [
@@ -39,6 +40,7 @@ export default function Home() {
   return (
     <AOSProvider>
       <Box className='relative'>
+        <Bar onlyTop />
         <Plx parallaxData={startParallax}>
           <Start />
         </Plx>

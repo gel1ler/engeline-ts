@@ -10,26 +10,26 @@ const ProductCard = ({ product }: { product: TProduct }) => {
   return (
     <Box
       data-aos='fade-up'
-      className='w-full h-full pt-10 pb-6 px-2 flex flex-col items-center justify-between gap-10 rounded-lg'
+      className='w-full h-full rounded-lg overflow-hidden flex flex-col'
       sx={{
         boxShadow: '0 0 10px 5px rgba(0,0,0,.2)',
       }}
     >
       <Image
         alt='Product png photo'
-        src='/products/pipes.png'
+        src={product.mainImg}
         width={300}
         height={200}
-        className='object-contain flex-grow w-full h-full'
+        className='object-cover flex-grow w-full -z-10 relative'
       />
-      <Box className='flex flex-col items-center gap-2'>
-        <Typography variant='h5' textAlign='center'>
+      <Box className='flex flex-col items-center gap-4 pt-4 pb-6 px-2' sx={{ boxShadow: '0 0 10px 5px rgba(0,0,0,.3)' }}>
+        <Subtitle variant='h5' centered>
           {product.name}
-        </Typography>
-        <Typography textAlign='center'>
+        </Subtitle>
+        <Typography textAlign='center' data-aos='fade-up'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </Typography>
-        <MoreButton href='/' />
+        <MoreButton href={'/products/' + product.id} dataAos='fade-up' />
       </Box>
     </Box>
   )

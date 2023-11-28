@@ -9,6 +9,7 @@ import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOu
 import ArrowRightIcon from '@mui/icons-material/ArrowRight'
 import Form from '@/components/UI/forms/Form'
 import Menu from './Menu'
+import ArrowTextLink from '@/components/UI/text/ArrowTextLink'
 
 const direcrions: { id: number, text: string, link: string }[] = [
     {
@@ -39,7 +40,8 @@ const Start = () => {
         <Box
             className='flex items-center justify-around'
             sx={{
-                height: headerProps.type === 'scrolled' ? '100vh' : 'calc(100vh - 7rem)'
+                // height: headerProps.type === 'scrolled' ? '100vh' : 'calc(100vh - 7rem)'
+                height: 'calc(100vh - 2rem)'
             }}
         >
             <Fill anchor='to top' type='to anchor' />
@@ -67,12 +69,9 @@ const Start = () => {
 
                     )}
                 </Box>
-                <Link href='/products' data-aos='fade-right'>
-                    <Typography variant='h5' className='flex items-center trans animUnderline w-fit'>
-                        Весь перечень услуг и продукции
-                        <ArrowCircleRightOutlinedIcon sx={{ mt: '4px' }} />
-                    </Typography>
-                </Link>
+                <ArrowTextLink href='/products' dataAos='fade-right'>
+                    Весь перечень услуг и продукции
+                </ArrowTextLink>
             </Box>
             <Box
                 sx={{

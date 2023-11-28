@@ -2,13 +2,13 @@ import Typography from '@mui/material/Typography'
 import React, { ReactNode } from 'react'
 
 const Subtitle = ({
-    children, centered, right
+    children, centered, right, variant
 }: {
-    children: ReactNode, centered?: boolean, right?: boolean
+    children: ReactNode, centered?: boolean, right?: boolean, variant?: 'h5' | 'h4' | 'h3'
 }) => {
     return (
         <Typography
-            variant='h4'
+            variant={variant ? variant : 'h4'}
             textAlign={centered ? 'center' : 'left'}
             sx={{
                 mx: right ? null : centered ? 'auto' : ['auto', 'auto', 0],

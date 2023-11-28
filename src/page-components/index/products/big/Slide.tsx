@@ -12,29 +12,29 @@ const Slide = ({ product }: { product: TProduct }) => {
         <Box
             className='h-full p-10 relative overflow-hidden'
             sx={{
-                width: '70vw',
+                width: '60vw',
                 boxShadow: '0 0 10px 5px rgba(0,0,0,.2)'
             }}
             data-aos='fade-up'
         >
-            <Box className='flex flex-col gap-8 w-2/3 h-full'>
+            <Box className='flex flex-col gap-8 w-fit h-full'>
                 <Subtitle>
                     {product.name}
                 </Subtitle>
                 <DescriptionList fade props={product.props} />
                 <Box className='mt-auto'>
-                    <MoreButton href='/' dataAos='fade-up' />
+                    <MoreButton href={'/products/' + product.id} dataAos='fade-up' />
                 </Box>
             </Box>
             <Fill anchor='to right' prc={40} type='to anchor' />
             <Image
                 alt='Product png photo'
-                src='/products/pipes.png'
+                src={product.mainImg}
                 fill
-                className=' object-contain -z-50'
+                className=' object-cover -z-50 opacity-50'
                 style={{
                     left: '33%',
-                    top: '10%',
+                    // top: '10%',
                 }}
             />
         </Box>
