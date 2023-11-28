@@ -1,7 +1,7 @@
 import About from '@/page-components/index/about/About'
 import { Box, Container } from '@mui/material'
 import Start from '@/page-components/index/start/Start'
-import Plx from 'react-plx'
+import Plx from '@/services/Plx'
 import Products from '@/page-components/index/products/big/Products'
 import Fabric from '@/page-components/index/about/Fabric'
 import Title from '@/components/UI/text/Title'

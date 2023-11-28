@@ -21,7 +21,7 @@ const Gallery = () => {
   return (
     <Box sx={{ pt: 10 }}>
       <Title centered>
-        Галлерея
+        Галерея
       </Title>
       <Container>
         <Grid container spacing={1} sx={{ height: '70vh' }}>

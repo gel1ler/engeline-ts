@@ -1,17 +1,15 @@
 import React from 'react'
 import Fill from '@/components/UI/Fill'
-import MoreButton from '@/components/UI/buttons/MoreButton'
-import Form from '@/components/UI/forms/Form'
 import DescriptionList from '@/components/UI/text/DescriptionList'
-import { headerProps } from '@/customization/customization'
 import { TProduct } from '@/globalTypes'
-import { Box, Container } from '@mui/material'
+import { Box, Button, Container, Typography } from '@mui/material'
 import Image from 'next/image'
 import Title from '@/components/UI/text/Title'
+import Link from 'next/link'
 
 const Start = ({ product }: { product: TProduct }) => {
     return (
-        <Box className='relative flex items-center' sx={{ height: `calc(100vh - ${headerProps.remHeight}rem)` }}>
+        <Box className='relative flex items-center h-screen'>
             <Image
                 fill
                 src={product.mainImg}
@@ -37,11 +35,24 @@ const Start = ({ product }: { product: TProduct }) => {
             >
                 <Box className=' flex flex-col gap-2'>
                     <Title>{product.name}</Title>
-                    <DescriptionList gap={4} props={product.props} />
-                    <MoreButton href='#' sx={{ mt: 4 }} />
-                </Box>
-                <Box className='flex flex-col justify-end h-2/3'>
-                    <Form />
+                    <Typography variant='h6' className='w-1/2'>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni veniam illo doloribus nemo provident in, pariatur architecto harum voluptates odit.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni veniam illo doloribus nemo provident in, pariatur architecto harum voluptates odit.
+                    </Typography>
+                    <Link href='#order_anchor'>
+                        <Button
+                            color='secondary'
+                            variant='outlined'
+                            size='large'
+                            sx={{
+                                mt: 4
+                            }}
+                            data-aos='fade-right'
+                            data-aos-offset="20"
+                        >
+                            оформить заказ
+                        </Button >
+                    </Link >
                 </Box>
             </Container >
         </Box>
