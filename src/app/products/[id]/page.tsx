@@ -1,19 +1,16 @@
 import React from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import AOSProvider from '@/services/AOSProvider'
-import StaticHeader from '@/components/layout/header/types/StaticHeader'
 import { getProduct } from '../../../../firebase/clientApp'
 import Start from '@/page-components/product/Start'
 import Plx from '@/services/Plx'
 import Bar from '@/components/layout/header/Bar/Bar'
 import DescriptionList from '@/components/UI/text/DescriptionList'
-import Subtitle from '@/components/UI/text/Subtitle'
 import Gallery from '@/page-components/index/about/Gallery'
 import Title from '@/components/UI/text/Title'
-import { DockOutlined, DocumentScanner } from '@mui/icons-material'
-import Image from 'next/image'
-import Fill from '@/components/UI/Fill'
 import data from '@/../data/data.json'
+import File from '@/page-components/product/File'
+import Contacts from '@/page-components/index/Contacts'
 
 const startParallax = [
     {
@@ -51,7 +48,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                 <Plx parallaxData={startParallax}>
                     <Start product={product} />
                 </Plx>
-                <Container sx={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <Container sx={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
                         <Typography variant='h6'>
@@ -61,24 +58,16 @@ export default async function Home({ params }: { params: { id: string } }) {
                             <DescriptionList props={product.props} fade gap={2} />
                         </Box>
                     </Box>
-                    <Box className='flex flex-col'>
+                    <Box className='flex flex-col gap-8'>
                         <Title>Документы</Title>
-                        <Box className='pt-4 outline-1 rounded-md flex overflow-hidden gap-4' sx={{ boxShadow: '0 0 10px 5px rgba(0,0,0,.1)' }}>
-                            <Box className='relative w-28' sx={{ aspectRatio: '3/4' }}>
-                                <Image
-                                    fill
-                                    src='/icons/docs/word.svg'
-                                    alt='Icon'
-                                    className=' -z-50 translate-y-4'
-                                />
-                                <Fill type='to anchor' anchor='to top' />
-                            </Box>
-                            <Typography variant='h6'>
-                                ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»
-                            </Typography>
-                        </Box>
+                        <File type='word' name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»' />
+                        <File type='excel' name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»' />
+                        <File type='pdf' name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»' />
                     </Box>
                     <Gallery />
+                </Container>
+                <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
+                    <Contacts />
                 </Container>
             </Box >
         </AOSProvider >
