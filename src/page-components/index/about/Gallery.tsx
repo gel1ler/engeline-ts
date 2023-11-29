@@ -1,3 +1,4 @@
+import ImageViewer from '@/components/UI/imageViewer'
 import Title from '@/components/UI/text/Title'
 import { Box, Container, Grid } from '@mui/material'
 import Image from 'next/image'
@@ -17,20 +18,23 @@ const Photo = ({ src }: { src: string }) =>
     </Box>
   </Grid>
 
-const Gallery = () => {
+const Gallery = ({ images }: { images: string[] }) => {
   return (
     <Box sx={{ pt: 10 }}>
       <Title centered>
         Галерея
       </Title>
       <Container>
+        <ImageViewer 
+        
+        />
         <Grid container spacing={1} sx={{ height: '70vh' }}>
-          <Photo src='/advantages/lab.webp' />
+          <Photo src={images[0]} />
           <Grid item container xs={6} spacing={1}>
-            <Photo src='/advantages/plazma.jpg' />
-            <Photo src='/advantages/plazma.jpg' />
-            <Photo src='/advantages/plazma.jpg' />
-            <Photo src='/advantages/plazma.jpg' />
+            <Photo src={images[1]} />
+            <Photo src={images[2]} />
+            <Photo src={images[3]} />
+            <Photo src={images[4]} />
           </Grid>
         </Grid >
       </Container >

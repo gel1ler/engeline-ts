@@ -38,8 +38,8 @@ const startParallax = [
 ]
 
 export default async function Home({ params }: { params: { id: string } }) {
-    // const product = await getProduct(Number(params.id))
-    const product = data.products[Number(params.id)]
+    const product = await getProduct(Number(params.id))
+    // const product = data.products[Number(params.id)]
 
     return (
         <AOSProvider>
@@ -51,7 +51,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                 <Container sx={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
-                        <Typography variant='h6'>
+                        <Typography variant='h6' data-aos='fade-up'>
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima voluptate inventore delectus natus cum eos ratione? Delectus voluptatem a quae, aut itaque explicabo doloribus magni sint neque modi numquam doloremque recusandae dolor ex aliquid nihil, quaerat inventore suscipit! Libero, eos?
                         </Typography>
                         <Box className='ml-4 mt-6'>
@@ -64,7 +64,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                         <File type='excel' name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»' />
                         <File type='pdf' name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»' />
                     </Box>
-                    <Gallery />
+                    <Gallery images={[product.mainImg, ...product.additionalImgs]} />
                 </Container>
                 <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
                     <Contacts />
