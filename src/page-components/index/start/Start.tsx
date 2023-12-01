@@ -46,7 +46,7 @@ const Start = () => {
         >
             <Fill anchor='to top' type='to anchor' />
             <Fill anchor='to right' prc={40} type='to anchor' />
-            <Box className='flex flex-col gap-12 justify-center my-auto'>
+            <Box className='flex flex-col gap-12 justify-center my-auto' sx={{ width: ['90%', '100%'] }}>
                 <Image
                     data-aos='fade-right'
                     src={mainInfo.logoHorizontal}
@@ -77,7 +77,8 @@ const Start = () => {
                 sx={{
                     height: '85vh',
                     alignItems: 'flex-end',
-                    display: 'flex'
+                    display: ['none', 'none', 'none', 'flex'],
+                    p: 2
                 }}
             >
                 <Form />

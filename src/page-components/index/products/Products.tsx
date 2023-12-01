@@ -7,7 +7,7 @@ import { TProduct } from '@/globalTypes'
 import Link from 'next/link'
 import { Typography } from '@mui/material'
 import { ArrowForwardIos } from '@mui/icons-material'
-import { getProducts } from '../../../../../firebase/clientApp'
+import { getProducts } from '../../../../firebase/clientApp'
 import ArrowTextLink from '@/components/UI/text/ArrowTextLink'
 
 const Products = async () => {

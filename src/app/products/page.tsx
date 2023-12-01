@@ -7,6 +7,12 @@ import { TProduct } from '@/globalTypes'
 import ProductCard from '@/page-components/products/ProductCard'
 import Title from '@/components/UI/text/Title'
 import { getProducts } from '../../../firebase/clientApp'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Инжелайн - продукция',
+  description: 'Инжелайн - производственное предприятие',
+}
 
 export default async function Home() {
   const products = await getProducts()
@@ -22,7 +28,8 @@ export default async function Home() {
           <Grid container spacing={2}>
             {products.map(product =>
               <Grid
-                xs={4}
+                xs={12}
+                md={6}
                 item
                 key={product.id}
               >

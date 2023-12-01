@@ -1,113 +1,57 @@
 import { Modal, Box, IconButton } from '@mui/material'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CloseIcon from '@mui/icons-material/Close'
 import { Arrow } from '@/components/icons/UI'
 import { TSetBool, TSetNumber } from '@/globalTypes'
+import Dots from './carousel/Dots'
 
 const ImageViewer = ({
-    photos, open, setOpen, current, setCurrent
+    images, open, setOpen, current, setCurrent
 }: {
-    photos: any[], open: boolean, setOpen: TSetBool, current: number, setCurrent: TSetNumber
+    images: string[], open: boolean, setOpen: TSetBool, current: number, setCurrent: TSetNumber
 }
 ) => {
-
-
     return (
-        <>
-            <Modal open={open} onClose={() => setOpen(false)}>
-                <Box
+        <Modal open={open} onClose={() => setOpen(false)}>
+            <Box className=' outline-none w-screen h-screen absolute grid gap-4 bg-white p-20'>
+                <IconButton
+                    onClick={() => setOpen(false)}
+                    size='large'
                     sx={{
                         position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        border: 'none',
-                        filter: 'drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3))',
-                        transform: 'translate(-50%, -50%)',
-                        width: '90vw',
-                        maxWidth: '600px',
-                        height: '80vh',
-                        display: 'grid',
-                        gridTemplateRows: '1fr 100px',
-                        gap: 2
+                        top: 20,
+                        right: 20,
+                        zIndex: 999,
                     }}
+                // data-aos='fade-up'
                 >
-                    <IconButton
-                        onClick={() => setOpen(false)}
-                        size='large'
-                        sx={{
-                            zIndex: 999,
-                            position: 'absolute',
-                            top: 0,
-                            right: 0,
-                            filter: 'drop-shadow(0px 0px 5px black)',
-                        }}
-                    // data-aos='fade-up'
-                    >
-                        <CloseIcon sx={{ fontSize: 35 }} color='primary' />
-                    </IconButton>
-                    <Box
-                        sx={{
-                            position: 'relative',
-                            width: '100%',
-                            hight: '100%',
-                            borderRadius: '20px',
-                            overflow: 'hidden'
-                        }}
-                        data-aos='fade-up'
-                    >
-                        <Arrow anchor='left' f={() => setCurrent(current - 1)} />
-                        <Arrow anchor='right' f={() => setCurrent(current + 1)} />
-                        <Image
-                            alt='Фото в слайдере'
-                            src={photos[current]}
-                            fill
-                            style={{
-                                borderRadius: '5px',
-                                objectFit: 'cover',
-                                filter: 'drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5))',
-                            }}
-                        />
-                    </Box>
-                    <Box
-                        sx={{
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(3, 1fr)',
-                            gridTemplateRows: '100px',
-                            gap: 1,
-                        }}
-                        data-aos='fade-up'
-                    >
-                        {photos.slice(0, 3).map((i, key) =>
-                            <Box
-                                sx={{
-                                    position: 'relative',
-                                    width: '100%',
-                                    filter: current == key ? null : 'brightness(0.5)'
+                    <CloseIcon sx={{ fontSize: 35 }} color='action' />
+                </IconButton>
+                <Arrow anchor='left' f={() => setCurrent((current - 1 + images.length) % images.length)} />
+                <Arrow anchor='right' f={() => setCurrent((current + 1) % images.length)} />
+                <Box className='flex flex-col'>
+                    <Box className='relative'>
+                        {images.map((image, index) =>
+                            <Image
+                                key={index}
+                                alt='Фото в слайдере'
+                                src={image}
+                                width={600}
+                                height={500}
+                                className='flex-grow object-contain transition-all absolute top-0 left-0 w-full duration-300'
+                                style={{
+                                    height: '75vh',
+                                    opacity: index === current ? 1 : 0,
+                                    zIndex: index === current ? 1 : -1,
                                 }}
-                                key={key}
-                                onClick={() => {
-                                    setCurrent(key)
-                                }}
-                            >
-                                <Image
-                                    alt='Миниатюра слайдера'
-                                    src={i}
-                                    fill
-                                    style={{
-                                        borderRadius: '5px',
-                                        objectFit: 'cover',
-                                        filter: 'drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5))',
-                                        cursor: 'pointer'
-                                    }}
-                                    sizes="(max-width: 768px) 10vw, (max-width: 1200px) 10vw, 7vw"
-                                />
-                            </Box>
+                            />
                         )}
                     </Box>
+                    <Dots current={current} length={images.length} />
                 </Box>
-            </Modal>
-        </>
+            </Box>
+        </Modal >
     )
 }
 

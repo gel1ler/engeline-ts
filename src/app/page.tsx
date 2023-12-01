@@ -2,14 +2,22 @@ import About from '@/page-components/index/about/About'
 import { Box, Container } from '@mui/material'
 import Start from '@/page-components/index/start/Start'
 import Plx from '@/services/Plx'
-import Products from '@/page-components/index/products/big/Products'
+import Products from '@/page-components/index/products/Products'
 import Fabric from '@/page-components/index/about/Fabric'
 import Title from '@/components/UI/text/Title'
 import Contacts from '@/page-components/index/Contacts'
 import AnotherAdavantages from '@/page-components/index/about/AnotherAdvantages';
 import AOSProvider from '@/services/AOSProvider'
-import Gallery from '@/page-components/index/about/Gallery'
+import Gallery from '@/components/UI/Gallery'
 import Bar from '@/components/layout/header/Bar/Bar'
+import { Metadata } from 'next'
+import Loader from '@/components/layout/loader'
+
+export const metadata: Metadata = {
+  title: 'Инжелайн - производственное предприятие',
+  description: 'Инжелайн - производственное предприятие',
+}
+
 
 export default function Home() {
   const startParallax = [
@@ -39,6 +47,7 @@ export default function Home() {
 
   return (
     <AOSProvider>
+      <Loader />
       <Box className='relative'>
         <Bar onlyTop />
         <Plx parallaxData={startParallax}>
@@ -57,7 +66,7 @@ export default function Home() {
           </Title>
           <AnotherAdavantages />
         </Box>
-        <Gallery />
+        <Gallery images={['/advantages/lab.webp', '/advantages/antikor.jpg', '/advantages/control.jpg', '/advantages/lab.webp', '/advantages/lab.webp']} />
         <Box id='contacts_anchor' sx={{ pt: '30px', mt: '-30px' }}>
           <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
             <Contacts />

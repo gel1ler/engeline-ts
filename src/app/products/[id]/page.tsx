@@ -6,7 +6,7 @@ import Start from '@/page-components/product/Start'
 import Plx from '@/services/Plx'
 import Bar from '@/components/layout/header/Bar/Bar'
 import DescriptionList from '@/components/UI/text/DescriptionList'
-import Gallery from '@/page-components/index/about/Gallery'
+import Gallery from '@/components/UI/Gallery'
 import Title from '@/components/UI/text/Title'
 import data from '@/../data/data.json'
 import File from '@/page-components/product/File'
@@ -36,6 +36,20 @@ const startParallax = [
         ]
     }
 ]
+
+import { Metadata } from "next";
+
+type Props = {
+    params: { id: string };
+};
+
+export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+    const product = await getProduct(Number(params.id))
+
+    return {
+        title: product.name,
+    };
+};
 
 export default async function Home({ params }: { params: { id: string } }) {
     const product = await getProduct(Number(params.id))

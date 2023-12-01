@@ -63,7 +63,11 @@ const About = () => {
                     заводов страны, имеющем ряд технологических преимуществ:
                 </Typography>
                 <Box
-                    className='grid grid-cols-3 grid-rows-2 mt-10 justify-items-center w-5/6 gap-6'
+                    className='grid-cols-3 grid-rows-2 mt-10 justify-items-center w-5/6 gap-6'
+                    sx={{
+                        display: ['flex', 'flex', 'grid'],
+                        overflowX: 'scroll'
+                    }}
                 >
                     {advantages.map((i, key) =>
                         <Advantage key={key} num={key} title={i.title} text={i.text} />

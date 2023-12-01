@@ -11,26 +11,30 @@ const ProductCard = ({ product }: { product: TProduct }) => {
     <Box
       data-aos='fade-up'
       data-aos-offset="20"
-      className='w-full h-full rounded-lg overflow-hidden flex flex-col'
+      className='w-full h-full rounded-lg overflow-hidden flex p-5 gap-2'
       sx={{
-        boxShadow: '0 0 10px 5px rgba(0,0,0,.2)',
+        boxShadow: '0 0 10px 5px rgba(0,0,0,.1)',
       }}
     >
-      <Image
-        alt='Product png photo'
-        src={product.mainImg}
-        width={300}
-        height={200}
-        className='object-cover flex-grow w-full -z-10 relative'
-      />
-      <Box className='flex flex-col items-center gap-2 pt-4 pb-6 px-2' sx={{ boxShadow: '0 0 10px 5px rgba(0,0,0,.3)' }}>
-        <Typography textAlign='center' fontWeight={600} variant='h5'>
-          {product.name}
-        </Typography>
-        <Typography textAlign='center' data-aos='fade-up' data-aos-offset="20">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </Typography>
+      <Box className='w-1/2 flex flex-col justify-between flex-grow'>
+        <Box>
+          <Typography fontWeight={600} variant='h5'>
+            {product.name}
+          </Typography>
+          <Typography data-aos='fade-up' data-aos-offset="20">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </Typography>
+        </Box>
         <MoreButton href={'/products/' + product.id} dataAos='fade-up' />
+      </Box>
+      <Box className='w-1/2 rounded-lg overflow-hidden relative  drop-shadow-md'>
+        <Image
+          alt='Product photo'
+          src={product.mainImg}
+          width={500}
+          height={500}
+          className='object-cover w-full h-full'
+        />
       </Box>
     </Box>
   )

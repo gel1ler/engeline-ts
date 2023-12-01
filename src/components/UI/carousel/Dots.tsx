@@ -11,7 +11,7 @@ const Dots = ({
         <Box
             sx={{
                 position: 'absolute',
-                bottom: 10,
+                bottom: 40,
                 left: 0,
                 right: 0,
                 mx: 'auto',

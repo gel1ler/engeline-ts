@@ -19,7 +19,7 @@ const Bar = ({ noBg, onlyTop }: { noBg?: boolean, onlyTop?: boolean }) => {
       {
         !onlyTop
         &&
-        <Toolbar className={'flex w-full' + isFullwidth} sx={{ justifyContent: ['center', 'space-between'], my: 'auto' }}>
+        <Toolbar className={'flex w-full' + isFullwidth} sx={{ justifyContent: 'space-between', my: 'auto' }}>
           <Link href='/'>
             <Image
               alt='Logo'
@@ -29,24 +29,26 @@ const Bar = ({ noBg, onlyTop }: { noBg?: boolean, onlyTop?: boolean }) => {
             />
           </Link>
           <Box className='flex gap-10'>
+            <Box className='gap-10' sx={{ display: ['none', 'none', 'flex'] }}>
 
-            {/* Navigation */}
-            {headerProps.links ?
-              <NavLinks hoverType='animUnderline' />
-              : null
-            }
+              {/* Navigation */}
+              {headerProps.links ?
+                <NavLinks hoverType='animUnderline' />
+                : null
+              }
 
-            {/* Social networks */}
-            {headerProps.contacts ?
-              <Box className='flex gap-3 items-center'>
-                <VkIcon />
-                <TelegramIcon />
-                <PhoneCall icon />
-              </Box>
-              : null
-            }
+              {/* Social networks */}
+              {headerProps.contacts ?
+                <Box className='flex gap-3 items-center'>
+                  <VkIcon />
+                  <TelegramIcon />
+                  <PhoneCall icon />
+                </Box>
+                : null
+              }
 
-            {/* Menu */}
+              {/* Menu */}
+            </Box>
             {headerProps.menu ?
               <MyDrawer />
               : null

@@ -32,7 +32,7 @@ export const Arrow = ({ anchor, f }: { anchor: 'left' | 'right', f: () => void }
                     left: 0,
                     right: 0,
                     margin: '0 auto',
-                    filter: 'drop-shadow(0 0 8px rgba(0,0,0, 0.8))',
+                    filter: 'drop-shadow(0 0 3px rgba(0,0,0, 0.8))',
                 }}
                 alt='Стрелка'
                 src={anchor === 'left' ? arrowLeft : arrowRight}

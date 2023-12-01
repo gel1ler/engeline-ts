@@ -29,7 +29,7 @@ const ScrolledHeader = () => {
         <AppBar
             position='fixed'
             sx={{
-                transition: 'all .3s cubic-bezier(0.4, 0, 0.2, 1)',
+                transition: 'opacity .3s cubic-bezier(0.4, 0, 0.2, 1)',
                 opacity: isActive ? 1 : 0,
                 pointerEvents: isActive ? 'all' : 'none'
             }}
