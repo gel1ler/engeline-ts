@@ -3,14 +3,6 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Title from '@/components/UI/text/Title'
 import Advantage from './Advantage'
-import wave from 'public/wave.svg'
-import HelperText from '@/components/UI/text/HelperText'
-import Images from './Images'
-
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import Link from 'next/link'
-import Image from 'next/image'
-import { Container } from '@mui/material'
 
 const advantages = [
     {
@@ -63,10 +55,11 @@ const About = () => {
                     заводов страны, имеющем ряд технологических преимуществ:
                 </Typography>
                 <Box
-                    className='grid-cols-3 grid-rows-2 mt-10 justify-items-center w-5/6 gap-6'
+                    className='grid-cols-3 grid-rows-2 flex-col mt-10 justify-items-center gap-6 overflow-hidden mx-auto'
                     sx={{
                         display: ['flex', 'flex', 'grid'],
-                        overflowX: 'scroll'
+                        maxWidth: '100vw',
+                        width: ['100vw', '100vw', '95%', '84%']
                     }}
                 >
                     {advantages.map((i, key) =>

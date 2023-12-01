@@ -20,7 +20,7 @@ const Title = ({
                 className='w-min mb-6 mx-auto'
                 data-aos='fade-up'
             >
-                <Typography variant='h3' textAlign='center'>
+                <Typography variant='h3' sx={{ fontSize: '8vw' }} textAlign='center'>
                     {children}
                 </Typography>
                 <Box className='w-full h-1' sx={{ bgcolor: 'secondary.main' }} />

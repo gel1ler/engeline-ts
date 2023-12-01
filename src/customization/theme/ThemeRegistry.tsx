@@ -1,10 +1,11 @@
 'use client'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import { NextAppDirEmotionCacheProvider } from './EmotionCache'
 import { themeOptions } from './ThemeOptions'
 
-const theme = createTheme(themeOptions)
+let theme = createTheme(themeOptions)
+theme = responsiveFontSizes(theme)
 
 export default function ThemeRegistry({
   children

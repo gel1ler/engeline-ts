@@ -10,10 +10,6 @@ const Dots = ({
     return (
         <Box
             sx={{
-                position: 'absolute',
-                bottom: 40,
-                left: 0,
-                right: 0,
                 mx: 'auto',
                 display: 'flex',
                 justifyContent: 'center',

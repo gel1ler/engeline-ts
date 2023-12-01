@@ -48,7 +48,7 @@ export default function Home() {
   return (
     <AOSProvider>
       <Loader />
-      <Box className='relative'>
+      <Box className='relative w-screen'>
         <Bar onlyTop />
         <Plx parallaxData={startParallax}>
           <Start />

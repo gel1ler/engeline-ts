@@ -24,7 +24,7 @@ const Slide = ({ product }: { product: TProduct }) => {
                     <Subtitle>
                         {product.name}
                     </Subtitle>
-                    <Typography data-aos='fade-up'>
+                    <Typography data-aos='fade-up' sx={{ mt: 1 }}>
                         {product.shortDescription}
                     </Typography>
                 </Box>

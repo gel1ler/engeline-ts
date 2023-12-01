@@ -38,10 +38,11 @@ const direcrions: { id: number, text: string, link: string }[] = [
 const Start = () => {
     return (
         <Box
-            className='flex items-center justify-around'
+            className='flex items-center justify-around mx-auto'
             sx={{
-                // height: headerProps.type === 'scrolled' ? '100vh' : 'calc(100vh - 7rem)'
-                height: 'calc(100vh - 2rem)'
+                height: 'calc(100vh - 2rem)',
+                maxWidth: '1400px',
+                p: [3, 3, 10, 4]
             }}
         >
             <Fill anchor='to top' type='to anchor' />

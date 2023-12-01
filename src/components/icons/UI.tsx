@@ -18,6 +18,7 @@ export const Arrow = ({ anchor, f }: { anchor: 'left' | 'right', f: () => void }
             sx={{
                 transition: 'all .2s ease-out',
                 width: '17vw',
+                minWidth: '130px',
                 [anchor]: 0,
                 ":hover": {
                     [anchor]: -5,
