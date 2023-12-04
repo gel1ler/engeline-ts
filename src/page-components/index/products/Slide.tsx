@@ -4,6 +4,7 @@ import Image from 'next/image'
 import React from 'react'
 import Subtitle from '@/components/UI/text/Subtitle'
 import MoreButton from '@/components/UI/buttons/MoreButton'
+import Link from 'next/link'
 
 const Slide = ({ product }: { product: TProduct }) => {
     return (
@@ -21,10 +22,12 @@ const Slide = ({ product }: { product: TProduct }) => {
         >
             <Box className='w-1/2 flex flex-col justify-between flex-grow '>
                 <Box>
-                    <Subtitle>
-                        {product.name}
-                    </Subtitle>
-                    <Typography data-aos='fade-up' sx={{ mt: 1 }}>
+                    <Link href={'/products/' + product.id}>
+                        <Subtitle>
+                            {product.name}
+                        </Subtitle>
+                    </Link>
+                    <Typography data-aos='fade-up' sx={{ mt: 2 }}>
                         {product.shortDescription}
                     </Typography>
                 </Box>
@@ -40,6 +43,7 @@ const Slide = ({ product }: { product: TProduct }) => {
                 />
             </Box>
         </Box>
+
     )
 }
 

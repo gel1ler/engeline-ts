@@ -39,8 +39,7 @@ const Start = ({ product }: { product: TProduct }) => {
                     </Typography>
                     <Title>{product.name}</Title>
                     <Typography variant='h6' className='w-1/2' data-aos='fade-up'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni veniam illo doloribus nemo provident in, pariatur architecto harum voluptates odit.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni veniam illo doloribus nemo provident in, pariatur architecto harum voluptates odit.
+                        {product.shortDescription}
                     </Typography>
                     <Link href='#order_anchor'>
                         <Button

@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import PhoneIcon from '@mui/icons-material/Phone'
 import { useSnackbar } from 'notistack'

@@ -15,12 +15,12 @@ const Title = ({
     const theme = useTheme()
     const isSm = useMediaQuery(theme.breakpoints.down('md'))
     return (
-        isSm && children!.toString.length > 10 ?
+        isSm && children!.toString.length > 12 ?
             <Box
                 className='w-min mb-6 mx-auto'
                 data-aos='fade-up'
             >
-                <Typography variant='h3' sx={{ fontSize: '8vw' }} textAlign='center'>
+                <Typography variant='h4' textAlign='center'>
                     {children}
                 </Typography>
                 <Box className='w-full h-1' sx={{ bgcolor: 'secondary.main' }} />
@@ -34,7 +34,7 @@ const Title = ({
                 }}
                 data-aos='fade-up'
             >
-                <Typography variant='h2'>
+                <Typography variant='h3'>
                     {children}
                 </Typography>
                 <Box className='w-full h-1' sx={{ bgcolor: 'secondary.main' }} />

@@ -38,6 +38,7 @@ const startParallax = [
 ]
 
 import { Metadata } from "next";
+import Image from 'next/image'
 
 type Props = {
     params: { id: string };
@@ -52,8 +53,8 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 };
 
 export default async function Home({ params }: { params: { id: string } }) {
-    const product = await getProduct(Number(params.id))
-    // const product = data.products[Number(params.id)]
+    // const product = await getProduct(Number(params.id))
+    const product = data.products[Number(params.id)]
 
     return (
         <AOSProvider>
@@ -65,11 +66,15 @@ export default async function Home({ params }: { params: { id: string } }) {
                 <Container sx={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
-                        <Typography variant='h6' data-aos='fade-up'>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima voluptate inventore delectus natus cum eos ratione? Delectus voluptatem a quae, aut itaque explicabo doloribus magni sint neque modi numquam doloremque recusandae dolor ex aliquid nihil, quaerat inventore suscipit! Libero, eos?
-                        </Typography>
-                        <Box className='ml-4 mt-6'>
+                        <Box className='ml-4 mt-6 grid grid-cols-2'>
                             <DescriptionList props={product.props} fade gap={2} />
+                            <Image
+                                alt='Продукт'
+                                src={product.mainImg}
+                                width={600}
+                                height={400}
+                                style={{ width: '100%', height: '100%' }}
+                            />
                         </Box>
                     </Box>
                     <Box className='flex flex-col gap-8'>

@@ -15,7 +15,6 @@ const PropsList = () => {
             <Typography>
                 Характеристики
             </Typography>
-            <RHookFormTextField label='Текст' name={`props.dffd`} />
             {fields.map((field, index) =>
                 <Box className='flex items-center gap-2' key={field.id}>
                     <RHookFormSelect name={`props.${index}.icon`} valuesArr={iconsArr} defaultValue='diameter' />

@@ -7,7 +7,7 @@ const DescriptionList = ({ props, fade, gap }: { props: TProp[], fade?: boolean,
     if (!props) return 'asdf'
     return (
         <Box className='flex flex-col justify-around w-fit' sx={{ gap: gap ? gap : 2 }}>
-            {props.slice(0, 3).map((i, key) => {
+            {props.map((i, key) => {
                 let icon
 
                 switch (i.icon) {
@@ -47,7 +47,7 @@ const DescriptionList = ({ props, fade, gap }: { props: TProp[], fade?: boolean,
                                 {res}
                             </Typography>
                         </Box>
-                        {key === 2 ? null : <Divider />}
+                        {key === props.length - 1 ? null : <Divider data-aos='fade-up' />}
                     </Box>
                 )
             })}

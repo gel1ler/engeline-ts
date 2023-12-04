@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { useSnackbar } from 'notistack'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'

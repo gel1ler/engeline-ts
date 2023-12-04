@@ -76,7 +76,7 @@ const MyModal = ({ setOpen, open, folders, change, product }: Props) => {
                         <Divider />
                         <PropsList />
                         <Divider />
-                        <RHookFormTextField label='Короткое описание' name='shortDescription' />
+                        <RHookFormTextField multiline label='Короткое описание' name='shortDescription' />
                         <DescriptionsList />
                         < Divider />
                         <ImageInput

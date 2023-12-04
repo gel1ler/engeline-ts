@@ -16,13 +16,13 @@ const ProductCard = ({ product }: { product: TProduct }) => {
         boxShadow: '0 0 10px 5px rgba(0,0,0,.1)',
       }}
     >
-      <Box className='w-1/2 flex flex-col justify-between flex-grow'>
+      <Box className='w-1/2 flex flex-col justify-between flex-grow gap-2'>
         <Box>
           <Typography fontWeight={600} variant='h5'>
             {product.name}
           </Typography>
           <Typography data-aos='fade-up' data-aos-offset="20">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            {product.shortDescription.split(' ').slice(0, 15).join(" ") + " ..."}
           </Typography>
         </Box>
         <MoreButton href={'/products/' + product.id} dataAos='fade-up' />

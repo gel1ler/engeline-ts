@@ -6,7 +6,7 @@ import React from 'react'
 
 const File = ({ name, type }: { name: string, type: 'word' | 'excel' | 'pdf' }) => {
     return (
-        <Box data-aos='fade-right' className='pt-4 pr-2 outline-1 rounded-md flex overflow-hidden gap-8' sx={{ boxShadow: '0 0 10px 5px rgba(0,0,0,.1)' }}>
+        <Box data-aos='fade-right' data-aos-offset='20' className='pt-4 pr-2 outline-1 rounded-md flex overflow-hidden gap-8' sx={{ boxShadow: '0 0 10px 5px rgba(0,0,0,.1)' }}>
             <Box className='relative w-28' sx={{ aspectRatio: '3/3' }}>
                 <Image
                     fill

@@ -14,7 +14,7 @@ const Products = async () => {
     // const products = data.products as TProduct[]
     const products = await getProducts()
 
-    const arr = products.slice(-2).concat(products.slice(0, 3))
+    const arr = products.slice(-2).reverse().concat(products.slice(0, 3))
 
     return (
         <Box
