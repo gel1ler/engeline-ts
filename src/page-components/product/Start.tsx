@@ -1,6 +1,5 @@
 import React from 'react'
 import Fill from '@/components/UI/Fill'
-import DescriptionList from '@/components/UI/text/DescriptionList'
 import { TProduct } from '@/globalTypes'
 import { Box, Button, Container, Typography } from '@mui/material'
 import Image from 'next/image'

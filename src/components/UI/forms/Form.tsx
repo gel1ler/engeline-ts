@@ -4,11 +4,15 @@ import Sticker from '@/components/icons/sticker'
 import { Typography, TextField, Button, Box } from '@mui/material'
 // import SureModal from './SureModal'
 import Field from './Field'
+import MuiPhone from './PhoneNumber'
+import SureModal from './SureModal'
 
 const Form = () => {
     const [open, setOpen] = useState(false)
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
+
+    console.log(phone)
 
     return (
         <Box
@@ -21,7 +25,7 @@ const Form = () => {
             }}
             data-aos='fade-left'
         >
-            {/* <SureModal open={open} setOpen={setOpen} /> */}
+            <SureModal open={open} setOpen={setOpen} />
             <Sticker />
             <Box className='flex flex-col justify-center items-center gap-4 w-full'>
                 <Typography variant='h5' textAlign='center' >
@@ -32,11 +36,7 @@ const Form = () => {
                     value={name}
                     setValue={setName}
                 />
-                <Field
-                    label="Номер телефона"
-                    value={phone}
-                    setValue={setPhone}
-                />
+                <MuiPhone value={phone} onChange={setPhone} />
                 <Button className='mt-4' color='secondary' variant='contained' onClick={() => setOpen(true)}>
                     Оставить заявку
                 </Button>

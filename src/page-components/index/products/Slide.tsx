@@ -9,14 +9,10 @@ import Link from 'next/link'
 const Slide = ({ product }: { product: TProduct }) => {
     return (
         <Box
-            className='h-full p-10 relative overflow-hidden flex gap-5 rounded-xl transition-all duration-300 cursor-pointer'
+            className='h-full p-10 relative overflow-hidden flex gap-5 rounded-xl'
             sx={{
                 width: '60vw',
                 boxShadow: '0 0 10px 5px rgba(0,0,0,.1)',
-                ':hover': {
-                    transform: 'scale(1.01)',
-                    boxShadow: '0 0 10px 5px rgba(0,0,0,.2)',
-                }
             }}
             data-aos='fade-up'
         >

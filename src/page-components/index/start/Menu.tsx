@@ -36,14 +36,14 @@ const Menu = () => {
                         О компании
                     </Typography>
                 </Link>
-                <Link href='#contacts_anchor'>
-                    <Typography className="animUnderline" sx={style}>
-                        Контакты
-                    </Typography>
-                </Link>
                 <Link href='#products_anchor'>
                     <Typography className="animUnderline" sx={style}>
                         Продукция
+                    </Typography>
+                </Link>
+                <Link href='#contacts_anchor'>
+                    <Typography className="animUnderline" sx={style}>
+                        Контакты
                     </Typography>
                 </Link>
             </Box>

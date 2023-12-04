@@ -5,7 +5,7 @@ import { getProduct } from '../../../../firebase/clientApp'
 import Start from '@/page-components/product/Start'
 import Plx from '@/services/Plx'
 import Bar from '@/components/layout/header/Bar/Bar'
-import DescriptionList from '@/components/UI/text/DescriptionList'
+import DescriptionList from '@/page-components/product/DescriptionList'
 import Gallery from '@/components/UI/Gallery'
 import Title from '@/components/UI/text/Title'
 import data from '@/../data/data.json'
@@ -53,8 +53,8 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 };
 
 export default async function Home({ params }: { params: { id: string } }) {
-    // const product = await getProduct(Number(params.id))
-    const product = data.products[Number(params.id)]
+    const product = await getProduct(Number(params.id))
+    // const product = data.products[Number(params.id)]
 
     return (
         <AOSProvider>
@@ -66,25 +66,45 @@ export default async function Home({ params }: { params: { id: string } }) {
                 <Container sx={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
-                        <Box className='ml-4 mt-6 grid grid-cols-2'>
+                        <Box className='ml-4 mt-6 grid grid-cols-2 gap-6'>
                             <DescriptionList props={product.props} fade gap={2} />
                             <Image
                                 alt='Продукт'
                                 src={product.mainImg}
                                 width={600}
                                 height={400}
-                                style={{ width: '100%', height: '100%' }}
+                                data-aos='fade-up'
+                                className='w-full rounded-xl shadow-md object-contain'
                             />
                         </Box>
                     </Box>
-                    <Box className='flex flex-col gap-8'>
+                </Container>
+                <Box className='flex flex-col gap-8 bg-stone-100'>
+                    <Image
+                        alt='Bg element'
+                        className='w-full drop-shadow-md mb-20'
+                        src='/bgelements/wave.svg'
+                        width={1920}
+                        height={100}
+                    />
+                    <Container sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                         <Title>Документы</Title>
                         <File type='word' name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»' />
                         <File type='excel' name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»' />
                         <File type='pdf' name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»' />
-                    </Box>
-                    <Gallery images={[product.mainImg, ...product.additionalImgs]} />
-                </Container>
+                    </Container>
+                    <Image
+                        alt='Bg element'
+                        className='w-full mt-20'
+                        style={{
+                            filter: 'drop-shadow(0 -4px 2px rgba(0, 0, 0, 0.1))',
+                        }}
+                        src='/bgelements/wave2.svg'
+                        width={1920}
+                        height={100}
+                    />
+                </Box>
+                <Gallery images={[product.mainImg, ...product.additionalImgs]} />
                 <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
                     <Contacts />
                 </Container>

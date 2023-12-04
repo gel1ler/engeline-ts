@@ -17,8 +17,8 @@ const PropsList = () => {
             </Typography>
             {fields.map((field, index) =>
                 <Box className='flex items-center gap-2' key={field.id}>
-                    <RHookFormSelect name={`props.${index}.icon`} valuesArr={iconsArr} defaultValue='diameter' />
-                    <RHookFormTextField label='Текст' name={`props.${index}.text`} />
+                    <RHookFormTextField label='Текст' name={`props.${index}.icon`} />
+                    <RHookFormTextField fullWidth label='Текст' name={`props.${index}.text`} />
                     <Button color='error' size='small' onClick={() => remove(index)}>
                         Удалить
                     </Button>

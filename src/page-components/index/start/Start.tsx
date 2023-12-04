@@ -11,26 +11,22 @@ import Form from '@/components/UI/forms/Form'
 import Menu from './Menu'
 import ArrowTextLink from '@/components/UI/text/ArrowTextLink'
 
-const direcrions: { id: number, text: string, link: string }[] = [
+const direcrions: { text: string, link: string }[] = [
     {
-        id: 0,
         text: 'Механическая обработка',
-        link: '/'
+        link: '/products/0'
     },
     {
-        id: 1,
-        text: 'Трубы обечаечные, корпуса, бандажи',
-        link: '/'
-    },
-    {
-        id: 2,
-        text: 'Изготовление отводов различных диаметров и углов',
-        link: '/'
-    },
-    {
-        id: 3,
         text: 'Емкостное оборудование',
-        link: '/'
+        link: '/products/1'
+    },
+    {
+        text: 'Изготовление отводов различных диаметров и углов',
+        link: '/products/2'
+    },
+    {
+        text: 'Трубы обечаечные, корпуса, бандажи',
+        link: '/products/3'
     }
 ]
 
@@ -63,10 +59,12 @@ const Start = () => {
                 />
                 <Box className='flex flex-col gap-10' data-aos='fade-right'>
                     {direcrions.map((i, key) =>
-                        <Typography variant='h5' className='trans' key={key}>
-                            <ArrowRightIcon fontSize='large' />
-                            {i.text}
-                        </Typography>
+                        <Link href={i.link} key={key}>
+                            <Typography variant='h5' className='trans'>
+                                <ArrowRightIcon fontSize='large' />
+                                {i.text}
+                            </Typography>
+                        </Link>
 
                     )}
                 </Box>
