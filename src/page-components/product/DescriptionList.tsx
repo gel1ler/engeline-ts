@@ -20,7 +20,7 @@ const DescriptionList = ({ props, fade, gap }: { props: TProp[], fade?: boolean,
 
                 return (
                     <Box className='flex flex-col gap-4' key={key}>
-                        <Box data-aos={fade ? 'fade-up' : null} className='flex gap-3'>
+                        <Box data-aos={fade ? 'fade-up' : null} className='flex gap-3' data-aos-offset='20'>
                             <Image
                                 src={i.icon}
                                 width={60}
@@ -32,7 +32,7 @@ const DescriptionList = ({ props, fade, gap }: { props: TProp[], fade?: boolean,
                                 {res}
                             </Typography>
                         </Box>
-                        {key === props.length - 1 ? null : <Divider data-aos='fade-up' />}
+                        {key === props.length - 1 ? null : <Divider data-aos='fade-up' data-aos-offset='20' />}
                     </Box>
                 )
             })}

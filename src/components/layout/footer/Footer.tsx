@@ -45,8 +45,8 @@ const Footer = () => {
                         Сайт
                     </Typography>
                     <Text href='/'>Главная</Text>
-                    <Text href='/agreement'>Продукция</Text>
-                    <Text href='/agreement'>Производсвто</Text>
+                    <Text href='/products'>Продукция</Text>
+                    <Text href='/prod'>Производство</Text>
                     <Text href='/agreement'>Пользовательское соглашение</Text>
                     <Text href='/privacy'>Персональные данные</Text>
                 </Box>

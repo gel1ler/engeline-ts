@@ -28,7 +28,7 @@ const Start = ({ product }: { product: TProduct }) => {
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    height: '100%'
+                    mb:10
                 }}
                 maxWidth={false}
             >

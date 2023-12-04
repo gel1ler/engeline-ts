@@ -20,7 +20,7 @@ const Form = () => {
             sx={{
                 width: '30vw',
                 minWidth: ['300px', '300px', '300px', '400px'],
-                maxWidth: ['400px', '400px', '900px'],
+                maxWidth: '500px',
                 bgcolor: 'primary.main'
             }}
             data-aos='fade-left'

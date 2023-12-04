@@ -1,7 +1,6 @@
 import React from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import AOSProvider from '@/services/AOSProvider'
-import { getProduct } from '../../../../firebase/clientApp'
 import Start from '@/page-components/product/Start'
 import Plx from '@/services/Plx'
 import Bar from '@/components/layout/header/Bar/Bar'
@@ -41,43 +40,18 @@ import { Metadata } from "next";
 import Image from 'next/image'
 import StaticHeader from '@/components/layout/header/types/StaticHeader'
 
-type Props = {
-    params: { id: string };
-};
 
-export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
-    const product = await getProduct(Number(params.id))
-
-    return {
-        title: product.name,
-    };
-};
-
-export default async function Home({ params }: { params: { id: string } }) {
-    const product = await getProduct(Number(params.id))
-    // const product = data.products[Number(params.id)]
-
+export default async function Home() {
     return (
         <AOSProvider>
             <StaticHeader />
             <Box position='relative'>
                 <Plx parallaxData={startParallax}>
-                    <Start product={product} />
                 </Plx>
                 <Container maxWidth='xl' sx={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
-                        <Box className='ml-4 mt-6 grid grid-cols-2 gap-8'>
-                            <DescriptionList props={product.props} fade gap={2} />
-                            <Image
-                                alt='Продукт'
-                                src={product.mainImg}
-                                width={600}
-                                height={400}
-                                data-aos='fade-up'
-                                className='w-full rounded-xl shadow-md object-contain'
-                            />
-                        </Box>
+                        
                     </Box>
                 </Container>
                 <Box className='flex flex-col gap-8 bg-stone-100'>
@@ -105,7 +79,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                         height={100}
                     />
                 </Box>
-                <Gallery images={[product.mainImg, ...product.additionalImgs]} />
+              
                 <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
                     <Contacts />
                 </Container>

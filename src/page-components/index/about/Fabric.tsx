@@ -19,7 +19,7 @@ const Fabric = async () => {
                 height={100}
             />
 
-            <Container>
+            <Container maxWidth='xl'>
                 <Title>
                     Первомайскхиммаш
                 </Title>

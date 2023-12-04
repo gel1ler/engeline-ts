@@ -4,7 +4,7 @@ import Bar from '../Bar/Bar'
 
 const StaticHeader = () => {
     return (
-        <AppBar position='static'>
+        <AppBar position='relative' sx={{zIndex: 1111}}>
             <Bar />
         </AppBar>
     )

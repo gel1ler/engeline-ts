@@ -25,7 +25,17 @@ const File = ({ name, type }: { name: string, type: 'word' | 'excel' | 'pdf' }) 
                 </Typography>
             </Box>
             <Button>
-                <Download color='secondary' fontSize='large' />
+                <Download
+                    color='secondary'
+                    sx={{
+                        transition: 'opacity .15s ease-out',
+                        opacity: .4,
+                        ':hover': {
+                            opacity: 1
+                        }
+                    }}
+                    fontSize='large'
+                />
             </Button>
         </Box>
     )

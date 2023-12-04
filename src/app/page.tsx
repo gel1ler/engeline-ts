@@ -67,7 +67,7 @@ export default function Home() {
         </Box>
         <Gallery images={['/advantages/lab.webp', '/advantages/antikor.jpg', '/advantages/control.jpg', '/advantages/lab.webp', '/advantages/lab.webp']} />
         <Box id='contacts_anchor' sx={{ pt: '30px', mt: '-30px' }}>
-          <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
+          <Container maxWidth='xl'>
             <Contacts />
           </Container>
         </Box>
