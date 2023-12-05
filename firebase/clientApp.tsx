@@ -125,7 +125,7 @@ export async function deleteImage(link: string) {
     }
 }
 
-export async function uploadImage(file: Blob, folderName: string) {
+export async function uploadImage(file: File, folderName: string) {
     const imagesRef = storageRef(st, `${folderName}/${file.name}`);
     const uploadTask = uploadBytesResumable(imagesRef, file);
 

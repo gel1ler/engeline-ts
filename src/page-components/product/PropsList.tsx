@@ -4,7 +4,7 @@ import { DiamIcon, RulerIcon, ThicknessIcon, VolumeIcon } from '@/components/ico
 import { TProp } from '@/globalTypes'
 import Image from 'next/image'
 
-const DescriptionList = ({ props, fade, gap }: { props: TProp[], fade?: boolean, gap?: number }) => {
+const PropsList = ({ props, fade, gap }: { props: TProp[], fade?: boolean, gap?: number }) => {
     if (!props) return 'asdf'
     return (
         <Box className='flex flex-col w-fit' sx={{ gap: gap ? gap : 2 }}>
@@ -41,4 +41,4 @@ const DescriptionList = ({ props, fade, gap }: { props: TProp[], fade?: boolean,
     )
 }
 
-export default DescriptionList
+export default PropsList

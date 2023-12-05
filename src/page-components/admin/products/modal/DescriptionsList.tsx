@@ -20,7 +20,7 @@ const DescriptionsList = () => {
                         <Box className='flex flex-col gap-6'>
                             <RHookFormTextField label='Название' name={`descriptions.${index}.title`} />
                             <RHookFormTextField label='Фото' name={`descriptions.${index}.photo`} />
-                            <RHookFormSelect name={`descriptions.${index}.align`} valuesArr={aligns} defaultValue={field.align} />
+                            <RHookFormSelect name={`descriptions.${index}.align`} valuesArr={aligns} defaultValue='left' />
                         </Box>
                         <RHookFormTextField fullWidth label='Текст' name={`descriptions.${index}.text`} />
                         <Button className='h-min' color='error' size='small' onClick={() => remove(index)}>

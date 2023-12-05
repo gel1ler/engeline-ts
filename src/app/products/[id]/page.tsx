@@ -1,11 +1,9 @@
 import React from 'react'
-import { Box, Container, Typography } from '@mui/material'
+import { Box, Container } from '@mui/material'
 import AOSProvider from '@/services/AOSProvider'
 import { getProduct } from '../../../../firebase/clientApp'
 import Start from '@/page-components/product/Start'
 import Plx from '@/services/Plx'
-import Bar from '@/components/layout/header/Bar/Bar'
-import DescriptionList from '@/page-components/product/DescriptionList'
 import Gallery from '@/components/UI/Gallery'
 import Title from '@/components/UI/text/Title'
 import data from '@/../data/data.json'
@@ -40,6 +38,7 @@ const startParallax = [
 import { Metadata } from "next";
 import Image from 'next/image'
 import StaticHeader from '@/components/layout/header/types/StaticHeader'
+import PropsList from '@/page-components/product/PropsList'
 
 type Props = {
     params: { id: string };
@@ -68,7 +67,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
                         <Box className='ml-4 mt-6 grid grid-cols-2 gap-8'>
-                            <DescriptionList props={product.props} fade gap={2} />
+                            <PropsList props={product.props} fade gap={2} />
                             <Image
                                 alt='Продукт'
                                 src={product.mainImg}
