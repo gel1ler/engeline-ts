@@ -66,11 +66,7 @@ export default function Home() {
           <AnotherAdavantages />
         </Box>
         <Gallery images={['/advantages/lab.webp', '/advantages/antikor.jpg', '/advantages/control.jpg', '/advantages/lab.webp', '/advantages/lab.webp']} />
-        <Box id='contacts_anchor' sx={{ pt: '30px', mt: '-30px' }}>
-          <Container maxWidth='xl'>
-            <Contacts />
-          </Container>
-        </Box>
+        <Contacts />
       </Box >
     </AOSProvider>
   )

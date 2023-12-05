@@ -59,7 +59,7 @@ const Start = () => {
                 />
                 <Box className='flex flex-col gap-10' data-aos='fade-right'>
                     {direcrions.map((i, key) =>
-                        <Link href={i.link} key={key}>
+                        <Link href={i.link} key={key} className='w-fit'>
                             <Typography variant='h5' className='trans'>
                                 <ArrowRightIcon fontSize='large' />
                                 {i.text}

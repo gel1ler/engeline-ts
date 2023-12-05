@@ -38,7 +38,7 @@ const startParallax = [
 import { Metadata } from "next";
 import Image from 'next/image'
 import StaticHeader from '@/components/layout/header/types/StaticHeader'
-import PropsList from '@/page-components/product/PropsList'
+import PropsList from '@/page-components/product/DescriptionList'
 
 type Props = {
     params: { id: string };
@@ -63,10 +63,10 @@ export default async function Home({ params }: { params: { id: string } }) {
                 <Plx parallaxData={startParallax}>
                     <Start product={product} />
                 </Plx>
-                <Container maxWidth='xl' sx={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw', display: 'flex', flexDirection: 'column', gap: 20 }} maxWidth={false} >
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
-                        <Box className='ml-4 mt-6 grid grid-cols-2 gap-8'>
+                        <Box className='ml-4 grid grid-cols-2 gap-8'>
                             <PropsList props={product.props} fade gap={2} />
                             <Image
                                 alt='Продукт'
@@ -105,9 +105,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                     />
                 </Box>
                 <Gallery images={[product.mainImg, ...product.additionalImgs]} />
-                <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
-                    <Contacts />
-                </Container>
+                <Contacts />
             </Box >
         </AOSProvider >
     )

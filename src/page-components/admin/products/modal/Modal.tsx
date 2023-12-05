@@ -37,7 +37,7 @@ const MyModal = ({ setOpen, open, folders, change, product }: Props) => {
         methods.reset(product)
         typeof product?.mainImg === 'string' && setMainImg(product.mainImg)
         product?.additionalImgs && setAdditionalImgs(product.additionalImgs)
-    }, [product])
+    }, [product, methods])
 
     const onSubmit: SubmitHandler<TInputs> = async (data) => {
         try {

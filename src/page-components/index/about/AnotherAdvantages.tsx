@@ -40,7 +40,7 @@ const arr = [
 export default function AnotherAdavantages() {
     return (
         <Box
-            className='grid gap-10'
+            className='grid gap-10 pt-4'
             sx={{
                 gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr']
             }}

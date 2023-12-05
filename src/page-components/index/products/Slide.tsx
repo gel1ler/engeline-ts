@@ -18,7 +18,7 @@ const Slide = ({ product }: { product: TProduct }) => {
         >
             <Box className='w-1/2 flex flex-col justify-between flex-grow '>
                 <Box>
-                    <Link href={'/products/' + product.id}>
+                    <Link href={'/products/' + product.id} className='w-fit'>
                         <Subtitle>
                             {product.name}
                         </Subtitle>

@@ -32,7 +32,7 @@ const Start = ({ product }: { product: TProduct }) => {
                 }}
                 maxWidth={false}
             >
-                <Box className=' flex flex-col gap-2'>
+                <Box className=' flex flex-col'>
                     <Typography color='GrayText' data-aos='fade-up'>
                         <Link href='/'>Главная</Link> → <Link href='/products'>Продукция</Link> → <Link href={`/products/${product.id}`}>{product.name}</Link>
                     </Typography>
@@ -46,7 +46,7 @@ const Start = ({ product }: { product: TProduct }) => {
                             variant='outlined'
                             size='large'
                             sx={{
-                                mt: 4
+                                mt: 3
                             }}
                             data-aos='fade-right'
                             data-aos-offset="20"

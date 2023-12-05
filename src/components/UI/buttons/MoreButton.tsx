@@ -8,7 +8,7 @@ const MoreButton = ({
     href: string, sx?: {}, dataAos?: string
 }) => {
     return (
-        <Link href={href}>
+        <Link href={href} className='w-fit'>
             <Button
                 color='secondary'
                 variant='outlined'
