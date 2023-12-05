@@ -7,7 +7,7 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 
 const Photo = ({ src, num, setCurrent, setOpen }: { src: string, num: number, setCurrent: TSetNumber, setOpen: TSetBool }) =>
-  <Grid item xs={6} data-aos='fade-up'>
+  <Grid item xs={12} md={6} data-aos='fade-up'>
     <Box
       className='relative overflow-hidden w-full h-full cursor-pointer'
       onClick={() => {
@@ -42,9 +42,9 @@ const Gallery = ({ images }: { images: string[] }) => {
           open={open}
           setOpen={setOpen}
         />
-        <Grid container spacing={1} sx={{ height: '70vh' }}>
+        <Grid container spacing={1} sx={{ height: ['100vh', '100vh', '100vh', '70vh'] }}>
           <Photo src={images[0]} num={0} setCurrent={setCurrent} setOpen={setOpen} />
-          <Grid item container xs={6} spacing={1}>
+          <Grid item container md={12} lg={6} spacing={1}>
             {images.slice(1).map((i, key) =>
               <Photo
                 key={key}

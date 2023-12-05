@@ -13,23 +13,25 @@ const Slide = ({ product }: { product: TProduct }) => {
             sx={{
                 width: '60vw',
                 boxShadow: '0 0 10px 5px rgba(0,0,0,.1)',
+                flexDirection: ['column', 'column', 'row'],
+                alignItems: ['center', 'center', 'initial']
             }}
             data-aos='fade-up'
         >
-            <Box className='w-1/2 flex flex-col justify-between flex-grow '>
+            <Box className='flex flex-col justify-between' sx={{ width: ['100%', '100%', '50%'] }}>
                 <Box>
                     <Link href={'/products/' + product.id} className='w-fit'>
                         <Subtitle>
                             {product.name}
                         </Subtitle>
                     </Link>
-                    <Typography data-aos='fade-up' sx={{ mt: 2 }}>
+                    <Typography data-aos='fade-up' sx={{ mt: 2, display: ['none', 'none', 'block'] }}>
                         {product.shortDescription}
                     </Typography>
                 </Box>
-                <MoreButton href={'/products/' + product.id} dataAos='fade-up' />
+                <MoreButton href={'/products/' + product.id} dataAos='fade-up' sx={{ display: ['none', 'none', 'block'] }} />
             </Box>
-            <Box className='w-1/2 rounded-xl overflow-hidden relative drop-shadow-md' data-aos='fade-left'>
+            <Box className='rounded-xl overflow-hidden relative drop-shadow-md' data-aos='fade-left' sx={{ width: ['100%', '100%', '50%'] }}>
                 <Image
                     alt='Product png photo'
                     src={product.mainImg}
@@ -38,6 +40,7 @@ const Slide = ({ product }: { product: TProduct }) => {
                     className='object-cover w-full h-full'
                 />
             </Box>
+            <MoreButton href={'/products/' + product.id} dataAos='fade-up' sx={{ display: ['block', 'block', 'none'] }} />
         </Box>
 
     )

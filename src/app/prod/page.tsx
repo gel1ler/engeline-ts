@@ -1,11 +1,8 @@
 import React from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import AOSProvider from '@/services/AOSProvider'
-import Start from '@/page-components/product/Start'
+import Start from '@/page-components/prod/Start'
 import Plx from '@/services/Plx'
-import Bar from '@/components/layout/header/Bar/Bar'
-import DescriptionList from '@/page-components/product/DescriptionList'
-import Gallery from '@/components/UI/Gallery'
 import Title from '@/components/UI/text/Title'
 import data from '@/../data/data.json'
 import File from '@/page-components/product/File'
@@ -47,11 +44,12 @@ export default async function Home() {
             <StaticHeader />
             <Box position='relative'>
                 <Plx parallaxData={startParallax}>
+                    <Start />
                 </Plx>
                 <Container maxWidth='xl' sx={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
-                        
+
                     </Box>
                 </Container>
                 <Box className='flex flex-col gap-8 bg-stone-100'>
@@ -79,7 +77,7 @@ export default async function Home() {
                         height={100}
                     />
                 </Box>
-              
+
                 <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
                     <Contacts />
                 </Container>

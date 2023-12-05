@@ -4,15 +4,12 @@ import Title from '@/components/UI/text/Title'
 import Slider from './Slider'
 import data from '@/../data/data.json' assert {type: 'json'}
 import { TProduct } from '@/globalTypes'
-import Link from 'next/link'
-import { Typography } from '@mui/material'
-import { ArrowForwardIos } from '@mui/icons-material'
 import { getProducts } from '../../../../firebase/clientApp'
 import ArrowTextLink from '@/components/UI/text/ArrowTextLink'
 
 const Products = async () => {
-    // const products = data.products as TProduct[]
-    const products = await getProducts()
+    const products = data.products as TProduct[]
+    // const products = await getProducts()
 
     const arr = products.slice(-2).reverse().concat(products.slice(0, 3))
 

@@ -9,10 +9,10 @@ const Subtitle = ({
     return (
         <Typography
             variant={variant ? variant : 'h4'}
-            textAlign={centered ? 'center' : 'left'}
             sx={{
                 mx: right ? null : centered ? 'auto' : ['auto', 'auto', 0],
                 ml: 'auto',
+                textAlign: centered ? 'center' : ['center', 'center', 'left'],
                 textDecoration: 'underline',
                 textDecorationColor: '#E5A019',
                 textUnderlineOffset: '8px',

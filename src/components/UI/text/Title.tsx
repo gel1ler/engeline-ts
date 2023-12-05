@@ -2,17 +2,19 @@ import Typography from '@mui/material/Typography'
 import React, { ReactNode } from 'react'
 
 const Title = ({
-    children, centered, right
+    children, centered, right, h2
 }: {
-    children: ReactNode, centered?: boolean, right?: boolean,
+    children: ReactNode, centered?: boolean, right?: boolean, h2?: boolean
 }) => {
     return (
         <Typography
-            variant='h3'
+            variant={h2 ? 'h2' : 'h3'}
             textAlign={centered ? 'center' : 'left'}
             sx={{
                 mx: right ? null : centered ? 'auto' : ['auto', 'auto', 0],
                 mb: 3,
+                textAlign: centered ? 'center' : ['center', 'center', 'left'],
+                width: 'fit-content',
                 textDecoration: 'underline',
                 textDecorationColor: '#E5A019',
                 textUnderlineOffset: '10px',

@@ -19,7 +19,7 @@ const Slider = ({ products }: { products: TProduct[] }) => {
 
     return (
         <Box
-            className='w-screen relative py-5 outline-none'
+            className='w-screen relative py-5 outline-none overflow-hidden'
             tabIndex={0}
             onKeyDown={(e) => keyboardHandler(e)}
         >
