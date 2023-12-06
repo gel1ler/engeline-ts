@@ -4,7 +4,6 @@ import { AppBar } from '@mui/material'
 import Bar from '../Bar/Bar'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import { headerProps } from '@/customization/customization'
-import StartBar from '../Bar/StartBar'
 
 const scrollHeight: number | undefined = headerProps.scrollHeight
 
@@ -35,7 +34,7 @@ const ScrolledHeader = () => {
                     boxShadow: '0 0 5px 2px rgba(0,0,0,.1)'
                 }}
             >
-                <StartBar />
+                <Bar />
             </AppBar>
             <AppBar
                 elevation={0}

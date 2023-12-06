@@ -35,13 +35,10 @@ const startParallax = [
 
 import { Metadata } from "next";
 import Image from 'next/image'
-import StaticHeader from '@/components/layout/header/types/StaticHeader'
-
 
 export default async function Home() {
     return (
         <AOSProvider>
-            <StaticHeader />
             <Box position='relative'>
                 <Plx parallaxData={startParallax}>
                     <Start />

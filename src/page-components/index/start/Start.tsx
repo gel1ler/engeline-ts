@@ -37,7 +37,7 @@ const Start = () => {
         <Box
             className='flex items-center justify-around mx-auto'
             sx={{
-                height: 'calc(100vh - 2rem)',
+                height: 'calc(100vh - 7rem)',
                 maxWidth: '1400px',
                 p: [3, 3, 10, 4]
             }}
@@ -75,7 +75,7 @@ const Start = () => {
             </Box>
             <Box
                 sx={{
-                    height: '85vh',
+                    height: '75vh',
                     alignItems: 'flex-end',
                     display: ['none', 'none', 'none', 'flex'],
                     p: 2

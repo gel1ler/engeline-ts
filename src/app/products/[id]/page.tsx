@@ -58,7 +58,6 @@ export default async function Home({ params }: { params: { id: string } }) {
 
     return (
         <AOSProvider>
-            <StaticHeader />
             <Box position='relative'>
                 <Plx parallaxData={startParallax}>
                     <Start product={product} />

@@ -9,6 +9,7 @@ import TopHeader from '../topHeader/TopHeader'
 import Link from 'next/link'
 import NavLinks from './NavLinks'
 import { mainInfo } from '@/content/content'
+import Login from '@/components/UI/buttons/Login'
 
 const Bar = ({ noBg, onlyTop }: { noBg?: boolean, onlyTop?: boolean }) => {
   const isFullwidth: string = headerProps.fullwidth ? '' : ' max-w-7xl mx-auto'
@@ -30,29 +31,10 @@ const Bar = ({ noBg, onlyTop }: { noBg?: boolean, onlyTop?: boolean }) => {
           </Link>
           <Box className='flex gap-10'>
             <Box className='gap-10' sx={{ display: ['none', 'none', 'flex'] }}>
-
-              {/* Navigation */}
-              {headerProps.links ?
-                <NavLinks hoverType='animUnderline' />
-                : null
-              }
-
-              {/* Social networks */}
-              {headerProps.contacts ?
-                <Box className='flex gap-3 items-center'>
-                  <VkIcon />
-                  <TelegramIcon />
-                  <PhoneCall icon />
-                </Box>
-                : null
-              }
-
-              {/* Menu */}
+              <NavLinks />
+              <Login />
             </Box>
-            {headerProps.menu ?
-              <MyDrawer />
-              : null
-            }
+            <MyDrawer />
           </Box>
         </Toolbar>
       }

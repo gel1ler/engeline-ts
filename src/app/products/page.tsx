@@ -19,26 +19,23 @@ export default async function Home() {
 
   return (
     <AOSProvider>
-      <Box className='relative'>
-        <StaticHeader />
-        <Container className='my-16'>
-          <Title>
-            Продукция и услуги
-          </Title>
-          <Grid container spacing={2}>
-            {products.map(product =>
-              <Grid
-                xs={12}
-                md={6}
-                item
-                key={product.id}
-              >
-                <ProductCard product={product} />
-              </Grid>
-            )}
-          </Grid>
-        </Container>
-      </Box >
+      <Container className='my-16'>
+        <Title>
+          Продукция и услуги
+        </Title>
+        <Grid container spacing={2}>
+          {products.map(product =>
+            <Grid
+              xs={12}
+              md={6}
+              item
+              key={product.id}
+            >
+              <ProductCard product={product} />
+            </Grid>
+          )}
+        </Grid>
+      </Container>
     </AOSProvider >
   )
 }
