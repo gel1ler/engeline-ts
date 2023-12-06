@@ -14,7 +14,7 @@ const MyDrawer = () => {
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
     return (
-        <>
+        <Box sx={{ display: ['block', 'block', 'none'] }}>
             <MenuIcon setOpen={() => setOpen(true)} />
             <Drawer open={open} onClose={() => setOpen(false)} anchor={isSmallScreen ? 'top' : 'right'}>
                 <Box
@@ -38,7 +38,7 @@ const MyDrawer = () => {
                     </Box>
                 </Box>
             </Drawer >
-        </>
+        </Box>
     )
 }
 

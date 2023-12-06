@@ -2,7 +2,6 @@
 import React, { useState } from 'react'
 import Sticker from '@/components/icons/sticker'
 import { Typography, TextField, Button, Box } from '@mui/material'
-// import SureModal from './SureModal'
 import Field from './Field'
 import MuiPhone from './PhoneNumber'
 import SureModal from './SureModal'
@@ -12,15 +11,12 @@ const Form = () => {
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
 
-    console.log(phone)
 
     return (
         <Box
             className="shadow rounded-md p-8 relative"
             sx={{
-                width: '30vw',
-                minWidth: ['300px', '300px', '300px', '400px'],
-                maxWidth: '500px',
+                width: ['350px', '400px', '500px'],
                 bgcolor: 'primary.main'
             }}
             data-aos='fade-left'

@@ -1,69 +1,66 @@
-import { navigation } from '@/content/content'
+import { ArrowDropDown } from '@mui/icons-material';
 import { Box, Typography } from '@mui/material'
 import Link from 'next/link'
-import React, { CSSProperties } from 'react'
-
-type THoverType = 'opacity' | 'color' | 'underline' | 'animUnderline' | 'bold'
+import React from 'react'
 
 interface IText {
     children: string;
-    hoverType: THoverType;
 }
 
-const Text = ({ children, hoverType }: IText) => {
-    let styles: any = {
-        fontSize: 18,
-    }
+const Text = ({ children }: IText) =>
+    <Typography
+        className={'transition-all duration-200'}
+        sx={{
+            fontSize: 14,
+            ':hover': {
+                color: 'secondary.main'
+            }
+        }}
+    >
+        {children.toUpperCase()}
+    </Typography >
 
-    switch (hoverType) {
-        case 'opacity':
-            styles = { ...styles, ':hover': { opacity: '.3' } }
-            break
-
-        case 'color':
-            styles = { ...styles, ':hover': { color: 'red' } }
-            break
-
-        case 'underline':
-            styles = { ...styles, ':hover': { textDecoration: 'underline' } }
-            break
-
-        case 'animUnderline':
-            break
-        case 'bold':
-            styles = { ...styles, ':hover': { textShadow: '0 0 .65px #333, 0 0 .65px #333' } }
-
-
-    }
+const DropDown = ({ children }: IText) =>
+    <Typography
+        className='transition-all duration-200 flex items-center'
+        sx={{
+            fontSize: 14,
+            ':hover': {
+                color: 'secondary.main',
+                '.icon-228': {
+                    transform: 'rotate(-180deg)'
+                }
+            }
+        }}
+    >
+        {children.toUpperCase()}
+        <ArrowDropDown className='icon-228' sx={{ transition: 'transform .2s ease-out' }} />
+    </Typography >
 
 
-    return (
-        <Typography
-            className={'transition-all duration-200 ' + hoverType}
-            sx={styles}
-        >
-            {children}
-        </Typography>
-    )
-}
-
-const NavLinks = ({ hoverType }: { hoverType: THoverType }) => {
+const NavLinks = () => {
     return (
         <Box className='flex gap-12 items-center'>
-            {navigation.map(i =>
-                i.anchorLink ?
-                    <a key={i.id} href={i.href}>
-                        <Text hoverType={hoverType}>
-                            {i.name}
-                        </Text>
-                    </a>
-                    :
-                    <Link key={i.id} href={i.href}>
-                        <Text hoverType={hoverType}>
-                            {i.name}
-                        </Text>
-                    </Link>
-            )}
+            <Link href='/'>
+                <Text>
+                    Главная
+                </Text>
+            </Link>
+            <Link href='/prod'>
+                <DropDown>
+                    Производсвто
+                </DropDown>
+            </Link>
+            <Link href='/products'>
+                <DropDown>
+                    Продукция
+                </DropDown>
+            </Link>
+            <Link href='#contacts_anchor'>
+                <Text>
+                    Контакты
+                </Text>
+            </Link>
         </Box >
     )
 }

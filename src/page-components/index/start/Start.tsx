@@ -10,6 +10,7 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight'
 import Form from '@/components/UI/forms/Form'
 import Menu from './Menu'
 import ArrowTextLink from '@/components/UI/text/ArrowTextLink'
+import GetCall from '@/components/UI/forms/GetCall'
 
 const direcrions: { text: string, link: string }[] = [
     {
@@ -82,6 +83,7 @@ const Start = () => {
             >
                 <Form />
             </Box>
+
             <video
                 className='absolute left-0 top-0 h-full w-full object-cover -z-50 pointer-events-none'
                 autoPlay
@@ -90,7 +92,6 @@ const Start = () => {
             >
                 <source src='/bgVideo.mp4' type="video/mp4" />
             </video>
-            <Menu />
         </Box>
     )
 }

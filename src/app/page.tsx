@@ -12,6 +12,7 @@ import Gallery from '@/components/UI/Gallery'
 import Bar from '@/components/layout/header/Bar/Bar'
 import { Metadata } from 'next'
 import Loader from '@/components/layout/loader'
+import GetCall from '@/components/UI/forms/GetCall'
 
 export const metadata: Metadata = {
   title: 'Инжелайн - производственное предприятие',
@@ -47,8 +48,8 @@ export default function Home() {
 
   return (
     <AOSProvider>
+      <GetCall />
       <Box className='relative w-screen'>
-        <Bar onlyTop />
         <Plx parallaxData={startParallax}>
           <Start />
         </Plx>
