@@ -5,6 +5,7 @@ import { Box, Button, Container, Typography } from '@mui/material'
 import Image from 'next/image'
 import Title from '@/components/UI/text/Title'
 import Link from 'next/link'
+import MoreButton from '@/components/UI/buttons/MoreButton'
 
 const Start = () => {
     return (
@@ -37,20 +38,10 @@ const Start = () => {
                     <Typography variant='h6' className='w-1/2' data-aos='fade-up'>
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum exercitationem cum accusantium quibusdam. Ipsum, alias error saepe corrupti dignissimos beatae odit itaque consequuntur porro rerum voluptas rem ex ducimus vitae tempore eius sapiente, natus atque molestiae numquam sit! Dolore, incidunt?
                     </Typography>
-                    <Link href='#order_anchor'>
-                        <Button
-                            color='secondary'
-                            variant='outlined'
-                            size='large'
-                            sx={{
-                                mt: 3
-                            }}
-                            data-aos='fade-right'
-                            data-aos-offset="20"
-                        >
-                            оформить заказ
-                        </Button >
-                    </Link >
+                    <MoreButton
+                        sx={{ mt: 2 }}
+                        href='#about_anchor'
+                    />
                 </Box>
             </Container >
         </Box>

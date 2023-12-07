@@ -13,15 +13,14 @@ body {
   min-width: 400px
 }
 
-h1 {
-  font-size: 5.9vw;
-}
-
-h3 {
-  font-size: 3.0vh;
+li {
+  list-style: disc;
+  margin-left: 2rem
 }
 
 .anchor {
   padding-top: 130px;
   margin-top: -130px;
 }
+
+.aw>li {margin-top: 8px;}

@@ -11,7 +11,7 @@ const Title = ({
             variant={h2 ? 'h2' : 'h3'}
             textAlign={centered ? 'center' : 'left'}
             sx={{
-                mx: right ? null : centered ? 'auto' : ['auto', 'auto', 0],
+                mx: centered ? 'auto' : ['auto', 'auto', 0],
                 mb: 3,
                 textAlign: centered ? 'center' : ['center', 'center', 'left'],
                 width: 'fit-content',

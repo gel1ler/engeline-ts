@@ -32,7 +32,7 @@ const Text = ({ children, href, noUpper }: IText) => (
 )
 
 const Menu = ({ links, isVisible }: { links: TLinks[], isVisible: boolean }) =>
-    <Box className=' overflow-hidden h-1 -mt-1'>
+    <Box className=' overflow-hidden'>
         <Box
             className='bg-white opacity-0 absolute flex flex-col gap-4 transition-all duration-300 w-max p-6 top-full'
             sx={{
