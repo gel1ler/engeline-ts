@@ -5,7 +5,7 @@ import { TProp } from '@/globalTypes'
 import Image from 'next/image'
 
 const PropsList = ({ props, fade, gap }: { props: TProp[], fade?: boolean, gap?: number }) => {
-    if (!props) return 'asdf'
+    if (!props) return ''
     return (
         <Box className='flex flex-col w-fit' sx={{ gap: gap ? gap : 2 }}>
             {props.map((i, key) => {

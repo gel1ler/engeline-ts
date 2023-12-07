@@ -9,7 +9,7 @@ import Loading from '../Loading'
 import AlertDialog from '../Alert'
 
 type TInputs = {
-    name: string
+    orgName: string
     phoneNumber: string
 }
 
@@ -50,7 +50,7 @@ const Form = () => {
                         <Typography variant='h5' textAlign='center' >
                             Обратный звонок
                         </Typography>
-                        <RHookFormTextField label='Наименование организации' name='name' fullWidth />
+                        <RHookFormTextField label='Наименование организации' name='orgName' fullWidth />
                         <MuiPhone value={phone} onChange={setPhone} />
                         <Button className='mt-4 w-fit' color='secondary' variant='contained' type='submit'>
                             Оставить заявку

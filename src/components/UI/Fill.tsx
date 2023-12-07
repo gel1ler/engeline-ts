@@ -26,7 +26,7 @@ const Fill = ({
     let bg = ''
     switch (type) {
         case 'centered':
-            bg = `linear-gradient(${anchor},${theme.palette.primary.main}, rgba(${rgb?.r},${rgb?.g},${rgb?.b},.4), ${theme.palette.background.default})`
+            bg = `linear-gradient(${anchor},white, transparent 25% 75%, white)`
             break
         case 'to anchor':
             bg = `linear-gradient(${anchor},${color ? color : theme.palette.primary.main} ${prc ? prc + '%' : ''}, transparent)`

@@ -89,20 +89,16 @@ const NavLinks = () => {
                 href='/prod'
                 links={[
                     {
-                        text: 'Механическая обработка',
-                        href: '/products/0'
+                        text: 'Первомайскхиммаш',
+                        href: '/prod#factory_anchor'
                     },
                     {
-                        text: 'Емкостное оборудование',
-                        href: '/products/1'
+                        text: 'Антикоррозийное покрытие',
+                        href: '/prod#ac_anchor'
                     },
                     {
-                        text: 'Изготовление отводов различных диаметров и углов',
-                        href: '/products/2'
-                    },
-                    {
-                        text: 'Трубы обечаечные, корпуса, бандажи',
-                        href: '/products/3'
+                        text: 'Лаборатория',
+                        href: '/prod#lab_anchor'
                     },
                 ]}
             >
@@ -133,7 +129,7 @@ const NavLinks = () => {
                     },
                 ]}
             >
-                Продукция
+                Продукция и услуги
             </DropDown>
             <Text href='#contacts_anchor'>
                 Контакты

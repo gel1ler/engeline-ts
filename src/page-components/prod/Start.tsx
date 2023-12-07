@@ -34,7 +34,7 @@ const Start = () => {
                 maxWidth={false}
             >
                 <Box className=' flex flex-col'>
-                    <Title h2>Производство</Title>
+                    <Title variant='h2'>Производство</Title>
                     <Typography variant='h6' className='w-1/2' data-aos='fade-up'>
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum exercitationem cum accusantium quibusdam. Ipsum, alias error saepe corrupti dignissimos beatae odit itaque consequuntur porro rerum voluptas rem ex ducimus vitae tempore eius sapiente, natus atque molestiae numquam sit! Dolore, incidunt?
                     </Typography>

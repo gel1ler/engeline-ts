@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container } from '@mui/material'
+import { Box, Container, Typography } from '@mui/material'
 import AOSProvider from '@/services/AOSProvider'
 import { getProduct } from '../../../../firebase/clientApp'
 import Start from '@/page-components/product/Start'
@@ -66,7 +66,12 @@ export default async function Home({ params }: { params: { id: string } }) {
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
                         <Box className='ml-4 grid grid-cols-2 gap-8'>
-                            <PropsList props={product.props} fade gap={2} />
+                            <Box>
+                                <Typography variant='h6' sx={{ mb: 3 }} data-aos='fade-up'>
+                                    {product.shortDescription}
+                                </Typography>
+                                <PropsList props={product.props} fade gap={2} />
+                            </Box>
                             <Image
                                 alt='Продукт'
                                 src={product.mainImg}
@@ -88,9 +93,18 @@ export default async function Home({ params }: { params: { id: string } }) {
                     />
                     <Container sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                         <Title>Документы</Title>
-                        <File type='word' name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»' />
-                        <File type='excel' name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»' />
-                        <File type='pdf' name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»' />
+                        <File
+                            href='https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/docs%2FИнжелайн%20презентация%20(1).pdf?alt=media&token=7e436434-6601-4609-a374-932a4c82bfe6'
+                            name='Презентация "ООО ИНЖЕЛАЙН"'
+                        />
+                        <File
+                            href='https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/docs%2FИнжелайн%20презентация%20(1).pdf?alt=media&token=7e436434-6601-4609-a374-932a4c82bfe6'
+                            name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»'
+                        />
+                        <File
+                            href='https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/docs%2FИнжелайн%20презентация%20(1).pdf?alt=media&token=7e436434-6601-4609-a374-932a4c82bfe6'
+                            name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»'
+                        />
                     </Container>
                     <Image
                         alt='Bg element'

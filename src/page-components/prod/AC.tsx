@@ -5,9 +5,8 @@ import React from 'react'
 
 const AC = () => {
     return (
-        <Box className='my-20'>
+        <Box  className='anchor my-5' id='ac_anchor'>
             <Title centered>Антикоррозийное покрытие</Title>
-
             <Typography variant='h6' textAlign='center' data-aos='fade-up'>
                 Все виды изделий могут проходить антикоррозийную обработку методом безвоздушной
                 окраски в покрасочной камере, в том числе изоляцией типа «Карбофлекс»
@@ -19,8 +18,8 @@ const AC = () => {
             <Grid container sx={{ mt: 1 }} spacing={4} data-aos='fade-up'>
                 <Grid item md={4}>
                     <Image
-                        className='rounded-xl object-cover h-full'
-                        src='/prod/AC1.jpeg'
+                        className='rounded-xl object-cover h-full shadow-xl'
+                        src='/prod/AC/AC1.jpeg'
                         width={500}
                         height={350}
                         alt='Антикор'
@@ -28,8 +27,8 @@ const AC = () => {
                 </Grid>
                 <Grid item md={4}>
                     <Image
-                        className='rounded-xl object-cover h-full'
-                        src='/prod/AC2.jpg'
+                        className='rounded-xl object-cover h-full shadow-xl'
+                        src='/prod/AC/AC2.jpg'
                         width={500}
                         height={350}
                         alt='Антикор'
@@ -37,8 +36,8 @@ const AC = () => {
                 </Grid>
                 <Grid item md={4}>
                     <Image
-                        className='rounded-xl object-cover h-full'
-                        src='/prod/AC3.jpg'
+                        className='rounded-xl object-cover h-full shadow-xl'
+                        src='/prod/AC/AC3.jpg'
                         width={500}
                         height={350}
                         alt='Антикор'

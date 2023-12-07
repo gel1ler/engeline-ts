@@ -42,7 +42,7 @@ const Start = () => {
                 mt:3
             }}
         >
-            <Fill anchor='to top' type='to anchor' />
+            <Fill anchor='to top' type='centered' />
             <Fill anchor='to right' prc={40} type='to anchor' />
             <Box className='flex flex-col gap-12 justify-center my-auto' sx={{ width: ['90%', '100%'] }}>
                 <Image

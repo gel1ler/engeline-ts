@@ -8,33 +8,27 @@ const arr = [
     {
         name: 'Собственная лаборатория',
         text: 'Наши специалисты осуществляют комплексные испытания материалов и изделий, чтобы гарантировать их соответствие стандартам и требованиям качества.',
-        image: '/advantages/lab.webp'
+        image: '/advantages/lab.webp',
+        href: '/prod#lab_anchor'
     },
     {
         name: 'Антикоррозийное покрытие',
         text: 'Все виды изделий могут проходить антикоррозийную обработку методом безвоздушной окраски в покрасочной камере, в том числе изоляцией типа «Карбофлекс».',
-        image: '/advantages/antikor.jpg'
-    },
-    {
-        name: 'Контроль качества',
-        text: 'Производство емкостного оборудования рассчитанного на высокое давление предъявляет требования к методам контроля сварных соединений и изоляции.',
-        image: '/advantages/control.jpg'
+        image: '/advantages/antikor.jpg',
+        href: '/prod#ac_anchor'
     },
     {
         name: 'Заготовительное произодство',
         text: 'Технологические возможности заготовительного производства позволяют нам самостоятельно выполнять все этапы производства, гарантируя высокий уровень контроля и эффективность процесса.',
-        image: '/advantages/plazma.jpg'
+        image: '/advantages/plazma.jpg',
+        href: '/prod#ac_anchor'
     },
     {
         name: 'Разработка документаций',
         text: 'Технологические возможности заготовительного производства позволяют нам самостоятельно выполнять все этапы производства, гарантируя высокий уровень контроля и эффективность процесса.',
-        image: '/advantages/docs.jpeg'
+        image: '/advantages/docs.jpeg',
+        href: '/prod#ac_anchor'
     },
-    {
-        name: 'Наличие сертификатов',
-        text: 'Технологические возможности заготовительного производства позволяют нам самостоятельно выполнять все этапы производства, гарантируя высокий уровень контроля и эффективность процесса.',
-        image: '/advantages/sertificate.jpg'
-    }
 ]
 
 export default function AnotherAdavantages() {
@@ -69,7 +63,7 @@ export default function AnotherAdavantages() {
                         <Typography data-aos='fade-up' variant='subtitle1' textAlign='center'>
                             {i.text}
                         </Typography>
-                        <MoreButton dataAos='fade-up' href='/' sx={{ px: 2, py: 1, mt: 'auto' }} />
+                        <MoreButton dataAos='fade-up' href={i.href} sx={{ px: 2, py: 1, mt: 'auto' }} />
                     </Box>
                     <Fill anchor='to top' type='to anchor' color='rgba(0,0,0,.2)' />
                 </Box>

@@ -49,7 +49,7 @@ const Footer = () => {
                             <Typography variant='h6' fontWeight='bold'>
                                 Информация
                             </Typography>
-                            <Text href='/'>Карта сайта</Text>
+                            <Text href='/sitemap'>Карта сайта</Text>
                             <Text href='/agreement'>Пользовательское соглашение</Text>
                             <Text href='/privacy'>Персональные данные</Text>
                         </Box>

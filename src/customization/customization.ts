@@ -10,7 +10,7 @@ export const colors: IColors = {
 
 export const headerProps: IHeaderProps = {
     type: 'scrolled',
-    scrollHeight: 0.7,
+    scrollHeight: 0.5,
     remHeight: 7,
     topHeader: true,
     withShadow: true,
@@ -18,10 +18,32 @@ export const headerProps: IHeaderProps = {
     links: true,
 }
 
-
-
-
 export const footerProps: IFooterProps = {
     type: 'simple',
     logo: true
 }
+
+export const startParallax = [
+    {
+        start: 0,
+        end: '50vh',
+        properties: [
+            {
+                startValue: 1,
+                endValue: 0,
+                property: "opacity",
+            }
+        ]
+    },
+    {
+        start: 0,
+        end: '100vh',
+        properties: [
+            {
+                startValue: 0,
+                endValue: -400,
+                property: "translateY",
+            },
+        ]
+    }
+]

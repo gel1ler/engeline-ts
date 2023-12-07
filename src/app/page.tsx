@@ -13,39 +13,14 @@ import Bar from '@/components/layout/header/Bar/Bar'
 import { Metadata } from 'next'
 import Loader from '@/components/layout/loader'
 import GetCall from '@/components/UI/forms/GetCall'
+import { startParallax } from '@/customization/customization'
 
 export const metadata: Metadata = {
   title: 'Инжелайн - производственное предприятие',
   description: 'Инжелайн - производственное предприятие',
 }
 
-
 export default function Home() {
-  const startParallax = [
-    {
-      start: 0,
-      end: '50vh',
-      properties: [
-        {
-          startValue: 1,
-          endValue: 0,
-          property: "opacity",
-        }
-      ]
-    },
-    {
-      start: 0,
-      end: '100vh',
-      properties: [
-        {
-          startValue: 0,
-          endValue: -400,
-          property: "translateY",
-        },
-      ]
-    }
-  ]
-
   return (
     <AOSProvider>
       <GetCall />
@@ -66,7 +41,7 @@ export default function Home() {
           </Title>
           <AnotherAdavantages />
         </Box>
-        <Gallery images={['/advantages/lab.webp', '/advantages/antikor.jpg', '/advantages/control.jpg', '/advantages/lab.webp', '/advantages/lab.webp']} />
+        <Gallery images={['/1.jpg', '/advantages/antikor.jpg', '/2.jpg', '/advantages/plazma.jpg', '/general.jpg']} />
         <Contacts />
       </Box >
     </AOSProvider>

@@ -1,44 +1,22 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Box, Container, Grid, Typography } from '@mui/material'
 import AOSProvider from '@/services/AOSProvider'
 import Start from '@/page-components/prod/Start'
 import Plx from '@/services/Plx'
 import Title from '@/components/UI/text/Title'
-import data from '@/../data/data.json'
-import File from '@/page-components/product/File'
 import Contacts from '@/page-components/index/Contacts'
-
-const startParallax = [
-    {
-        start: 0,
-        end: '50vh',
-        properties: [
-            {
-                startValue: 1,
-                endValue: 0,
-                property: "opacity",
-            }
-        ]
-    },
-    {
-        start: 0,
-        end: '100vh',
-        properties: [
-            {
-                startValue: 0,
-                endValue: -400,
-                property: "translateY",
-            },
-        ]
-    }
-]
-
-import { Metadata } from "next";
 import Image from 'next/image'
 import Advantages from '@/page-components/prod/Advantages'
-import Zag from '@/page-components/prod/Zag'
-import AW from '@/page-components/prod/AW'
 import AC from '@/page-components/prod/AC'
+import { ArrowDropUp } from '@mui/icons-material'
+import Lab from '@/page-components/prod/Lab'
+import { startParallax } from '@/customization/customization'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Инжелайн - производство',
+    description: 'Инжелайн - производственное предприятие',
+}
 
 export default async function Home() {
     return (
@@ -47,7 +25,7 @@ export default async function Home() {
                 <Plx parallaxData={startParallax}>
                     <Start />
                 </Plx>
-                <Container maxWidth='lg' sx={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <Container maxWidth='lg' sx={{ display: 'flex', flexDirection: 'column', gap: 10 }} className='anchor' id='factory_anchor'>
                     <Box className='flex flex-col'>
                         <Title>Первомайскхиммаш</Title>
                         <Box
@@ -72,13 +50,18 @@ export default async function Home() {
                         </Box>
                     </Box>
                     <Advantages />
-                    <Zag />
-                    <AW />
                 </Container>
-                <Box className='flex flex-col gap-8 bg-stone-100'>
+                <Box className='flex flex-col gap-8 relative'>
+                    <Image
+                        fill
+                        src='/prod/AC/AC2.jpg'
+                        alt='Антикор'
+                        className=' -z-50 opacity-10'
+                    />
+
                     <Image
                         alt='Bg element'
-                        className='w-full drop-shadow-md mb-20'
+                        className='w-full drop-shadow-md mb-10'
                         src='/bgelements/wave.svg'
                         width={1920}
                         height={100}
@@ -88,7 +71,7 @@ export default async function Home() {
                     </Container>
                     <Image
                         alt='Bg element'
-                        className='w-full mt-20'
+                        className='w-full mt-10'
                         style={{
                             filter: 'drop-shadow(0 -4px 2px rgba(0, 0, 0, 0.1))',
                         }}
@@ -97,7 +80,7 @@ export default async function Home() {
                         height={100}
                     />
                 </Box>
-
+                <Lab />
                 <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
                     <Contacts />
                 </Container>

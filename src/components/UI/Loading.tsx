@@ -7,9 +7,8 @@ import { TSetBool } from '@/globalTypes'
 export default function Loading({ loading, setLoading }: { loading: boolean, setLoading: TSetBool }) {
     return (
         <Box
-            className='w-screen h-screen fixed left-0 top-0 flex items-center justify-center bg-white bg-opacity-50 transition-all duration-700'
+            className='w-screen h-screen fixed left-0 top-0 flex items-center justify-center bg-white bg-opacity-75 transition-all duration-700 z-50'
             sx={{
-                zIndex: 9999,
                 opacity: loading ? 1 : 0,
                 visibility: loading ? 'visible' : 'hidden',
             }}
