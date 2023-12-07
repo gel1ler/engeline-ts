@@ -12,6 +12,7 @@ const Login = () => {
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
                 onClick={() => setOpen(true)}
+                style={{ backgroundColor: 'transparent' }}
             >
                 <svg className='transition-all' width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ stroke: hover ? '#E5A019' : '#000' }}>
                     <path d="M20 12C20 7.58172 16.4183 4 12 4M12 20C14.5264 20 16.7792 18.8289 18.2454 17" strokeWidth="1.5" strokeLinecap="round" />

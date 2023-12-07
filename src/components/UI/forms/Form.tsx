@@ -5,6 +5,8 @@ import { Typography, Button, Box, Snackbar } from '@mui/material'
 import MuiPhone from './PhoneNumber'
 import RHookFormTextField from './RHookFormTextField'
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
+import Loading from '../Loading'
+import AlertDialog from '../Alert'
 
 type TInputs = {
     name: string
@@ -13,29 +15,27 @@ type TInputs = {
 
 const Form = () => {
     const [open, setOpen] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [phone, setPhone] = useState('')
     const methods = useForm<TInputs>()
 
     const onSubmit: SubmitHandler<TInputs> = async (data) => {
-        try {
-            console.log(phone, data)
-            setOpen(true)
-        } catch (error) {
-            console.error("Error:", error)
-        }
+        setLoading(true)
+        setTimeout(() => {
+            try {
+                console.log(phone, data)
+                setLoading(false)
+                setOpen(true)
+            } catch (error) {
+                console.error("Error:", error)
+            }
+        }, 2500)
     }
 
     return (
         <>
-            <Snackbar
-                open={open}
-                autoHideDuration={3000}
-                onClose={() => setOpen(false)}
-            >
-                <Box className='p-3 rounded-md bg-white' sx={{ boxShadow: '0 0 6px 3px rgba(0,0,0,.1)' }}>
-                    Вы успешно оставили заявку
-                </Box>
-            </Snackbar >
+            <Loading loading={loading} setLoading={setLoading} />
+            <AlertDialog open={open} setOpen={setOpen} />
             <Box
                 className="shadow rounded-md p-8 relative"
                 sx={{

@@ -35,11 +35,11 @@ const direcrions: { text: string, link: string }[] = [
 const Start = () => {
     return (
         <Box
-            className='flex items-center justify-around mx-auto'
+            className='flex items-center justify-around mx-auto h-screen'
             sx={{
-                height: 'calc(100vh - 7rem)',
                 maxWidth: '1400px',
-                p: [3, 3, 10, 4]
+                p: [3, 3, 10, 4],
+                mt:3
             }}
         >
             <Fill anchor='to top' type='to anchor' />
@@ -75,17 +75,18 @@ const Start = () => {
             </Box>
             <Box
                 sx={{
-                    height: '75vh',
-                    alignItems: 'flex-end',
+                    
+                    alignSelf: 'flex-end',
                     display: ['none', 'none', 'none', 'flex'],
-                    p: 2
+                    p: 2,
+                    pb: 10
                 }}
             >
                 <Form />
             </Box>
 
             <video
-                className='absolute left-0 top-0 h-full w-full object-cover -z-50 pointer-events-none'
+                className='absolute left-0 top-0 h-full w-full object-cover pointer-events-none -z-50'
                 autoPlay
                 loop
                 muted

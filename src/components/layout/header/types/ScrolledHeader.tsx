@@ -28,13 +28,14 @@ const ScrolledHeader = () => {
     return (
         <>
             <AppBar
-                position='static'
+                position='absolute'
+                elevation={0}
                 sx={{
-                    zIndex: 100,
-                    boxShadow: '0 0 5px 2px rgba(0,0,0,.1)'
+                    bgcolor: 'transparent',
+                    boxShadow: 'none',
                 }}
             >
-                <Bar />
+                <Bar start />
             </AppBar>
             <AppBar
                 elevation={0}

@@ -11,7 +11,7 @@ import NavLinks from './NavLinks'
 import { mainInfo } from '@/content/content'
 import Login from '@/components/UI/buttons/Login'
 
-const Bar = ({ noBg, onlyTop }: { noBg?: boolean, onlyTop?: boolean }) => {
+const Bar = ({ noBg, onlyTop, start }: { noBg?: boolean, onlyTop?: boolean, start?: boolean }) => {
   const isFullwidth: string = headerProps.fullwidth ? '' : ' max-w-7xl mx-auto'
 
   return (
@@ -20,15 +20,18 @@ const Bar = ({ noBg, onlyTop }: { noBg?: boolean, onlyTop?: boolean }) => {
       {
         !onlyTop
         &&
-        <Toolbar className={'flex w-full' + isFullwidth} sx={{ justifyContent: 'space-between', my: 'auto' }}>
-          <Link href='/'>
-            <Image
-              alt='Logo'
-              src={mainInfo.logoHorizontal}
-              width={200}
-              height={40}
-            />
-          </Link>
+        <Toolbar className={'flex w-full' + isFullwidth} sx={{ justifyContent: start ? 'center' : 'space-between', my: 'auto' }}>
+          {!start ?
+            <Link href='/'>
+              <Image
+                alt='Logo'
+                src={mainInfo.logoHorizontal}
+                width={200}
+                height={40}
+              />
+            </Link>
+            : null
+          }
           <Box className='flex gap-10'>
             <Box className='gap-10' sx={{ display: ['none', 'none', 'flex'] }}>
               <NavLinks />
