@@ -28,16 +28,16 @@ const Start = ({ product }: { product: TProduct }) => {
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    mb:10
+                    mb: 10
                 }}
                 maxWidth={false}
             >
-                <Box className=' flex flex-col'>
-                    <Typography color='GrayText' data-aos='fade-up'>
+                <Box className='flex flex-col' sx={{ alignItems: ['center', 'center', 'start'] }}>
+                    <Typography color='GrayText' data-aos='fade-up' sx={{ textAlign: ['center', 'center', 'left'] }}>
                         <Link href='/'>Главная</Link> → <Link href='/products'>Продукция</Link> → <Link href={`/products/${product.id}`}>{product.name}</Link>
                     </Typography>
                     <Title>{product.name}</Title>
-                    <Typography variant='h6' className='w-1/2' data-aos='fade-up'>
+                    <Typography variant='h6' className='w-1/2 mx-auto' data-aos='fade-up' sx={{ textAlign: ['center', 'center', 'left'] }}>
                         {product.shortDescription}
                     </Typography>
                     <Link href='#order_anchor'>

@@ -12,9 +12,21 @@ const ImageViewer = ({
     images: string[], open: boolean, setOpen: TSetBool, current: number, setCurrent: TSetNumber
 }
 ) => {
+    const prev = () => setCurrent((current - 1 + images.length) % images.length)
+    const next = () => setCurrent((current + 1) % images.length)
+
+    const keyboardHandler = (e: React.KeyboardEvent<HTMLDivElement>) => {
+        e.code === 'ArrowRight' && next()
+        e.code === 'ArrowLeft' && prev()
+    }
+
     return (
         <Modal open={open} onClose={() => setOpen(false)}>
-            <Box className=' outline-none w-screen h-screen absolute grid gap-4 bg-white p-20'>
+            <Box
+                className=' outline-none w-screen h-screen absolute grid gap-4 bg-white p-20'
+                tabIndex={0}
+                onKeyDown={(e) => keyboardHandler(e)}
+            >
                 <IconButton
                     onClick={() => setOpen(false)}
                     size='large'
@@ -24,14 +36,13 @@ const ImageViewer = ({
                         right: 20,
                         zIndex: 999,
                     }}
-                // data-aos='fade-up'
                 >
                     <CloseIcon sx={{ fontSize: 35 }} color='action' />
                 </IconButton>
-                <Arrow anchor='left' f={() => setCurrent((current - 1 + images.length) % images.length)} />
-                <Arrow anchor='right' f={() => setCurrent((current + 1) % images.length)} />
+                <Arrow anchor='left' f={prev} />
+                <Arrow anchor='right' f={next} />
                 <Box className='flex flex-col gap-4'>
-                    <Box className='relative' sx={{ height: '75vh' }}>
+                    <Box className='relative' sx={{ height: ['75vh'] }}>
                         {images.map((image, index) =>
                             <Image
                                 key={index}

@@ -39,7 +39,7 @@ const Start = () => {
             sx={{
                 maxWidth: '1400px',
                 p: [3, 3, 10, 4],
-                mt:3
+                mt: 3
             }}
         >
             <Fill anchor='to top' type='centered' />
@@ -75,7 +75,6 @@ const Start = () => {
             </Box>
             <Box
                 sx={{
-                    
                     alignSelf: 'flex-end',
                     display: ['none', 'none', 'none', 'flex'],
                     p: 2,

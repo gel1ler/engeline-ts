@@ -2,23 +2,23 @@ import Typography from '@mui/material/Typography'
 import React, { ReactNode } from 'react'
 
 const Title = ({
-    children, centered, right, variant
+    children, centered, variant, mdCenter
 }: {
-    children: ReactNode, centered?: boolean, right?: boolean, variant?: 'h2' | 'h1'
+    children: ReactNode, centered?: boolean, variant?: 'h2' | 'h1', mdCenter?: boolean
 }) => {
     return (
         <Typography
             variant={variant ? variant : 'h3'}
-            textAlign={centered ? 'center' : 'left'}
             sx={{
-                mx: centered ? 'auto' : ['auto', 'auto', 0],
+                mx: centered ? 'auto' : ['auto', 'auto',  mdCenter ? 'auto' : 0, 0],
                 mb: 3,
-                textAlign: centered ? 'center' : ['center', 'center', 'left'],
+                textAlign: centered ? 'center' : ['center', 'center', mdCenter ? 'center' : 'left', 'left'],
                 width: 'fit-content',
                 textDecoration: 'underline',
                 textDecorationColor: '#E5A019',
                 textUnderlineOffset: '10px',
-                textDecorationThickness: '3px'
+                textDecorationThickness: '3px',
+                maxWidth: ['300px', '600px', '700px']
             }}
             data-aos='fade-up'
         >

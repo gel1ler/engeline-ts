@@ -21,7 +21,8 @@ export const themeOptions: ThemeOptions = {
       main: colors.primary,
     },
     secondary: {
-      main: colors.secondary
+      main: colors.secondary,
+      light: '#F2BB50'
     },
     additional: {
       main: colors.additional ? colors.additional : '#fff'
