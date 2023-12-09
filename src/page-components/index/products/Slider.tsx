@@ -26,11 +26,11 @@ const Slider = ({ products }: { products: TProduct[] }) => {
             <Box
                 className='flex justify-center relative'
                 sx={{
-                    height: '60vh',
-                    width: `${products.length * 60}vw`,
+                    height: ['40vh','60vh'],
+                    width: [`${products.length * 80}vw`, `${products.length * 60}vw`],
                     transition: 'all .3s ease-in-out',
-                    transform: `translateX(-${current * 60}vw)`,
-                    ml: '20vw'
+                    transform: [`translateX(-${current * 80}vw)`, `translateX(-${current * 60}vw)`],
+                    ml: ['10vw','20vw']
                 }}
             >
                 {products.map((product, index) => (

@@ -2,11 +2,11 @@
 import React, { useState } from 'react'
 import Sticker from '@/components/icons/sticker'
 import { Typography, Button, Box, Snackbar } from '@mui/material'
-import MuiPhone from './PhoneNumber'
-import RHookFormTextField from './RHookFormTextField'
+import MuiPhone from '../PhoneNumber'
+import RHookFormTextField from '../RHookFormTextField'
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
-import Loading from '../Loading'
-import AlertDialog from '../Alert'
+import AlertDialog from './Alert'
+import { useRouter } from 'next/navigation'
 
 type TInputs = {
     orgName: string
@@ -15,17 +15,19 @@ type TInputs = {
 
 const Form = () => {
     const [open, setOpen] = useState(false)
-    const [loading, setLoading] = useState(false)
     const [phone, setPhone] = useState('')
     const methods = useForm<TInputs>()
 
+    const router = useRouter()
+
     const onSubmit: SubmitHandler<TInputs> = async (data) => {
-        setLoading(true)
+        router.push('/?loading=true')
         setTimeout(() => {
             try {
-                console.log(phone, data)
-                setLoading(false)
-                setOpen(true)
+                router.push('/')
+                setTimeout(() => {
+                    setOpen(true)
+                }, 100)
             } catch (error) {
                 console.error("Error:", error)
             }
@@ -34,7 +36,6 @@ const Form = () => {
 
     return (
         <>
-            <Loading loading={loading} setLoading={setLoading} />
             <AlertDialog open={open} setOpen={setOpen} />
             <Box
                 className="shadow rounded-md p-8 relative"

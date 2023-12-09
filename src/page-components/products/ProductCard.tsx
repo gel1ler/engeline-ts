@@ -2,6 +2,7 @@ import Fill from '@/components/UI/Fill'
 import MoreButton from '@/components/UI/buttons/MoreButton'
 import Subtitle from '@/components/UI/text/Subtitle'
 import { TProduct } from '@/globalTypes'
+import compressText from '@/services/compressText'
 import { Box, Divider, Typography } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
@@ -21,8 +22,8 @@ const ProductCard = ({ product }: { product: TProduct }) => {
           <Typography fontWeight={600} variant='h5'>
             {product.name}
           </Typography>
-          <Typography data-aos='fade-up' data-aos-offset="20">
-            {product.shortDescription.split(' ').slice(0, 15).join(" ") + " ..."}
+          <Typography data-aos='fade-up' data-aos-offset="20" sx={{ mt: 1 }}>
+            {compressText(product.shortDescription, 15)}
           </Typography>
         </Box>
         <MoreButton href={'/products/' + product.id} dataAos='fade-up' />

@@ -33,6 +33,12 @@ export default function AlertDialog({ open, setOpen }: { open: boolean, setOpen:
             TransitionComponent={Transition}
             keepMounted
             onClose={handleClose}
+            PaperProps={{
+                style: {
+                    borderRadius: 10,
+                    padding: 10
+                }
+            }}
         >
             <DialogTitle textAlign='center'>Вы успешно оставили заявку</DialogTitle>
             <DialogContent>
@@ -40,7 +46,7 @@ export default function AlertDialog({ open, setOpen }: { open: boolean, setOpen:
                     Мы Вам перезвоним в течении <b>15 минут</b>
                 </DialogContentText>
             </DialogContent>
-            <Button sx={{ mb: 2 }} color='secondary' onClick={handleClose}>Закрыть окно</Button>
+            <Button sx={{ mb: 2, mx: 'auto', width: 'fit-content' }} color='secondary' onClick={handleClose}>Закрыть окно</Button>
         </Dialog>
     );
 }

@@ -1,16 +1,22 @@
 'use client'
-import React from 'react'
-import { Box, Typography } from "@mui/material"
-import { useEffect, useState } from "react"
-import { TSetBool } from '@/globalTypes'
+import React, { useEffect } from 'react'
+import { Box } from "@mui/material"
+import { useSearchParams } from 'next/navigation'
 
-export default function Loading({ loading, setLoading }: { loading: boolean, setLoading: TSetBool }) {
+export default function Loading() {
+    const searchParams = useSearchParams()
+    const loading = searchParams.get('loading')
+
     return (
         <Box
-            className='w-screen h-screen fixed left-0 top-0 flex items-center justify-center bg-white bg-opacity-75 transition-all duration-700 z-50'
+            className='w-screen h-screen left-0 top-0 flex items-center justify-center bg-white bg-opacity-75 transition-opacity duration-700'
             sx={{
                 opacity: loading ? 1 : 0,
                 visibility: loading ? 'visible' : 'hidden',
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                zIndex: 2000
             }}
         >
             <svg

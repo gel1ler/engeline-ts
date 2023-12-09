@@ -5,13 +5,14 @@ import React from 'react'
 import Subtitle from '@/components/UI/text/Subtitle'
 import MoreButton from '@/components/UI/buttons/MoreButton'
 import Link from 'next/link'
+import compressText from '@/services/compressText'
 
 const Slide = ({ product }: { product: TProduct }) => {
     return (
         <Box
             className='h-full p-10 relative overflow-hidden flex gap-5 rounded-xl'
             sx={{
-                width: '60vw',
+                width: ['80vw', '60vw'],
                 boxShadow: '0 0 10px 5px rgba(0,0,0,.1)',
                 flexDirection: ['column', 'column', 'row'],
                 alignItems: ['center', 'center', 'initial']
@@ -26,7 +27,7 @@ const Slide = ({ product }: { product: TProduct }) => {
                         </Subtitle>
                     </Link>
                     <Typography data-aos='fade-up' sx={{ mt: 2, display: ['none', 'none', 'block'] }}>
-                        {product.shortDescription}
+                        {compressText(product.shortDescription, 40)}
                     </Typography>
                 </Box>
                 <MoreButton href={'/products/' + product.id} dataAos='fade-up' sx={{ display: ['none', 'none', 'block'] }} />

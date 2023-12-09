@@ -20,7 +20,14 @@ const Bar = ({ noBg, onlyTop, start }: { noBg?: boolean, onlyTop?: boolean, star
       {
         !onlyTop
         &&
-        <Toolbar className={'flex w-full' + isFullwidth} sx={{ justifyContent: start ? 'center' : 'space-between', my: 'auto' }}>
+        <Toolbar
+          className={'flex w-full' + isFullwidth}
+          sx={{
+            justifyContent: start ? ['space-between', 'center'] : 'space-between',
+            my: 'auto',
+            px: [2, 4, 4, 4]
+          }}
+        >
           {!start ?
             <Link href='/'>
               <Image
@@ -32,13 +39,13 @@ const Bar = ({ noBg, onlyTop, start }: { noBg?: boolean, onlyTop?: boolean, star
             </Link>
             : null
           }
-          <Box className='flex gap-10'>
-            <Box className='gap-10' sx={{ display: ['none', 'none', 'flex'] }}>
+          <Box sx={{ display: !start ? ['none', 'none', 'flex'] : 'flex', gap: 5 }}>
+            <Box sx={{ display: ['none', 'none', 'none', 'flex'] }}>
               <NavLinks />
-              <Login />
             </Box>
-            <MyDrawer />
+            <Login />
           </Box>
+          <MyDrawer />
         </Toolbar>
       }
     </>

@@ -2,34 +2,7 @@ import React from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Title from '@/components/UI/text/Title'
-import Advantage from './Advantage'
-
-const advantages = [
-    {
-        title: 'Удобное расположение',
-        text: 'Завод располагается в центральной части России'
-    },
-    {
-        title: 'Разнообразие продукции',
-        text: 'Металлоконструкции различной сложности'
-    },
-    {
-        title: 'Опыт и квалификация',
-        text: 'Многолетний опыт в своей отрасли и высококвалифицированный персонал'
-    },
-    {
-        title: 'Соблюдение стандартов',
-        text: 'Соответствие высоким стандартам качества ведущих компаний страны'
-    },
-    {
-        title: 'Индивидуальный подход',
-        text: 'Изготовление уникальных изделий нестандартных типоразмеров'
-    },
-    {
-        title: 'Технические возможности',
-        text: 'Оборудование, обеспечивающее высокое качество продукции'
-    }
-]
+import Advantages from './Advantages'
 
 const About = () => {
     return (
@@ -54,18 +27,7 @@ const About = () => {
                     Производственная компания ООО «ИНЖЕЛАЙН» расположена на одном из крупнейших машиностроительных
                     заводов страны, имеющем ряд технологических преимуществ:
                 </Typography>
-                <Box
-                    className='grid-cols-3 grid-rows-2 flex-col mt-10 justify-items-center gap-6 overflow-hidden mx-auto'
-                    sx={{
-                        display: ['flex', 'flex', 'grid'],
-                        maxWidth: '100vw',
-                        width: ['100vw', '100vw', '95%', '84%']
-                    }}
-                >
-                    {advantages.map((i, key) =>
-                        <Advantage key={key} num={key} title={i.title} text={i.text} />
-                    )}
-                </Box>
+                <Advantages />
             </Box>
         </Box>
     )

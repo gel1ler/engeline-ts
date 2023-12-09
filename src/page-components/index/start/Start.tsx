@@ -7,10 +7,10 @@ import { headerProps } from '@/customization/customization'
 import Link from 'next/link'
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight'
-import Form from '@/components/UI/forms/Form'
+import Form from '@/components/UI/forms/getCall/Form'
 import Menu from './Menu'
 import ArrowTextLink from '@/components/UI/text/ArrowTextLink'
-import GetCall from '@/components/UI/forms/GetCall'
+import GetCall from '@/components/UI/forms/getCall/GetCall'
 
 const direcrions: { text: string, link: string }[] = [
     {
@@ -38,7 +38,7 @@ const Start = () => {
             className='flex items-center justify-around mx-auto h-screen'
             sx={{
                 maxWidth: '1400px',
-                p: [3, 3, 10, 4],
+                p: [1, 3, 10, 4],
                 mt: 3
             }}
         >
@@ -83,15 +83,16 @@ const Start = () => {
             >
                 <Form />
             </Box>
-
-            <video
-                className='absolute left-0 top-0 h-full w-full object-cover pointer-events-none -z-50'
-                autoPlay
-                loop
-                muted
-            >
-                <source src='/bgVideo.mp4' type="video/mp4" />
-            </video>
+            <Box sx={{ display: ['none', 'block'] }}>
+                <video
+                    className='absolute left-0 top-0 h-full w-full object-cover pointer-events-none -z-50'
+                    autoPlay
+                    loop
+                    muted
+                >
+                    <source src='/bgVideo.mp4' type="video/mp4" />
+                </video>
+            </Box>
         </Box>
     )
 }

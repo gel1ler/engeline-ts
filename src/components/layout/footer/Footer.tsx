@@ -20,14 +20,13 @@ const Footer = () => {
         >
             <Container
                 sx={{
-                    gap: 5,
                     mx: 'auto',
                     pt: 6
                 }}
             >
                 <Grid container spacing={4}>
                     <Grid item xs={12} sm={6} md={4} lg={4}>
-                        <Box className='flex flex-col gap-4 w-64 mx-auto' sx={{ alignItems: ['center', 'start'] }}>
+                        <Box className='flex flex-col gap-4 mx-auto' sx={{ alignItems: ['center', 'start'] }}>
                             <Image
                                 src='/logo/logo-horizontal.svg'
                                 width={250}

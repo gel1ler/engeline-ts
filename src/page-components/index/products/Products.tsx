@@ -16,6 +16,7 @@ const Products = async () => {
     return (
         <Box
             className='w-screen relative z-10'
+            sx={{ pt: [2, 0] }}
         >
             <Title centered >
                 Продукция и услуги

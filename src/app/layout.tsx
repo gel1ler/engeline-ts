@@ -4,6 +4,7 @@ import './styles/anims.css'
 import Header from '@/components/layout/header/Header'
 import Footer from '@/components/layout/footer/Footer'
 import Loader from '@/components/layout/loader'
+import Loading from '@/components/UI/Loading'
 
 export default function RootLayout({
   children,
@@ -22,6 +23,7 @@ export default function RootLayout({
       <ThemeRegistry>
         <body className='flex flex-col min-h-screen'>
           <Loader />
+          <Loading />
           <Header />
           <section className='flex-grow'>
             {children}

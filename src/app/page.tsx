@@ -12,7 +12,7 @@ import Gallery from '@/components/UI/Gallery'
 import Bar from '@/components/layout/header/Bar/Bar'
 import { Metadata } from 'next'
 import Loader from '@/components/layout/loader'
-import GetCall from '@/components/UI/forms/GetCall'
+import GetCall from '@/components/UI/forms/getCall/GetCall'
 import { startParallax } from '@/customization/customization'
 
 export const metadata: Metadata = {
