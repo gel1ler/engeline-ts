@@ -44,12 +44,12 @@ const Index = ({ folders, products }: { folders: any[], products: TProduct[] }) 
 
     const { isLoaded, isSignedIn } = useUser()
 
+    const { session } = useSession();
+    const userRole = checkUserRole(session)
+
     if (!isLoaded || !isSignedIn) {
         return null;
     }
-
-    const { session } = useSession();
-    const userRole = checkUserRole(session)
 
     if (userRole !== 'org:admin') {
         return (
