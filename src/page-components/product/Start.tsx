@@ -37,9 +37,6 @@ const Start = ({ product }: { product: TProduct }) => {
                         <Link href='/'>Главная</Link> → <Link href='/products'>Продукция</Link> → <Link href={`/products/${product.id}`}>{product.name}</Link>
                     </Typography>
                     <Title>{product.name}</Title>
-                    <Typography variant='h6' className='w-1/2 mx-auto' data-aos='fade-up' sx={{ textAlign: ['center', 'center', 'left'] }}>
-                        {product.shortDescription}
-                    </Typography>
                     <Link href='#order_anchor'>
                         <Button
                             color='secondary'

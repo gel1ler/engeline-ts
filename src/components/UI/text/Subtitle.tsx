@@ -2,9 +2,9 @@ import Typography from '@mui/material/Typography'
 import React, { ReactNode } from 'react'
 
 const Subtitle = ({
-    children, centered, right, variant
+    children, centered, right, variant, noAos
 }: {
-    children: ReactNode, centered?: boolean, right?: boolean, variant?: 'h5' | 'h4' | 'h3'
+    children: ReactNode, centered?: boolean, right?: boolean, variant?: 'h5' | 'h4' | 'h3', noAos?: boolean
 }) => {
     return (
         <Typography
@@ -18,7 +18,7 @@ const Subtitle = ({
                 textUnderlineOffset: '8px',
                 textDecorationThickness: '2px'
             }}
-            data-aos='fade-up'
+            data-aos={noAos ? '' : 'fade-up'}
         >
             {children}
         </Typography>

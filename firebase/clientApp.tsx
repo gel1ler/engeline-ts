@@ -2,6 +2,8 @@ import { initializeApp } from "firebase/app"
 import { getDatabase, ref, set, update, child, get, remove } from "firebase/database"
 import { getStorage, ref as storageRef, listAll, getDownloadURL, deleteObject, uploadBytesResumable } from "firebase/storage"
 import { TProduct } from "@/globalTypes"
+import { getAuth, signInWithCustomToken } from "firebase/auth";
+import { useAuth } from "@clerk/nextjs";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCt7UQ0t2UjncmNh02TRXB382N4sKQo7gg",
@@ -19,6 +21,7 @@ initializeApp(firebaseConfig)
 //DB
 
 const db = getDatabase()
+const auth = getAuth()
 
 export async function getProducts(): Promise<TProduct[]> {
     const dbRef = ref(db)
@@ -28,7 +31,7 @@ export async function getProducts(): Promise<TProduct[]> {
         const products = snapshot.val()
         return products
     } else {
-        throw new Error("Empty")
+        return []
     }
 }
 
@@ -45,7 +48,11 @@ export async function getProduct(id: number): Promise<TProduct> {
     }
 }
 
-export async function createProduct(productData: Omit<TProduct, 'id'>) {
+export async function createProduct(productData: Omit<TProduct, 'id'>, token: string) {
+    const userCredentials = token ? await signInWithCustomToken(auth, token) : null
+
+    if (userCredentials === null) return false
+
     let id
     try {
         const products = await getProducts()
@@ -65,7 +72,7 @@ export async function createProduct(productData: Omit<TProduct, 'id'>) {
     }).then(() => console.log('succ')).catch(err => console.log(err))
 }
 
-export async function changeProduct(id: number, productData: Omit<TProduct, 'id'>) {
+export async function changeProduct(id: number, productData: Omit<TProduct, 'id'>, token: string) {
     const reference = ref(db, 'products/' + id)
 
     update(reference, {
@@ -74,7 +81,7 @@ export async function changeProduct(id: number, productData: Omit<TProduct, 'id'
     }).then(() => console.log('succ')).catch(err => console.log(err))
 }
 
-export async function deleteProduct(id: number) {
+export async function deleteProduct(id: number, token: string) {
     try {
         await remove(ref(db, 'products/' + id)).
             then(() => 'success')

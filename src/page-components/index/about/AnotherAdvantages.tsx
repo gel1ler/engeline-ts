@@ -57,13 +57,13 @@ export default function AnotherAdavantages() {
                         src={i.image}
                     />
                     <Box className=' bg-white p-4 overflow-hidden flex flex-col items-center gap-2' sx={{ boxShadow: '0 0 10px 5px rgba(0,0,0,.1)' }}>
-                        <Subtitle centered>
+                        <Subtitle centered noAos>
                             {i.name}
                         </Subtitle>
-                        <Typography data-aos='fade-up' variant='subtitle1' textAlign='center'>
+                        <Typography variant='subtitle1' textAlign='center'>
                             {i.text}
                         </Typography>
-                        <MoreButton dataAos='fade-up' href={i.href} sx={{ px: 2, py: 1, mt: 'auto' }} />
+                        <MoreButton href={i.href} sx={{ px: 2, py: 1, mt: 'auto' }} />
                     </Box>
                     <Fill anchor='to top' type='to anchor' color='rgba(0,0,0,.2)' />
                 </Box>

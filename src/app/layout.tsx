@@ -5,6 +5,7 @@ import Header from '@/components/layout/header/Header'
 import Footer from '@/components/layout/footer/Footer'
 import Loader from '@/components/layout/loader'
 import Loading from '@/components/UI/Loading'
+import { ClerkProvider } from '@clerk/nextjs'
 
 export default function RootLayout({
   children,
@@ -12,25 +13,27 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ru">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" type="image/svg+xml" />
-        <link rel='image/svg+xml' href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/favicon.ico" sizes="any" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-      </head>
-      <ThemeRegistry>
-        <body className='flex flex-col min-h-screen'>
-          <Loader />
-          <Loading />
-          <Header />
-          <section className='flex-grow'>
-            {children}
-          </section>
-          <Footer />
-        </body>
-      </ThemeRegistry>
-    </html>
+    <ClerkProvider>
+      <html lang="ru">
+        <head>
+          <link rel="icon" href="/favicon.ico" sizes="any" type="image/svg+xml" />
+          <link rel='image/svg+xml' href="/favicon.ico" sizes="any" />
+          <link rel="apple-touch-icon" href="/favicon.ico" sizes="any" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+        </head>
+        <ThemeRegistry>
+          <body className='flex flex-col min-h-screen'>
+            <Loader />
+            <Loading />
+            <Header />
+            <section className='flex-grow'>
+              {children}
+            </section>
+            <Footer />
+          </body>
+        </ThemeRegistry>
+      </html>
+    </ClerkProvider>
   )
 }

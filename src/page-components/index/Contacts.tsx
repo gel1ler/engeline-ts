@@ -29,7 +29,7 @@ const Contacts = () => {
               Офис
             </Typography>
             <Typography variant="h6">
-              <b>Телефон:</b> 8(989)801-23-91
+              <b>Телефон:</b> +7(495)374-53-43
             </Typography>
             <Typography variant="h6">
               <b>Адрес:</b> Московская обл., Раменское, ул. Северное шоссе 10
@@ -37,6 +37,10 @@ const Contacts = () => {
             <Typography variant="h6">
               <b>Эл. почта:</b> info@engeline.ru
             </Typography>
+            <Typography variant="h6">
+              <b>Директор:</b> Абаничев Игорь Николаевич
+            </Typography>
+            
           </Box>
           <iframe
             src="https://yandex.ru/map-widget/v1/?um=constructor%3A711ea37dc3a1461d53cb66acc3637e91b23c8492ed19997ddb60495aa5a2ae09&amp;source=constructor"

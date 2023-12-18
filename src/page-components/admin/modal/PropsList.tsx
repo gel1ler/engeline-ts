@@ -1,9 +1,7 @@
-import RHookFormSelect from '@/components/UI/forms/RHookFormSelect'
 import RHookFormTextField from '@/components/UI/forms/RHookFormTextField'
-import { TProp } from '@/globalTypes'
 import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
-import { useFieldArray, useFormContext } from 'react-hook-form'
+import { useFieldArray } from 'react-hook-form'
 
 const iconsArr = ['diameter', 'ruler', 'thickness', 'volume']
 

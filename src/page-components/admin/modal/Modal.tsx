@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation';
 import { changeProduct, createProduct } from '@/../firebase/clientApp'
 import ImageInput from './images/selectOneImage/ImageInput'
 import ImagesInput from './images/selectImages/ImagesInput';
+import { useAuth } from '@clerk/nextjs';
 
 interface Props {
     setOpen: (value: boolean) => void;
@@ -17,22 +18,24 @@ interface Props {
     folders: string[][];
     change?: any;
     product?: TProduct;
+    token: string;
 }
 
 type TInputs = Omit<TProduct, 'id'>
 
-const MyModal = ({ setOpen, open, folders, change, product }: Props) => {
+const MyModal = ({ setOpen, open, folders, change, product, token }: Props) => {
     const [mainImg, setMainImg] = useState<string>('')
     const [additionalImgs, setAdditionalImgs] = useState<string[]>([])
 
     const router = useRouter()
+    
 
     const methods = useForm<TInputs>({
         defaultValues: useMemo(() => {
             return product
         }, [product])
     })
-
+    
     useEffect(() => {
         methods.reset(product)
         typeof product?.mainImg === 'string' && setMainImg(product.mainImg)
@@ -42,12 +45,10 @@ const MyModal = ({ setOpen, open, folders, change, product }: Props) => {
     const onSubmit: SubmitHandler<TInputs> = async (data) => {
         try {
             if (change && product) {
-                await changeProduct(product.id, { ...data, mainImg, additionalImgs })
+                await changeProduct(product.id, { ...data, mainImg, additionalImgs }, token)
             } else {
-                await createProduct({ ...data })
+                await createProduct({ ...data }, token)
             }
-
-            //Progress circle
 
             setTimeout(() => {
                 router.refresh()

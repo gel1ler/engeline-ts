@@ -20,7 +20,7 @@ const advantages = [
 
 const Advantages = () => {
     return (
-        <Grid container spacing={4}>
+        <Grid container spacing={4} sx={{mx:'auto'}}>
             {advantages.map((i, key) =>
                 <Grid item md={4} sm={6} xs={12} key={key} data-aos='fade-up' data-aos-offset='20'>
                     <Box className='flex flex-col items-center w-3/4 gap-2'>

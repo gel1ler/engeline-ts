@@ -12,6 +12,7 @@ import { ArrowDropUp } from '@mui/icons-material'
 import Lab from '@/page-components/prod/Lab'
 import { startParallax } from '@/customization/customization'
 import { Metadata } from 'next'
+import Factory from '@/page-components/prod/Factory'
 
 export const metadata: Metadata = {
     title: 'Инжелайн - производство',
@@ -26,29 +27,7 @@ export default async function Home() {
                     <Start />
                 </Plx>
                 <Container maxWidth='lg' sx={{ display: 'flex', flexDirection: 'column', gap: 10 }} className='anchor' id='factory_anchor'>
-                    <Box className='flex flex-col'>
-                        <Title>Первомайскхиммаш</Title>
-                        <Box
-                            className='w-full flex'
-                            sx={{
-                                flexDirection: ['column', 'column', 'row'],
-                                gap: [4, 4, 5]
-                            }}
-                        >
-                            <Typography variant='h6' data-aos='fade-up'>
-                                Первомайский завод химического машиностроения является ведущим производителем нефтепромыслового и емкостного оборудования и оборудования для химической промышленности.
-                                Завод географически расположен в центре России - в 350 км к югу от Москвы, что позволяет производить отгрузку железнодорожным и автомобильным транспортом в любой регион. Промышленная площадка предприятия занимает 74,36 га. Завод располагает сварочным, механообрабатывающим и сборочным производствами.
-                            </Typography>
-                            <Image
-                                data-aos='fade-up'
-                                className='w-1/2 rounded-lg'
-                                src='/general.jpg'
-                                alt='Общее фото завода'
-                                width={700}
-                                height={500}
-                            />
-                        </Box>
-                    </Box>
+                    <Factory />
                     <Advantages />
                 </Container>
                 <Box className='flex flex-col gap-8 relative'>
