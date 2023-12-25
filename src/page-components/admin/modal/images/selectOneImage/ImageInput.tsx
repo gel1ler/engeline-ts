@@ -1,23 +1,33 @@
 import { TSetNumber, TSetString, TSetStringArray } from '@/globalTypes'
 import { Box, Button, Typography } from '@mui/material'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ChooseImage from './ChooseImage'
+import { useFormContext } from 'react-hook-form'
 
 interface props {
-    state: string
-    setState: TSetString
     folders: string[][]
+    name: string
 }
 
-const ImageInput = ({ state, setState, folders }: props) => {
+const ImageInput = ({ folders, name }: props) => {
+    const { register, setValue, getValues } = useFormContext()
+
+    useEffect(() => {
+        register(name)
+    }, [register, name])
+
     const [open, setOpen] = useState(false)
+    const state = getValues(name) || []
+
+    name.includes('descriptions') && console.log(state)
 
     return (
         <Box>
             <ChooseImage
                 state={state}
-                setState={setState}
+                setState={setValue}
+                name={name}
                 folders={folders}
                 open={open}
                 setOpen={setOpen}
@@ -27,7 +37,7 @@ const ImageInput = ({ state, setState, folders }: props) => {
                     {state ? 'Изменить' : 'Выбрать'} главную картинку
                 </Button>
                 {state &&
-                    <Button color='error' onClick={() => setState('')}>
+                    <Button color='error' onClick={() => setValue(name, '')}>
                         Очистить
                     </Button>
                 }

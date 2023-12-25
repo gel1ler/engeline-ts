@@ -7,11 +7,19 @@ import RHookFormTextField from '../RHookFormTextField'
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
 import AlertDialog from './Alert'
 import { useRouter } from 'next/navigation'
+import RHookFormSelect from '../RHookFormSelect'
+import emailjs from 'emailjs-com'
 
 type TInputs = {
-    orgName: string
-    phoneNumber: string
+    name: string;
+    phoneNumber: string;
+    type: string;
 }
+
+const directions = [
+    'Мех обработка',
+    'Остальное'
+]
 
 const Form = () => {
     const [open, setOpen] = useState(false)
@@ -20,18 +28,21 @@ const Form = () => {
 
     const router = useRouter()
 
-    const onSubmit: SubmitHandler<TInputs> = async (data) => {
+    const onSubmit = async (data: any, e: Event) => {
+        e.preventDefault()
         router.push('/?loading=true')
-        setTimeout(() => {
-            try {
-                router.push('/')
-                setTimeout(() => {
-                    setOpen(true)
-                }, 100)
-            } catch (error) {
-                console.error("Error:", error)
-            }
-        }, 2500)
+
+        const message = `${data.name} заказал обратный звонок на номер ${phone} по поводу ${data.type}.`
+        try {
+            const form = document.createElement('form');
+            form.innerHTML = `<input type="hidden" name="message" value="${message}">`;
+            const result = await emailjs.sendForm('service_87l4lm9', 'template_5lt5tfc', form, 'orI8OxXQKj9YCadsc');
+            console.log(result.text);
+            setOpen(true)
+        } catch (error) {
+            console.error("Error:", error)
+        }
+        router.push('/')
     }
 
     return (
@@ -51,8 +62,15 @@ const Form = () => {
                         <Typography variant='h5' textAlign='center' >
                             Обратный звонок
                         </Typography>
-                        <RHookFormTextField label='Наименование организации' name='orgName' fullWidth />
+                        <RHookFormTextField label='Ваше имя' name='name' fullWidth />
                         <MuiPhone value={phone} onChange={setPhone} />
+                        <RHookFormSelect
+                            label='Тип продукции'
+                            fullwidth
+                            name='type'
+                            valuesArr={directions}
+                            defaultValue={directions[0]}
+                        />
                         <Button className='mt-4 w-fit' color='secondary' variant='contained' type='submit'>
                             Оставить заявку
                         </Button>

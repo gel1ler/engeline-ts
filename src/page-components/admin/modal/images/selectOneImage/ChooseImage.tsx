@@ -8,6 +8,7 @@ import { deleteImage } from '@/../firebase/clientApp'
 import Folder from '../Folder'
 import AddImage from '../AddImage'
 import { TSetBool, TSetString } from '@/globalTypes'
+import { FieldValue, FieldValues, UseFormSetValue } from 'react-hook-form'
 
 const style = {
     position: 'absolute',
@@ -27,14 +28,15 @@ interface props {
     open: boolean
     setOpen: TSetBool
     state: string
-    setState: TSetString
+    setState: UseFormSetValue<FieldValues>
+    name: string
 }
 
-const ChooseImage = ({ folders, open, setOpen, state, setState }: props) => {
+const ChooseImage = ({ folders, open, setOpen, state, setState, name }: props) => {
     const [tempFolders, setTempFolders] = useState(folders)
 
     const chooseMain = (img: string) => {
-        setState(img)
+        setState(name, img)
         setOpen(false)
     }
 
@@ -42,7 +44,7 @@ const ChooseImage = ({ folders, open, setOpen, state, setState }: props) => {
         let t = tempFolders
         t[fKey] = t[fKey].filter(i => i != img)
         setTempFolders(t)
-        setState('')
+        setState(name, '')
         deleteImage(img)
     }
 

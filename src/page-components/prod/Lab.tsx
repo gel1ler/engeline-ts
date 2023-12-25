@@ -68,7 +68,7 @@ export default function Lab() {
     return (
         <Container maxWidth='lg' sx={{ display: 'flex', flexDirection: 'column', gap: 10, mt: 4 }}>
             <Box className='flex flex-col anchor' id='lab_anchor'>
-                <Title centered>Собственная лаборатория</Title>
+                <Title centered>Аттестованная лаборатория</Title>
                 <Grid container sx={{ mt: 2 }} spacing={2}>
                     <Card
                         name='Радиографический метод'

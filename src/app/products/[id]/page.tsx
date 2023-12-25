@@ -52,10 +52,15 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
     };
 };
 
+const generateUl = (string: string) => {
+    const arr = string.split('/p').slice(1)
+    return arr
+}
+
 export default async function Home({ params }: { params: { id: string } }) {
     const product = await getProduct(Number(params.id))
     // const product = data.products[Number(params.id)]
-
+    generateUl(product.description)
     return (
         <AOSProvider>
             <Box position='relative'>
@@ -66,12 +71,26 @@ export default async function Home({ params }: { params: { id: string } }) {
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
                         <Box className='ml-4 grid grid-cols-2 gap-8'>
-                            <Box>
-                                <Typography variant='h6' sx={{ mb: 3 }} data-aos='fade-up'>
-                                    {product.shortDescription}
-                                </Typography>
+                            {product.description ?
+                                product.description.includes('/p') ?
+                                    <ul style={{ fontSize: '18px', marginLeft: '-16px', marginTop: '-10px' }}>
+                                        {generateUl(product.description).map((i, key) =>
+                                            <li
+                                                data-aos='fade-up'
+                                                key={key}
+                                                style={{ marginTop: '10px' }}
+                                            >
+                                                {i}
+                                            </li>
+                                        )}
+                                    </ul>
+                                    :
+                                    <Typography variant='h6' sx={{ mb: 3 }} data-aos='fade-up'>
+                                        {product.description}
+                                    </Typography>
+                                :
                                 <PropsList props={product.props} fade gap={2} />
-                            </Box>
+                            }
                             <Image
                                 alt='Продукт'
                                 src={product.mainImg}
@@ -82,6 +101,13 @@ export default async function Home({ params }: { params: { id: string } }) {
                             />
                         </Box>
                     </Box>
+                    {product.description && product.props ?
+                        <Box>
+                            <Title noAos centered>Характеристики</Title>
+                            <PropsList centered props={product.props} fade gap={2} />
+                        </Box>
+                        : null
+                    }
                 </Container>
                 <Box className='flex flex-col gap-8 bg-stone-100'>
                     <Image

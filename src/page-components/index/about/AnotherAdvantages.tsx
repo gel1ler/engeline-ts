@@ -6,7 +6,7 @@ import MoreButton from '@/components/UI/buttons/MoreButton'
 
 const arr = [
     {
-        name: 'Собственная лаборатория',
+        name: 'Аттестованная лаборатория',
         text: 'Наши специалисты осуществляют комплексные испытания материалов и изделий, чтобы гарантировать их соответствие стандартам и требованиям качества.',
         image: '/advantages/lab.webp',
         href: '/prod#lab_anchor'

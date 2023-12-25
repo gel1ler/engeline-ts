@@ -36,7 +36,7 @@ export default function Home() {
           <Products />
         </Box>
         <Box className='w-2/3 mx-auto anchor' sx={{ my: 10 }}>
-          <Title>
+          <Title centered>
             Другие преимущества
           </Title>
           <AnotherAdavantages />

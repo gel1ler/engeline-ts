@@ -18,11 +18,15 @@ const direcrions: { text: string, link: string }[] = [
         link: '/products/0'
     },
     {
-        text: 'Емкостное оборудование',
+        text: 'Емкостное химическое и машинное оборудование',
         link: '/products/1'
     },
     {
-        text: 'Изготовление отводов различных диаметров и углов',
+        text: 'Муфты ремонтные стальные',
+        link: '/products/5'
+    },
+    {
+        text: 'Соединительные детали трубопроводов',
         link: '/products/2'
     },
     {
@@ -43,7 +47,12 @@ const Start = () => {
             }}
         >
             <Fill anchor='to top' type='centered' />
-            <Fill anchor='to right' prc={40} type='to anchor' />
+            <Box
+                className='w-full h-full absolute left-0 top-0 -z-40'
+                sx={{
+                    background: `linear-gradient(to right, white 30%, rgba(255,255,255, .8) 50%, transparent)`,
+                }}
+            />
             <Box className='flex flex-col gap-12 justify-center my-auto' sx={{ width: ['90%', '100%'] }}>
                 <Image
                     data-aos='fade-right'
@@ -78,7 +87,7 @@ const Start = () => {
                     alignSelf: 'flex-end',
                     display: ['none', 'none', 'none', 'flex'],
                     p: 2,
-                    pb: 10
+                    pb: 4
                 }}
             >
                 <Form />

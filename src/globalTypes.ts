@@ -11,18 +11,19 @@ export interface TProp {
 }
 
 export interface TDescription {
-    id: number | null | undefined
+    name: string,
+    text: string
+    video: string,
+    photos: string[]
     align?: string,
-    photo: string,
-    text: string,
-    title?: string,
 }
 
 export interface TProduct {
     id: number,
     name: string,
     shortDescription: string,
-    descriptions?: TDescription[],
+    description: string,
+    descriptions: TDescription[]
     props: TProp[],
     mainImg: string,
     additionalImgs: string[],

@@ -21,8 +21,6 @@ const Fill = ({
     color?: string
 }) => {
     const theme = useTheme()
-    const rgb = hexToRgb(theme.palette.background.default)
-
     let bg = ''
     switch (type) {
         case 'centered':

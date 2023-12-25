@@ -43,7 +43,7 @@ export default function AlertDialog({ open, setOpen }: { open: boolean, setOpen:
             <DialogTitle textAlign='center'>Вы успешно оставили заявку</DialogTitle>
             <DialogContent>
                 <DialogContentText textAlign='center'>
-                    Мы Вам перезвоним в течении <b>15 минут</b>
+                    Мы перезвоним Вам в течении <b>15 минут</b>
                 </DialogContentText>
             </DialogContent>
             <Button sx={{ mb: 2, mx: 'auto', width: 'fit-content' }} color='secondary' onClick={handleClose}>Закрыть окно</Button>

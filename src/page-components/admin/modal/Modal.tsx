@@ -24,28 +24,22 @@ interface Props {
 type TInputs = Omit<TProduct, 'id'>
 
 const MyModal = ({ setOpen, open, folders, change, product, token }: Props) => {
-    const [mainImg, setMainImg] = useState<string>('')
-    const [additionalImgs, setAdditionalImgs] = useState<string[]>([])
-
     const router = useRouter()
-    
 
     const methods = useForm<TInputs>({
         defaultValues: useMemo(() => {
             return product
         }, [product])
     })
-    
+
     useEffect(() => {
         methods.reset(product)
-        typeof product?.mainImg === 'string' && setMainImg(product.mainImg)
-        product?.additionalImgs && setAdditionalImgs(product.additionalImgs)
     }, [product, methods])
 
     const onSubmit: SubmitHandler<TInputs> = async (data) => {
         try {
             if (change && product) {
-                await changeProduct(product.id, { ...data, mainImg, additionalImgs }, token)
+                await changeProduct(product.id, { ...data }, token)
             } else {
                 await createProduct({ ...data }, token)
             }
@@ -78,16 +72,16 @@ const MyModal = ({ setOpen, open, folders, change, product, token }: Props) => {
                         <PropsList />
                         <Divider />
                         <RHookFormTextField multiline label='Короткое описание' name='shortDescription' />
-                        <DescriptionsList />
-                        < Divider />
+                        <RHookFormTextField notReq multiline label='Описание' name='description' />
+                        <Divider />
+                        <DescriptionsList folders={folders} />
+                        <Divider />
                         <ImageInput
-                            state={mainImg}
-                            setState={setMainImg}
+                            name='mainImg'
                             folders={folders}
                         />
                         <ImagesInput
-                            state={additionalImgs}
-                            setState={setAdditionalImgs}
+                            name='additionalImgs'
                             folders={folders}
                         />
                         <Button

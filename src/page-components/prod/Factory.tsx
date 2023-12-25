@@ -70,7 +70,7 @@ const Factory = () => {
                                 ООО {'"'}ИНЖЕЛАЙН{'"'}
                             </Typography>
                         </Box>
-                        <Typography sx={{ mt: 1 }} variant='h6' data-aos='fade-up'>
+                        <Typography variant='h6' data-aos='fade-up'>
                             Начало производственной деятельности ООО
                             “ИНЖЕЛАЙН” на территории завода.<br />
 

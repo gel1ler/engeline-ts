@@ -1,13 +1,24 @@
-import { MenuItem, Select } from '@mui/material'
+import { MenuItem, Select, TextField } from '@mui/material'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
 
-const RHookFormSelect = ({ name, valuesArr, defaultValue }: { name: string, valuesArr: any[], defaultValue: any }) => {
+const RHookFormSelect = ({
+    name, valuesArr, defaultValue, fullwidth, label
+}: {
+    name: string, valuesArr: any[], defaultValue: any, fullwidth?: boolean, label:string
+}) => {
     const { register, formState: { errors } } = useFormContext()
 
     return (
-        <Select
-            type='select'
+        <TextField
+            sx={{
+                width: fullwidth ? '100%' : 'auto',
+            }}
+            inputProps={{
+                color: 'black'
+            }}
+            label={label}
+            select
             color='secondary'
             variant='outlined'
             error={!!errors[name]}
@@ -17,7 +28,7 @@ const RHookFormSelect = ({ name, valuesArr, defaultValue }: { name: string, valu
             {valuesArr.map((i, key) =>
                 <MenuItem value={i} key={key}>{i}</MenuItem>
             )}
-        </Select>
+        </TextField>
     )
 }
 

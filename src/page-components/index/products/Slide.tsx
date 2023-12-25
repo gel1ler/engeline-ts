@@ -22,17 +22,17 @@ const Slide = ({ product }: { product: TProduct }) => {
             <Box className='flex flex-col justify-between' sx={{ width: ['100%', '100%', '50%'] }}>
                 <Box>
                     <Link href={'/products/' + product.id} className='w-fit'>
-                        <Subtitle>
+                        <Subtitle noAos>
                             {product.name}
                         </Subtitle>
                     </Link>
-                    <Typography data-aos='fade-up' sx={{ mt: 2, display: ['none', 'none', 'block'] }}>
-                        {compressText(product.shortDescription, 40)}
+                    <Typography sx={{ mt: 2, display: ['none', 'none', 'block'] }}>
+                        {compressText(product.description ? product.description : product.shortDescription, 40)}
                     </Typography>
                 </Box>
-                <MoreButton href={'/products/' + product.id} dataAos='fade-up' sx={{ display: ['none', 'none', 'block'] }} />
+                <MoreButton href={'/products/' + product.id} sx={{ display: ['none', 'none', 'block'] }} />
             </Box>
-            <Box className='rounded-xl overflow-hidden relative drop-shadow-md' data-aos='fade-left' sx={{ width: ['100%', '100%', '50%'] }}>
+            <Box className='rounded-xl overflow-hidden relative drop-shadow-md' sx={{ width: ['100%', '100%', '50%'] }}>
                 <Image
                     alt='Product png photo'
                     src={product.mainImg}

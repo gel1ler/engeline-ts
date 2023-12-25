@@ -4,10 +4,10 @@ import { DiamIcon, RulerIcon, ThicknessIcon, VolumeIcon } from '@/components/ico
 import { TProp } from '@/globalTypes'
 import Image from 'next/image'
 
-const PropsList = ({ props, fade, gap }: { props: TProp[], fade?: boolean, gap?: number }) => {
+const PropsList = ({ props, fade, gap, centered }: { props: TProp[], fade?: boolean, gap?: number, centered?: boolean }) => {
     if (!props) return ''
     return (
-        <Box className='flex flex-col w-fit' sx={{ gap: gap ? gap : 2 }}>
+        <Box className='flex flex-col w-fit' sx={{ gap: gap ? gap : 2, alignItems: centered ? 'center' : 'start', mx: centered ? 'auto' : 0 }}>
             {props.map((i, key) => {
                 let res: any = i.text
 

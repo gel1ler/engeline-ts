@@ -17,6 +17,7 @@
     "@n8tb1t/use-scroll-position": "^2.0.3",
     "aos": "^2.3.4",
     "browser-image-compression": "^2.0.2",
+    "emailjs-com": "^3.2.0",
     "encoding": "^0.1.13",
     "firebase": "^10.5.2",
     "next": "13.5.4",
@@ -25,7 +26,8 @@
     "react-dom": "^18",
     "react-hook-form": "^7.47.0",
     "react-international-phone": "^4.0.4",
-    "react-plx": "^2.1.2"
+    "react-plx": "^2.1.2",
+    "twilio": "^4.20.0"
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",

@@ -36,7 +36,9 @@ const Start = () => {
                 <Box className=' flex flex-col'>
                     <Title variant='h2'>Производство</Title>
                     <Typography variant='h6' className='w-1/2' data-aos='fade-up'>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum exercitationem cum accusantium quibusdam. Ipsum, alias error saepe corrupti dignissimos beatae odit itaque consequuntur porro rerum voluptas rem ex ducimus vitae tempore eius sapiente, natus atque molestiae numquam sit! Dolore, incidunt?
+                        Компания Инжелайн предлагает широкий спектр оборудования и услуг для
+                        различных отраслей промышленности. Мы гарантируем высокое качество и
+                        надежность нашей продукции, а также индивидуальный подход к каждому клиенту.
                     </Typography>
                     <MoreButton
                         sx={{ mt: 2 }}

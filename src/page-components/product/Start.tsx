@@ -37,6 +37,9 @@ const Start = ({ product }: { product: TProduct }) => {
                         <Link href='/'>Главная</Link> → <Link href='/products'>Продукция</Link> → <Link href={`/products/${product.id}`}>{product.name}</Link>
                     </Typography>
                     <Title>{product.name}</Title>
+                    <Typography variant='h6' sx={{ width: '50%' }}>
+                        {product.shortDescription}
+                    </Typography>
                     <Link href='#order_anchor'>
                         <Button
                             color='secondary'
