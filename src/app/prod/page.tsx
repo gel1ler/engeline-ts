@@ -13,6 +13,7 @@ import Lab from '@/page-components/prod/Lab'
 import { startParallax } from '@/customization/customization'
 import { Metadata } from 'next'
 import Factory from '@/page-components/prod/Factory'
+import { WaveDown, WaveUp } from '@/components/layout/bgelements/Waves'
 
 export const metadata: Metadata = {
     title: 'Инжелайн - производство',
@@ -38,26 +39,11 @@ export default async function Home() {
                         className=' -z-50 opacity-10'
                     />
 
-                    <Image
-                        alt='Bg element'
-                        className='w-full drop-shadow-md mb-10'
-                        src='/bgelements/wave.svg'
-                        width={1920}
-                        height={100}
-                    />
+                    <WaveDown />
                     <Container sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                         <AC />
                     </Container>
-                    <Image
-                        alt='Bg element'
-                        className='w-full mt-10'
-                        style={{
-                            filter: 'drop-shadow(0 -4px 2px rgba(0, 0, 0, 0.1))',
-                        }}
-                        src='/bgelements/wave2.svg'
-                        width={1920}
-                        height={100}
-                    />
+                    <WaveUp />
                 </Box>
                 <Lab />
                 <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>

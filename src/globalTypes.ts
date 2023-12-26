@@ -18,6 +18,12 @@ export interface TDescription {
     align?: string,
 }
 
+export interface TDocs {
+    name: string,
+    size: number,
+    link: string,
+}
+
 export interface TProduct {
     id: number,
     name: string,
@@ -27,4 +33,5 @@ export interface TProduct {
     props: TProp[],
     mainImg: string,
     additionalImgs: string[],
+    docs: TDocs[]
 }

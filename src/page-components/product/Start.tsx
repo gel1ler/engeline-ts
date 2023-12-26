@@ -33,10 +33,10 @@ const Start = ({ product }: { product: TProduct }) => {
                 maxWidth={false}
             >
                 <Box className='flex flex-col' sx={{ alignItems: ['center', 'center', 'start'] }}>
-                    <Typography color='GrayText' data-aos='fade-up' sx={{ textAlign: ['center', 'center', 'left'] }}>
+                    <Typography color='GrayText' sx={{ textAlign: ['center', 'center', 'left'] }}>
                         <Link href='/'>Главная</Link> → <Link href='/products'>Продукция</Link> → <Link href={`/products/${product.id}`}>{product.name}</Link>
                     </Typography>
-                    <Title>{product.name}</Title>
+                    <Title noAos>{product.name}</Title>
                     <Typography variant='h6' sx={{ width: '50%' }}>
                         {product.shortDescription}
                     </Typography>
@@ -48,7 +48,6 @@ const Start = ({ product }: { product: TProduct }) => {
                             sx={{
                                 mt: 3
                             }}
-                            data-aos='fade-right'
                             data-aos-offset="20"
                         >
                             оформить заказ

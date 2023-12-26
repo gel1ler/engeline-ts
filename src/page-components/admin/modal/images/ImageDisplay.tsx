@@ -31,7 +31,7 @@ const ImageDisplay = ({ state, image, chooseAdditional, chooseMain, deleteHandle
             }}
         >
             <Box
-                className='image-popover column-centered'
+                className='image-popover flex flex-col items-center justify-center'
                 sx={{
                     transition: 'all ease .3s',
                     opacity: state.includes(image) ? 1 : 0,
@@ -46,7 +46,7 @@ const ImageDisplay = ({ state, image, chooseAdditional, chooseMain, deleteHandle
                     zIndex: 999
                 }}
             >
-                <Box sx={{ display: 'flex', gap: 1 }}>
+                <Box className='flex gap-2 items-center justify-center'>
                     {state.includes(image) ?
                         <RemoveIcon
                             sx={{
@@ -81,7 +81,7 @@ const ImageDisplay = ({ state, image, chooseAdditional, chooseMain, deleteHandle
                 </a>
             </Box>
             <Image
-                src={image}
+                src={image.includes('.pdf') ? '/icons/docs/pdf.svg' : image}
                 fill
                 style={{ objectFit: 'contain' }}
                 alt='choose'

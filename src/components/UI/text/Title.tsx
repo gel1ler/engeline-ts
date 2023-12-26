@@ -22,7 +22,7 @@ const Title = ({
             }}
             data-aos={noAos ? '' : 'fade-up'}
         >
-            {children}
+            {children} 
         </Typography>
     )
 }

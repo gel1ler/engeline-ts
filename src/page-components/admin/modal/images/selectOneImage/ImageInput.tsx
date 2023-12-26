@@ -8,19 +8,18 @@ import { useFormContext } from 'react-hook-form'
 interface props {
     folders: string[][]
     name: string
+    label?: string
 }
 
-const ImageInput = ({ folders, name }: props) => {
-    const { register, setValue, getValues } = useFormContext()
+const ImageInput = ({ folders, name, label }: props) => {
+    const { register, setValue, watch } = useFormContext()
 
     useEffect(() => {
         register(name)
     }, [register, name])
 
     const [open, setOpen] = useState(false)
-    const state = getValues(name) || []
-
-    name.includes('descriptions') && console.log(state)
+    const state = watch(name) || []
 
     return (
         <Box>
@@ -34,7 +33,7 @@ const ImageInput = ({ folders, name }: props) => {
             />
             <Box className='flex gap-2'>
                 <Button color='secondary' variant='outlined' onClick={() => setOpen(true)}>
-                    {state ? 'Изменить' : 'Выбрать'} главную картинку
+                    {state ? 'Изменить' : 'Выбрать'} {label ? label : 'главную картинку'}
                 </Button>
                 {state &&
                     <Button color='error' onClick={() => setValue(name, '')}>
@@ -45,7 +44,7 @@ const ImageInput = ({ folders, name }: props) => {
             {state &&
                 <Link href={state} target='_blank'>
                     <Typography sx={{ my: 1, textDecoration: 'underline' }}>
-                        Главная картинка - {state}
+                        {label ? label : 'Главная картинка'} - {state}
                     </Typography>
                 </Link>
             }

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const File = ({ name, href }: { name: string, href: string }) => {
+const File = ({ name, href, size }: { name: string, href: string, size: number }) => {
     let type = 'pdf'
     href.includes('.pdf') ? type = 'pdf' : null
     href.includes('.xls') || href.includes('.xlsx') || href.includes('.xlsm') ? type = 'excel' : null
@@ -33,7 +33,7 @@ const File = ({ name, href }: { name: string, href: string }) => {
                     {name}
                 </Typography>
                 <Typography variant='body2' color='GrayText' sx={{ mb: 1 }}>
-                    Размер файла: 7.2мб
+                    Размер файла: {size}мб
                 </Typography>
             </Box>
             <a target='_blank' href={href} className='my-auto'>

@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form"
 import { Box, Typography, Modal, Button, Divider } from '@mui/material'
 import RHookFormTextField from '@/components/UI/forms/RHookFormTextField'
@@ -8,9 +8,10 @@ import PropsList from './PropsList'
 import DescriptionsList from './DescriptionsList'
 import { useRouter } from 'next/navigation';
 import { changeProduct, createProduct } from '@/../firebase/clientApp'
-import ImageInput from './images/selectOneImage/ImageInput'
-import ImagesInput from './images/selectImages/ImagesInput';
-import { useAuth } from '@clerk/nextjs';
+import ImagesInput from './images/selectImages/ImagesInput'
+import Docs from './Docs';
+import ImageInput from './images/selectOneImage/ImageInput';
+import RHookFormSelect from '@/components/UI/forms/RHookFormSelect';
 
 interface Props {
     setOpen: (value: boolean) => void;
@@ -37,7 +38,6 @@ const MyModal = ({ setOpen, open, folders, change, product, token }: Props) => {
     }, [product, methods])
 
     const onSubmit: SubmitHandler<TInputs> = async (data) => {
-        console.log(data)
         try {
             if (change && product) {
                 await changeProduct(product.id, { ...data }, token)
@@ -68,6 +68,8 @@ const MyModal = ({ setOpen, open, folders, change, product, token }: Props) => {
                 </Typography>
                 <FormProvider {...methods}>
                     <form className='flex flex-col gap-4 my-6' onSubmit={methods.handleSubmit(onSubmit)}>
+                        {/* <RHookFormSelect label='Поменять с' name='name' /> */}
+                        <Divider />
                         <RHookFormTextField label='Наименование' name='name' />
                         <Divider />
                         <PropsList />
@@ -76,6 +78,8 @@ const MyModal = ({ setOpen, open, folders, change, product, token }: Props) => {
                         <RHookFormTextField notReq multiline label='Описание' name='description' />
                         <Divider />
                         <DescriptionsList folders={folders} />
+                        <Divider />
+                        <Docs folders={folders} />
                         <Divider />
                         <ImageInput
                             name='mainImg'

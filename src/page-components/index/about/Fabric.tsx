@@ -4,19 +4,14 @@ import Title from '@/components/UI/text/Title'
 import Image from 'next/image'
 import { Container, Typography } from '@mui/material'
 import MoreButton from '@/components/UI/buttons/MoreButton'
+import { WaveDown, WaveUp } from '@/components/layout/bgelements/Waves'
 
 const Fabric = async () => {
     return (
         <Box
             className='w-screen relative bg-stone-100'
         >
-            <Image
-                alt='Bg element'
-                className='w-full drop-shadow-md mb-20'
-                src='/bgelements/wave.svg'
-                width={1920}
-                height={100}
-            />
+            <WaveDown />
 
             <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
                 <Title mdCenter>
@@ -75,16 +70,7 @@ const Fabric = async () => {
                     />
                 </Box>
             </Container>
-            <Image
-                alt='Bg element'
-                className='w-full mt-20'
-                style={{
-                    filter: 'drop-shadow(0 -4px 2px rgba(0, 0, 0, 0.1))',
-                }}
-                src='/bgelements/wave2.svg'
-                width={1920}
-                height={100}
-            />
+            <WaveUp />
         </Box >
     )
 }

@@ -40,6 +40,7 @@ import Image from 'next/image'
 import StaticHeader from '@/components/layout/header/types/StaticHeader'
 import PropsList from '@/page-components/product/PropsList'
 import DescriptionList from '@/page-components/product/DescriptionList'
+import { WaveDown, WaveUp } from '@/components/layout/bgelements/Waves'
 
 type Props = {
     params: { id: string };
@@ -54,7 +55,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 };
 
 const generateUl = (string: string) => {
-    const arr = string.split('/p').slice(1)
+    const arr = string.split('/n').slice(1)
     return arr
 }
 
@@ -69,14 +70,17 @@ export default async function Home({ params }: { params: { id: string } }) {
                     <Start product={product} />
                 </Plx>
                 <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw', display: 'flex', flexDirection: 'column', gap: 20 }} maxWidth={false} >
-                    <DescriptionList
-                        descriptions={product.descriptions}
-                    />
+                    {product.descriptions ?
+                        <DescriptionList
+                            descriptions={product.descriptions}
+                        />
+                        : null
+                    }
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
                         <Box className='ml-4 grid grid-cols-2 gap-8'>
                             {product.description ?
-                                product.description.includes('/p') ?
+                                product.description.includes('/n') ?
                                     <ul style={{ fontSize: '18px', marginLeft: '-16px', marginTop: '-10px' }}>
                                         {generateUl(product.description).map((i, key) =>
                                             <li
@@ -114,44 +118,30 @@ export default async function Home({ params }: { params: { id: string } }) {
                     }
                 </Container>
                 <Box className='flex flex-col gap-8 bg-stone-100'>
-                    <Image
-                        alt='Bg element'
-                        className='w-full drop-shadow-md mb-20'
-                        src='/bgelements/wave.svg'
-                        width={1920}
-                        height={100}
-                    />
+                    <WaveDown />
                     <Container sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                         <Title>Документы</Title>
+                        {product.docs && product.docs.map((doc, key) =>
+                            <File
+                                key={key}
+                                href={doc.link}
+                                name={doc.name}
+                                size={doc.size}
+                            />
+                        )}
                         <File
-                            href='https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/docs%2FИнжелайн%20презентация%20(1).pdf?alt=media&token=7e436434-6601-4609-a374-932a4c82bfe6'
-                            name='Презентация "ООО ИНЖЕЛАЙН"'
-                        />
-                        <File
-                            href='https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/docs%2FИнжелайн%20презентация%20(1).pdf?alt=media&token=7e436434-6601-4609-a374-932a4c82bfe6'
-                            name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»'
-                        />
-                        <File
+                            size={12}
                             href='https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/docs%2FИнжелайн%20презентация%20(1).pdf?alt=media&token=7e436434-6601-4609-a374-932a4c82bfe6'
                             name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»'
                         />
                     </Container>
-                    <Image
-                        alt='Bg element'
-                        className='w-full mt-20'
-                        style={{
-                            filter: 'drop-shadow(0 -4px 2px rgba(0, 0, 0, 0.1))',
-                        }}
-                        src='/bgelements/wave2.svg'
-                        width={1920}
-                        height={100}
-                    />
+                    <WaveUp />
                 </Box>
                 <Box sx={{ pt: 10 }}>
                     <Title centered>
                         Галерея
                     </Title>
-                    <Gallery images={[product.mainImg, ...product.additionalImgs]} type='wide' />
+                    <Gallery images={product.additionalImgs} type='wide' />
                 </Box>
                 <Contacts />
             </Box >

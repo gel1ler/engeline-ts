@@ -72,7 +72,6 @@ const DropDown = ({ children, href, links }: { children: string, href: string, l
                 </Typography >
             </Link>
             <Menu links={links} isVisible={isHovered} />
-            {/* {true ? <Menu links={links} isVisible={true} /> : null} */}
         </Box>
     )
 }
@@ -112,7 +111,7 @@ const NavLinks = () => {
                         href: '/products/0'
                     },
                     {
-                        text: 'Емкостное оборудование',
+                        text: 'Емкостное химическое и машинное оборудование',
                         href: '/products/1'
                     },
                     {
@@ -120,7 +119,7 @@ const NavLinks = () => {
                         href: '/products/2'
                     },
                     {
-                        text: 'Трубы обечаечные',
+                        text: 'Трубы обечаечные, корпуса, бандажи',
                         href: '/products/3'
                     },
                     {

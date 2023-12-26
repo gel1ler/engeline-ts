@@ -18,7 +18,7 @@ const DropDown = ({ name, list }: { name: string, list: string[] }) => {
                     className='transition-all'
                     sx={{
                         transform: open ? `rotate(-180deg)` : '',
-                        transition: 'all .1s ease-out'
+                        transition: 'all .15s ease-out'
                     }}
                 />
             </Typography>
