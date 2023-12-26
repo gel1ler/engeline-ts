@@ -53,7 +53,7 @@ const Start = () => {
                     background: `linear-gradient(to right, white 30%, rgba(255,255,255, .8) 50%, transparent)`,
                 }}
             />
-            <Box className='flex flex-col gap-12 justify-center my-auto' sx={{ width: ['90%', '100%'] }}>
+            <Box className='flex flex-col gap-10 justify-center my-auto' sx={{ width: ['90%', '100%'] }}>
                 <Image
                     data-aos='fade-right'
                     src={mainInfo.logoHorizontal}
@@ -67,7 +67,7 @@ const Start = () => {
                     }}
                     sizes="(max-width: 768px) 40vw, (max-width: 1200px) 30vw, 20vw"
                 />
-                <Box className='flex flex-col gap-10' data-aos='fade-right'>
+                <Box className='flex flex-col gap-7' data-aos='fade-right'>
                     {direcrions.map((i, key) =>
                         <Link href={i.link} key={key} className='w-fit'>
                             <Typography variant='h5' className='trans'>
@@ -87,7 +87,7 @@ const Start = () => {
                     alignSelf: 'flex-end',
                     display: ['none', 'none', 'none', 'flex'],
                     p: 2,
-                    pb: 4
+                    pb: 10
                 }}
             >
                 <Form />

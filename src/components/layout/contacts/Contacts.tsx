@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import Title from '@/components/UI/text/Title'
-
+import DropDown from './DropDown'
 
 const Contacts = () => {
   return (
@@ -29,45 +29,48 @@ const Contacts = () => {
               <b>Директор:</b> Абаничев Игорь Николаевич
             </Typography>
             Выпадающие списки
-            <Typography variant="h6">
-              <b>Секретарь:</b> Глазунова Мария Олеговна - secretary@engeline.ru
-            </Typography>
-            <Typography variant="h6">
-              <b>Коммерческий отдел:</b> Шоттер Антон Антонович - komm2@engeline.ru
-            </Typography>
-            <Typography variant="h6">
-              <b>Коммерческий отдел:</b> Абаничева Юлия Юрьевна - komm1@engeline.ru
-            </Typography>
-            <Typography variant="h6">
-              <b>Коммерческий отдел:</b> Овсянников Алексей Олегович - komm3@engeline.ru
-            </Typography>
+            <DropDown
+              name='Секретарь'
+              list={['Глазунова Мария Олеговна - secretary@engeline.ru']}
+            />
+            <DropDown
+              name='Коммерческий отдел'
+              list={[
+                'Шоттер Антон Антонович - komm2@engeline.ru',
+                'Абаничева Юлия Юрьевна - komm1@engeline.ru',
+                'Овсянников Алексей Олегович - komm3@engeline.ru'
+              ]}
+            />
 
-            <Typography variant="h4" fontWeight='bold'  sx={{ mt: 4 }}>
+            <Typography variant="h4" fontWeight='bold' sx={{ mt: 4 }}>
               Производственная площадка
             </Typography>
             <Typography variant="h6">
               <b>Адрес:</b> Тамбовская обл., п. Первомайский, ул. Школьная 9
             </Typography>
-            
+
             <Typography variant="h6">
               <b>Телефон:</b> +7(495)374-53-43
             </Typography>
             <Typography variant="h6">
               <b>Эл. почта:</b> prod@engeline.ru
             </Typography>
-            <Typography variant="h6">
-              <b>Исполнительный директор:</b>Каширский Валерий Александрович exec.dir@engeline.ru
-            </Typography>
-            <Typography variant="h6">
-              <b>Зам. директора по производству:</b>Нижегородов Олег Владимирович - h.product@engeline.ru
-            </Typography>
-            <Typography variant="h6">
-              <b>Главный инженер:</b>Дегтярев Александр Васильевич - gl.engineer@engeline.ru
-            </Typography>
-            <Typography variant="h6">
-              <b>Главный сварщик/технолог:</b>Пугач Александр Леонидович - ch.welder@engeline.ru
-            </Typography>
-
+            <DropDown
+              name='Исполнительный директор'
+              list={['Каширский Валерий Александрович - exec.dir@engeline.ru']}
+            />
+            <DropDown
+              name='Зам. директора по производству'
+              list={['Нижегородов Олег Владимирович - h.product@engeline.ru']}
+            />
+            <DropDown
+              name='Главный инженер'
+              list={['Дегтярев Александр Васильевич - gl.engineer@engeline.ru']}
+            />
+            <DropDown
+              name='Главный сварщик/технолог'
+              list={['Пугач Александр Леонидович - ch.welder@engeline.ru']}
+            />
           </Box>
           <iframe
             src="https://yandex.ru/map-widget/v1/?um=constructor%3A711ea37dc3a1461d53cb66acc3637e91b23c8492ed19997ddb60495aa5a2ae09&amp;source=constructor"

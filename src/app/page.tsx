@@ -5,7 +5,7 @@ import Plx from '@/services/Plx'
 import Products from '@/page-components/index/products/Products'
 import Fabric from '@/page-components/index/about/Fabric'
 import Title from '@/components/UI/text/Title'
-import Contacts from '@/page-components/index/Contacts'
+import Contacts from '@/components/layout/contacts/Contacts'
 import AnotherAdavantages from '@/page-components/index/about/AnotherAdvantages';
 import AOSProvider from '@/services/AOSProvider'
 import Gallery from '@/components/UI/Gallery'

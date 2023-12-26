@@ -1,0 +1,44 @@
+import React from 'react'
+import { Box, Divider, List, ListItem, Typography } from '@mui/material'
+import { DiamIcon, RulerIcon, ThicknessIcon, VolumeIcon } from '@/components/icons/productIcons'
+import { TProp } from '@/globalTypes'
+import Image from 'next/image'
+
+const PropsList = ({ props, fade, gap, centered }: { props: TProp[], fade?: boolean, gap?: number, centered?: boolean }) => {
+    if (!props) return ''
+    return (
+        <Box className='flex flex-col w-fit' sx={{ gap: gap ? gap : 2, alignItems: centered ? 'center' : 'start', mx: centered ? 'auto' : 0 }}>
+            {props.map((i, key) => {
+                let res: any = i.text
+
+                if (i.text?.includes(':')) {
+                    const temp = i.text.split(':')
+                    const title = temp[0] + ':'
+                    const text = temp[1]
+                    res = <span><b>{title}</b>{text}</span>
+                }
+
+                return (
+                    <Box className='flex flex-col gap-4' key={key}>
+                        <Box data-aos={fade ? 'fade-up' : null} className='flex gap-3' data-aos-offset='20'>
+                            <Image
+                                src={i.icon}
+                                width={60}
+                                height={60}
+                                className='w-8 h-8'
+                                alt='icon'
+                            />
+                            <Typography variant='h6'>
+                                {res}
+                            </Typography>
+                        </Box>
+                        {key === props.length - 1 ? null : <Divider data-aos='fade-up' data-aos-offset='20' />}
+                    </Box>
+                )
+            })}
+        </Box>
+
+    )
+}
+
+export default PropsList

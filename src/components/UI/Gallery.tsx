@@ -9,10 +9,9 @@ import { useTheme } from '@mui/material/styles'
 
 const Photo = ({ src, num, setCurrent, setOpen, isMd }: { src: string, num: number, setCurrent: TSetNumber, setOpen: TSetBool, isMd?: boolean }) =>
   <Box
-    className='relative overflow-hidden w-full h-full cursor-pointer'
+    className='relative overflow-hidden w-full h-full cursor-pointer aspect-square'
     data-aos='fade-up'
     sx={{
-      aspectRatio: ['1/1', '1/1', '1/1', '1/1'],
       gridColumn: num === 1 && !isMd ? '1/2' : '',
       gridRow: num === 1 && !isMd ? '1/3' : '',
     }}

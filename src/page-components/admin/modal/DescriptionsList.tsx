@@ -19,20 +19,17 @@ const DescriptionsList = ({ folders }: { folders: any[] }) => {
             </Typography>
             {fields.map((field, index) =>
                 <Box key={field.id}>
-                    <Box className='flex gap-6'>
-                        <Box className='flex flex-col gap-6'>
-                            <RHookFormTextField label='Название' name={`descriptions.${index}.name`} />
-                            <ImageInput
-                                folders={folders}
-                                name={`descriptions.${index}.video`}
-                            />
-                            <ImagesInput
-                                folders={folders}
-                                name={`descriptions.${index}.photos`}
-                            />
-                            <RHookFormSelect label='' name={`descriptions.${index}.align`} valuesArr={aligns} defaultValue='left' />
-                        </Box>
-                        <RHookFormTextField fullWidth label='Текст' name={`descriptions.${index}.text`} />
+                    <Box className='flex flex-col gap-6'>
+                        <RHookFormTextField label='Название' name={`descriptions.${index}.name`} />
+                        <RHookFormTextField label='Текст' name={`descriptions.${index}.text`} />
+                        <ImageInput
+                            folders={folders}
+                            name={`descriptions.${index}.video`}
+                        />
+                        <ImagesInput
+                            folders={folders}
+                            name={`descriptions.${index}.photos`}
+                        />
                         <Button className='h-min' color='error' size='small' onClick={() => remove(index)}>
                             Удалить
                         </Button>

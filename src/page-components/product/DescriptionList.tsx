@@ -1,44 +1,36 @@
-import React from 'react'
-import { Box, Divider, List, ListItem, Typography } from '@mui/material'
-import { DiamIcon, RulerIcon, ThicknessIcon, VolumeIcon } from '@/components/icons/productIcons'
-import { TProp } from '@/globalTypes'
+import Gallery from '@/components/UI/Gallery'
+import Title from '@/components/UI/text/Title'
+import { TDescription } from '@/globalTypes'
+import { Box, Grid, Typography } from '@mui/material'
 import Image from 'next/image'
+import React from 'react'
 
-const PropsList = ({ props, fade, gap, centered }: { props: TProp[], fade?: boolean, gap?: number, centered?: boolean }) => {
-    if (!props) return ''
+const DescriptionList = ({ descriptions }: { descriptions: TDescription[] }) => {
     return (
-        <Box className='flex flex-col w-fit' sx={{ gap: gap ? gap : 2, alignItems: centered ? 'center' : 'start', mx: centered ? 'auto' : 0 }}>
-            {props.map((i, key) => {
-                let res: any = i.text
-
-                if (i.text?.includes(':')) {
-                    const temp = i.text.split(':')
-                    const title = temp[0] + ':'
-                    const text = temp[1]
-                    res = <span><b>{title}</b>{text}</span>
-                }
-
-                return (
-                    <Box className='flex flex-col gap-4' key={key}>
-                        <Box data-aos={fade ? 'fade-up' : null} className='flex gap-3' data-aos-offset='20'>
+        <>
+            {descriptions.map((description, key) =>
+                <Box sx={{ minHeight: '60vh' }} className='flex flex-col' key={key}>
+                    <Title>
+                        {description.name}
+                    </Title>
+                    <Typography variant='h6'>
+                        {description.text}
+                    </Typography>
+                    <Box className='grid grid-cols-2 h-full'>
+                        <Box className='w-full h-full relative'>
                             <Image
-                                src={i.icon}
-                                width={60}
-                                height={60}
-                                className='w-8 h-8'
-                                alt='icon'
+                                alt='Видео'
+                                fill
+                                className='object-cover'
+                                src={description.video}
                             />
-                            <Typography variant='h6'>
-                                {res}
-                            </Typography>
                         </Box>
-                        {key === props.length - 1 ? null : <Divider data-aos='fade-up' data-aos-offset='20' />}
+                        <Gallery images={description.photos} />
                     </Box>
-                )
-            })}
-        </Box>
-
+                </Box>
+            )}
+        </>
     )
 }
 
-export default PropsList
+export default DescriptionList

@@ -8,7 +8,7 @@ import Gallery from '@/components/UI/Gallery'
 import Title from '@/components/UI/text/Title'
 import data from '@/../data/data.json'
 import File from '@/page-components/product/File'
-import Contacts from '@/page-components/index/Contacts'
+import Contacts from '@/components/layout/contacts/Contacts'
 
 const startParallax = [
     {
@@ -38,7 +38,8 @@ const startParallax = [
 import { Metadata } from "next";
 import Image from 'next/image'
 import StaticHeader from '@/components/layout/header/types/StaticHeader'
-import PropsList from '@/page-components/product/DescriptionList'
+import PropsList from '@/page-components/product/PropsList'
+import DescriptionList from '@/page-components/product/DescriptionList'
 
 type Props = {
     params: { id: string };
@@ -68,6 +69,9 @@ export default async function Home({ params }: { params: { id: string } }) {
                     <Start product={product} />
                 </Plx>
                 <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw', display: 'flex', flexDirection: 'column', gap: 20 }} maxWidth={false} >
+                    <DescriptionList
+                        descriptions ={product.descriptions}
+                    />
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
                         <Box className='ml-4 grid grid-cols-2 gap-8'>

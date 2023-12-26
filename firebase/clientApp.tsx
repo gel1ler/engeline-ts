@@ -3,7 +3,6 @@ import { getDatabase, ref, set, update, child, get, remove } from "firebase/data
 import { getStorage, ref as storageRef, listAll, getDownloadURL, deleteObject, uploadBytesResumable } from "firebase/storage"
 import { TProduct } from "@/globalTypes"
 import { getAuth, signInWithCustomToken } from "firebase/auth";
-import { useAuth } from "@clerk/nextjs";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCt7UQ0t2UjncmNh02TRXB382N4sKQo7gg",
