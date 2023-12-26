@@ -8,7 +8,7 @@ import Title from '@/components/UI/text/Title'
 import Contacts from '@/components/layout/contacts/Contacts'
 import AnotherAdavantages from '@/page-components/index/about/AnotherAdvantages';
 import AOSProvider from '@/services/AOSProvider'
-import Gallery from '@/components/UI/Gallery'
+import Gallery from '@/components/UI/gallery/Gallery'
 import Bar from '@/components/layout/header/Bar/Bar'
 import { Metadata } from 'next'
 import Loader from '@/components/layout/loader'
@@ -41,8 +41,16 @@ export default function Home() {
           </Title>
           <AnotherAdavantages />
         </Box>
-        <Gallery images={['/1.jpg', '/advantages/antikor.jpg', '/2.jpg', '/advantages/plazma.jpg', '/general.jpg']} />
-        <Contacts />
+        <Box sx={{ pt: 10 }}>
+          <Title centered>
+            Галерея
+          </Title>
+          <Gallery
+            type='wide'
+            images={['/1.jpg', '/advantages/antikor.jpg', '/2.jpg', '/advantages/plazma.jpg', '/general.jpg']}
+          />
+          <Contacts />
+        </Box >
       </Box >
     </AOSProvider>
   )

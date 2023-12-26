@@ -72,6 +72,10 @@ export async function createProduct(productData: Omit<TProduct, 'id'>, token: st
 }
 
 export async function changeProduct(id: number, productData: Omit<TProduct, 'id'>, token: string) {
+    const userCredentials = token ? await signInWithCustomToken(auth, token) : null
+
+    if (userCredentials === null) return false
+
     const reference = ref(db, 'products/' + id)
 
     update(reference, {
@@ -81,6 +85,10 @@ export async function changeProduct(id: number, productData: Omit<TProduct, 'id'
 }
 
 export async function deleteProduct(id: number, token: string) {
+    const userCredentials = token ? await signInWithCustomToken(auth, token) : null
+
+    if (userCredentials === null) return false
+
     try {
         await remove(ref(db, 'products/' + id)).
             then(() => 'success')

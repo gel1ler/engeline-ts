@@ -6,6 +6,8 @@ import { Box, Container, useMediaQuery } from '@mui/material'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { useTheme } from '@mui/material/styles'
+import Wide from './Wide'
+import Square from './Square'
 
 const Photo = ({ src, num, setCurrent, setOpen, isMd }: { src: string, num: number, setCurrent: TSetNumber, setOpen: TSetBool, isMd?: boolean }) =>
   <Box
@@ -29,49 +31,36 @@ const Photo = ({ src, num, setCurrent, setOpen, isMd }: { src: string, num: numb
     />
   </Box>
 
-const Gallery = ({ images }: { images: string[] }) => {
+const Gallery = ({ images, type }: { images: string[], type: 'wide' | 'square' }) => {
   const [current, setCurrent] = useState(0)
   const [open, setOpen] = useState(false)
 
   const theme = useTheme()
   const isMd = useMediaQuery(theme.breakpoints.down('lg'))
-  const length = isMd ? 1 : 0
-
 
   return (
-    <Box sx={{ pt: 10 }}>
-      <Title centered>
-        Галерея
-      </Title>
-      <Container>
-        <ImageViewer
+    <Container>
+      <ImageViewer
+        images={images}
+        current={current}
+        setCurrent={setCurrent}
+        open={open}
+        setOpen={setOpen}
+      />
+      {type === 'wide' && !isMd ?
+        <Wide
           images={images}
-          current={current}
           setCurrent={setCurrent}
-          open={open}
           setOpen={setOpen}
         />
-        <Box
-          className='grid gap-2'
-          sx={{
-            width: ['90%', '80%', '80%', '100%'],
-            mx: 'auto',
-            gridTemplate: ['1fr 1fr / 1fr 1fr', '1fr 1fr / 1fr 1fr', '1fr 1fr / 1fr 1fr', '1fr 1fr / 2fr 1fr 1fr'],
-          }}
-        >
-          {images.slice(length).map((i, key) =>
-            <Photo
-              isMd={isMd}
-              key={key}
-              src={i}
-              num={key}
-              setCurrent={setCurrent}
-              setOpen={setOpen}
-            />
-          )}
-        </Box >
-      </Container >
-    </Box >
+        :
+        <Square
+          images={images}
+          setCurrent={setCurrent}
+          setOpen={setOpen}
+        />
+      }
+    </Container >
   )
 }
 

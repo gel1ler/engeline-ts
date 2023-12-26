@@ -1,4 +1,4 @@
-import Gallery from '@/components/UI/Gallery'
+import Gallery from '@/components/UI/gallery/Gallery'
 import Title from '@/components/UI/text/Title'
 import { TDescription } from '@/globalTypes'
 import { Box, Grid, Typography } from '@mui/material'
@@ -25,7 +25,7 @@ const DescriptionList = ({ descriptions }: { descriptions: TDescription[] }) => 
                                 src={description.video}
                             />
                         </Box>
-                        <Gallery images={description.photos} />
+                        <Gallery images={description.photos} type='square' />
                     </Box>
                 </Box>
             )}

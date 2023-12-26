@@ -4,7 +4,7 @@ import AOSProvider from '@/services/AOSProvider'
 import { getProduct } from '../../../../firebase/clientApp'
 import Start from '@/page-components/product/Start'
 import Plx from '@/services/Plx'
-import Gallery from '@/components/UI/Gallery'
+import Gallery from '@/components/UI/gallery/Gallery'
 import Title from '@/components/UI/text/Title'
 import data from '@/../data/data.json'
 import File from '@/page-components/product/File'
@@ -70,7 +70,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                 </Plx>
                 <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw', display: 'flex', flexDirection: 'column', gap: 20 }} maxWidth={false} >
                     <DescriptionList
-                        descriptions ={product.descriptions}
+                        descriptions={product.descriptions}
                     />
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
@@ -147,7 +147,12 @@ export default async function Home({ params }: { params: { id: string } }) {
                         height={100}
                     />
                 </Box>
-                <Gallery images={[product.mainImg, ...product.additionalImgs]} />
+                <Box sx={{ pt: 10 }}>
+                    <Title centered>
+                        Галерея
+                    </Title>
+                    <Gallery images={[product.mainImg, ...product.additionalImgs]} type='wide' />
+                </Box>
                 <Contacts />
             </Box >
         </AOSProvider >

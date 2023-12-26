@@ -37,6 +37,7 @@ const MyModal = ({ setOpen, open, folders, change, product, token }: Props) => {
     }, [product, methods])
 
     const onSubmit: SubmitHandler<TInputs> = async (data) => {
+        console.log(data)
         try {
             if (change && product) {
                 await changeProduct(product.id, { ...data }, token)
