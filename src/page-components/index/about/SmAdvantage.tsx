@@ -3,7 +3,7 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 
 
-const Advantage = ({
+const SmAdvantage = ({
     text, title, num
 }: {
     text: string, title: string, num: number
@@ -12,7 +12,6 @@ const Advantage = ({
         <Box
             className='flex flex-col items-center relative gap-2 mx-auto'
             sx={{
-                width: '84%',
             }}
             data-aos='fade-up'
         >
@@ -44,4 +43,4 @@ const Advantage = ({
     )
 }
 
-export default Advantage
+export default SmAdvantage

@@ -11,6 +11,7 @@ const Empty = ({ folders, token }: { folders: any[], token: string }) => {
     return (
         <>
             <Modal
+                productNames={[]}
                 setOpen={setOpenCreate}
                 open={openCreate}
                 folders={folders}

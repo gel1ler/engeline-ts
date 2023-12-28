@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { BaseSyntheticEvent, useState } from 'react'
 import Sticker from '@/components/icons/sticker'
 import { Typography, Button, Box, Snackbar } from '@mui/material'
 import MuiPhone from '../PhoneNumber'
@@ -28,8 +28,7 @@ const Form = () => {
 
     const router = useRouter()
 
-    const onSubmit = async (data: any, e: Event) => {
-        e.preventDefault()
+    const onSubmit = async (data: TInputs) => {
         router.push('/?loading=true')
 
         const message = `${data.name} заказал обратный звонок на номер ${phone} по поводу ${data.type}.`

@@ -1,13 +1,13 @@
 'use client'
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form"
-import { Box, Typography, Modal, Button, Divider } from '@mui/material'
+import { Box, Typography, Modal, Button, Divider, Select, MenuItem } from '@mui/material'
 import RHookFormTextField from '@/components/UI/forms/RHookFormTextField'
 import { TProduct } from '@/globalTypes'
 import PropsList from './PropsList'
 import DescriptionsList from './DescriptionsList'
 import { useRouter } from 'next/navigation';
-import { changeProduct, createProduct } from '@/../firebase/clientApp'
+import { InsertProduct, changeProduct, createProduct } from '@/../firebase/clientApp'
 import ImagesInput from './images/selectImages/ImagesInput'
 import Docs from './Docs';
 import ImageInput from './images/selectOneImage/ImageInput';
@@ -20,12 +20,16 @@ interface Props {
     change?: any;
     product?: TProduct;
     token: string;
+    productNames: string[]
 }
 
-type TInputs = Omit<TProduct, 'id'>
+interface TInputs extends Omit<TProduct, 'id'> {
+    addAfter: string;
+}
 
-const MyModal = ({ setOpen, open, folders, change, product, token }: Props) => {
+const MyModal = ({ setOpen, open, folders, change, product, token, productNames }: Props) => {
     const router = useRouter()
+    const [place, setPlace] = useState()
 
     const methods = useForm<TInputs>({
         defaultValues: useMemo(() => {
@@ -66,9 +70,22 @@ const MyModal = ({ setOpen, open, folders, change, product, token }: Props) => {
                 <Typography variant='h6'>
                     {change ? 'Изменение' : 'Создание'} продукта
                 </Typography>
-                <FormProvider {...methods}>
+                {product && change ?
+                    <Box className='flex items-center gap-6'>
+                        <Select color='secondary' onChange={(e: any) => setPlace(e.target.value)}>
+                            {productNames.map((i, key) =>
+                                <MenuItem value={key}>{i}</MenuItem>
+                            )}
+                        </Select>
+                        <Button
+                            color='secondary'
+                            onClick={() => InsertProduct(product.id, place, token)}
+                        >
+                            Вставить перед
+                        </Button>
+                    </Box> : null}
+                < FormProvider {...methods}>
                     <form className='flex flex-col gap-4 my-6' onSubmit={methods.handleSubmit(onSubmit)}>
-                        {/* <RHookFormSelect label='Поменять с' name='name' /> */}
                         <Divider />
                         <RHookFormTextField label='Наименование' name='name' />
                         <Divider />
@@ -100,7 +117,7 @@ const MyModal = ({ setOpen, open, folders, change, product, token }: Props) => {
                     </form>
                 </FormProvider>
             </Box>
-        </Modal>
+        </Modal >
     );
 };
 

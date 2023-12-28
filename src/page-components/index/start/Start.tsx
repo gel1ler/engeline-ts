@@ -23,15 +23,15 @@ const direcrions: { text: string, link: string }[] = [
     },
     {
         text: 'Муфты ремонтные стальные',
-        link: '/products/5'
-    },
-    {
-        text: 'Соединительные детали трубопроводов',
         link: '/products/2'
     },
     {
-        text: 'Трубы обечаечные, корпуса, бандажи',
+        text: 'Соединительные детали трубопроводов',
         link: '/products/3'
+    },
+    {
+        text: 'Трубы обечаечные, корпуса, бандажи',
+        link: '/products/4'
     }
 ]
 
@@ -58,8 +58,8 @@ const Start = () => {
                     data-aos='fade-right'
                     src={mainInfo.logoHorizontal}
                     alt='Logo'
-                    width="0"
-                    height="0"
+                    width={300}
+                    height={43}
                     style={{
                         width: '100%',
                         maxWidth: '500px',

@@ -19,7 +19,7 @@ import AddButton from '@/components/UI/buttons/add'
 import Title from '@/components/UI/text/Title'
 import { TProduct } from '@/globalTypes'
 
-const AdminProducts = ({ products, folders, token }: { products: TProduct[], folders: any[], token: string }) =>{
+const AdminProducts = ({ products, folders, token }: { products: TProduct[], folders: any[], token: string }) => {
     const [openCreate, setOpenCreate] = useState(false)
     const [openChange, setOpenChange] = useState(false)
     const [selected, setSelected] = useState<TProduct>()
@@ -35,9 +35,12 @@ const AdminProducts = ({ products, folders, token }: { products: TProduct[], fol
         setOpenChange(true)
     }
 
+    const productNames = products.map(product => product.name)
+
     return (
         <>
             <Modal
+                productNames={productNames}
                 setOpen={setOpenCreate}
                 open={openCreate}
                 folders={folders}
@@ -45,6 +48,7 @@ const AdminProducts = ({ products, folders, token }: { products: TProduct[], fol
             />
             <Modal
                 product={selected}
+                productNames={productNames}
                 setOpen={setOpenChange}
                 open={openChange}
                 folders={folders}

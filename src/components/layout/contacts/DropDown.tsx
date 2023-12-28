@@ -11,8 +11,13 @@ const DropDown = ({ name, list }: { name: string, list: string[] }) => {
     };
 
     return (
-        <Box className='flex flex-col gap-1'>
-            <Typography onClick={handleClick} variant='h6' fontWeight='bold' className='flex items-center cursor-pointer'>
+        <Box className='flex-col gap-1' sx={{ display: ['none', 'none', 'none', 'flex'] }}>
+            <Typography
+                onClick={handleClick}
+                variant='h6'
+                fontWeight='bold'
+                className='flex items-center cursor-pointer'
+            >
                 {name}
                 <ArrowDropDown
                     className='transition-all'

@@ -98,6 +98,41 @@ export async function deleteProduct(id: number, token: string) {
     }
 }
 
+function arrayMove(arr: any[], old_index: number, new_index: number) {
+    if (new_index >= arr.length) {
+        var k = new_index - arr.length + 1
+        while (k--) {
+            arr.push(undefined)
+        }
+    }
+
+    arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+    arr.forEach((i, key) => i.id = key)
+    return arr
+};
+
+export async function InsertProduct(oldId: number, newId: number | undefined, token: string) {
+    if (!newId) return 'Err'
+    const userCredentials = token ? await signInWithCustomToken(auth, token) : null
+    if (userCredentials === null) return false
+
+
+    try {
+        const products = await getProducts()
+        const newProducts = arrayMove(products, oldId, newId)
+
+        const reference = ref(db, 'products')
+
+        update(reference, {
+            ...newProducts
+        }).then(() => console.log('succ')).catch(err => console.log(err))
+    
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
 //////////////////////////////////////////////////////////////////////
 //Storage
 

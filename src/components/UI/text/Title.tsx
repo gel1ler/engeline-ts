@@ -4,7 +4,7 @@ import React, { ReactNode } from 'react'
 const Title = ({
     children, centered, variant, mdCenter, noAos
 }: {
-    children: ReactNode, centered?: boolean, variant?: 'h2' | 'h1', mdCenter?: boolean, noAos?: boolean
+    children: ReactNode, centered?: boolean, variant?: 'h2' | 'h1' | 'h4', mdCenter?: boolean, noAos?: boolean
 }) => {
     return (
         <Typography
@@ -22,7 +22,7 @@ const Title = ({
             }}
             data-aos={noAos ? '' : 'fade-up'}
         >
-            {children} 
+            {children}
         </Typography>
     )
 }

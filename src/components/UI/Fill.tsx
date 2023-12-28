@@ -13,12 +13,13 @@ function hexToRgb(hex: string) {
 }
 
 const Fill = ({
-    anchor, type, prc, color
+    anchor, type, prc, color, over
 }: {
     anchor: 'to bottom' | 'to top' | 'to left' | 'to right',
     type: 'centered' | 'to anchor',
     prc?: number,
-    color?: string
+    color?: string,
+    over?: boolean
 }) => {
     const theme = useTheme()
     let bg = ''
@@ -32,9 +33,10 @@ const Fill = ({
 
     return (
         <Box
-            className='w-full h-full absolute left-0 top-0 -z-40'
+            className='w-full h-full absolute left-0 top-0'
             sx={{
                 background: bg,
+                zIndex: over ? 40 : -40
             }}
         />
     )

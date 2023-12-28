@@ -34,7 +34,7 @@ const arr = [
 export default function AnotherAdavantages() {
     return (
         <Box
-            className='grid gap-10 pt-4'
+            className='grid gap-10 pt-4 justify-items-center'
             sx={{
                 gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr']
             }}
@@ -45,7 +45,7 @@ export default function AnotherAdavantages() {
                     className='flex flex-col items-end rounded-lg overflow-hidden'
                     data-aos='fade-up'
                     sx={{
-                        // minWidth: '500px',
+                        maxWidth: '500px',
                         boxShadow: '0 0 10px 5px rgba(0,0,0,.2)'
                     }}
                 >

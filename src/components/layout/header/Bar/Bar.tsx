@@ -33,19 +33,22 @@ const Bar = ({ noBg, onlyTop, start }: { noBg?: boolean, onlyTop?: boolean, star
               <Image
                 alt='Logo'
                 src={mainInfo.logoHorizontal}
-                width={200}
-                height={40}
+                width={300}
+                height={43}
+                style={{ maxWidth: '70vw', maxHeight: '40px' }}
               />
             </Link>
             : null
           }
-          <Box sx={{ display: !start ? ['none', 'none', 'flex'] : 'flex', gap: 5 }}>
-            <Box sx={{ display: ['none', 'none', 'none', 'flex'] }}>
-              <NavLinks />
+          <Box className='flex'>
+            <Box sx={{ display: !start ? ['none', 'none', 'flex'] : 'flex', gap: 5 }}>
+              <Box sx={{ display: ['none', 'none', 'none', 'flex'] }}>
+                <NavLinks />
+              </Box>
+              <Login />
             </Box>
-            <Login />
+            <MyDrawer />
           </Box>
-          <MyDrawer />
         </Toolbar>
       }
     </>

@@ -9,7 +9,6 @@ import Contacts from '@/components/layout/contacts/Contacts'
 import AnotherAdavantages from '@/page-components/index/about/AnotherAdvantages';
 import AOSProvider from '@/services/AOSProvider'
 import Gallery from '@/components/UI/gallery/Gallery'
-import Bar from '@/components/layout/header/Bar/Bar'
 import { Metadata } from 'next'
 import Loader from '@/components/layout/loader'
 import GetCall from '@/components/UI/forms/getCall/GetCall'
@@ -23,8 +22,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <AOSProvider>
-      <GetCall />
       <Box className='relative w-screen'>
+        <GetCall />
         <Plx parallaxData={startParallax}>
           <Start />
         </Plx>

@@ -17,7 +17,9 @@ const GetCall = () => {
                     alignItems: 'center'
                 }}
             >
-                <Form />
+                <Box>
+                    <Form />
+                </Box>
             </Modal>
             <Box
                 className='w-16 h-16 rounded-full bottom-8 

@@ -7,11 +7,11 @@ const Contacts = () => {
   return (
     <Box id='contacts_anchor' sx={{ pt: '30px', mt: '-30px' }}>
       <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw', mt: 10, py: 5, minHeight: '100vh' }} maxWidth={false}>
-        <Title>
+        <Title mdCenter>
           Контакты
         </Title>
-        <Box sx={{ display: 'grid', gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], gap: 5, minHeight: '70vh' }} >
-          <Box sx={{ textAlign: ['center', 'center', 'left'] }} className='flex flex-col gap-2' data-aos='fade-up'>
+        <Box sx={{ display: 'grid', gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'], gap: 5, minHeight: '70vh' }} >
+          <Box sx={{ textAlign: ['center', 'center', 'center', 'left'] }} className='flex flex-col gap-2' data-aos='fade-up'>
 
             <Typography variant="h4" fontWeight='bold'>
               Офис
