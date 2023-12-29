@@ -23,7 +23,7 @@ const Bar = ({ noBg, onlyTop, start }: { noBg?: boolean, onlyTop?: boolean, star
         <Toolbar
           className={'flex w-full' + isFullwidth}
           sx={{
-            justifyContent: start ? ['space-between', 'center'] : 'space-between',
+            justifyContent: start ? ['flex-end', 'flex-end', 'center'] : 'space-between',
             my: 'auto',
             px: [2, 4, 4, 4]
           }}
@@ -41,7 +41,7 @@ const Bar = ({ noBg, onlyTop, start }: { noBg?: boolean, onlyTop?: boolean, star
             : null
           }
           <Box className='flex'>
-            <Box sx={{ display: !start ? ['none', 'none', 'flex'] : 'flex', gap: 5 }}>
+            <Box sx={{ display: ['none', 'none', 'flex'], gap: 5 }}>
               <Box sx={{ display: ['none', 'none', 'none', 'flex'] }}>
                 <NavLinks />
               </Box>

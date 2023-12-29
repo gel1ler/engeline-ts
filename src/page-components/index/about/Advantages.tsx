@@ -1,11 +1,13 @@
 'use client'
-import { Box } from '@mui/material'
+import { Box, useMediaQuery } from '@mui/material'
 import React from 'react'
 import Advantage from './Advantage'
 import SmAdvantage from './SmAdvantage'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import HelperText from '@/components/UI/text/HelperText'
+import { useTheme } from '@mui/material/styles'
 
 const advantages = [
     {
@@ -35,34 +37,44 @@ const advantages = [
 ]
 
 const settings = {
-    dots: true,
+    className: "center",
+    centerMode: true,
+    centerPadding: '10%',
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1
 }
 
 const Advantages = () => {
-    return (
-        // <Box
-        //     className='grid grid-cols-3 grid-rows-2 mt-10 justify-items-center gap-6 overflow-hidden mx-auto'
-        //     sx={{
-        //         maxWidth: '100vw',
-        //         width: ['100vw', '100vw', '95%', '84%']
-        //     }}
-        // >
-        //     {advantages.map((i, key) =>
-        //         <Advantage key={key} num={key} title={i.title} text={i.text} />
-        //     )}
-        // </Box>
-        <Box className='w-screen h-1/2'>
-            <Slider {...settings}>
-                {advantages.map((i, key) =>
-                    <SmAdvantage key={key} num={key} title={i.title} text={i.text} />
-                )}
-            </Slider>
-        </Box>
 
+    const theme = useTheme()
+    const isMd = useMediaQuery(theme.breakpoints.down('lg'))
+
+    return (
+        isMd ?
+            <Box className='my-5 w-screen overflow-hidden'>
+                <HelperText>
+                    Листайте вправо →
+                </HelperText>
+                <Slider {...settings}>
+                    {advantages.map((i, key) =>
+                        <SmAdvantage key={key} num={key} title={i.title} text={i.text} />
+                    )}
+                </Slider>
+            </Box>
+            :
+            <Box
+                className='grid grid-cols-3 grid-rows-2 mt-10 justify-items-center gap-6 overflow-hidden mx-auto'
+                sx={{
+                    maxWidth: '100vw',
+                    width: ['100vw', '100vw', '95%', '84%']
+                }}
+            >
+                {advantages.map((i, key) =>
+                    <Advantage key={key} num={key} title={i.title} text={i.text} />
+                )}
+            </Box >
     )
 }
 

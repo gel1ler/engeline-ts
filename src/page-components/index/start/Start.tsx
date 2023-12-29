@@ -67,7 +67,7 @@ const Start = () => {
                     }}
                     sizes="(max-width: 768px) 40vw, (max-width: 1200px) 30vw, 20vw"
                 />
-                <Box className='flex flex-col gap-7' data-aos='fade-right'>
+                <Box className='flex flex-col gap-4 md:gap-7' data-aos='fade-right'>
                     {direcrions.map((i, key) =>
                         <Link href={i.link} key={key} className='w-fit'>
                             <Typography variant='h5' className='trans'>

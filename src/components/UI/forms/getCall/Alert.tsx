@@ -25,7 +25,7 @@ export default function AlertDialog({ open, setOpen }: { open: boolean, setOpen:
 
     React.useEffect(() => {
         setTimeout(() => setOpen(false), 3500)
-    }, [open])
+    }, [open, setOpen])
 
     return (
         <Dialog

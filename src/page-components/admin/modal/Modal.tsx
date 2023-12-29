@@ -74,7 +74,7 @@ const MyModal = ({ setOpen, open, folders, change, product, token, productNames 
                     <Box className='flex items-center gap-6'>
                         <Select color='secondary' onChange={(e: any) => setPlace(e.target.value)}>
                             {productNames.map((i, key) =>
-                                <MenuItem value={key}>{i}</MenuItem>
+                                <MenuItem key={key} value={key}>{i}</MenuItem>
                             )}
                         </Select>
                         <Button

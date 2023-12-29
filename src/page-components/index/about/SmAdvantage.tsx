@@ -10,9 +10,7 @@ const SmAdvantage = ({
 }) => {
     return (
         <Box
-            className='flex flex-col items-center relative gap-2 mx-auto'
-            sx={{
-            }}
+            className='flex flex-col items-center relative gap-2 mx-auto w-72'
             data-aos='fade-up'
         >
             <Box className='relative h-20 translate-y-6'>

@@ -18,14 +18,20 @@ const Fabric = async () => {
                     Первомайскхиммаш
                 </Title>
                 <Box
-                    className='w-full flex items-center'
+                    className='w-full flex'
                     sx={{
                         flexDirection: ['column', 'column', 'column', 'row'],
+                        alignItems: ['center', 'center', 'center', 'start'],
                         gap: [4, 4, 4, 10]
                     }}
                 >
-                    <Box sx={{ width: ['100%', '100%', '70%', '50%'], textAlign: ['center', 'center','center', 'left'] }}>
-                        <Typography variant='h6' data-aos='fade-up'>
+                    <Box className='mx-auto' sx={{ width: ['100%', '100%', '70%', '50%'], textAlign: ['center', 'center', 'center', 'left'] }}>
+                        <Typography
+                            sx={{
+                                fontSize: ['15px', '15px', '17px']
+                            }}
+                            data-aos='fade-up'
+                        >
                             Первомайский завод химического машиностроения является ведущим производителем нефтепромыслового и емкостного оборудования и оборудования для химической промышленности.
                             Завод географически расположен в центре России - в 350 км к югу от Москвы, что позволяет производить отгрузку железнодорожным и автомобильным транспортом в любой регион. Промышленная площадка предприятия занимает 74,36 га. Завод располагает сварочным, механообрабатывающим и сборочным производствами.
                         </Typography>
@@ -34,7 +40,6 @@ const Fabric = async () => {
                             dataAos='fade-up'
                             sx={{
                                 mt: 3,
-                                mx: ['auto', 'auto', '0'],
                                 px: 2,
                                 py: 1,
                                 display: ['none', 'none', 'none', 'block']
@@ -48,7 +53,7 @@ const Fabric = async () => {
                         }}
                     >
                         <iframe
-                            data-aos='fade-left'
+                            data-aos='fade-up'
                             style={{
                                 width: '100%',
                                 aspectRatio: '16/9'
@@ -60,12 +65,14 @@ const Fabric = async () => {
                     </Box>
                     <MoreButton
                         href='/'
-                        dataAos='fade-right'
+                        dataAos='fade-up'
                         sx={{
                             mt: 1,
                             px: 2,
                             py: 1,
-                            display: ['block', 'block', 'block', 'none']
+                            display: ['block', 'block', 'block', 'none'],
+                            mx: ['auto', 'auto', 'auto', 'none'],
+                            width: 'fit-content'
                         }}
                     />
                 </Box>

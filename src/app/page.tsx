@@ -1,5 +1,5 @@
 import About from '@/page-components/index/about/About'
-import { Box, Container } from '@mui/material'
+import { Box } from '@mui/material'
 import Start from '@/page-components/index/start/Start'
 import Plx from '@/services/Plx'
 import Products from '@/page-components/index/products/Products'
@@ -10,7 +10,6 @@ import AnotherAdavantages from '@/page-components/index/about/AnotherAdvantages'
 import AOSProvider from '@/services/AOSProvider'
 import Gallery from '@/components/UI/gallery/Gallery'
 import { Metadata } from 'next'
-import Loader from '@/components/layout/loader'
 import GetCall from '@/components/UI/forms/getCall/GetCall'
 import { startParallax } from '@/customization/customization'
 
@@ -34,7 +33,7 @@ export default function Home() {
         <Box id='products_anchor' sx={{ pt: '140px', mt: '-140px' }}>
           <Products />
         </Box>
-        <Box className='w-2/3 mx-auto anchor' sx={{ my: 10 }}>
+        <Box className='mx-auto anchor' sx={{ my: 10 }}>
           <Title centered>
             Другие преимущества
           </Title>

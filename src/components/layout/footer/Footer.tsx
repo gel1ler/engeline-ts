@@ -21,11 +21,11 @@ const Footer = () => {
             <Container
                 sx={{
                     mx: 'auto',
-                    pt: 6
+                    pt: 6,
                 }}
             >
-                <Grid container spacing={4}>
-                    <Grid item sm={12} md={4} lg={4}>
+                <Grid container spacing={4} sx={{ alignItems: ['center', 'center', 'start'] }}>
+                    <Grid item xs={12} sm={12} md={4} lg={4}>
                         <Box className='flex flex-col gap-4 mx-auto' sx={{ alignItems: ['center', 'center', 'start'] }}>
                             <Image
                                 src='/logo/logo-horizontal.svg'
@@ -43,8 +43,8 @@ const Footer = () => {
                             </Link>
                         </Box>
                     </Grid>
-                    <Grid item sm={12} md={4} lg={4}>
-                        <Box className='flex flex-col gap-4' sx={{ alignItems: ['center','center',  'start'] }}>
+                    <Grid item xs={12} sm={12} md={4} lg={4}>
+                        <Box className='flex flex-col gap-4' sx={{ alignItems: ['center', 'center', 'start'] }}>
                             <Typography variant='h6' fontWeight='bold'>
                                 Информация
                             </Typography>

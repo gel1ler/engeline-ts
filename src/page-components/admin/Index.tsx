@@ -40,7 +40,7 @@ const Index = ({ folders, products }: { folders: any[], products: TProduct[] }) 
             }
         }
         get()
-    }, [])
+    })
 
     const { isLoaded, isSignedIn } = useUser()
 

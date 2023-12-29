@@ -34,9 +34,10 @@ const arr = [
 export default function AnotherAdavantages() {
     return (
         <Box
-            className='grid gap-10 pt-4 justify-items-center'
+            className='grid gap-10 pt-4 px-4 justify-items-center mx-auto'
             sx={{
-                gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr']
+                gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
+                maxWidth: ['450px','450px','450px','1100px',],
             }}
         >
             {arr.map((i, key) =>
@@ -45,14 +46,13 @@ export default function AnotherAdavantages() {
                     className='flex flex-col items-end rounded-lg overflow-hidden'
                     data-aos='fade-up'
                     sx={{
-                        maxWidth: '500px',
                         boxShadow: '0 0 10px 5px rgba(0,0,0,.2)'
                     }}
                 >
                     <Image
                         alt='Лаборатория завода'
-                        height={300}
-                        width={400}
+                        height={9*30}
+                        width={16*30}
                         style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover', flexGrow: 1 }}
                         src={i.image}
                     />
@@ -65,7 +65,6 @@ export default function AnotherAdavantages() {
                         </Typography>
                         <MoreButton href={i.href} sx={{ px: 2, py: 1, mt: 'auto' }} />
                     </Box>
-                    <Fill anchor='to top' type='to anchor' color='rgba(0,0,0,.2)' />
                 </Box>
             )}
         </Box>
