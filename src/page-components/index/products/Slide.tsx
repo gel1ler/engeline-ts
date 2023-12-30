@@ -9,9 +9,10 @@ import Link from 'next/link'
 const Slide = ({ product }: { product: TProduct }) => {
     return (
         <Box
-            className='h-full p-10 relative overflow-hidden flex gap-5 rounded-xl'
+            className='p-10 relative overflow-hidden flex gap-5 rounded-xl mx-auto'
             sx={{
-                width: ['80vw', '60vw'],
+                width: ['90vw','70vw', '60vw'],
+                height: ['70vh'],
                 boxShadow: '0 0 10px 5px rgba(0,0,0,.1)',
                 flexDirection: ['column', 'column', 'row'],
                 alignItems: ['center', 'center', 'initial']

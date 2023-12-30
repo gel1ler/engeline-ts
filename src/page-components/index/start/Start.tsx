@@ -39,7 +39,7 @@ const direcrions: { text: string, link: string }[] = [
 const Start = () => {
     return (
         <Box
-            className='flex items-center justify-around mx-auto h-screen'
+            className='flex mx-auto h-screen'
             sx={{
                 maxWidth: '1400px',
                 p: [1, 3, 10, 4],
@@ -51,9 +51,19 @@ const Start = () => {
                 className='w-full h-full absolute left-0 top-0 -z-40'
                 sx={{
                     background: `linear-gradient(to right, white 30%, rgba(255,255,255, .8) 50%, transparent)`,
+                    justifyContent: 'start',
                 }}
             />
-            <Box className='flex flex-col gap-10 justify-center my-auto' sx={{ width: ['90%', '100%'] }}>
+            <Box
+                className='flex flex-col gap-10'
+                sx={{
+                    width: ['90%', '100%'],
+                    my: ['auto', 'auto'],
+                    textAlign: ['center', 'left'],
+                    mx: ['auto', 0],
+                    alignItems: ['center', 'left']
+                }}
+            >
                 <Image
                     data-aos='fade-right'
                     src={mainInfo.logoHorizontal}
@@ -67,7 +77,11 @@ const Start = () => {
                     }}
                     sizes="(max-width: 768px) 40vw, (max-width: 1200px) 30vw, 20vw"
                 />
-                <Box className='flex flex-col gap-4 md:gap-7' data-aos='fade-right'>
+                <Box
+                    className='flex flex-col gap-4 md:gap-7'
+                    data-aos='fade-right'
+                    sx={{ alignItems: ['center', 'left'] }}
+                >
                     {direcrions.map((i, key) =>
                         <Link href={i.link} key={key} className='w-fit'>
                             <Typography variant='h5' className='trans'>

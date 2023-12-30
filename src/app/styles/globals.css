@@ -23,3 +23,7 @@ li {
 }
 
 .aw>li {margin-top: 8px;}
+
+.slick-track {
+  padding: 20px 0;
+}

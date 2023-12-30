@@ -10,7 +10,8 @@ const ArrowTextLink = ({ href, dataAos, children }: { href: string, dataAos: str
         variant='h6'
         className='flex items-center trans animUnderline w-fit'
         sx={{
-          fontSize: ['15px','inherit']
+          fontSize: ['15px','inherit'],
+          mx: ['auto', 0],
         }}
       >
         {children}

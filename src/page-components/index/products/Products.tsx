@@ -1,14 +1,13 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import Title from '@/components/UI/text/Title'
-import Slider from './Slider'
+import Carousel from './Carousel'
 import { getProducts } from '../../../../firebase/clientApp'
 import ArrowTextLink from '@/components/UI/text/ArrowTextLink'
+import data from '@/../data/data.json'
 
 const Products = async () => {
-    const products = await getProducts()
-
-    const arr = products.slice(-2).reverse().concat(products.slice(0, 3))
+    // const products = await getProducts()
 
     return (
         <Box
@@ -18,7 +17,7 @@ const Products = async () => {
             <Title centered >
                 Продукция и услуги
             </Title>
-            <Slider products={arr} />
+            <Carousel products={data.products} />
             <Box className='flex justify-center mt-4'>
                 <ArrowTextLink href='/products' dataAos='fade-right'>
                     Весь перечень услуг и продукции
