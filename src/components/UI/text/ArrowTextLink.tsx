@@ -15,7 +15,7 @@ const ArrowTextLink = ({ href, dataAos, children }: { href: string, dataAos: str
         }}
       >
         {children}
-        <ArrowCircleRightOutlinedIcon fontSize='small' sx={{ mt: '4px' }} />
+        <ArrowCircleRightOutlinedIcon fontSize='small' sx={{ mt: '2px' }} />
       </Typography>
     </Link>
   )

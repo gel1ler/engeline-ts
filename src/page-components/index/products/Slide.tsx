@@ -11,27 +11,30 @@ const Slide = ({ product }: { product: TProduct }) => {
         <Box
             className='p-10 relative overflow-hidden flex gap-5 rounded-xl mx-auto'
             sx={{
-                width: ['90vw','70vw', '60vw'],
-                height: ['70vh'],
+                width: ['90vw', '70vw', '60vw'],
+                height: ['70vh', '60vh'],
                 boxShadow: '0 0 10px 5px rgba(0,0,0,.1)',
                 flexDirection: ['column', 'column', 'row'],
-                alignItems: ['center', 'center', 'initial']
+                alignItems: ['center', 'center', 'start']
             }}
             data-aos='fade-up'
         >
-            <Box className='flex flex-col' sx={{ width: ['100%', '100%', '50%'] }}>
+            <Box
+                className='flex flex-col lg:h-full'
+                sx={{
+                    width: ['100%', '100%', '50%'],
+                    alignItems: ['center', 'center', 'start']
+                }}
+            >
                 <Link href={'/products/' + product.id} className='w-fit'>
                     <Subtitle noAos>
                         {product.name}
                     </Subtitle>
                 </Link>
                 <Box
-                    className='relative'
+                    className='relative flex-grow overflow-hidden mt-4'
                     sx={{
-                        mt: 2,
                         display: ['none', 'none', 'block'],
-                        flexGrow: 1,
-                        overflow: 'hidden'
                     }}
                 >
                     <Typography>
@@ -41,12 +44,11 @@ const Slide = ({ product }: { product: TProduct }) => {
                 </Box>
                 <MoreButton href={'/products/' + product.id} sx={{ display: ['none', 'none', 'block'] }} />
             </Box>
-            <Box className='rounded-xl overflow-hidden relative drop-shadow-md' sx={{ width: ['100%', '100%', '50%'] }}>
+            <Box className='rounded-xl overflow-hidden relative drop-shadow-md flex-grow h-full' sx={{ width: ['100%', '100%', '50%'] }}>
                 <Image
                     alt='Product png photo'
                     src={product.mainImg}
-                    width={500}
-                    height={500}
+                    fill
                     className='object-cover w-full h-full'
                 />
             </Box>

@@ -7,7 +7,7 @@ import ArrowTextLink from '@/components/UI/text/ArrowTextLink'
 import data from '@/../data/data.json'
 
 const Products = async () => {
-    // const products = await getProducts()
+    const products = await getProducts()
 
     return (
         <Box
@@ -17,7 +17,7 @@ const Products = async () => {
             <Title centered >
                 Продукция и услуги
             </Title>
-            <Carousel products={data.products} />
+            <Carousel products={products} />
             <Box className='flex justify-center mt-4'>
                 <ArrowTextLink href='/products' dataAos='fade-right'>
                     Весь перечень услуг и продукции

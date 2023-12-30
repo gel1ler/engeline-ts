@@ -59,9 +59,9 @@ const Start = () => {
                 sx={{
                     width: ['90%', '100%'],
                     my: ['auto', 'auto'],
-                    textAlign: ['center', 'left'],
+                    textAlign: ['center', 'center', 'start'],
                     mx: ['auto', 0],
-                    alignItems: ['center', 'left']
+                    alignItems: ['center', 'center', 'start']
                 }}
             >
                 <Image
@@ -78,9 +78,9 @@ const Start = () => {
                     sizes="(max-width: 768px) 40vw, (max-width: 1200px) 30vw, 20vw"
                 />
                 <Box
-                    className='flex flex-col gap-4 md:gap-7'
+                    className='flex flex-col gap-4 md:gap-7 '
                     data-aos='fade-right'
-                    sx={{ alignItems: ['center', 'left'] }}
+                    sx={{ alignItems: ['center', 'center', 'start'] }}
                 >
                     {direcrions.map((i, key) =>
                         <Link href={i.link} key={key} className='w-fit'>

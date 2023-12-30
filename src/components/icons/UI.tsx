@@ -10,24 +10,24 @@ const style = { fontSize: 30 }
 
 export const MenuIcon = ({ setOpen }: { setOpen: () => void }) => { return (<IB f={setOpen}><Menu sx={style} /></IB>) }
 
-export const Arrow = ({ anchor, f }: { anchor: 'left' | 'right', f: () => void }) => {
+export const Arrow = (props: { anchor: 'left' | 'right', onClick?: () => void, noBg?: boolean }) => {
     return (
         <Box
             // data-aos='fade-up'
             className='absolute top-0 cursor-pointer h-full z-50'
             sx={{
+                background: props.noBg ? '' : `linear-gradient(to ${props.anchor === 'left' ? 'right' : 'left'}, white, transparent)`,
                 transition: 'all .2s ease-out',
                 width: '17vw',
-                minWidth: '130px',
-                [anchor]: 0,
+                [props.anchor]: 0,
                 ":hover": {
-                    [anchor]: -5,
+                    [props.anchor]: -5,
                 }
             }}
-            onClick={f}
+            onClick={props.onClick}
         >
             <Image
-                className="absolute top-1/2 -translate-y-1/2 h-1/5 w-1/5"
+                className="absolute top-1/2 -translate-y-1/2 aspect-square w-20 lg:w-32"
                 id='arrow'
                 style={{
                     left: 0,
@@ -36,7 +36,7 @@ export const Arrow = ({ anchor, f }: { anchor: 'left' | 'right', f: () => void }
                     filter: 'drop-shadow(0 0 3px rgba(0,0,0, 0.8))',
                 }}
                 alt='Стрелка'
-                src={anchor === 'left' ? arrowLeft : arrowRight}
+                src={props.anchor === 'left' ? arrowLeft : arrowRight}
             />
         </Box>
     )
