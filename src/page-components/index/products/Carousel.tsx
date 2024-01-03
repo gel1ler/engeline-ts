@@ -10,7 +10,7 @@ import Arrow from '@/components/icons/UI';
 
 const Carousel = ({ products }: { products: TProduct[] }) => {
     const settings = {
-        className: "center",
+        className: "center prod-slider",
         centerMode: true,
         infinite: true,
         speed: 500,

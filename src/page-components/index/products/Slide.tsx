@@ -6,6 +6,11 @@ import Subtitle from '@/components/UI/text/Subtitle'
 import MoreButton from '@/components/UI/buttons/MoreButton'
 import Link from 'next/link'
 
+const generateUl = (string: string) => {
+    const arr = string.split('/n').slice(1)
+    return arr
+}
+
 const Slide = ({ product }: { product: TProduct }) => {
     return (
         <Box
@@ -37,9 +42,19 @@ const Slide = ({ product }: { product: TProduct }) => {
                         display: ['none', 'none', 'block'],
                     }}
                 >
-                    <Typography>
-                        {product.description ? product.description : product.shortDescription}
-                    </Typography>
+
+                    {product.description ?
+                        product.description.includes('/n') ?
+                            generateUl(product.description).map((i, key) =>
+                                <Typography key={key} sx={{ mb: 1 }}>{i}</Typography>
+                            )
+                            :
+                            <Typography>{product.description}</Typography>
+                        :
+                        <Typography>
+                            {product.shortDescription}
+                        </Typography>
+                    }
                     <Box className=' bg-gradient-to-t from-white to-transparent absolute bottom-0 left-0 h-1/2 w-full' />
                 </Box>
                 <MoreButton href={'/products/' + product.id} sx={{ display: ['none', 'none', 'block'] }} />
@@ -53,7 +68,7 @@ const Slide = ({ product }: { product: TProduct }) => {
                 />
             </Box>
             <MoreButton href={'/products/' + product.id} dataAos='fade-up' sx={{ display: ['block', 'block', 'none'] }} />
-        </Box>
+        </Box >
 
     )
 }

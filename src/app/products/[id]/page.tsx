@@ -6,7 +6,6 @@ import Start from '@/page-components/product/Start'
 import Plx from '@/services/Plx'
 import Gallery from '@/components/UI/gallery/Gallery'
 import Title from '@/components/UI/text/Title'
-import data from '@/../data/data.json'
 import File from '@/page-components/product/File'
 import Contacts from '@/components/layout/contacts/Contacts'
 
@@ -37,7 +36,6 @@ const startParallax = [
 
 import { Metadata } from "next";
 import Image from 'next/image'
-import StaticHeader from '@/components/layout/header/types/StaticHeader'
 import PropsList from '@/page-components/product/PropsList'
 import DescriptionList from '@/page-components/product/DescriptionList'
 import { WaveDown, WaveUp } from '@/components/layout/bgelements/Waves'
@@ -61,8 +59,7 @@ const generateUl = (string: string) => {
 
 export default async function Home({ params }: { params: { id: string } }) {
     const product = await getProduct(Number(params.id))
-    // const product = data.products[Number(params.id)]
-    generateUl(product.description)
+
     return (
         <AOSProvider>
             <Box position='relative'>
@@ -78,15 +75,22 @@ export default async function Home({ params }: { params: { id: string } }) {
                     }
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
-                        <Box className='ml-4 grid grid-cols-2 gap-8'>
+                        <Box className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
                             {product.description ?
                                 product.description.includes('/n') ?
-                                    <ul style={{ fontSize: '18px', marginLeft: '-16px', marginTop: '-10px' }}>
+                                    <ul
+                                        className='text-center md:text-left'
+                                        style={{
+                                            fontSize: '18px',
+                                            marginLeft: '-16px',
+                                            marginTop: '-10px',
+                                        }}
+                                    >
                                         {generateUl(product.description).map((i, key) =>
                                             <li
                                                 data-aos='fade-up'
                                                 key={key}
-                                                style={{ marginTop: '10px' }}
+                                                className='mb-4 list-inside'
                                             >
                                                 {i}
                                             </li>
@@ -105,7 +109,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                                 width={600}
                                 height={400}
                                 data-aos='fade-up'
-                                className='w-full rounded-xl shadow-md object-contain'
+                                className='w-full rounded-xl shadow-md object-contain '
                             />
                         </Box>
                     </Box>

@@ -15,7 +15,7 @@ const File = ({ name, href, size }: { name: string, href: string, size: number }
         <Box
             data-aos='fade-up'
             data-aos-offset='20'
-            className='pt-4 pr-2 outline-1 rounded-md flex overflow-hidden gap-8 w-full'
+            className='pt-4 pr-2 outline-1 rounded-md flex overflow-hidden gap-2 md:gap-8 w-full'
             sx={{ boxShadow: '0 0 10px 5px rgba(0,0,0,.1)' }}
             bgcolor='primary.main'
         >
@@ -29,7 +29,10 @@ const File = ({ name, href, size }: { name: string, href: string, size: number }
                 <Fill type='to anchor' anchor='to top' />
             </Box>
             <Box className='w-full flex flex-col'>
-                <Typography variant='h6' className='h-full'>
+                <Typography 
+                className='h-full'
+                sx={{fontSize: ['14px', '14px', '16px']}}
+                >
                     {name}
                 </Typography>
                 <Typography variant='body2' color='GrayText' sx={{ mb: 1 }}>

@@ -27,3 +27,12 @@ li {
 .slick-track {
   padding: 20px 0;
 }
+
+.prod-slider .slick-slide {
+  transition: opacity .2s cubic-bezier(0.215, 0.610, 0.355, 1);
+  opacity: 0.6;
+}
+
+.prod-slider .slick-active {
+  opacity: 1; 
+}

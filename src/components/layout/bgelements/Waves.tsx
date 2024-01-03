@@ -10,8 +10,8 @@ export const WaveDown = () => {
                 filter: 'drop-shadow(0 10px 2px rgba(0, 0, 0, .02))',
             }}
             src='/bgelements/wave.svg'
-            width={1920}
-            height={100}
+            width={100}
+            height={10}
         />
     )
 }
@@ -25,8 +25,8 @@ export const WaveUp = () => {
                 filter: 'drop-shadow(0 -4px -2px rgba(0, 0, 0, 0.1))',
             }}
             src='/bgelements/wave2.svg'
-            width={1920}
-            height={100}
+            width={100}
+            height={10}
         />
     )
 }

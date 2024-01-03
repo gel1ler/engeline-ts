@@ -24,8 +24,7 @@ export const Arrow = (props: { anchor: 'left' | 'right', onClick?: () => void, n
                     [props.anchor]: -5,
                 }
             }}
-            onClick={props.onClick}
-        >
+            >
             <Image
                 className="absolute top-1/2 -translate-y-1/2 aspect-square w-20 lg:w-32"
                 id='arrow'
@@ -36,6 +35,7 @@ export const Arrow = (props: { anchor: 'left' | 'right', onClick?: () => void, n
                     filter: 'drop-shadow(0 0 3px rgba(0,0,0, 0.8))',
                 }}
                 alt='Стрелка'
+                onClick={props.onClick}
                 src={props.anchor === 'left' ? arrowLeft : arrowRight}
             />
         </Box>
