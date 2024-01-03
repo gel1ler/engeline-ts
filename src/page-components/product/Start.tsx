@@ -1,23 +1,39 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import Fill from '@/components/UI/Fill'
 import { TProduct } from '@/globalTypes'
-import { Box, Button, Container, Typography, useMediaQuery } from '@mui/material'
+import { Box, Button, Container, Modal, Typography, useMediaQuery } from '@mui/material'
 import Image from 'next/image'
 import Title from '@/components/UI/text/Title'
 import Link from 'next/link'
 import { useTheme } from '@mui/material/styles'
+import Form from '@/components/UI/forms/getCall/Form'
 
 const Start = ({ product }: { product: TProduct }) => {
     const theme = useTheme()
     const isMd = useMediaQuery(theme.breakpoints.down('lg'))
+    const [open, setOpen] = useState(false)
 
     return (
         <Box className='relative flex items-center h-screen overflow-hidden'>
+            <Modal
+                open={open}
+                onClose={() => setOpen(false)}
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}
+            >
+                <Box>
+                    <Form />
+                </Box>
+            </Modal>
             <Image
                 fill
+                priority={true}
                 src={product.mainImg}
-                sizes="(max-width: 768px) 100vw"
+                sizes="100vw"
                 alt={`Картинка ${product.name}`}
                 className='-z-40 object-cover h-full'
                 style={{
@@ -31,7 +47,7 @@ const Start = ({ product }: { product: TProduct }) => {
                 </>
                 :
                 <>
-                    <Box className='absolute top-0 left-0 w-screen h-screen -z-10' sx={{background: 'radial-gradient(white, transparent)'}} />
+                    <Box className='absolute top-0 left-0 w-screen h-screen -z-10' sx={{ background: 'radial-gradient(white, transparent)' }} />
                     <Box className='absolute top-0 left-0 w-screen h-screen bg-white opacity-80 -z-10' />
                 </>
             }
@@ -60,19 +76,18 @@ const Start = ({ product }: { product: TProduct }) => {
                     >
                         {product.shortDescription}
                     </Typography>
-                    <Link href='#order_anchor'>
-                        <Button
-                            color='secondary'
-                            variant='outlined'
-                            size='large'
-                            sx={{
-                                mt: 3
-                            }}
-                            data-aos-offset="20"
-                        >
-                            оформить заказ
-                        </Button >
-                    </Link >
+                    <Button
+                        color='secondary'
+                        variant='outlined'
+                        size='large'
+                        sx={{
+                            mt: 3
+                        }}
+                        data-aos-offset="20"
+                        onClick={() => setOpen(true)}
+                    >
+                        оформить заказ
+                    </Button>
                 </Box>
             </Container >
         </Box>

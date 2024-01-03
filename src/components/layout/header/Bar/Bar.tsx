@@ -3,7 +3,6 @@ import { Toolbar } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 import { Box } from '@mui/material'
-import { PhoneCall, TelegramIcon, VkIcon } from '@/components/icons/socialMediaIcons'
 import MyDrawer from '../drawer/MyDrawer'
 import TopHeader from '../topHeader/TopHeader'
 import Link from 'next/link'
@@ -35,7 +34,8 @@ const Bar = ({ noBg, onlyTop, start }: { noBg?: boolean, onlyTop?: boolean, star
                 src={mainInfo.logoHorizontal}
                 width={300}
                 height={43}
-                style={{ maxWidth: '70vw', maxHeight: '40px' }}
+                priority={true}
+                style={{ maxWidth: '70vw', maxHeight: '43px' }}
               />
             </Link>
             : null

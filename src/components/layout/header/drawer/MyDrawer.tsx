@@ -25,10 +25,10 @@ const MyDrawer = () => {
                 <Box
                     className='h-screen'
                     sx={{
-                        width: ['100vw', '60vw', '40vw', '30vw'],
+                        width: ['100vw', '60vw', '40vw'],
                     }}
                 >
-                    <Box className='relative h-screen'>
+                    <Box className='relative h-screen flex items-center justify-center'>
                         <IB
                             f={() => setOpen(false)}
                             sx={{
@@ -39,7 +39,7 @@ const MyDrawer = () => {
                         >
                             <Close sx={{ fontSize: '35px' }} />
                         </IB>
-                        <NavLinks />
+                        <NavLinks setOpen={setOpen} />
                     </Box>
                 </Box>
             </Drawer >

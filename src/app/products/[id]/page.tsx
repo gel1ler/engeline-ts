@@ -67,12 +67,12 @@ export default async function Home({ params }: { params: { id: string } }) {
                     <Start product={product} />
                 </Plx>
                 <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw', display: 'flex', flexDirection: 'column', gap: 20 }} maxWidth={false} >
-                    {product.descriptions ?
+                    {/* {product.descriptions ?
                         <DescriptionList
                             descriptions={product.descriptions}
                         />
                         : null
-                    }
+                    } */}
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
                         <Box className='grid grid-cols-1 lg:grid-cols-2 gap-8'>

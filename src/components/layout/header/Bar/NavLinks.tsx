@@ -1,4 +1,5 @@
 'use client'
+import { links } from '@/content/content';
 import { ArrowDropDown } from '@mui/icons-material';
 import { Box, Typography } from '@mui/material'
 import Link from 'next/link'
@@ -105,28 +106,7 @@ const NavLinks = () => {
             </DropDown>
             <DropDown
                 href='/products'
-                links={[
-                    {
-                        text: 'Механическая обработка',
-                        href: '/products/0'
-                    },
-                    {
-                        text: 'Емкостное химическое и машинное оборудование',
-                        href: '/products/1'
-                    },
-                    {
-                        text: 'Муфты ремонтные стальные',
-                        href: '/products/2'
-                    },
-                    {
-                        text: 'Соединительные детали трубопроводов',
-                        href: '/products/3'
-                    },
-                    {
-                        text: 'Трубы обечаечные, корпуса, бандажи',
-                        href: '/products/4'
-                    }
-                ]}
+                links={links}
             >
                 Продукция и услуги
             </DropDown>

@@ -9,11 +9,15 @@ import AlertDialog from './Alert'
 import { useRouter } from 'next/navigation'
 import RHookFormSelect from '../RHookFormSelect'
 import emailjs from 'emailjs-com'
+import { CheckBox } from '@mui/icons-material'
+import Link from 'next/link'
+import RHookFormCheckbox from '../RHookFormCheckbox'
 
 type TInputs = {
     name: string;
     phoneNumber: string;
     type: string;
+    agreement: boolean;
 }
 
 const directions = [
@@ -35,14 +39,17 @@ const Form = () => {
         try {
             const form = document.createElement('form');
             form.innerHTML = `<input type="hidden" name="message" value="${message}">`;
-            const result = await emailjs.sendForm('service_87l4lm9', 'template_5lt5tfc', form, 'orI8OxXQKj9YCadsc');
-            console.log(result.text);
+            console.log(form)
+            // const result = await emailjs.sendForm('service_87l4lm9', 'template_5lt5tfc', form, 'orI8OxXQKj9YCadsc');
+            // console.log(result.text);
             setOpen(true)
         } catch (error) {
             console.error("Error:", error)
         }
         router.push('/')
     }
+
+    console.log(methods.formState.errors)
 
     return (
         <>
@@ -70,7 +77,12 @@ const Form = () => {
                             valuesArr={directions}
                             defaultValue={directions[0]}
                         />
-                        <Button className='mt-4 w-fit' color='secondary' variant='contained' type='submit'>
+                        <RHookFormCheckbox name='agreement'>
+                            <Typography variant='body2'>
+                                Я соглашаюсь с <Link href='/agreement' style={{ color: 'orange' }}>политикой обработки персональных данных</Link>*
+                            </Typography>
+                        </RHookFormCheckbox>
+                        <Button className='mt-4 w-fit' color='secondary' disabled={Object.keys(methods.formState.errors).length ? true : false} variant='contained' type='submit'>
                             Оставить заявку
                         </Button>
                     </form>

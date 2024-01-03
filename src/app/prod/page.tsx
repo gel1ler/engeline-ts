@@ -28,7 +28,7 @@ export default async function Home() {
                     <Start />
                 </Plx>
                 <Container maxWidth='lg' sx={{ display: 'flex', flexDirection: 'column', gap: 10 }} className='anchor' id='factory_anchor'>
-                    {/* <Factory /> */}
+                    <Factory />
                     <Advantages />
                 </Container>
                 <Box className='flex flex-col gap-8 relative'>
@@ -36,7 +36,7 @@ export default async function Home() {
                         fill
                         src='/prod/AC/AC2.jpg'
                         alt='Антикор'
-                        className=' -z-50 opacity-10'
+                        className=' -z-50 opacity-10 object-cover'
                     />
 
                     <WaveDown />

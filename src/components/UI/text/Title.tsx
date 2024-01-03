@@ -18,7 +18,7 @@ const Title = ({
                 textDecorationColor: '#E5A019',
                 textUnderlineOffset: '10px',
                 textDecorationThickness: '3px',
-                maxWidth: ['300px', '600px', '700px']
+                maxWidth: ['90vw', '700px']
             }}
             data-aos={noAos ? '' : 'fade-up'}
         >

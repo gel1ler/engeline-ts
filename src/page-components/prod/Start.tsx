@@ -21,48 +21,30 @@ const Start = () => {
                 sizes="(max-width: 768px) 100vw"
                 alt={`Картинка общая`}
                 className='-z-40 object-cover h-full'
-                style={{
-                    left: isMd ? '' : '15%',
-                }}
             />
-            {!isMd ?
-                <>
-                    <Fill type='to anchor' anchor='to right' prc={40} />
-                    <Fill type='to anchor' anchor='to top' />
-                </>
-                :
-                <>
-                    <Box className='absolute top-0 left-0 w-screen h-screen -z-10' sx={{ background: 'radial-gradient(white, transparent)' }} />
-                    <Box className='absolute top-0 left-0 w-screen h-screen bg-white opacity-80 -z-10' />
-                </>
-            }
-            <Container
-                sx={{
-                    maxWidth: ['98vw', '98vw', '98vw', '1600px'],
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    mb: 10
-                }}
-                maxWidth={false}
-            >
-                <Box className='flex flex-col items-center lg:items-start'>
-                    <Title variant='h2'>Производство</Title>
-                    <Typography
-                        variant='h6'
-                        className='w-full md:w-1/2 text-center lg:text-left'
-                        data-aos='fade-up'
-                    >
-                        Компания Инжелайн предлагает широкий спектр оборудования и услуг для
-                        различных отраслей промышленности. Мы гарантируем высокое качество и
-                        надежность нашей продукции, а также индивидуальный подход к каждому клиенту.
-                    </Typography>
-                    <MoreButton
-                        sx={{ mt: 2 }}
-                        href='#about_anchor'
-                    />
-                </Box>
-            </Container >
+            <Box className='absolute top-0 left-0 w-screen h-screen -z-10' sx={{ background: 'radial-gradient(white, transparent)' }} />
+            <Box className='absolute top-0 left-0 w-screen h-screen bg-white opacity-75 -z-10' />
+            <Fill type='to anchor' anchor='to top' />
+            <Box className='flex flex-col items-center mx-auto mb-20 overflow-hidden'>
+                <Title variant='h2'>Производство</Title>
+                <Typography
+                    variant='h6'
+                    textAlign='center'
+                    data-aos='fade-up
+                    'sx={{
+                        width:'700px',
+                        maxWidth: '90vw'
+                    }}
+                >
+                    Компания Инжелайн предлагает широкий спектр оборудования и услуг для
+                    различных отраслей промышленности. Мы гарантируем высокое качество и
+                    надежность нашей продукции, а также индивидуальный подход к каждому клиенту.
+                </Typography>
+                <MoreButton
+                    sx={{ mt: 2 }}
+                    href='#factory_anchor'
+                />
+            </Box>
         </Box>
     )
 }

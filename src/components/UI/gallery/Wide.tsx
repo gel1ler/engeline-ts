@@ -8,8 +8,8 @@ const Photo = ({ src, num, setCurrent, setOpen }: { src: string, num: number, se
         className='relative overflow-hidden w-full h-full cursor-pointer aspect-square'
         data-aos='fade-up'
         sx={{
-            gridColumn: num === 1 ? '1/2' : '',
-            gridRow: num === 1 ? '1/3' : '',
+            gridColumn: num === 0 ? '1/3' : '',
+            gridRow: num === 0 ? '1/3' : '',
         }}
         onClick={() => {
             setOpen(true)
@@ -17,6 +17,7 @@ const Photo = ({ src, num, setCurrent, setOpen }: { src: string, num: number, se
         }}>
         <Image
             fill
+            sizes="(max-width: 1200px) 45vw, 33vw"
             alt='Photo'
             src={src}
             className='object-cover'
@@ -28,7 +29,7 @@ const Wide = ({ images, setCurrent, setOpen }: { images: string[], setOpen: TSet
         <Box
             className='grid gap-2 w-full mx-auto'
             sx={{
-                gridTemplate: '1fr 1fr / 2fr 1fr 1fr',
+                gridTemplate: '1fr 1fr / 1fr 1fr 1fr 1fr',
             }}
         >
             {images.map((i, key) =>

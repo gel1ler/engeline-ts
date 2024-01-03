@@ -22,7 +22,7 @@ const Photo = ({ src, num, setCurrent, setOpen }: { src: string, num: number, se
 const Square = ({ images, setCurrent, setOpen }: { images: string[], setOpen: TSetBool, setCurrent: TSetNumber }) => {
     return (
         <Box className='grid gap-2 grid-cols-2 grid-rows-2 mx-auto'>
-            {images.slice(0, 4).map((i, key) =>
+            {images.map((i, key) =>
                 <Photo
                     key={key}
                     src={i}

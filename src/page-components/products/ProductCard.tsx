@@ -12,23 +12,24 @@ const ProductCard = ({ product }: { product: TProduct }) => {
     <Box
       data-aos='fade-up'
       data-aos-offset="20"
-      className='w-full h-full rounded-lg overflow-hidden flex p-5 gap-2'
+      className='w-full h-full rounded-lg overflow-hidden flex flex-col-reverse sm:flex-row p-5 gap-2'
       sx={{
         boxShadow: '0 0 10px 5px rgba(0,0,0,.1)',
+        alignItems: ['center', 'stretch']
       }}
     >
-      <Box className='w-1/2 flex flex-col justify-between flex-grow gap-2'>
+      <Box className='w-full sm:w-1/2 items-center sm:items-start flex flex-col justify-between flex-grow gap-2'>
         <Box>
-          <Typography fontWeight={600} variant='h5'>
+          <Typography fontWeight={600} variant='h5' sx={{ textAlign: ['center', 'left'] }}>
             {product.name}
           </Typography>
-          <Typography data-aos='fade-up' data-aos-offset="20" sx={{ mt: 1 }}>
+          <Typography data-aos-offset="20" sx={{ mt: 1, textAlign: ['center', 'left'] }}>
             {compressText(product.shortDescription, 15)}
           </Typography>
         </Box>
-        <MoreButton href={'/products/' + product.id} dataAos='fade-up' />
+        <MoreButton href={'/products/' + product.id} sx={{ mx: ['auto', 0] }} />
       </Box>
-      <Box className='w-1/2 rounded-lg overflow-hidden relative  drop-shadow-md'>
+      <Box className='w-full sm:w-1/2 rounded-lg overflow-hidden relative drop-shadow-md'>
         <Image
           alt='Product photo'
           src={product.mainImg}

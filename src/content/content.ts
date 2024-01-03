@@ -37,3 +37,35 @@ export const navigation: INavLink[] = [
         anchorLink: true,
     }
 ]
+
+type TLinks = {
+    text: string
+    href: string
+}
+
+export const links: TLinks[] = [
+    {
+        text: 'Механическая обработка',
+        href: '/products/0'
+    },
+    {
+        text: 'Емкостное химическое и машинное оборудование',
+        href: '/products/1'
+    },
+    {
+        text: 'Муфты ремонтные стальные',
+        href: '/products/2'
+    },
+    {
+        text: 'Соединительные детали трубопроводов',
+        href: '/products/3'
+    },
+    {
+        text: 'Трубы обечаечные, корпуса, бандажи',
+        href: '/products/4'
+    },
+    {
+        text: 'Трубы восстановленные',
+        href: '/products/5'
+    },
+]

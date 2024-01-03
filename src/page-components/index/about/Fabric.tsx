@@ -12,8 +12,7 @@ const Fabric = async () => {
             className='w-screen relative bg-stone-100'
         >
             <WaveDown />
-
-            <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], p: 0, pt: 4 }} maxWidth={false}>
+            <Container sx={{ maxWidth: ['100vw', '98vw', '98vw', '1400px'], p: 0, pt: 4 }} maxWidth={false}>
                 <Title mdCenter>
                     Первомайскхиммаш
                 </Title>

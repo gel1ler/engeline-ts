@@ -1,46 +1,19 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 import Image from 'next/image'
-import { mainInfo } from '@/content/content'
+import { links, mainInfo } from '@/content/content'
 import Fill from '@/components/UI/Fill'
-import { headerProps } from '@/customization/customization'
 import Link from 'next/link'
-import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight'
 import Form from '@/components/UI/forms/getCall/Form'
-import Menu from './Menu'
 import ArrowTextLink from '@/components/UI/text/ArrowTextLink'
-import GetCall from '@/components/UI/forms/getCall/GetCall'
-
-const direcrions: { text: string, link: string }[] = [
-    {
-        text: 'Механическая обработка',
-        link: '/products/0'
-    },
-    {
-        text: 'Емкостное химическое и машинное оборудование',
-        link: '/products/1'
-    },
-    {
-        text: 'Муфты ремонтные стальные',
-        link: '/products/2'
-    },
-    {
-        text: 'Соединительные детали трубопроводов',
-        link: '/products/3'
-    },
-    {
-        text: 'Трубы обечаечные, корпуса, бандажи',
-        link: '/products/4'
-    }
-]
-
 
 const Start = () => {
     return (
         <Box
-            className='flex mx-auto h-screen'
+            className='flex mx-auto'
             sx={{
+                height: '100svh',
                 maxWidth: '1400px',
                 p: [1, 3, 10, 4],
                 mt: 3
@@ -82,8 +55,8 @@ const Start = () => {
                     data-aos='fade-right'
                     sx={{ alignItems: ['center', 'center', 'start'] }}
                 >
-                    {direcrions.map((i, key) =>
-                        <Link href={i.link} key={key} className='w-fit'>
+                    {links.slice(0, 5).map((i, key) =>
+                        <Link href={i.href} key={key} className='w-fit'>
                             <Typography variant='h5' className='trans'>
                                 <ArrowRightIcon fontSize='large' />
                                 {i.text}
@@ -106,7 +79,7 @@ const Start = () => {
             >
                 <Form />
             </Box>
-            <Box sx={{ display: ['none', 'block'] }}>
+            <Box sx={{ display: ['none', 'none', 'block'] }}>
                 <video
                     className='absolute left-0 top-0 h-full w-full object-cover pointer-events-none -z-50'
                     autoPlay

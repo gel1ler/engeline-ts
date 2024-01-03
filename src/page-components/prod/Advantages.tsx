@@ -20,10 +20,10 @@ const advantages = [
 
 const Advantages = () => {
     return (
-        <Grid container spacing={4} sx={{mx:'auto'}}>
+        <Grid container rowSpacing={4} sx={{ mx: 'auto', overflow: 'hidden' }}>
             {advantages.map((i, key) =>
                 <Grid item md={4} sm={6} xs={12} key={key} data-aos='fade-up' data-aos-offset='20'>
-                    <Box className='flex flex-col items-center w-3/4 gap-2'>
+                    <Box className='flex flex-col items-center mx-auto w-3/4 gap-2'>
                         <Image
                             src={i.src}
                             alt='Icon'
@@ -35,8 +35,7 @@ const Advantages = () => {
                         </Typography>
                     </Box>
                 </Grid>
-            )
-            }
+            )}
         </Grid >
     )
 }
