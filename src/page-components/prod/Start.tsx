@@ -30,9 +30,9 @@ const Start = () => {
                 <Typography
                     variant='h6'
                     textAlign='center'
-                    data-aos='fade-up
-                    'sx={{
-                        width:'700px',
+                    data-aos='fade-up'
+                    sx={{
+                        width: '700px',
                         maxWidth: '90vw'
                     }}
                 >
@@ -41,6 +41,7 @@ const Start = () => {
                     надежность нашей продукции, а также индивидуальный подход к каждому клиенту.
                 </Typography>
                 <MoreButton
+                    dataAos='fade-up'
                     sx={{ mt: 2 }}
                     href='#factory_anchor'
                 />

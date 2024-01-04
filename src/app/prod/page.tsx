@@ -14,6 +14,7 @@ import { startParallax } from '@/customization/customization'
 import { Metadata } from 'next'
 import Factory from '@/page-components/prod/Factory'
 import { WaveDown, WaveUp } from '@/components/layout/bgelements/Waves'
+import Docs from '@/page-components/prod/Docs'
 
 export const metadata: Metadata = {
     title: 'Инжелайн - производство',
@@ -46,6 +47,7 @@ export default async function Home() {
                     <WaveUp />
                 </Box>
                 <Lab />
+                {/* <Docs /> */}
                 <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
                     <Contacts />
                 </Container>

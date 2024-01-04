@@ -12,7 +12,7 @@ const advantages = [
         src: '/icons/prodAdv/employees.png'
     },
     {
-        text: 'Площадь основного цеха N метров',
+        text: 'Площадь основного цеха 28.000 м²',
         src: '/icons/prodAdv/area.png'
     },
 ]

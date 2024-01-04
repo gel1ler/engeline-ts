@@ -7,29 +7,23 @@ import React from 'react'
 
 const DescriptionList = ({ descriptions }: { descriptions: TDescription[] }) => {
     return (
-        <>
+        <Grid container spacing={2}>
             {descriptions.map((description, key) =>
-                <Box sx={{ minHeight: '60vh' }} className='flex flex-col' key={key}>
-                    <Title>
-                        {description.name}
-                    </Title>
-                    <Typography variant='h6'>
-                        {description.text}
-                    </Typography>
-                    <Box className='grid grid-cols-2 h-full'>
-                        <Box className='w-full h-full relative'>
-                            <Image
-                                alt='Видео'
-                                fill
-                                className='object-cover'
-                                src={description.video}
-                            />
-                        </Box>
-                        <Gallery images={description.photos} type='square' />
+                <Grid item key={key} md={12} lg={6}>
+                    <Box sx={{ minHeight: '60vh' }} className='flex flex-col items-center gap-2'>
+                        <Title variant='h4'>
+                            {description.name}
+                        </Title >
+                        <video
+                            data-aos='fade-up'
+                            className='object-cover rounded-xl'
+                            controls
+                            src={description.video}
+                        />
                     </Box>
-                </Box>
+                </Grid>
             )}
-        </>
+        </Grid>
     )
 }
 

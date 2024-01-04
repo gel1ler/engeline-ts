@@ -3,12 +3,12 @@ import Link from 'next/link'
 import React from 'react'
 
 const MoreButton = ({
-    href, sx, dataAos
+    href, sx, dataAos, centered
 }: {
-    href: string, sx?: SxProps, dataAos?: string
+    href: string, sx?: SxProps, dataAos?: string, centered?: boolean
 }) => {
     return (
-        <Link href={href} className='w-fit'>
+        <Link href={href} className={'w-fit' + (centered ? ' mx-auto' : '')}>
             <Button
                 color='secondary'
                 variant='outlined'

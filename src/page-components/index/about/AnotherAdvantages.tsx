@@ -21,13 +21,15 @@ const arr = [
         name: 'Заготовительное произодство',
         text: 'Технологические возможности заготовительного производства позволяют нам самостоятельно выполнять все этапы производства, гарантируя высокий уровень контроля и эффективность процесса.',
         image: '/advantages/plazma.jpg',
-        href: '/prod#ac_anchor'
+        href: '/prod#ac_anchor',
+        noBtn: true,
     },
     {
         name: 'Разработка документаций',
-        text: 'Технологические возможности заготовительного производства позволяют нам самостоятельно выполнять все этапы производства, гарантируя высокий уровень контроля и эффективность процесса.',
+        text: 'Разработка документации - ключевой этап в выполнении заказа. Выполняется на основании ТЗ заказчика.',
         image: '/advantages/docs.jpeg',
-        href: '/prod#ac_anchor'
+        href: '/prod#docs_anchor',
+        noBtn: true,
     },
 ]
 
@@ -37,7 +39,7 @@ export default function AnotherAdavantages() {
             className='grid gap-10 pt-4 px-4 justify-items-center mx-auto'
             sx={{
                 gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
-                maxWidth: ['450px','450px','450px','1100px',],
+                maxWidth: ['450px', '450px', '450px', '1100px',],
             }}
         >
             {arr.map((i, key) =>
@@ -51,8 +53,8 @@ export default function AnotherAdavantages() {
                 >
                     <Image
                         alt='Лаборатория завода'
-                        height={9*30}
-                        width={16*30}
+                        height={9 * 30}
+                        width={16 * 30}
                         style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover', flexGrow: 1 }}
                         src={i.image}
                     />
@@ -60,10 +62,10 @@ export default function AnotherAdavantages() {
                         <Subtitle centered noAos>
                             {i.name}
                         </Subtitle>
-                        <Typography variant='subtitle1' textAlign='center'>
+                        <Typography variant='subtitle1' textAlign='center' sx={{ mb: i.noBtn ? 1 : 0 }}>
                             {i.text}
                         </Typography>
-                        <MoreButton href={i.href} sx={{ px: 2, py: 1, mt: 'auto' }} />
+                        {i.noBtn ? null : <MoreButton href={i.href} sx={{ px: 2, py: 1, mt: 'auto' }} />}
                     </Box>
                 </Box>
             )}

@@ -50,7 +50,7 @@ export default async function Home() {
           </Box>
           <Text href='/sitemap'>Карта сайта</Text>
           <Text href='/agreement'>Пользовательское соглашение</Text>
-          <Text href='/policy'>Персональные данные</Text>
+          <Text href='/privacy'>Персональные данные</Text>
         </Box>
       </Container>
     </AOSProvider >

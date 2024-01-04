@@ -11,14 +11,14 @@ const Title = ({
             variant={variant ? variant : 'h3'}
             sx={{
                 mx: centered ? 'auto' : ['auto', 'auto', mdCenter ? 'auto' : 0, 0],
-                mb: 3,
+                mb: 2,
                 textAlign: centered ? 'center' : ['center', 'center', mdCenter ? 'center' : 'left', 'left'],
                 width: 'fit-content',
                 textDecoration: 'underline',
                 textDecorationColor: '#E5A019',
-                textUnderlineOffset: '10px',
+                textUnderlineOffset: ['7px','10px'],
                 textDecorationThickness: '3px',
-                maxWidth: ['90vw', '700px']
+                maxWidth: ['90vw', '100vw']
             }}
             data-aos={noAos ? '' : 'fade-up'}
         >

@@ -62,7 +62,7 @@ const Start = ({ product }: { product: TProduct }) => {
                 }}
                 maxWidth={false}
             >
-                <Box className='flex flex-col' sx={{ alignItems: ['center', 'center', 'start'] }}>
+                <Box className='flex flex-col' sx={{ alignItems: ['center', 'center', 'start'], width: ['100%', '100%', '50%'], }}>
                     <Typography color='GrayText' sx={{ textAlign: ['center', 'center', 'left'], display: ['none', 'none', 'block'] }}>
                         <Link href='/'>Главная</Link> → <Link href='/products'>Продукция</Link> → <Link href={`/products/${product.id}`}>{product.name}</Link>
                     </Typography>
@@ -70,7 +70,6 @@ const Start = ({ product }: { product: TProduct }) => {
                     <Typography
                         variant='h6'
                         sx={{
-                            width: ['100%', '100%', '50%'],
                             textAlign: ['center', 'center', 'left']
                         }}
                     >

@@ -15,10 +15,11 @@ const Card = (props: CardProps) =>
     <Grid item lg={4} md={6} xs={12}>
         <Box
             data-aos='fade-up'
-            className='relative shadow-xl overflow-hidden'
+            className='relative shadow-xl overflow-hidden items-center mx-auto'
             sx={{
                 height: '50vh',
                 minHeight: '400px',
+                maxWidth: '500px',
                 ':hover': {
                     '.bg-white': {
                         transform: 'translateY(0)'

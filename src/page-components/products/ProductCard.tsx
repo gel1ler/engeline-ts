@@ -24,7 +24,7 @@ const ProductCard = ({ product }: { product: TProduct }) => {
             {product.name}
           </Typography>
           <Typography data-aos-offset="20" sx={{ mt: 1, textAlign: ['center', 'left'] }}>
-            {compressText(product.shortDescription, 15)}
+            {product.shortDescription ? compressText(product.shortDescription, 15) :product.description}
           </Typography>
         </Box>
         <MoreButton href={'/products/' + product.id} sx={{ mx: ['auto', 0] }} />

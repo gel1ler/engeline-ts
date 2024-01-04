@@ -14,8 +14,10 @@ import GetCall from '@/components/UI/forms/getCall/GetCall'
 import { startParallax } from '@/customization/customization'
 
 export const metadata: Metadata = {
-  title: 'Инжелайн - производственное предприятие',
-  description: 'Инжелайн - производственное предприятие',
+  title: 'ООО "ИНЖЕЛАЙН"',
+  description: `ООО "ИНЖЕЛАЙН" - производственное предприятие в Тамбовской области. 
+    Мех обработка, ёмкостное химическое и машинное оборудование, муфты ремонтные стальные,
+    соединительные детали трубопроводов, трубы обечаечные, корпуса, бандажи, трубы восстановленные.`,
 }
 
 export default function Home() {
@@ -45,7 +47,7 @@ export default function Home() {
           </Title>
           <Gallery
             type='wide'
-            images={['/1.jpg', '/advantages/antikor.jpg', '/2.jpg', '/advantages/plazma.jpg', '/general.jpg']}
+            images={['/1.JPG', '/2.jpg', '/advantages/plazma.jpg', '/general.jpg', '/advantages/antikor.jpg']}
           />
           <Contacts />
         </Box >

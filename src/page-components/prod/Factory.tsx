@@ -97,7 +97,7 @@ const Factory = () => {
                             <Image
                                 data-aos='fade-up'
                                 className='w-full object-cover aspect-video rounded-lg shadow-lg sm:hidden'
-                                src='/general.jpg'
+                                src='/gen2.jpg'
                                 alt='Общее фото завода'
                                 width={700}
                                 height={500}
@@ -117,7 +117,7 @@ const Factory = () => {
                     <Image
                         data-aos='fade-up'
                         className='w-1/2 object-cover aspect-video rounded-lg shadow-lg hidden sm:block'
-                        src='/general.jpg'
+                        src='/gen2.jpg'
                         alt='Общее фото завода'
                         width={700}
                         height={500}

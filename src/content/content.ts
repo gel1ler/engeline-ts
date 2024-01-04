@@ -68,4 +68,8 @@ export const links: TLinks[] = [
         text: 'Трубы восстановленные',
         href: '/products/5'
     },
+    {
+        text: 'Антикоррозийное покрытие',
+        href: '/products/6'
+    },
 ]

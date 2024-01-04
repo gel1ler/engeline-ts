@@ -97,7 +97,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                                         )}
                                     </ul>
                                     :
-                                    <Typography variant='h6' sx={{ mb: 3 }} data-aos='fade-up'>
+                                    <Typography className='text-center md:text-left mb-6' variant='h6' data-aos='fade-up'>
                                         {product.description}
                                     </Typography>
                                 :
@@ -109,7 +109,8 @@ export default async function Home({ params }: { params: { id: string } }) {
                                 width={600}
                                 height={400}
                                 data-aos='fade-up'
-                                className='w-full rounded-xl shadow-md object-contain '
+                                className='w-full rounded-xl shadow-md object-cover'
+                                style={{maxHeight: '500px'}}
                             />
                         </Box>
                     </Box>
@@ -134,9 +135,9 @@ export default async function Home({ params }: { params: { id: string } }) {
                             />
                         )}
                         <File
-                            size={12}
+                            size={7.9}
                             href='https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/docs%2FИнжелайн%20презентация%20(1).pdf?alt=media&token=7e436434-6601-4609-a374-932a4c82bfe6'
-                            name='ГОСТ 31385-2016 «Резервуары вертикальные цилиндрические стальные для нефти и нефтепродуктов»'
+                            name='Презентация ООО "ИНЖЕЛАЙН"'
                         />
                     </Container>
                     <WaveUp />

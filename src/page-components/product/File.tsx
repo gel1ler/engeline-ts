@@ -29,31 +29,34 @@ const File = ({ name, href, size }: { name: string, href: string, size: number }
                 <Fill type='to anchor' anchor='to top' />
             </Box>
             <Box className='w-full flex flex-col'>
-                <Typography 
-                className='h-full'
-                sx={{fontSize: ['14px', '14px', '16px']}}
+                <Typography
+                    className='h-full'
+                    sx={{ fontSize: ['14px', '14px', '16px'] }}
                 >
                     {name}
                 </Typography>
                 <Typography variant='body2' color='GrayText' sx={{ mb: 1 }}>
-                    Размер файла: {size}мб
+                    {size == 0 ? 'Файл недоступен для скачивания' : `Размер файла: ${size}мб`}
                 </Typography>
             </Box>
-            <a target='_blank' href={href} className='my-auto'>
-                <Button>
-                    <Download
-                        color='secondary'
-                        sx={{
-                            transition: 'opacity .15s ease-out',
-                            opacity: .4,
-                            ':hover': {
-                                opacity: 1
-                            }
-                        }}
-                        fontSize='large'
-                    />
-                </Button>
-            </a>
+            {href ?
+                <a target='_blank' href={href} className='my-auto'>
+                    <Button>
+                        <Download
+                            color='secondary'
+                            sx={{
+                                transition: 'opacity .15s ease-out',
+                                opacity: .4,
+                                ':hover': {
+                                    opacity: 1
+                                }
+                            }}
+                            fontSize='large'
+                        />
+                    </Button>
+                </a>
+                : null
+            }
         </Box>
     )
 }
