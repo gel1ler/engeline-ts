@@ -43,7 +43,6 @@ const Gallery = ({ images, type }: { images: string[], type: 'wide' | 'square' }
       <ImageViewer
         images={images}
         current={current}
-        setCurrent={setCurrent}
         open={open}
         setOpen={setOpen}
       />

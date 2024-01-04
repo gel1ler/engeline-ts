@@ -9,9 +9,9 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick'
 
 const ImageViewer = ({
-    images, open, setOpen, current, setCurrent
+    images, open, setOpen, current
 }: {
-    images: string[], open: boolean, setOpen: TSetBool, current: number, setCurrent: TSetNumber
+    images: string[], open: boolean, setOpen: TSetBool, current: number
 }
 ) => {
     const settings = {
@@ -19,6 +19,7 @@ const ImageViewer = ({
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
+        initialSlide: current || 0,
         dots: true,
         nextArrow: (
             <Arrow anchor='right' noBg />
