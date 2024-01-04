@@ -6,6 +6,7 @@ import Footer from '@/components/layout/footer/Footer'
 import Loader from '@/components/layout/loader'
 import Loading from '@/components/UI/Loading'
 import { ClerkProvider } from '@clerk/nextjs'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function RootLayout({
   children,
@@ -24,6 +25,7 @@ export default function RootLayout({
         </head>
         <ThemeRegistry>
           <body className='flex flex-col min-h-screen'>
+            <SpeedInsights />
             <Loader />
             <Loading />
             <Header />
