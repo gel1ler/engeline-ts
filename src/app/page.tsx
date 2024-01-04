@@ -47,7 +47,7 @@ export default function Home() {
           </Title>
           <Gallery
             type='wide'
-            images={['/1.jpg', '/2.jpg', '/advantages/plazma.jpg', '/general.jpg', '/advantages/antikor.jpg']}
+            images={['/1.jpg', '/gen2.jpg', '/advantages/plazma.jpg', '/general.jpg', '/advantages/antikor.jpg']}
           />
           <Contacts />
         </Box >
