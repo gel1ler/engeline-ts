@@ -4,7 +4,6 @@ import Title from '@/components/UI/text/Title'
 import Carousel from './Carousel'
 import { getProducts } from '../../../../firebase/clientApp'
 import ArrowTextLink from '@/components/UI/text/ArrowTextLink'
-import data from '@/../data/data.json'
 
 const Products = async () => {
     const products = await getProducts()
