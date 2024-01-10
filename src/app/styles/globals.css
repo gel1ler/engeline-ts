@@ -36,3 +36,9 @@ li {
 .prod-slider .slick-active {
   opacity: 1; 
 }
+
+@media (max-width: 900px) {
+  .bgvideo {
+    display: none;
+  }
+}

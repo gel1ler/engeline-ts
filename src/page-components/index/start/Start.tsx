@@ -79,16 +79,14 @@ const Start = () => {
             >
                 <Form />
             </Box>
-            <Box sx={{ display: ['none', 'none', 'block'] }}>
-                <video
-                    className='absolute left-0 top-0 h-full w-full object-cover pointer-events-none -z-50'
-                    autoPlay
-                    loop
-                    muted
-                >
-                    <source src='/bgVideo.mp4' type="video/mp4" />
-                </video>
-            </Box>
+            <video
+                className='absolute left-0 top-0 h-full w-full object-cover pointer-events-none -z-50 bgvideo'
+                autoPlay
+                loop
+                muted
+            >
+                <source src='/bgVideo.mp4' type="video/mp4" />
+            </video>
         </Box>
     )
 }
