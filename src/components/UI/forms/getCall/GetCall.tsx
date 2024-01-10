@@ -1,12 +1,14 @@
 'use client'
 import { Phone } from '@mui/icons-material'
 import { Box, Modal } from '@mui/material'
+import dynamic from 'next/dynamic'
 import React, { useState } from 'react'
-import Form from './Form'
+
+const DynamicForm = dynamic(() => import('./Form'), { ssr: false })
 
 const GetCall = () => {
     const [open, setOpen] = useState(false)
-    
+
     return (
         <>
             <Modal
@@ -19,7 +21,7 @@ const GetCall = () => {
                 }}
             >
                 <Box>
-                    <Form />
+                    <DynamicForm />
                 </Box>
             </Modal>
             <Box

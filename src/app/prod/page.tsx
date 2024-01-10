@@ -1,20 +1,17 @@
-import React, { ReactNode } from 'react'
-import { Box, Container, Grid, Typography } from '@mui/material'
+import React from 'react'
+import { Box, Container} from '@mui/material'
 import AOSProvider from '@/services/AOSProvider'
 import Start from '@/page-components/prod/Start'
 import Plx from '@/services/Plx'
-import Title from '@/components/UI/text/Title'
 import Contacts from '@/components/layout/contacts/Contacts'
 import Image from 'next/image'
 import Advantages from '@/page-components/prod/Advantages'
 import AC from '@/page-components/prod/AC'
-import { ArrowDropUp } from '@mui/icons-material'
 import Lab from '@/page-components/prod/Lab'
 import { startParallax } from '@/customization/customization'
 import { Metadata } from 'next'
 import Factory from '@/page-components/prod/Factory'
 import { WaveDown, WaveUp } from '@/components/layout/bgelements/Waves'
-import Docs from '@/page-components/prod/Docs'
 
 export const metadata: Metadata = {
     title: 'Инжелайн - производство',

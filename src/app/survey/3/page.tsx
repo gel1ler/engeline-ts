@@ -7,10 +7,8 @@ import Title from '@/components/UI/text/Title';
 import RHookFormTextField from '@/components/UI/forms/RHookFormTextField';
 import { FormProvider, useForm } from 'react-hook-form';
 import { usePathname, useRouter } from 'next/navigation';
-import Phone from '@/services/phone';
 import MuiPhone from '@/components/UI/forms/PhoneNumber';
 import Image from 'next/image';
-import RHookFormCheckbox from '@/components/UI/forms/RHookFormCheckbox';
 import RHFCheckboxStack from '@/components/UI/forms/RHFCheckboxStack';
 
 // export const metadata: Metadata = {

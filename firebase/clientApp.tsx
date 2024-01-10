@@ -47,11 +47,7 @@ export async function getProduct(id: number): Promise<TProduct> {
     }
 }
 
-export async function createProduct(productData: Omit<TProduct, 'id'>, token: string) {
-    const userCredentials = token ? await signInWithCustomToken(auth, token) : null
-
-    if (userCredentials === null) return false
-
+export async function createProduct(productData: Omit<TProduct, 'id'>) {
     let id
     try {
         const products = await getProducts()
@@ -71,11 +67,7 @@ export async function createProduct(productData: Omit<TProduct, 'id'>, token: st
     }).then(() => console.log('succ')).catch(err => console.log(err))
 }
 
-export async function changeProduct(id: number, productData: Omit<TProduct, 'id'>, token: string) {
-    const userCredentials = token ? await signInWithCustomToken(auth, token) : null
-
-    if (userCredentials === null) return false
-
+export async function changeProduct(id: number, productData: Omit<TProduct, 'id'>) {
     const reference = ref(db, 'products/' + id)
 
     update(reference, {
@@ -84,11 +76,7 @@ export async function changeProduct(id: number, productData: Omit<TProduct, 'id'
     }).then(() => console.log('succ')).catch(err => console.log(err))
 }
 
-export async function deleteProduct(id: number, token: string) {
-    const userCredentials = token ? await signInWithCustomToken(auth, token) : null
-
-    if (userCredentials === null) return false
-
+export async function deleteProduct(id: number) {
     try {
         await remove(ref(db, 'products/' + id)).
             then(() => 'success')
@@ -111,12 +99,7 @@ function arrayMove(arr: any[], old_index: number, new_index: number) {
     return arr
 };
 
-export async function InsertProduct(oldId: number, newId: number | undefined, token: string) {
-    if (!newId) return 'Err'
-    const userCredentials = token ? await signInWithCustomToken(auth, token) : null
-    if (userCredentials === null) return false
-
-
+export async function InsertProduct(oldId: number, newId: number) {
     try {
         const products = await getProducts()
         const newProducts = arrayMove(products, oldId, newId)

@@ -19,7 +19,7 @@ import AddButton from '@/components/UI/buttons/add'
 import Title from '@/components/UI/text/Title'
 import { TProduct } from '@/globalTypes'
 
-const AdminProducts = ({ products, folders, token }: { products: TProduct[], folders: any[], token: string }) => {
+const AdminProducts = ({ products, folders }: { products: TProduct[], folders: any[]}) => {
     const [openCreate, setOpenCreate] = useState(false)
     const [openChange, setOpenChange] = useState(false)
     const [selected, setSelected] = useState<TProduct>()
@@ -27,7 +27,7 @@ const AdminProducts = ({ products, folders, token }: { products: TProduct[], fol
     const router = useRouter()
 
     const deleteHandler = async (id: number) => {
-        await deleteProduct(id, token).then(() => router.refresh())
+        await deleteProduct(id).then(() => router.refresh())
     }
 
     const openChangeHandler = (row: TProduct) => {
@@ -44,7 +44,6 @@ const AdminProducts = ({ products, folders, token }: { products: TProduct[], fol
                 setOpen={setOpenCreate}
                 open={openCreate}
                 folders={folders}
-                token={token}
             />
             <Modal
                 product={selected}
@@ -53,7 +52,6 @@ const AdminProducts = ({ products, folders, token }: { products: TProduct[], fol
                 open={openChange}
                 folders={folders}
                 change
-                token={token}
             />
             <Container sx={{ maxWidth: '1600px', width: ['98vw', '98vw', '98vw', '90vw'] }} maxWidth={false}>
                 <Title>Админ панель - продукция</Title>

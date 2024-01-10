@@ -5,11 +5,8 @@ import { Typography, Button, Box } from '@mui/material'
 import MuiPhone from '../PhoneNumber'
 import RHookFormTextField from '../RHookFormTextField'
 import { FormProvider, useForm } from 'react-hook-form'
-import { usePathname } from 'next/navigation'
 import AlertDialog from './Alert'
-import { useRouter } from 'next/navigation'
 import RHookFormSelect from '../RHookFormSelect'
-import emailjs from 'emailjs-com'
 import Link from 'next/link'
 import RHookFormCheckbox from '../RHookFormCheckbox'
 
@@ -39,17 +36,19 @@ const Form = () => {
     const [phone, setPhone] = useState('')
     const methods = useForm<TInputs>()
 
-    const router = useRouter()
-    const path = usePathname()
+
 
     const onSubmit = async (data: TInputs) => {
+        const router = ((await (import('next/navigation'))).useRouter())
+        const path = ((await (import('next/navigation'))).usePathname())
+
         router.push('?loading=true')
 
         const message = `${data.name} заказал обратный звонок на номер ${phone} по поводу ${data.type}.`
         try {
             const form = document.createElement('form');
             form.innerHTML = `<input type="hidden" name="message" value="${message}">`;
-            await emailjs.sendForm('service_87l4lm9', 'template_5lt5tfc', form, 'orI8OxXQKj9YCadsc');
+            ((await (import('emailjs-com'))).sendForm('service_87l4lm9', 'template_5lt5tfc', form, 'orI8OxXQKj9YCadsc'))
             setOpen(true)
         } catch (error) {
             console.error("Error:", error)

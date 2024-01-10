@@ -19,7 +19,6 @@ interface Props {
     folders: string[][];
     change?: any;
     product?: TProduct;
-    token: string;
     productNames: string[]
 }
 
@@ -27,7 +26,7 @@ interface TInputs extends Omit<TProduct, 'id'> {
     addAfter: string;
 }
 
-const MyModal = ({ setOpen, open, folders, change, product, token, productNames }: Props) => {
+const MyModal = ({ setOpen, open, folders, change, product, productNames }: Props) => {
     const router = useRouter()
     const [place, setPlace] = useState()
 
@@ -44,9 +43,9 @@ const MyModal = ({ setOpen, open, folders, change, product, token, productNames 
     const onSubmit: SubmitHandler<TInputs> = async (data) => {
         try {
             if (change && product) {
-                await changeProduct(product.id, { ...data }, token)
+                await changeProduct(product.id, { ...data })
             } else {
-                await createProduct({ ...data }, token)
+                await createProduct({ ...data })
             }
 
             setTimeout(() => {
@@ -79,7 +78,7 @@ const MyModal = ({ setOpen, open, folders, change, product, token, productNames 
                         </Select>
                         <Button
                             color='secondary'
-                            onClick={() => InsertProduct(product.id, place, token)}
+                            onClick={() => place && InsertProduct(product.id, place)}
                         >
                             Вставить перед
                         </Button>
