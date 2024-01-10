@@ -1,7 +1,7 @@
 'use client'
-import React, { BaseSyntheticEvent, useState } from 'react'
+import React, { useState } from 'react'
 import Sticker from '@/components/icons/sticker'
-import { Typography, Button, Box, Snackbar } from '@mui/material'
+import { Typography, Button, Box } from '@mui/material'
 import MuiPhone from '../PhoneNumber'
 import RHookFormTextField from '../RHookFormTextField'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -20,9 +20,18 @@ type TInputs = {
     agreement: boolean;
 }
 
+const questionnaire = [
+    'Соединительные детали трубопроводов',
+]
+
 const directions = [
-    'Мех обработка',
-    'Остальное'
+    'Механическая обработка',
+    'Емкостное химическое и машинное оборудование',
+    'Муфты ремонтные стальные',
+    'Соединительные детали трубопроводов',
+    'Трубы обечаечные, корпуса, бандажи',
+    'Трубы восстановленные',
+    'Антикоррозийное покрытие'
 ]
 
 const Form = () => {
@@ -47,6 +56,10 @@ const Form = () => {
         }
         router.replace(path)
     }
+
+    const product = methods.watch('type')
+
+
 
     return (
         <>
@@ -76,12 +89,20 @@ const Form = () => {
                         />
                         <RHookFormCheckbox name='agreement'>
                             <Typography variant='body2'>
-                                Я соглашаюсь с <Link href='/agreement' style={{ color: 'orange' }}>политикой обработки персональных данных</Link>*
+                                Я соглашаюсь с <Link href='/privacy' style={{ color: 'orange' }}>политикой обработки персональных данных</Link>*
                             </Typography>
                         </RHookFormCheckbox>
-                        <Button className='mt-4 w-fit' color='secondary' disabled={Object.keys(methods.formState.errors).length ? true : false} variant='contained' type='submit'>
-                            Оставить заявку
-                        </Button>
+                        <Box className='flex justify-around gap-2'>
+                            <Button className='mt-4 w-fit' color='secondary' disabled={Object.keys(methods.formState.errors).length ? true : false} variant='contained' type='submit'>
+                                Оставить заявку
+                            </Button>
+                            {questionnaire.includes(product) ?
+                                <Button className='mt-4 w-fit' color='secondary' disabled={Object.keys(methods.formState.errors).length ? true : false} variant='outlined' type='submit'>
+                                    Заполнить опросник
+                                </Button>
+                                : null
+                            }
+                        </Box>
                     </form>
                 </FormProvider>
             </Box >

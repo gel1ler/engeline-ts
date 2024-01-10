@@ -33,5 +33,5 @@ export interface TProduct {
     props: TProp[],
     mainImg: string,
     additionalImgs: string[],
-    docs: TDocs[]
+    docs: TDocs[],
 }

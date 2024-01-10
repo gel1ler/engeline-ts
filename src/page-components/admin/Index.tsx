@@ -42,33 +42,15 @@ const Index = ({ folders, products }: { folders: any[], products: TProduct[] }) 
         get()
     })
 
-    const { isLoaded, isSignedIn } = useUser()
 
-    const { session } = useSession();
-    const userRole = checkUserRole(session)
-
-    if (!isLoaded || !isSignedIn) {
-        return null;
-    }
-
-    if (userRole !== 'org:admin') {
-        return (
-            <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 3 }}>
-                <UserButton afterSignOutUrl='/' />
-                <Typography textAlign='center'>
-                    Вы не имеете доступа к этой странице
-                </Typography>
-            </Box>
-        )
-    }
-
-    if (products.length === 0) {
-        return (
-            <Box className='w-screen h-screen flex items-center justify-center'>
-                <Empty token={token} folders={folders} />
-            </Box>
-        )
-    }
+    // return (
+    //     <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 3 }}>
+    //         <UserButton afterSignOutUrl='/' />
+    //         <Typography textAlign='center'>
+    //             Вы не имеете доступа к этой странице
+    //         </Typography>
+    //     </Box>
+    // )
 
     return (
         <Box className='mt-20'>

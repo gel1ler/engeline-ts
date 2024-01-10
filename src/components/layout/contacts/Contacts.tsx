@@ -35,7 +35,6 @@ const Contacts = () => {
             <DropDown
               name='Коммерческий отдел'
               list={[
-                'Шоттер Антон Антонович - komm2@engeline.ru',
                 'Абаничева Юлия Юрьевна - komm1@engeline.ru',
                 'Овсянников Алексей Олегович - komm3@engeline.ru'
               ]}
@@ -48,12 +47,6 @@ const Contacts = () => {
               <b>Адрес:</b> Тамбовская обл., п. Первомайский, ул. Школьная 9
             </Typography>
 
-            <Typography variant="h6">
-              <b>Телефон:</b> +7(495)374-53-43
-            </Typography>
-            <Typography variant="h6">
-              <b>Эл. почта:</b> prod@engeline.ru
-            </Typography>
             <DropDown
               name='Исполнительный директор'
               list={['Каширский Валерий Александрович - exec.dir@engeline.ru']}

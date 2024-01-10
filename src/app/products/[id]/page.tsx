@@ -37,7 +37,7 @@ const startParallax = [
 import { Metadata } from "next";
 import Image from 'next/image'
 import PropsList from '@/page-components/product/PropsList'
-import DescriptionList from '@/page-components/product/DescriptionList'
+// import DescriptionList from '@/page-components/product/DescriptionList'
 import { WaveDown, WaveUp } from '@/components/layout/bgelements/Waves'
 
 type Props = {
@@ -75,7 +75,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                     } */}
                     <Box className='flex flex-col'>
                         <Title>Описание</Title>
-                        <Box className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
+                        <Box className='grid grid-cols-1 lg:grid-cols-2 gap-8 mt-2'>
                             {product.description ?
                                 product.description.includes('/n') ?
                                     <ul
