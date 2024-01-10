@@ -2,7 +2,6 @@ import React from 'react'
 import { Box, Container, Grid } from '@mui/material'
 import AOSProvider from '@/services/AOSProvider'
 import StaticHeader from '@/components/layout/header/types/StaticHeader'
-import data from '@/../data/data.json' assert {type: 'json'}
 import { TProduct } from '@/globalTypes'
 import ProductCard from '@/page-components/products/ProductCard'
 import Title from '@/components/UI/text/Title'
