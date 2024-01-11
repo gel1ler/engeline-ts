@@ -85,8 +85,8 @@ const Form = () => {
                             defaultValue={directions[0]}
                         />
                         <RHookFormCheckbox name='agreement'>
-                            <Typography variant='body2'>
-                                Я соглашаюсь с <Link href='/privacy' style={{ color: 'orange' }}>политикой обработки персональных данных</Link>*
+                            <Typography variant='body2' color={methods.formState.errors['agreement'] ? "error.main" : 'initial'}>
+                                Я соглашаюсь с <Link href='/privacy' style={{ color: methods.formState.errors['agreement'] ? "#d32f2f" : 'orange' }}>политикой обработки персональных данных</Link>*
                             </Typography>
                         </RHookFormCheckbox>
                         <Box className='flex justify-around gap-2'>
