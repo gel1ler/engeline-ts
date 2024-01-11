@@ -9,6 +9,7 @@ import AlertDialog from './Alert'
 import RHookFormSelect from '../RHookFormSelect'
 import Link from 'next/link'
 import RHookFormCheckbox from '../RHookFormCheckbox'
+import { usePathname, useRouter } from 'next/navigation'
 
 type TInputs = {
     name: string;
@@ -35,13 +36,10 @@ const Form = () => {
     const [open, setOpen] = useState(false)
     const [phone, setPhone] = useState('')
     const methods = useForm<TInputs>()
-
-
+    const router = useRouter()
+    const path = usePathname()
 
     const onSubmit = async (data: TInputs) => {
-        const router = ((await (import('next/navigation'))).useRouter())
-        const path = ((await (import('next/navigation'))).usePathname())
-
         router.push('?loading=true')
 
         const message = `${data.name} заказал обратный звонок на номер ${phone} по поводу ${data.type}.`
