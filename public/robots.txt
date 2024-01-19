@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin/
+Host: engeline.ru
+Sitemap: http://engeline.ru/sitemap.xml
