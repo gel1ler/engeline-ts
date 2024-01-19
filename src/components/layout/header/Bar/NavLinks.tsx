@@ -102,7 +102,7 @@ const NavLinks = () => {
                     },
                 ]}
             >
-                Производсвто
+                Производство
             </DropDown>
             <DropDown
                 href='/products'

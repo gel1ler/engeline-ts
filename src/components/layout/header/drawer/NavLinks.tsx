@@ -29,7 +29,7 @@ const NavLinks = ({ setOpen }: { setOpen: TSetBool }) => {
                 Главная
             </Text>
             <Text href='/prod' setOpen={setOpen}>
-                Производсвто
+                Производство
             </Text>
             <Text href='/products' setOpen={setOpen}>
                 Продукция и услуги
