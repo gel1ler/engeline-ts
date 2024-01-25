@@ -21,10 +21,10 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" type="image/svg+xml" />
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel='image/svg+xml' href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="https://engeline.ru/favicon.ico" sizes="any" type="image/svg+xml" />
+        <link rel="icon" href="https://engeline.ru/favicon.ico" type="image/x-icon" />
+        <link rel='image/svg+xml' href="https://engeline.ru/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="https://engeline.ru/favicon.ico" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
       </head>
