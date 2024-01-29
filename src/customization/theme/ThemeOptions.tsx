@@ -37,7 +37,11 @@ export const themeOptions: ThemeOptions = {
   typography: {
     fontFamily: inter.style.fontFamily,
     fontSize: 13,
-    fontWeightRegular: 500
+    fontWeightRegular: 500,
+    h1: {
+      fontSize: 45,
+      fontWeight: 400
+    }
   },
   components: {
     MuiAppBar: {

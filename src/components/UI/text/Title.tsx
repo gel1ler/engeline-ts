@@ -4,11 +4,11 @@ import React, { ReactNode } from 'react'
 const Title = ({
     children, centered, variant, mdCenter, noAos
 }: {
-    children: ReactNode, centered?: boolean, variant?: 'h2' | 'h1' | 'h4', mdCenter?: boolean, noAos?: boolean
+    children: ReactNode, centered?: boolean, variant?: 'h2' | 'h3' | 'h4', mdCenter?: boolean, noAos?: boolean
 }) => {
     return (
         <Typography
-            variant={variant ? variant : 'h3'}
+            variant={variant ? variant : 'h1'}
             sx={{
                 mx: centered ? 'auto' : ['auto', 'auto', mdCenter ? 'auto' : 0, 0],
                 mb: 2,

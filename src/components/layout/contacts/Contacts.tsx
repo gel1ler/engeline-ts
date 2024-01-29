@@ -7,7 +7,7 @@ const Contacts = () => {
   return (
     <Box id='contacts_anchor' sx={{ pt: '30px', mt: '-30px' }}>
       <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw', mt: 10, py: 5, minHeight: '100vh' }} maxWidth={false}>
-        <Title mdCenter>
+        <Title variant='h3' mdCenter>
           Контакты
         </Title>
         <Box sx={{ display: 'grid', gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'], gap: 5, minHeight: '70vh' }} >

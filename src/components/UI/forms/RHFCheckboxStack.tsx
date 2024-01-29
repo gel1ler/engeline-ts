@@ -13,9 +13,11 @@ const RHFCheckboxStack = ({
         const isPresent = state?.indexOf(value)
         if (isPresent !== -1) {
             const remaining = state?.filter((item: any) => item !== value);
+            console.log(remaining)
             setState(remaining);
         } else {
             setState((prevItems: any) => [...prevItems, value]);
+            console.log(value)
         }
     }
 

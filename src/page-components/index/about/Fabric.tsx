@@ -13,7 +13,7 @@ const Fabric = async () => {
         >
             <WaveDown />
             <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1400px'], p: 0, pt: 4 }} maxWidth={false}>
-                <Title mdCenter>
+                <Title variant='h3' mdCenter>
                     Первомайскхиммаш
                 </Title>
                 <Box

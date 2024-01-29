@@ -26,7 +26,7 @@ const Start = () => {
             <Box className='absolute top-0 left-0 w-screen h-screen bg-white opacity-75 -z-10' />
             <Fill type='to anchor' anchor='to top' />
             <Box className='flex flex-col items-center mx-auto mb-20 overflow-hidden'>
-                <Title variant='h2'>Производство</Title>
+                <Title>Производство</Title>
                 <Typography
                     variant='h6'
                     textAlign='center'

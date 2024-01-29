@@ -15,8 +15,8 @@ const Text = ({ href, children }: { href: string, children: ReactNode }) =>
 
 const Footer = () => {
     return (
-        <Box
-            className='py-8 flex flex-col gap-2 justify-between bg-stone-100'
+        <footer
+            className='py-8 flex flex-col gap-2 justify-between bg-stone'
         >
             <Container
                 sx={{
@@ -76,7 +76,7 @@ const Footer = () => {
                     </Grid>
                 </Grid>
             </Container >
-        </Box >
+        </footer >
     )
 }
 

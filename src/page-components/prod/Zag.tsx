@@ -6,7 +6,7 @@ import React from 'react'
 const Zag = () => {
     return (
         <Box className='my-20'>
-            <Title>Заготовительное производство</Title>
+            <Title variant='h3'>Заготовительное производство</Title>
             <Box className='flex gap-8'>
                 <Image
                     data-aos='fade-up'

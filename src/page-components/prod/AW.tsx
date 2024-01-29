@@ -6,7 +6,7 @@ import React from 'react'
 const AW = () => {
     return (
         <Box className='my-20'>
-            <Title>Cборочно-сварочное производство</Title>
+            <Title variant='h3'>Cборочно-сварочное производство</Title>
             <Box className='flex gap-8'>
                 <Box>
                     <Typography variant='h5' data-aos='fade-up' sx={{ mt: 2 }} data-aos-offset='20'>

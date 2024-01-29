@@ -5,7 +5,6 @@ import React from 'react'
 const BgVideo = () => {
     const isMobile = useMediaQuery('(max-width:900px)')
 
-    console.log(isMobile)
     if (!isMobile) {
         return (
             <video

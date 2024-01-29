@@ -13,7 +13,7 @@ const Products = async () => {
             className='w-screen relative z-10'
             sx={{ pt: [2, 0] }}
         >
-            <Title centered >
+            <Title variant='h3' centered >
                 Продукция и услуги
             </Title>
             <Carousel products={products} />

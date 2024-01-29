@@ -7,7 +7,7 @@ import React from 'react'
 const AC = () => {
     return (
         <Box className='anchor my-5 flex flex-col items-center' id='ac_anchor'>
-            <Title centered>Антикоррозийное покрытие</Title>
+            <Title variant='h3' centered>Антикоррозийное покрытие</Title>
             <Typography variant='h6' textAlign='center' data-aos='fade-up'>
                 Все виды изделий могут проходить антикоррозийную обработку методом безвоздушной
                 окраски в покрасочной камере, в том числе изоляцией типа «Карбофлекс»

@@ -5,8 +5,6 @@ import { useFormContext } from 'react-hook-form'
 const RHookFormCheckbox = ({ children, name, notReq }: { children: any, name: string, notReq?: boolean }) => {
     const { register, formState: { errors } } = useFormContext()
 
-    console.log(errors[name])
-
     return (
         <FormControlLabel
             label={children}

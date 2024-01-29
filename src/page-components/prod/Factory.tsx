@@ -40,7 +40,7 @@ const Item = ({ year, title, text, src }: { year: string, title: string, text: s
 const Factory = () => {
     return (
         <Box className='flex flex-col anchor' id='factory_anchor'>
-            <Title centered>Первомайскхиммаш</Title>
+            <Title variant='h3' centered>Первомайскхиммаш</Title>
             <Box
                 className='w-full flex gap-6 sm:gap-10'
                 sx={{

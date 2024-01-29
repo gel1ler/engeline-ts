@@ -74,7 +74,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                         : null
                     } */}
                     <Box className='flex flex-col'>
-                        <Title>Описание</Title>
+                        <Title variant='h3'>Описание</Title>
                         <Box className='grid grid-cols-1 lg:grid-cols-2 gap-8 mt-2'>
                             {product.description ?
                                 product.description.includes('/n') ?
@@ -116,16 +116,16 @@ export default async function Home({ params }: { params: { id: string } }) {
                     </Box>
                     {product.description && product.props ?
                         <Box>
-                            <Title noAos centered>Характеристики</Title>
+                            <Title variant='h3' noAos centered>Характеристики</Title>
                             <PropsList centered props={product.props} fade gap={2} />
                         </Box>
                         : null
                     }
                 </Container>
-                <Box className='flex flex-col gap-8 bg-stone-100'>
+                <Box className='flex flex-col gap-8 bg-stone'>
                     <WaveDown />
                     <Container sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                        <Title>Документы</Title>
+                        <Title variant='h3'>Документы</Title>
                         {product.docs && product.docs.map((doc, key) =>
                             <File
                                 key={key}
@@ -143,7 +143,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                     <WaveUp />
                 </Box>
                 <Box sx={{ pt: 10 }}>
-                    <Title centered>
+                    <Title variant='h3' centered>
                         Галерея
                     </Title>
                     <Gallery images={product.additionalImgs} type='wide' />
