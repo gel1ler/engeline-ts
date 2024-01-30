@@ -11,7 +11,7 @@ import { Suspense } from 'react'
 function LoadingFallback() {
   return <>placeholder</>
 }
- 
+
 
 export default function RootLayout({
   children,
@@ -27,6 +27,17 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="https://engeline.ru/favicon.ico" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+        <meta property="og:title" content='ООО "ИНЖЕЛАЙН" - производственное предприятие' />
+        <meta
+          property="og:description"
+          content={`Мех обработка, ёмкостное химическое и машинное оборудование, муфты ремонтные стальные,
+          соединительные детали трубопроводов, трубы обечаечные, корпуса, бандажи, трубы восстановленные.`}
+        />
+        <meta
+          property="og:image"
+          content="https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/logo%2Flogo.png?alt=media&token=78f3ab2d-f650-4bbf-a44a-eddc1abac522"
+        />
       </head>
       <ThemeRegistry>
         <body className='flex flex-col min-h-screen'>

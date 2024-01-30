@@ -5,10 +5,13 @@ import ProductCard from '@/page-components/products/ProductCard'
 import Title from '@/components/UI/text/Title'
 import { getProducts } from '../../../firebase/clientApp'
 import { Metadata } from 'next'
+import Head from 'next/head'
 
 export const metadata: Metadata = {
   title: 'Инжелайн - продукция',
-  description: 'Инжелайн - производственное предприятие',
+  description: `Компания Инжелайн предлагает широкий спектр оборудования и услуг для
+  различных отраслей промышленности. Мы гарантируем высокое качество и
+  надежность нашей продукции, а также индивидуальный подход к каждому клиенту.`,
 }
 
 export default async function Home() {

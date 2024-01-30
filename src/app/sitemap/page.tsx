@@ -10,7 +10,6 @@ import { links } from '@/content/content'
 
 export const metadata: Metadata = {
   title: 'Карта сайта engeline.ru',
-  description: 'Инжелайн - производственное предприятие',
 }
 
 const Text = ({ children, href }: any) =>

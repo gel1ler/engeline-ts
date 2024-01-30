@@ -5,6 +5,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
     title: 'Пользовательское соглашение',
+    
 }
 
 export default async function Home() {

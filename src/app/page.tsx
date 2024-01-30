@@ -12,6 +12,7 @@ import Gallery from '@/components/UI/gallery/Gallery'
 import { Metadata } from 'next'
 import GetCall from '@/components/UI/forms/getCall/GetCall'
 import { startParallax } from '@/customization/customization'
+import Head from 'next/head'
 
 export const metadata: Metadata = {
   title: 'ООО "ИНЖЕЛАЙН"',

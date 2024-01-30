@@ -10,10 +10,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import MuiPhone from '@/components/UI/forms/PhoneNumber';
 import Image from 'next/image';
 import RHFCheckboxStack from '@/components/UI/forms/RHFCheckboxStack'
-
-// export const metadata: Metadata = {
-//     title: 'Опросный лист для заказа секционных сварных отводов',
-// }
+import Head from 'next/head';
 
 const docs = [
     'ОСТ 36-21-77 Детали трубопроводов Dу 500-1400 мм сварные из углеродистой стали на Py< 2.5 МПа',
@@ -72,6 +69,9 @@ export default function Home() {
 
     return (
         <AOSProvider>
+            <Head>
+                <title>Опросный лист для заказа секционных сварных отводов</title>
+            </Head>
             <Container sx={{ display: 'flex', flexDirection: 'column', gap: 2, my: 5 }}>
                 <Title centered>
                     Опросный лист для заказа секционных сварных отводов

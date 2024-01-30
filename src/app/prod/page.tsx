@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container} from '@mui/material'
+import { Box, Container } from '@mui/material'
 import AOSProvider from '@/services/AOSProvider'
 import Start from '@/page-components/prod/Start'
 import Plx from '@/services/Plx'
@@ -15,7 +15,7 @@ import { WaveDown, WaveUp } from '@/components/layout/bgelements/Waves'
 
 export const metadata: Metadata = {
     title: 'Инжелайн - производство',
-    description: 'Инжелайн - производственное предприятие',
+    description: `Задача компании - сохранение компетенций завода Первомайскхиммаш и дальнейшее развитие востребованных направлений. Мы стремимся сохранять и укреплять накопленные за много лет традиции и навыки.`
 }
 
 export default async function Home() {

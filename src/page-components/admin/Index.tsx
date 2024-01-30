@@ -1,7 +1,6 @@
 'use client'
 import { Box, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import Empty from './products/Empty';
 import AdminProducts from './products/AdminProducts';
 import { TProduct } from '@/globalTypes'
 
