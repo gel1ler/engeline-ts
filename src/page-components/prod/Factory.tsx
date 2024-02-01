@@ -92,7 +92,7 @@ const Factory = () => {
                                 2018
                             </Typography>
                             <Typography variant='h4' textAlign='center'>
-                                ООО {'"'}ИНЖЕЛАЙН{'"'}
+                                ООО «ИНЖЕЛАЙН»
                             </Typography>
                             <Image
                                 data-aos='fade-up'

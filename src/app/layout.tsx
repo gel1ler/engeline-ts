@@ -28,7 +28,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
 
-        <meta property="og:title" content='ООО "ИНЖЕЛАЙН" - производственное предприятие' />
+        <meta property="og:title" content='ООО «ИНЖЕЛАЙН»: производственное предприятие' />
         <meta
           property="og:description"
           content={`Мех обработка, ёмкостное химическое и машинное оборудование, муфты ремонтные стальные,

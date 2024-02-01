@@ -137,7 +137,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                         <File
                             size={7.9}
                             href='https://firebasestorage.googleapis.com/v0/b/engeline-708d1.appspot.com/o/docs%2FИнжелайн%20презентация%20(1).pdf?alt=media&token=7e436434-6601-4609-a374-932a4c82bfe6'
-                            name='Презентация ООО "ИНЖЕЛАЙН"'
+                            name='Презентация ООО «ИНЖЕЛАЙН»'
                         />
                     </Container>
                     <WaveUp />
