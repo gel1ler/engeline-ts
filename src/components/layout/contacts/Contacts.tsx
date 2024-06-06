@@ -28,15 +28,13 @@ const Contacts = () => {
             <Typography variant="h6">
               <b>Директор:</b> Абаничев Игорь Николаевич
             </Typography>
-            <DropDown
-              name='Секретарь'
-              list={['Глазунова Мария Олеговна - secretary@engeline.ru']}
-            />
+            <Typography variant="h6">
+              <b>Секретарь:</b> secretary@engeline.ru
+            </Typography>
             <DropDown
               name='Коммерческий отдел'
               list={[
-                'Абаничева Юлия Юрьевна - komm1@engeline.ru',
-                'Овсянников Алексей Олегович - komm3@engeline.ru'
+                'Абаничева Юлия Юрьевна - info@engeline.ru'
               ]}
             />
 
