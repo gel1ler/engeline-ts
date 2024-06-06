@@ -65,6 +65,9 @@ const Slide = ({ product }: { product: TProduct }) => {
                     src={product.mainImg}
                     fill
                     className='object-cover w-full h-full'
+                    sizes="(max-width: 600px) 80vw,
+                        (max-width: 900px) 60vw,
+                        40vw"
                 />
             </Box>
             <MoreButton href={'/products/' + product.id} dataAos='fade-up' sx={{ display: ['block', 'block', 'none'] }} />

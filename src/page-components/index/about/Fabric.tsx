@@ -9,7 +9,7 @@ import { WaveDown, WaveUp } from '@/components/layout/bgelements/Waves'
 const Fabric = async () => {
     return (
         <Box
-            className='w-screen relative bg-stone-100'
+            className='w-screen relative bg-stone'
         >
             <WaveDown />
             <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1400px'], p: 0, pt: 4 }} maxWidth={false}>

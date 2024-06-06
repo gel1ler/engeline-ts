@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
     title: 'Персональные данные',
+    description: 'Политика в отношении обработки персональных данных'
 }
 
 export default async function Home() {

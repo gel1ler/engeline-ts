@@ -1,15 +1,14 @@
 import React from 'react'
-import { Box, Container, Grid, Typography } from '@mui/material'
+import { Box, Container, Typography } from '@mui/material'
 import AOSProvider from '@/services/AOSProvider'
-import ProductCard from '@/page-components/products/ProductCard'
 import Title from '@/components/UI/text/Title'
-import { getProducts } from '../../../firebase/clientApp'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { links } from '@/content/content'
 
 export const metadata: Metadata = {
   title: 'Карта сайта engeline.ru',
+  description: 'Карта сайта engeline.ru - полная информация о структуре и содержании сайта. Найдите все страницы, статьи, категории и разделы на сайте engeline.ru.'
 }
 
 const Text = ({ children, href }: any) =>

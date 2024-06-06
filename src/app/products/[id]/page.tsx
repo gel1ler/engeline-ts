@@ -49,6 +49,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 
     return {
         title: product.name,
+        description: product.shortDescription
     };
 };
 
