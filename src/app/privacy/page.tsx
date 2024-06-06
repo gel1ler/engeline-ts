@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
     title: 'Персональные данные',
-    description: 'Политика в отношении обработки персональных данных'
+    description: 'Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального закона от 27.07.2006. № 152-ФЗ «О персональных данных» '
 }
 
 export default async function Home() {
