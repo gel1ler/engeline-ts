@@ -4,7 +4,7 @@ import {
     Typography,
     Modal,
 } from '@mui/material'
-import { deleteImage } from '@/../firebase/clientApp'
+import { deleteImage } from '@/firebase/clientApp'
 import Folder from '../Folder'
 import AddImage from '../AddImage'
 import { TSetBool, TSetString } from '@/globalTypes'

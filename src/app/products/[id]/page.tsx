@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import AOSProvider from '@/services/AOSProvider'
-import { getProduct } from '../../../../firebase/clientApp'
+import { getProduct } from '../../../firebase/clientApp'
 import Start from '@/page-components/product/Start'
 import Plx from '@/services/Plx'
 import Gallery from '@/components/UI/gallery/Gallery'
@@ -40,12 +40,13 @@ import PropsList from '@/page-components/product/PropsList'
 // import DescriptionList from '@/page-components/product/DescriptionList'
 import { WaveDown, WaveUp } from '@/components/layout/bgelements/Waves'
 
-type Props = {
-    params: { id: string };
+type PageProps = {
+    params: Promise<{ id: string }>;
 };
 
-export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
-    const product = await getProduct(Number(params.id))
+export const generateMetadata = async ({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> => {
+    const { id } = await params
+    const product = await getProduct(Number(id))
 
     return {
         title: product.name,
@@ -58,8 +59,9 @@ const generateUl = (string: string) => {
     return arr
 }
 
-export default async function Home({ params }: { params: { id: string } }) {
-    const product = await getProduct(Number(params.id))
+export default async function Home({ params }: PageProps) {
+    const { id } = await params;
+    const product = await getProduct(Number(id))
 
     return (
         <AOSProvider>
@@ -111,7 +113,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                                 height={400}
                                 data-aos='fade-up'
                                 className='w-full rounded-xl shadow-md object-cover'
-                                style={{maxHeight: '500px'}}
+                                style={{ maxHeight: '500px' }}
                             />
                         </Box>
                     </Box>

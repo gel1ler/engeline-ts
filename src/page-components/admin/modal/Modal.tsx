@@ -7,7 +7,7 @@ import { TProduct } from '@/globalTypes'
 import PropsList from './PropsList'
 import DescriptionsList from './DescriptionsList'
 import { useRouter } from 'next/navigation';
-import { InsertProduct, changeProduct, createProduct } from '@/../firebase/clientApp'
+import { InsertProduct, changeProduct, createProduct } from '@/firebase/clientApp'
 import ImagesInput from './images/selectImages/ImagesInput'
 import Docs from './Docs';
 import ImageInput from './images/selectOneImage/ImageInput';

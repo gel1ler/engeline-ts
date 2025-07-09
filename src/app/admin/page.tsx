@@ -1,6 +1,6 @@
 import React from 'react'
-import { getProducts } from '@/../firebase/clientApp'
-import { getFolders } from '@/../firebase/clientApp'
+import { getProducts } from '@/firebase/clientApp'
+import { getFolders } from '@/firebase/clientApp'
 import Index from '@/page-components/admin/Index'
 
 const Products = async () => {

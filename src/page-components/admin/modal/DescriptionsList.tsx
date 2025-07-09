@@ -1,9 +1,7 @@
-import RHookFormSelect from '@/components/UI/forms/RHookFormSelect'
 import RHookFormTextField from '@/components/UI/forms/RHookFormTextField'
 import { Box, Button, Divider, Typography } from '@mui/material'
 import React from 'react'
 import { useFieldArray } from 'react-hook-form'
-import ChooseImage from './images/selectOneImage/ChooseImage'
 import ImageInput from './images/selectOneImage/ImageInput'
 import ImagesInput from './images/selectImages/ImagesInput'
 

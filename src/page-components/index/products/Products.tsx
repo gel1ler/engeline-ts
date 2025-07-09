@@ -2,7 +2,7 @@ import React from 'react'
 import Box from '@mui/material/Box'
 import Title from '@/components/UI/text/Title'
 import Carousel from './Carousel'
-import { getProducts } from '../../../../firebase/clientApp'
+import { getProducts } from '../../../firebase/clientApp'
 import ArrowTextLink from '@/components/UI/text/ArrowTextLink'
 
 const Products = async () => {

@@ -3,7 +3,7 @@ import { Container, Grid } from '@mui/material'
 import AOSProvider from '@/services/AOSProvider'
 import ProductCard from '@/page-components/products/ProductCard'
 import Title from '@/components/UI/text/Title'
-import { getProducts } from '../../../firebase/clientApp'
+import { getProducts } from '../../firebase/clientApp'
 import { Metadata } from 'next'
 import Head from 'next/head'
 

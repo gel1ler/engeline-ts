@@ -2,16 +2,16 @@ import { initializeApp } from "firebase/app"
 import { getDatabase, ref, set, update, child, get, remove } from "firebase/database"
 import { getStorage, ref as storageRef, listAll, getDownloadURL, deleteObject, uploadBytesResumable } from "firebase/storage"
 import { TProduct } from "@/globalTypes"
-import { getAuth, signInWithCustomToken } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCt7UQ0t2UjncmNh02TRXB382N4sKQo7gg",
-    authDomain: "engeline-708d1.firebaseapp.com",
-    databaseURL: "https://engeline-708d1-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "engeline-708d1",
-    storageBucket: "engeline-708d1.appspot.com",
-    messagingSenderId: "939641098298",
-    appId: "1:939641098298:web:23eaa5ff5a675bd19ca503"
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
 initializeApp(firebaseConfig)
@@ -20,7 +20,7 @@ initializeApp(firebaseConfig)
 //DB
 
 const db = getDatabase()
-const auth = getAuth()
+export const auth = getAuth()
 
 export async function getProducts(): Promise<TProduct[]> {
     const dbRef = ref(db)
@@ -109,7 +109,7 @@ export async function InsertProduct(oldId: number, newId: number) {
         update(reference, {
             ...newProducts
         }).then(() => console.log('succ')).catch(err => console.log(err))
-    
+
     }
     catch (err) {
         console.log(err)

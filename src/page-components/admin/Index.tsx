@@ -1,26 +1,43 @@
 'use client'
+import React, { use } from 'react'
 import { Box, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
-import AdminProducts from './products/AdminProducts';
+import AdminProducts from './products/AdminProducts'
 import { TProduct } from '@/globalTypes'
+import { useUser } from '@/hooks/useUser'
 
-const Index = ({ folders, products }: { folders: any[], products: TProduct[] }) => {
-    return (
-        <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 3 }}>
-            {/* <UserButton afterSignOutUrl='/' /> */}
-            <Typography textAlign='center'>
-                Вы не имеете доступа к этой странице
-            </Typography>
-        </Box>
-    )
-
-    return (
-        <Box className='mt-20'>
-            <AdminProducts products={products} folders={folders} />
-        </Box>
-    )
-
-
+type Props = {
+  folders: any[]
+  products: TProduct[]
 }
 
-export default Index
+const admins = [
+  'abanichev16@gmail.com',
+]
+
+const AdminPage = ({ folders, products }: Props) => {
+  const { user, loading } = useUser()
+
+  if (loading) {
+    return <Typography>Загрузка...</Typography>
+  }
+
+  if (!user) {
+    return (
+      <Box sx={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Typography>Вы не авторизованы</Typography>
+      </Box>
+    )
+  }
+
+  if (user.email && !admins.includes(user.email)) {
+    return (
+      <Box sx={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Typography>Доступ запрещён</Typography>
+      </Box>
+    )
+  }
+
+  return <AdminProducts products={products} folders={folders} />
+}
+
+export default AdminPage

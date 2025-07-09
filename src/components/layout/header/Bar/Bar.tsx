@@ -8,7 +8,7 @@ import TopHeader from '../topHeader/TopHeader'
 import Link from 'next/link'
 import NavLinks from './NavLinks'
 import { mainInfo } from '@/content/content'
-import Login from '@/components/UI/buttons/Login'
+import LoginButton from '@/components/UI/buttons/LoginButton'
 
 const Bar = ({ noBg, onlyTop, start }: { noBg?: boolean, onlyTop?: boolean, start?: boolean }) => {
   const isFullwidth: string = headerProps.fullwidth ? '' : ' max-w-7xl mx-auto'
@@ -45,7 +45,7 @@ const Bar = ({ noBg, onlyTop, start }: { noBg?: boolean, onlyTop?: boolean, star
               <Box sx={{ display: ['none', 'none', 'none', 'flex'] }}>
                 <NavLinks />
               </Box>
-              <Login />
+              <LoginButton />
             </Box>
             <MyDrawer />
           </Box>
