@@ -39,10 +39,18 @@ import Image from 'next/image'
 import PropsList from '@/page-components/product/PropsList'
 // import DescriptionList from '@/page-components/product/DescriptionList'
 import { WaveDown, WaveUp } from '@/components/layout/bgelements/Waves'
+import { getProducts } from '../../../firebase/clientApp'
 
 type PageProps = {
     params: Promise<{ id: string }>;
 };
+
+export const generateStaticParams = async () => {
+    const products = await getProducts()
+    return products.map((product) => ({
+        id: product.id.toString(),
+    }))
+}
 
 export const generateMetadata = async ({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> => {
     const { id } = await params
